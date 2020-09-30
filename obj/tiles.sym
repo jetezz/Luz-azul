@@ -1,0 +1,121 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  0 _PALETTE2                                                      0000 GR
+  0 _array_00                                                      00C0 GR
+  0 _array_01                                                      00E0 GR
+  0 _array_02                                                      0100 GR
+  0 _array_03                                                      0120 GR
+  0 _array_04                                                      0140 GR
+  0 _array_05                                                      0160 GR
+  0 _array_06                                                      0180 GR
+  0 _array_07                                                      01A0 GR
+  0 _array_08                                                      01C0 GR
+  0 _array_09                                                      01E0 GR
+  0 _array_10                                                      0200 GR
+  0 _array_11                                                      0220 GR
+  0 _array_12                                                      0240 GR
+  0 _array_13                                                      0260 GR
+  0 _array_14                                                      0280 GR
+  0 _array_15                                                      02A0 GR
+  0 _array_16                                                      02C0 GR
+  0 _array_17                                                      02E0 GR
+  0 _array_18                                                      0300 GR
+  0 _array_19                                                      0320 GR
+  0 _array_20                                                      0340 GR
+  0 _array_21                                                      0360 GR
+  0 _array_22                                                      0380 GR
+  0 _array_23                                                      03A0 GR
+  0 _array_24                                                      03C0 GR
+  0 _array_25                                                      03E0 GR
+  0 _array_26                                                      0400 GR
+  0 _array_27                                                      0420 GR
+  0 _array_28                                                      0440 GR
+  0 _array_29                                                      0460 GR
+  0 _array_30                                                      0480 GR
+  0 _array_31                                                      04A0 GR
+  0 _array_32                                                      04C0 GR
+  0 _array_33                                                      04E0 GR
+  0 _array_34                                                      0500 GR
+  0 _array_35                                                      0520 GR
+  0 _array_36                                                      0540 GR
+  0 _array_37                                                      0560 GR
+  0 _array_38                                                      0580 GR
+  0 _array_39                                                      05A0 GR
+  0 _array_40                                                      05C0 GR
+  0 _array_41                                                      05E0 GR
+  0 _array_42                                                      0600 GR
+  0 _array_43                                                      0620 GR
+  0 _array_44                                                      0640 GR
+  0 _array_45                                                      0660 GR
+  0 _array_46                                                      0680 GR
+  0 _array_47                                                      06A0 GR
+  0 _array_48                                                      06C0 GR
+  0 _array_49                                                      06E0 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 _array_50                                                      0700 GR
+  0 _array_51                                                      0720 GR
+  0 _array_52                                                      0740 GR
+  0 _array_53                                                      0760 GR
+  0 _array_54                                                      0780 GR
+  0 _array_55                                                      07A0 GR
+  0 _array_56                                                      07C0 GR
+  0 _array_57                                                      07E0 GR
+  0 _array_58                                                      0800 GR
+  0 _array_59                                                      0820 GR
+  0 _array_60                                                      0840 GR
+  0 _array_61                                                      0860 GR
+  0 _array_62                                                      0880 GR
+  0 _array_63                                                      08A0 GR
+  0 _array_64                                                      08C0 GR
+  0 _array_65                                                      08E0 GR
+  0 _array_66                                                      0900 GR
+  0 _array_67                                                      0920 GR
+  0 _array_68                                                      0940 GR
+  0 _array_69                                                      0960 GR
+  0 _array_70                                                      0980 GR
+  0 _array_71                                                      09A0 GR
+  0 _array_72                                                      09C0 GR
+  0 _array_73                                                      09E0 GR
+  0 _array_74                                                      0A00 GR
+  0 _array_75                                                      0A20 GR
+  0 _array_76                                                      0A40 GR
+  0 _array_77                                                      0A60 GR
+  0 _array_78                                                      0A80 GR
+  0 _array_79                                                      0AA0 GR
+  0 _array_80                                                      0AC0 GR
+  0 _array_81                                                      0AE0 GR
+  0 _array_82                                                      0B00 GR
+  0 _array_83                                                      0B20 GR
+  0 _array_84                                                      0B40 GR
+  0 _array_85                                                      0B60 GR
+  0 _array_86                                                      0B80 GR
+  0 _array_87                                                      0BA0 GR
+  0 _tileset2                                                      0010 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size  BC0   flags    0
+   1 _DATA                                      size    0   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size    0   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+

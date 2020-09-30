@@ -1,0 +1,225 @@
+ASxxxx Linker V03.00 + NoICE + sdld,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           cpct_easytilemaps
+     00000000  l__CABS                         
+     00000000  l__DABS                         
+     00000000  l__DATA                         
+     00000000  l__GSFINAL                      
+     00000000  l__GSINIT                       
+     00000000  l__HOME                         
+     00000000  l__INITIALIZED                  
+     00000000  l__INITIALIZER                  
+     00000000  s__CABS                         
+     00000000  s__DABS                         
+     00001010  l__CODE                         
+     00004000  s__CODE                         
+     00005010  s__DATA                         
+     00005010  s__GSFINAL                      
+     00005010  s__GSINIT                       
+     00005010  s__HOME                         
+     00005010  s__INITIALIZED                  
+     00005010  s__INITIALIZER                  
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00004000    00001010 =        4112. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00004000  _g_level0_4bit                     court
+     0000418C  _PALETTE2                          tiles
+     0000419C  _tileset2                          tiles
+     0000424C  _array_00                          tiles
+     0000426C  _array_01                          tiles
+     0000428C  _array_02                          tiles
+     000042AC  _array_03                          tiles
+     000042CC  _array_04                          tiles
+     000042EC  _array_05                          tiles
+     0000430C  _array_06                          tiles
+     0000432C  _array_07                          tiles
+     0000434C  _array_08                          tiles
+     0000436C  _array_09                          tiles
+     0000438C  _array_10                          tiles
+     000043AC  _array_11                          tiles
+     000043CC  _array_12                          tiles
+     000043EC  _array_13                          tiles
+     0000440C  _array_14                          tiles
+     0000442C  _array_15                          tiles
+     0000444C  _array_16                          tiles
+     0000446C  _array_17                          tiles
+     0000448C  _array_18                          tiles
+     000044AC  _array_19                          tiles
+     000044CC  _array_20                          tiles
+     000044EC  _array_21                          tiles
+     0000450C  _array_22                          tiles
+     0000452C  _array_23                          tiles
+     0000454C  _array_24                          tiles
+     0000456C  _array_25                          tiles
+     0000458C  _array_26                          tiles
+     000045AC  _array_27                          tiles
+     000045CC  _array_28                          tiles
+     000045EC  _array_29                          tiles
+     0000460C  _array_30                          tiles
+     0000462C  _array_31                          tiles
+     0000464C  _array_32                          tiles
+     0000466C  _array_33                          tiles
+     0000468C  _array_34                          tiles
+     000046AC  _array_35                          tiles
+     000046CC  _array_36                          tiles
+     000046EC  _array_37                          tiles
+     0000470C  _array_38                          tiles
+     0000472C  _array_39                          tiles
+     0000474C  _array_40                          tiles
+     0000476C  _array_41                          tiles
+     0000478C  _array_42                          tiles
+     000047AC  _array_43                          tiles
+     000047CC  _array_44                          tiles
+     000047EC  _array_45                          tiles
+     0000480C  _array_46                          tiles
+ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00004000    00001010 =        4112. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     0000482C  _array_47                          tiles
+     0000484C  _array_48                          tiles
+     0000486C  _array_49                          tiles
+     0000488C  _array_50                          tiles
+     000048AC  _array_51                          tiles
+     000048CC  _array_52                          tiles
+     000048EC  _array_53                          tiles
+     0000490C  _array_54                          tiles
+     0000492C  _array_55                          tiles
+     0000494C  _array_56                          tiles
+     0000496C  _array_57                          tiles
+     0000498C  _array_58                          tiles
+     000049AC  _array_59                          tiles
+     000049CC  _array_60                          tiles
+     000049EC  _array_61                          tiles
+     00004A0C  _array_62                          tiles
+     00004A2C  _array_63                          tiles
+     00004A4C  _array_64                          tiles
+     00004A6C  _array_65                          tiles
+     00004A8C  _array_66                          tiles
+     00004AAC  _array_67                          tiles
+     00004ACC  _array_68                          tiles
+     00004AEC  _array_69                          tiles
+     00004B0C  _array_70                          tiles
+     00004B2C  _array_71                          tiles
+     00004B4C  _array_72                          tiles
+     00004B6C  _array_73                          tiles
+     00004B8C  _array_74                          tiles
+     00004BAC  _array_75                          tiles
+     00004BCC  _array_76                          tiles
+     00004BEC  _array_77                          tiles
+     00004C0C  _array_78                          tiles
+     00004C2C  _array_79                          tiles
+     00004C4C  _array_80                          tiles
+     00004C6C  _array_81                          tiles
+     00004C8C  _array_82                          tiles
+     00004CAC  _array_83                          tiles
+     00004CCC  _array_84                          tiles
+     00004CEC  _array_85                          tiles
+     00004D0C  _array_86                          tiles
+     00004D2C  _array_87                          tiles
+     00004D4C  _PALETTE                           player
+     00004D5C  _tileset                           player
+     00004D60  _array_0                           player
+     00004D92  _array_1                           player
+     00004DC4  _main                              main
+     00004DCF  _game_palette                      main
+     00004DDF  _game                              juego
+     00004E16  _scanKey                           input
+     00004E19  _keyScape                          input
+     00004E29  _keyUp                             input
+ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00004000    00001010 =        4112. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     00004E39  _keyDown                           input
+     00004E49  _keyLeft                           input
+     00004E59  _keyRight                          input
+     00004E69  _keyFire                           input
+     00004E79  _cpct_isKeyPressed                 cpct_keyboard
+     00004E79  cpct_isKeyPressed_asm              cpct_keyboard
+     00004E85  _cpct_scanKeyboard_f               cpct_keyboard
+     00004E85  cpct_scanKeyboard_f_asm            cpct_keyboard
+     00004EEF  _cpct_setPalette                   cpct_video
+     00004F06  _cpct_setPALColour                 cpct_video
+     00004F12  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
+     00004F1C  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
+     00004F32  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
+     00004F9D  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
+     00004FA3  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
+     00004FA8  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
+     00004FAB  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
+     00004FB7  _cpct_keyboardStatusBuffer         cpct_keyboard
+     00004FC1  _cpct_setVideoMode                 cpct_video
+     00004FCF  _cpct_disableFirmware              cpct_firmware
+     00004FCF  _cpct_removeInterruptHandler       cpct_firmware
+     00004FCF  cpct_disableFirmware_asm           cpct_firmware
+     00004FCF  cpct_removeInterruptHandler_asm    cpct_firmware
+     00004FDF  _cpct_mode_rom_status              cpct_firmware
+     00004FE0  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
+ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+
+Files Linked                              [ module(s) ]
+
+obj/court.rel                             [ court ]
+obj/tiles.rel                             [ tiles ]
+obj/player.rel                            [ player ]
+obj/main.rel                              [ main ]
+obj/juego/juego.rel                       [ juego ]
+obj/input/input.rel                       [ input ]
+
+
+Libraries Linked                          [ object file ]
+
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_isKeyPressed.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_scanKeyboard_f.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setPalette_cbindings.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setPALColour_cbindings.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_etm_drawTilemap4x8_ag_cbind ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ keyboard.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setVideoMode_cbindings.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_removeInterruptHandler.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpc_mode_rom_status.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_etm_setDrawTilemap4x8_ag_cb ]
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+
+User Base Address Definitions
+
+_CODE = 0x4000
+_DATA = 0x0000
+
+
