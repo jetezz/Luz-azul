@@ -9,7 +9,7 @@
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
                              11 	.globl _crearNivel
-                             12 	.globl _cpct_drawSprite
+                             12 	.globl _dibujarGameObject
                              13 	.globl _rocas
                              14 	.globl _player
                              15 	.globl _game
@@ -22,10 +22,10 @@
                              22 ; ram data
                              23 ;--------------------------------------------------------
                              24 	.area _DATA
-   50B4                      25 _player::
-   50B4                      26 	.ds 4
-   50B8                      27 _rocas::
-   50B8                      28 	.ds 20
+   50BE                      25 _player::
+   50BE                      26 	.ds 4
+   50C2                      27 _rocas::
+   50C2                      28 	.ds 20
                              29 ;--------------------------------------------------------
                              30 ; ram data
                              31 ;--------------------------------------------------------
@@ -50,49 +50,48 @@
                              50 ; code
                              51 ;--------------------------------------------------------
                              52 	.area _CODE
-                             53 ;src/juego/juego.c:15: void game(){
+                             53 ;src/juego/juego.c:19: void game(){
                              54 ;	---------------------------------
                              55 ; Function game
                              56 ; ---------------------------------
-   4DED                      57 _game::
-                             58 ;src/juego/juego.c:18: cpct_drawSprite(playerSprite, Punto_Inicial_De_Pantalla, 4, 16); 
-   4DED 21 04 10      [10]   59 	ld	hl, #0x1004
-   4DF0 E5            [11]   60 	push	hl
-   4DF1 21 05 E8      [10]   61 	ld	hl, #0xe805
-   4DF4 E5            [11]   62 	push	hl
-   4DF5 21 5C 4D      [10]   63 	ld	hl, #_playerSprite
-   4DF8 E5            [11]   64 	push	hl
-   4DF9 CD 11 4F      [17]   65 	call	_cpct_drawSprite
-                             66 ;src/juego/juego.c:20: while(1){            
-   4DFC                      67 00102$:
-   4DFC 18 FE         [12]   68 	jr	00102$
-                             69 ;src/juego/juego.c:24: void initGame(){
-                             70 ;	---------------------------------
-                             71 ; Function initGame
-                             72 ; ---------------------------------
-   4DFE                      73 _initGame::
-                             74 ;src/juego/juego.c:25: crearNivel();
-   4DFE CD 19 4E      [17]   75 	call	_crearNivel
-                             76 ;src/juego/juego.c:26: createPlayer();
-   4E01 C3 04 4E      [10]   77 	jp  _createPlayer
-                             78 ;src/juego/juego.c:28: void createPlayer(){
-                             79 ;	---------------------------------
-                             80 ; Function createPlayer
-                             81 ; ---------------------------------
-   4E04                      82 _createPlayer::
-                             83 ;src/juego/juego.c:29: player.posx=1;
-   4E04 21 B4 50      [10]   84 	ld	hl, #_player
-   4E07 36 01         [10]   85 	ld	(hl), #0x01
-                             86 ;src/juego/juego.c:30: player.posy=1;
-   4E09 21 B5 50      [10]   87 	ld	hl, #(_player + 0x0001)
-   4E0C 36 01         [10]   88 	ld	(hl), #0x01
-                             89 ;src/juego/juego.c:31: player.tipo=tipo_RocaNormal;
-   4E0E 21 B6 50      [10]   90 	ld	hl, #(_player + 0x0002)
-   4E11 36 01         [10]   91 	ld	(hl), #0x01
-                             92 ;src/juego/juego.c:32: player.sprite=sprite_Player;
-   4E13 21 B7 50      [10]   93 	ld	hl, #(_player + 0x0003)
-   4E16 36 00         [10]   94 	ld	(hl), #0x00
-   4E18 C9            [10]   95 	ret
-                             96 	.area _CODE
-                             97 	.area _INITIALIZER
-                             98 	.area _CABS (ABS)
+   4DFB                      57 _game::
+                             58 ;src/juego/juego.c:20: initGame();
+   4DFB CD 08 4E      [17]   59 	call	_initGame
+                             60 ;src/juego/juego.c:21: dibujarGameObject(&player);
+   4DFE 21 BE 50      [10]   61 	ld	hl, #_player
+   4E01 E5            [11]   62 	push	hl
+   4E02 CD C7 4D      [17]   63 	call	_dibujarGameObject
+   4E05 F1            [10]   64 	pop	af
+                             65 ;src/juego/juego.c:29: while(1){            
+   4E06                      66 00102$:
+   4E06 18 FE         [12]   67 	jr	00102$
+                             68 ;src/juego/juego.c:33: void initGame(){
+                             69 ;	---------------------------------
+                             70 ; Function initGame
+                             71 ; ---------------------------------
+   4E08                      72 _initGame::
+                             73 ;src/juego/juego.c:34: crearNivel();
+   4E08 CD 23 4E      [17]   74 	call	_crearNivel
+                             75 ;src/juego/juego.c:35: createPlayer();
+   4E0B C3 0E 4E      [10]   76 	jp  _createPlayer
+                             77 ;src/juego/juego.c:37: void createPlayer(){
+                             78 ;	---------------------------------
+                             79 ; Function createPlayer
+                             80 ; ---------------------------------
+   4E0E                      81 _createPlayer::
+                             82 ;src/juego/juego.c:38: player.posx=1;
+   4E0E 21 BE 50      [10]   83 	ld	hl, #_player
+   4E11 36 01         [10]   84 	ld	(hl), #0x01
+                             85 ;src/juego/juego.c:39: player.posy=1;
+   4E13 21 BF 50      [10]   86 	ld	hl, #(_player + 0x0001)
+   4E16 36 01         [10]   87 	ld	(hl), #0x01
+                             88 ;src/juego/juego.c:40: player.tipo=tipo_RocaNormal;
+   4E18 21 C0 50      [10]   89 	ld	hl, #(_player + 0x0002)
+   4E1B 36 01         [10]   90 	ld	(hl), #0x01
+                             91 ;src/juego/juego.c:41: player.sprite=sprite_Player;
+   4E1D 21 C1 50      [10]   92 	ld	hl, #(_player + 0x0003)
+   4E20 36 00         [10]   93 	ld	(hl), #0x00
+   4E22 C9            [10]   94 	ret
+                             95 	.area _CODE
+                             96 	.area _INITIALIZER
+                             97 	.area _CABS (ABS)

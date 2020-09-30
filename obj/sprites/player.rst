@@ -8,8 +8,8 @@
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
-                             11 	.globl _array_1
-                             12 	.globl _array_0
+                             11 	.globl _playerSprite_1
+                             12 	.globl _playerSprite_0
                              13 	.globl _playerSprite
                              14 	.globl _PALETTE
                              15 ;--------------------------------------------------------
@@ -62,73 +62,73 @@
    4D5A 4C                   62 	.db #0x4c	; 76	'L'
    4D5B 4B                   63 	.db #0x4b	; 75	'K'
    4D5C                      64 _playerSprite:
-   4D5C 60 4D                65 	.dw _array_0
-   4D5E 80 4D                66 	.dw _array_1
-   4D60                      67 _array_0:
-   4D60 FF                   68 	.db #0xff	; 255
-   4D61 FF                   69 	.db #0xff	; 255
-   4D62 FF                   70 	.db #0xff	; 255
-   4D63 FF                   71 	.db #0xff	; 255
-   4D64 AA                   72 	.db #0xaa	; 170
+   4D5C 60 4D                65 	.dw _playerSprite_0
+   4D5E 80 4D                66 	.dw _playerSprite_1
+   4D60                      67 _playerSprite_0:
+   4D60 3F                   68 	.db #0x3f	; 63
+   4D61 00                   69 	.db #0x00	; 0
+   4D62 15                   70 	.db #0x15	; 21
+   4D63 00                   71 	.db #0x00	; 0
+   4D64 2A                   72 	.db #0x2a	; 42
    4D65 F3                   73 	.db #0xf3	; 243
    4D66 A2                   74 	.db #0xa2	; 162
-   4D67 FD                   75 	.db #0xfd	; 253
-   4D68 AA                   76 	.db #0xaa	; 170
+   4D67 A8                   75 	.db #0xa8	; 168
+   4D68 2A                   76 	.db #0x2a	; 42
    4D69 F3                   77 	.db #0xf3	; 243
    4D6A 54                   78 	.db #0x54	; 84	'T'
-   4D6B FD                   79 	.db #0xfd	; 253
-   4D6C AA                   80 	.db #0xaa	; 170
+   4D6B A8                   79 	.db #0xa8	; 168
+   4D6C 00                   80 	.db #0x00	; 0
    4D6D 00                   81 	.db #0x00	; 0
    4D6E FC                   82 	.db #0xfc	; 252
-   4D6F FD                   83 	.db #0xfd	; 253
-   4D70 FB                   84 	.db #0xfb	; 251
+   4D6F A8                   83 	.db #0xa8	; 168
+   4D70 51                   84 	.db #0x51	; 81	'Q'
    4D71 FC                   85 	.db #0xfc	; 252
    4D72 FC                   86 	.db #0xfc	; 252
-   4D73 FD                   87 	.db #0xfd	; 253
-   4D74 FB                   88 	.db #0xfb	; 251
+   4D73 A8                   87 	.db #0xa8	; 168
+   4D74 51                   88 	.db #0x51	; 81	'Q'
    4D75 00                   89 	.db #0x00	; 0
    4D76 FC                   90 	.db #0xfc	; 252
-   4D77 55                   91 	.db #0x55	; 85	'U'
-   4D78 FB                   92 	.db #0xfb	; 251
+   4D77 00                   91 	.db #0x00	; 0
+   4D78 51                   92 	.db #0x51	; 81	'Q'
    4D79 00                   93 	.db #0x00	; 0
    4D7A FC                   94 	.db #0xfc	; 252
-   4D7B 55                   95 	.db #0x55	; 85	'U'
-   4D7C FB                   96 	.db #0xfb	; 251
+   4D7B 00                   95 	.db #0x00	; 0
+   4D7C 51                   96 	.db #0x51	; 81	'Q'
    4D7D 30                   97 	.db #0x30	; 48	'0'
    4D7E FC                   98 	.db #0xfc	; 252
-   4D7F 75                   99 	.db #0x75	; 117	'u'
-   4D80                     100 _array_1:
-   4D80 FB                  101 	.db #0xfb	; 251
+   4D7F 20                   99 	.db #0x20	; 32
+   4D80                     100 _playerSprite_1:
+   4D80 51                  101 	.db #0x51	; 81	'Q'
    4D81 30                  102 	.db #0x30	; 48	'0'
    4D82 FC                  103 	.db #0xfc	; 252
-   4D83 75                  104 	.db #0x75	; 117	'u'
-   4D84 FB                  105 	.db #0xfb	; 251
+   4D83 20                  104 	.db #0x20	; 32
+   4D84 51                  105 	.db #0x51	; 81	'Q'
    4D85 30                  106 	.db #0x30	; 48	'0'
    4D86 FC                  107 	.db #0xfc	; 252
-   4D87 75                  108 	.db #0x75	; 117	'u'
-   4D88 AA                  109 	.db #0xaa	; 170
+   4D87 20                  108 	.db #0x20	; 32
+   4D88 2A                  109 	.db #0x2a	; 42
    4D89 F3                  110 	.db #0xf3	; 243
    4D8A F3                  111 	.db #0xf3	; 243
-   4D8B 55                  112 	.db #0x55	; 85	'U'
-   4D8C AA                  113 	.db #0xaa	; 170
+   4D8B 15                  112 	.db #0x15	; 21
+   4D8C 2A                  113 	.db #0x2a	; 42
    4D8D F6                  114 	.db #0xf6	; 246
    4D8E FC                  115 	.db #0xfc	; 252
-   4D8F 55                  116 	.db #0x55	; 85	'U'
-   4D90 AA                  117 	.db #0xaa	; 170
+   4D8F 15                  116 	.db #0x15	; 21
+   4D90 00                  117 	.db #0x00	; 0
    4D91 FC                  118 	.db #0xfc	; 252
    4D92 F3                  119 	.db #0xf3	; 243
-   4D93 55                  120 	.db #0x55	; 85	'U'
-   4D94 FF                  121 	.db #0xff	; 255
+   4D93 00                  120 	.db #0x00	; 0
+   4D94 51                  121 	.db #0x51	; 81	'Q'
    4D95 FC                  122 	.db #0xfc	; 252
    4D96 FC                  123 	.db #0xfc	; 252
-   4D97 FF                  124 	.db #0xff	; 255
-   4D98 FF                  125 	.db #0xff	; 255
-   4D99 FF                  126 	.db #0xff	; 255
-   4D9A FF                  127 	.db #0xff	; 255
-   4D9B FF                  128 	.db #0xff	; 255
-   4D9C FF                  129 	.db #0xff	; 255
-   4D9D FF                  130 	.db #0xff	; 255
-   4D9E FF                  131 	.db #0xff	; 255
-   4D9F FF                  132 	.db #0xff	; 255
+   4D97 A8                  124 	.db #0xa8	; 168
+   4D98 00                  125 	.db #0x00	; 0
+   4D99 00                  126 	.db #0x00	; 0
+   4D9A 00                  127 	.db #0x00	; 0
+   4D9B 00                  128 	.db #0x00	; 0
+   4D9C 00                  129 	.db #0x00	; 0
+   4D9D 00                  130 	.db #0x00	; 0
+   4D9E 00                  131 	.db #0x00	; 0
+   4D9F 00                  132 	.db #0x00	; 0
                             133 	.area _INITIALIZER
                             134 	.area _CABS (ABS)

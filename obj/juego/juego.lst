@@ -9,7 +9,7 @@
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
                              11 	.globl _crearNivel
-                             12 	.globl _cpct_drawSprite
+                             12 	.globl _dibujarGameObject
                              13 	.globl _rocas
                              14 	.globl _player
                              15 	.globl _game
@@ -50,49 +50,48 @@
                              50 ; code
                              51 ;--------------------------------------------------------
                              52 	.area _CODE
-                             53 ;src/juego/juego.c:15: void game(){
+                             53 ;src/juego/juego.c:19: void game(){
                              54 ;	---------------------------------
                              55 ; Function game
                              56 ; ---------------------------------
    0000                      57 _game::
-                             58 ;src/juego/juego.c:18: cpct_drawSprite(playerSprite, Punto_Inicial_De_Pantalla, 4, 16); 
-   0000 21 04 10      [10]   59 	ld	hl, #0x1004
-   0003 E5            [11]   60 	push	hl
-   0004 21 05 E8      [10]   61 	ld	hl, #0xe805
-   0007 E5            [11]   62 	push	hl
-   0008 21r00r00      [10]   63 	ld	hl, #_playerSprite
-   000B E5            [11]   64 	push	hl
-   000C CDr00r00      [17]   65 	call	_cpct_drawSprite
-                             66 ;src/juego/juego.c:20: while(1){            
-   000F                      67 00102$:
-   000F 18 FE         [12]   68 	jr	00102$
-                             69 ;src/juego/juego.c:24: void initGame(){
-                             70 ;	---------------------------------
-                             71 ; Function initGame
-                             72 ; ---------------------------------
-   0011                      73 _initGame::
-                             74 ;src/juego/juego.c:25: crearNivel();
-   0011 CDr00r00      [17]   75 	call	_crearNivel
-                             76 ;src/juego/juego.c:26: createPlayer();
-   0014 C3r17r00      [10]   77 	jp  _createPlayer
-                             78 ;src/juego/juego.c:28: void createPlayer(){
-                             79 ;	---------------------------------
-                             80 ; Function createPlayer
-                             81 ; ---------------------------------
-   0017                      82 _createPlayer::
-                             83 ;src/juego/juego.c:29: player.posx=1;
-   0017 21r00r00      [10]   84 	ld	hl, #_player
-   001A 36 01         [10]   85 	ld	(hl), #0x01
-                             86 ;src/juego/juego.c:30: player.posy=1;
-   001C 21r01r00      [10]   87 	ld	hl, #(_player + 0x0001)
-   001F 36 01         [10]   88 	ld	(hl), #0x01
-                             89 ;src/juego/juego.c:31: player.tipo=tipo_RocaNormal;
-   0021 21r02r00      [10]   90 	ld	hl, #(_player + 0x0002)
-   0024 36 01         [10]   91 	ld	(hl), #0x01
-                             92 ;src/juego/juego.c:32: player.sprite=sprite_Player;
-   0026 21r03r00      [10]   93 	ld	hl, #(_player + 0x0003)
-   0029 36 00         [10]   94 	ld	(hl), #0x00
-   002B C9            [10]   95 	ret
-                             96 	.area _CODE
-                             97 	.area _INITIALIZER
-                             98 	.area _CABS (ABS)
+                             58 ;src/juego/juego.c:20: initGame();
+   0000 CDr0Dr00      [17]   59 	call	_initGame
+                             60 ;src/juego/juego.c:21: dibujarGameObject(&player);
+   0003 21r00r00      [10]   61 	ld	hl, #_player
+   0006 E5            [11]   62 	push	hl
+   0007 CDr00r00      [17]   63 	call	_dibujarGameObject
+   000A F1            [10]   64 	pop	af
+                             65 ;src/juego/juego.c:29: while(1){            
+   000B                      66 00102$:
+   000B 18 FE         [12]   67 	jr	00102$
+                             68 ;src/juego/juego.c:33: void initGame(){
+                             69 ;	---------------------------------
+                             70 ; Function initGame
+                             71 ; ---------------------------------
+   000D                      72 _initGame::
+                             73 ;src/juego/juego.c:34: crearNivel();
+   000D CDr00r00      [17]   74 	call	_crearNivel
+                             75 ;src/juego/juego.c:35: createPlayer();
+   0010 C3r13r00      [10]   76 	jp  _createPlayer
+                             77 ;src/juego/juego.c:37: void createPlayer(){
+                             78 ;	---------------------------------
+                             79 ; Function createPlayer
+                             80 ; ---------------------------------
+   0013                      81 _createPlayer::
+                             82 ;src/juego/juego.c:38: player.posx=1;
+   0013 21r00r00      [10]   83 	ld	hl, #_player
+   0016 36 01         [10]   84 	ld	(hl), #0x01
+                             85 ;src/juego/juego.c:39: player.posy=1;
+   0018 21r01r00      [10]   86 	ld	hl, #(_player + 0x0001)
+   001B 36 01         [10]   87 	ld	(hl), #0x01
+                             88 ;src/juego/juego.c:40: player.tipo=tipo_RocaNormal;
+   001D 21r02r00      [10]   89 	ld	hl, #(_player + 0x0002)
+   0020 36 01         [10]   90 	ld	(hl), #0x01
+                             91 ;src/juego/juego.c:41: player.sprite=sprite_Player;
+   0022 21r03r00      [10]   92 	ld	hl, #(_player + 0x0003)
+   0025 36 00         [10]   93 	ld	(hl), #0x00
+   0027 C9            [10]   94 	ret
+                             95 	.area _CODE
+                             96 	.area _INITIALIZER
+                             97 	.area _CABS (ABS)

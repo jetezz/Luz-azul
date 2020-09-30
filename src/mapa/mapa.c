@@ -6,7 +6,7 @@
 
 void crearMapa(u8 id){
 
-    cpct_etm_setDrawTilemap4x8_ag(map_W, map_H, map_W, array_00);
+    cpct_etm_setDrawTilemap4x8_ag(map_W, map_H, map_W, tiles_00);
     cpct_etm_drawTilemap4x8_ag(Punto_Inicial_De_Pantalla, map);
 
 }

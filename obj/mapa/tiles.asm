@@ -8,95 +8,95 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl _array_87
-	.globl _array_86
-	.globl _array_85
-	.globl _array_84
-	.globl _array_83
-	.globl _array_82
-	.globl _array_81
-	.globl _array_80
-	.globl _array_79
-	.globl _array_78
-	.globl _array_77
-	.globl _array_76
-	.globl _array_75
-	.globl _array_74
-	.globl _array_73
-	.globl _array_72
-	.globl _array_71
-	.globl _array_70
-	.globl _array_69
-	.globl _array_68
-	.globl _array_67
-	.globl _array_66
-	.globl _array_65
-	.globl _array_64
-	.globl _array_63
-	.globl _array_62
-	.globl _array_61
-	.globl _array_60
-	.globl _array_59
-	.globl _array_58
-	.globl _array_57
-	.globl _array_56
-	.globl _array_55
-	.globl _array_54
-	.globl _array_53
-	.globl _array_52
-	.globl _array_51
-	.globl _array_50
-	.globl _array_49
-	.globl _array_48
-	.globl _array_47
-	.globl _array_46
-	.globl _array_45
-	.globl _array_44
-	.globl _array_43
-	.globl _array_42
-	.globl _array_41
-	.globl _array_40
-	.globl _array_39
-	.globl _array_38
-	.globl _array_37
-	.globl _array_36
-	.globl _array_35
-	.globl _array_34
-	.globl _array_33
-	.globl _array_32
-	.globl _array_31
-	.globl _array_30
-	.globl _array_29
-	.globl _array_28
-	.globl _array_27
-	.globl _array_26
-	.globl _array_25
-	.globl _array_24
-	.globl _array_23
-	.globl _array_22
-	.globl _array_21
-	.globl _array_20
-	.globl _array_19
-	.globl _array_18
-	.globl _array_17
-	.globl _array_16
-	.globl _array_15
-	.globl _array_14
-	.globl _array_13
-	.globl _array_12
-	.globl _array_11
-	.globl _array_10
-	.globl _array_09
-	.globl _array_08
-	.globl _array_07
-	.globl _array_06
-	.globl _array_05
-	.globl _array_04
-	.globl _array_03
-	.globl _array_02
-	.globl _array_01
-	.globl _array_00
-	.globl _tileset2
+	.globl _tiles_87
+	.globl _tiles_86
+	.globl _tiles_85
+	.globl _tiles_84
+	.globl _tiles_83
+	.globl _tiles_82
+	.globl _tiles_81
+	.globl _tiles_80
+	.globl _tiles_79
+	.globl _tiles_78
+	.globl _tiles_77
+	.globl _tiles_76
+	.globl _tiles_75
+	.globl _tiles_74
+	.globl _tiles_73
+	.globl _tiles_72
+	.globl _tiles_71
+	.globl _tiles_70
+	.globl _tiles_69
+	.globl _tiles_68
+	.globl _tiles_67
+	.globl _tiles_66
+	.globl _tiles_65
+	.globl _tiles_64
+	.globl _tiles_63
+	.globl _tiles_62
+	.globl _tiles_61
+	.globl _tiles_60
+	.globl _tiles_59
+	.globl _tiles_58
+	.globl _tiles_57
+	.globl _tiles_56
+	.globl _tiles_55
+	.globl _tiles_54
+	.globl _tiles_53
+	.globl _tiles_52
+	.globl _tiles_51
+	.globl _tiles_50
+	.globl _tiles_49
+	.globl _tiles_48
+	.globl _tiles_47
+	.globl _tiles_46
+	.globl _tiles_45
+	.globl _tiles_44
+	.globl _tiles_43
+	.globl _tiles_42
+	.globl _tiles_41
+	.globl _tiles_40
+	.globl _tiles_39
+	.globl _tiles_38
+	.globl _tiles_37
+	.globl _tiles_36
+	.globl _tiles_35
+	.globl _tiles_34
+	.globl _tiles_33
+	.globl _tiles_32
+	.globl _tiles_31
+	.globl _tiles_30
+	.globl _tiles_29
+	.globl _tiles_28
+	.globl _tiles_27
+	.globl _tiles_26
+	.globl _tiles_25
+	.globl _tiles_24
+	.globl _tiles_23
+	.globl _tiles_22
+	.globl _tiles_21
+	.globl _tiles_20
+	.globl _tiles_19
+	.globl _tiles_18
+	.globl _tiles_17
+	.globl _tiles_16
+	.globl _tiles_15
+	.globl _tiles_14
+	.globl _tiles_13
+	.globl _tiles_12
+	.globl _tiles_11
+	.globl _tiles_10
+	.globl _tiles_09
+	.globl _tiles_08
+	.globl _tiles_07
+	.globl _tiles_06
+	.globl _tiles_05
+	.globl _tiles_04
+	.globl _tiles_03
+	.globl _tiles_02
+	.globl _tiles_01
+	.globl _tiles_00
+	.globl _tiles
 	.globl _PALETTE2
 ;--------------------------------------------------------
 ; special function registers
@@ -147,96 +147,96 @@ _PALETTE2:
 	.db #0x40	; 64
 	.db #0x4c	; 76	'L'
 	.db #0x4b	; 75	'K'
-_tileset2:
-	.dw _array_00
-	.dw _array_01
-	.dw _array_02
-	.dw _array_03
-	.dw _array_04
-	.dw _array_05
-	.dw _array_06
-	.dw _array_07
-	.dw _array_08
-	.dw _array_09
-	.dw _array_10
-	.dw _array_11
-	.dw _array_12
-	.dw _array_13
-	.dw _array_14
-	.dw _array_15
-	.dw _array_16
-	.dw _array_17
-	.dw _array_18
-	.dw _array_19
-	.dw _array_20
-	.dw _array_21
-	.dw _array_22
-	.dw _array_23
-	.dw _array_24
-	.dw _array_25
-	.dw _array_26
-	.dw _array_27
-	.dw _array_28
-	.dw _array_29
-	.dw _array_30
-	.dw _array_31
-	.dw _array_32
-	.dw _array_33
-	.dw _array_34
-	.dw _array_35
-	.dw _array_36
-	.dw _array_37
-	.dw _array_38
-	.dw _array_39
-	.dw _array_40
-	.dw _array_41
-	.dw _array_42
-	.dw _array_43
-	.dw _array_44
-	.dw _array_45
-	.dw _array_46
-	.dw _array_47
-	.dw _array_48
-	.dw _array_49
-	.dw _array_50
-	.dw _array_51
-	.dw _array_52
-	.dw _array_53
-	.dw _array_54
-	.dw _array_55
-	.dw _array_56
-	.dw _array_57
-	.dw _array_58
-	.dw _array_59
-	.dw _array_60
-	.dw _array_61
-	.dw _array_62
-	.dw _array_63
-	.dw _array_64
-	.dw _array_65
-	.dw _array_66
-	.dw _array_67
-	.dw _array_68
-	.dw _array_69
-	.dw _array_70
-	.dw _array_71
-	.dw _array_72
-	.dw _array_73
-	.dw _array_74
-	.dw _array_75
-	.dw _array_76
-	.dw _array_77
-	.dw _array_78
-	.dw _array_79
-	.dw _array_80
-	.dw _array_81
-	.dw _array_82
-	.dw _array_83
-	.dw _array_84
-	.dw _array_85
-	.dw _array_86
-	.dw _array_87
-_array_00:
+_tiles:
+	.dw _tiles_00
+	.dw _tiles_01
+	.dw _tiles_02
+	.dw _tiles_03
+	.dw _tiles_04
+	.dw _tiles_05
+	.dw _tiles_06
+	.dw _tiles_07
+	.dw _tiles_08
+	.dw _tiles_09
+	.dw _tiles_10
+	.dw _tiles_11
+	.dw _tiles_12
+	.dw _tiles_13
+	.dw _tiles_14
+	.dw _tiles_15
+	.dw _tiles_16
+	.dw _tiles_17
+	.dw _tiles_18
+	.dw _tiles_19
+	.dw _tiles_20
+	.dw _tiles_21
+	.dw _tiles_22
+	.dw _tiles_23
+	.dw _tiles_24
+	.dw _tiles_25
+	.dw _tiles_26
+	.dw _tiles_27
+	.dw _tiles_28
+	.dw _tiles_29
+	.dw _tiles_30
+	.dw _tiles_31
+	.dw _tiles_32
+	.dw _tiles_33
+	.dw _tiles_34
+	.dw _tiles_35
+	.dw _tiles_36
+	.dw _tiles_37
+	.dw _tiles_38
+	.dw _tiles_39
+	.dw _tiles_40
+	.dw _tiles_41
+	.dw _tiles_42
+	.dw _tiles_43
+	.dw _tiles_44
+	.dw _tiles_45
+	.dw _tiles_46
+	.dw _tiles_47
+	.dw _tiles_48
+	.dw _tiles_49
+	.dw _tiles_50
+	.dw _tiles_51
+	.dw _tiles_52
+	.dw _tiles_53
+	.dw _tiles_54
+	.dw _tiles_55
+	.dw _tiles_56
+	.dw _tiles_57
+	.dw _tiles_58
+	.dw _tiles_59
+	.dw _tiles_60
+	.dw _tiles_61
+	.dw _tiles_62
+	.dw _tiles_63
+	.dw _tiles_64
+	.dw _tiles_65
+	.dw _tiles_66
+	.dw _tiles_67
+	.dw _tiles_68
+	.dw _tiles_69
+	.dw _tiles_70
+	.dw _tiles_71
+	.dw _tiles_72
+	.dw _tiles_73
+	.dw _tiles_74
+	.dw _tiles_75
+	.dw _tiles_76
+	.dw _tiles_77
+	.dw _tiles_78
+	.dw _tiles_79
+	.dw _tiles_80
+	.dw _tiles_81
+	.dw _tiles_82
+	.dw _tiles_83
+	.dw _tiles_84
+	.dw _tiles_85
+	.dw _tiles_86
+	.dw _tiles_87
+_tiles_00:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -269,7 +269,7 @@ _array_00:
 	.db #0x3c	; 60
 	.db #0x1c	; 28
 	.db #0x04	; 4
-_array_01:
+_tiles_01:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -302,7 +302,7 @@ _array_01:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_02:
+_tiles_02:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -335,7 +335,7 @@ _array_02:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_03:
+_tiles_03:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -368,7 +368,7 @@ _array_03:
 	.db #0x0c	; 12
 	.db #0x2c	; 44
 	.db #0x3c	; 60
-_array_04:
+_tiles_04:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -401,7 +401,7 @@ _array_04:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_05:
+_tiles_05:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -434,7 +434,7 @@ _array_05:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_06:
+_tiles_06:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -467,7 +467,7 @@ _array_06:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_07:
+_tiles_07:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -500,7 +500,7 @@ _array_07:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_08:
+_tiles_08:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -533,7 +533,7 @@ _array_08:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_09:
+_tiles_09:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -566,7 +566,7 @@ _array_09:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_10:
+_tiles_10:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -599,7 +599,7 @@ _array_10:
 	.db #0x1c	; 28
 	.db #0x0c	; 12
 	.db #0x00	; 0
-_array_11:
+_tiles_11:
 	.db #0x04	; 4
 	.db #0x1c	; 28
 	.db #0x14	; 20
@@ -632,7 +632,7 @@ _array_11:
 	.db #0x20	; 32
 	.db #0x1c	; 28
 	.db #0x04	; 4
-_array_12:
+_tiles_12:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -665,7 +665,7 @@ _array_12:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_13:
+_tiles_13:
 	.db #0x0c	; 12
 	.db #0x2c	; 44
 	.db #0x3c	; 60
@@ -698,7 +698,7 @@ _array_13:
 	.db #0x3c	; 60
 	.db #0x2c	; 44
 	.db #0x3c	; 60
-_array_14:
+_tiles_14:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -731,7 +731,7 @@ _array_14:
 	.db #0x3c	; 60
 	.db #0x2c	; 44
 	.db #0x3c	; 60
-_array_15:
+_tiles_15:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -764,7 +764,7 @@ _array_15:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_16:
+_tiles_16:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -797,7 +797,7 @@ _array_16:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_17:
+_tiles_17:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x1c	; 28
@@ -830,7 +830,7 @@ _array_17:
 	.db #0x2c	; 44
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_18:
+_tiles_18:
 	.db #0x3c	; 60
 	.db #0x2c	; 44
 	.db #0x0c	; 12
@@ -863,7 +863,7 @@ _array_18:
 	.db #0x3c	; 60
 	.db #0x1c	; 28
 	.db #0x34	; 52	'4'
-_array_19:
+_tiles_19:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -896,7 +896,7 @@ _array_19:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_20:
+_tiles_20:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -929,7 +929,7 @@ _array_20:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_21:
+_tiles_21:
 	.db #0x1c	; 28
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -962,7 +962,7 @@ _array_21:
 	.db #0x1c	; 28
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_22:
+_tiles_22:
 	.db #0x04	; 4
 	.db #0x1c	; 28
 	.db #0xba	; 186
@@ -995,7 +995,7 @@ _array_22:
 	.db #0x64	; 100	'd'
 	.db #0x1c	; 28
 	.db #0x04	; 4
-_array_23:
+_tiles_23:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -1028,7 +1028,7 @@ _array_23:
 	.db #0x3f	; 63
 	.db #0x2e	; 46
 	.db #0x2e	; 46
-_array_24:
+_tiles_24:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -1061,7 +1061,7 @@ _array_24:
 	.db #0x2e	; 46
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_25:
+_tiles_25:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -1094,7 +1094,7 @@ _array_25:
 	.db #0x3f	; 63
 	.db #0x2e	; 46
 	.db #0x2e	; 46
-_array_26:
+_tiles_26:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -1127,7 +1127,7 @@ _array_26:
 	.db #0x2e	; 46
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_27:
+_tiles_27:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -1160,7 +1160,7 @@ _array_27:
 	.db #0x3f	; 63
 	.db #0x2e	; 46
 	.db #0x2e	; 46
-_array_28:
+_tiles_28:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x28	; 40
@@ -1193,7 +1193,7 @@ _array_28:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_29:
+_tiles_29:
 	.db #0xba	; 186
 	.db #0x14	; 20
 	.db #0x3c	; 60
@@ -1226,7 +1226,7 @@ _array_29:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0xba	; 186
-_array_30:
+_tiles_30:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -1259,7 +1259,7 @@ _array_30:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_31:
+_tiles_31:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -1292,7 +1292,7 @@ _array_31:
 	.db #0x2c	; 44
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_32:
+_tiles_32:
 	.db #0x3c	; 60
 	.db #0x75	; 117	'u'
 	.db #0x2c	; 44
@@ -1325,7 +1325,7 @@ _array_32:
 	.db #0x2c	; 44
 	.db #0x98	; 152
 	.db #0x3c	; 60
-_array_33:
+_tiles_33:
 	.db #0x1c	; 28
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1358,7 +1358,7 @@ _array_33:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x64	; 100	'd'
-_array_34:
+_tiles_34:
 	.db #0x0c	; 12
 	.db #0x2e	; 46
 	.db #0x1d	; 29
@@ -1391,7 +1391,7 @@ _array_34:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_35:
+_tiles_35:
 	.db #0x04	; 4
 	.db #0x0c	; 12
 	.db #0x14	; 20
@@ -1424,7 +1424,7 @@ _array_35:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x64	; 100	'd'
-_array_36:
+_tiles_36:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1457,7 +1457,7 @@ _array_36:
 	.db #0x3f	; 63
 	.db #0x2e	; 46
 	.db #0x2e	; 46
-_array_37:
+_tiles_37:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1490,7 +1490,7 @@ _array_37:
 	.db #0x3f	; 63
 	.db #0x2e	; 46
 	.db #0x2e	; 46
-_array_38:
+_tiles_38:
 	.db #0xba	; 186
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1523,7 +1523,7 @@ _array_38:
 	.db #0x2e	; 46
 	.db #0x3f	; 63
 	.db #0xba	; 186
-_array_39:
+_tiles_39:
 	.db #0x3c	; 60
 	.db #0x28	; 40
 	.db #0x0c	; 12
@@ -1556,7 +1556,7 @@ _array_39:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_40:
+_tiles_40:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -1589,7 +1589,7 @@ _array_40:
 	.db #0x2e	; 46
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_41:
+_tiles_41:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -1622,7 +1622,7 @@ _array_41:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_42:
+_tiles_42:
 	.db #0x0c	; 12
 	.db #0x28	; 40
 	.db #0x2c	; 44
@@ -1655,7 +1655,7 @@ _array_42:
 	.db #0x2c	; 44
 	.db #0x10	; 16
 	.db #0x00	; 0
-_array_43:
+_tiles_43:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -1688,7 +1688,7 @@ _array_43:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_44:
+_tiles_44:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1721,7 +1721,7 @@ _array_44:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_45:
+_tiles_45:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1754,7 +1754,7 @@ _array_45:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_46:
+_tiles_46:
 	.db #0x64	; 100	'd'
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1787,7 +1787,7 @@ _array_46:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_47:
+_tiles_47:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1820,7 +1820,7 @@ _array_47:
 	.db #0x2e	; 46
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_48:
+_tiles_48:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1853,7 +1853,7 @@ _array_48:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_49:
+_tiles_49:
 	.db #0xfa	; 250
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1886,7 +1886,7 @@ _array_49:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0xfa	; 250
-_array_50:
+_tiles_50:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1919,7 +1919,7 @@ _array_50:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_51:
+_tiles_51:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -1952,7 +1952,7 @@ _array_51:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3e	; 62
-_array_52:
+_tiles_52:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -1985,7 +1985,7 @@ _array_52:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_53:
+_tiles_53:
 	.db #0x00	; 0
 	.db #0x10	; 16
 	.db #0x2c	; 44
@@ -2018,7 +2018,7 @@ _array_53:
 	.db #0x2c	; 44
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_54:
+_tiles_54:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x1c	; 28
@@ -2051,7 +2051,7 @@ _array_54:
 	.db #0x1c	; 28
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_55:
+_tiles_55:
 	.db #0x04	; 4
 	.db #0x1c	; 28
 	.db #0x64	; 100	'd'
@@ -2084,7 +2084,7 @@ _array_55:
 	.db #0xba	; 186
 	.db #0x1c	; 28
 	.db #0x04	; 4
-_array_56:
+_tiles_56:
 	.db #0x2e	; 46
 	.db #0x2e	; 46
 	.db #0x3f	; 63
@@ -2117,7 +2117,7 @@ _array_56:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_57:
+_tiles_57:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -2150,7 +2150,7 @@ _array_57:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_58:
+_tiles_58:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -2183,7 +2183,7 @@ _array_58:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_59:
+_tiles_59:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -2216,7 +2216,7 @@ _array_59:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_60:
+_tiles_60:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -2249,7 +2249,7 @@ _array_60:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_61:
+_tiles_61:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -2282,7 +2282,7 @@ _array_61:
 	.db #0x3c	; 60
 	.db #0x3f	; 63
 	.db #0x3f	; 63
-_array_62:
+_tiles_62:
 	.db #0xba	; 186
 	.db #0x3f	; 63
 	.db #0x3f	; 63
@@ -2315,7 +2315,7 @@ _array_62:
 	.db #0x3f	; 63
 	.db #0x3c	; 60
 	.db #0xba	; 186
-_array_63:
+_tiles_63:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -2348,7 +2348,7 @@ _array_63:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_64:
+_tiles_64:
 	.db #0x3c	; 60
 	.db #0x00	; 0
 	.db #0x2c	; 44
@@ -2381,7 +2381,7 @@ _array_64:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_65:
+_tiles_65:
 	.db #0x3c	; 60
 	.db #0x98	; 152
 	.db #0x2c	; 44
@@ -2414,7 +2414,7 @@ _array_65:
 	.db #0x2c	; 44
 	.db #0x75	; 117	'u'
 	.db #0x3c	; 60
-_array_66:
+_tiles_66:
 	.db #0x04	; 4
 	.db #0x1c	; 28
 	.db #0x20	; 32
@@ -2447,7 +2447,7 @@ _array_66:
 	.db #0x00	; 0
 	.db #0x1c	; 28
 	.db #0x04	; 4
-_array_67:
+_tiles_67:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -2480,7 +2480,7 @@ _array_67:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_68:
+_tiles_68:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -2513,7 +2513,7 @@ _array_68:
 	.db #0x0c	; 12
 	.db #0x1c	; 28
 	.db #0x3c	; 60
-_array_69:
+_tiles_69:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -2546,7 +2546,7 @@ _array_69:
 	.db #0x2c	; 44
 	.db #0x2c	; 44
 	.db #0x0c	; 12
-_array_70:
+_tiles_70:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -2579,7 +2579,7 @@ _array_70:
 	.db #0x3c	; 60
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_71:
+_tiles_71:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -2612,7 +2612,7 @@ _array_71:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_72:
+_tiles_72:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x04	; 4
@@ -2645,7 +2645,7 @@ _array_72:
 	.db #0x2c	; 44
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_73:
+_tiles_73:
 	.db #0xba	; 186
 	.db #0x08	; 8
 	.db #0x00	; 0
@@ -2678,7 +2678,7 @@ _array_73:
 	.db #0x0c	; 12
 	.db #0x1c	; 28
 	.db #0x0c	; 12
-_array_74:
+_tiles_74:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -2711,7 +2711,7 @@ _array_74:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_75:
+_tiles_75:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -2744,7 +2744,7 @@ _array_75:
 	.db #0x0c	; 12
 	.db #0x3c	; 60
 	.db #0x3c	; 60
-_array_76:
+_tiles_76:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -2777,7 +2777,7 @@ _array_76:
 	.db #0x1c	; 28
 	.db #0x1c	; 28
 	.db #0x0c	; 12
-_array_77:
+_tiles_77:
 	.db #0x04	; 4
 	.db #0x1c	; 28
 	.db #0x00	; 0
@@ -2810,7 +2810,7 @@ _array_77:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x04	; 4
-_array_78:
+_tiles_78:
 	.db #0x3c	; 60
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -2843,7 +2843,7 @@ _array_78:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_79:
+_tiles_79:
 	.db #0x3c	; 60
 	.db #0x1c	; 28
 	.db #0x2c	; 44
@@ -2876,7 +2876,7 @@ _array_79:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_80:
+_tiles_80:
 	.db #0x2c	; 44
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -2909,7 +2909,7 @@ _array_80:
 	.db #0x08	; 8
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_81:
+_tiles_81:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -2942,7 +2942,7 @@ _array_81:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_82:
+_tiles_82:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -2975,7 +2975,7 @@ _array_82:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_83:
+_tiles_83:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
@@ -3008,7 +3008,7 @@ _array_83:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
-_array_84:
+_tiles_84:
 	.db #0x1c	; 28
 	.db #0x3c	; 60
 	.db #0x3c	; 60
@@ -3041,7 +3041,7 @@ _array_84:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x00	; 0
-_array_85:
+_tiles_85:
 	.db #0x0c	; 12
 	.db #0x1c	; 28
 	.db #0x2c	; 44
@@ -3074,7 +3074,7 @@ _array_85:
 	.db #0x0c	; 12
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_86:
+_tiles_86:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -3107,7 +3107,7 @@ _array_86:
 	.db #0x2c	; 44
 	.db #0x0c	; 12
 	.db #0x0c	; 12
-_array_87:
+_tiles_87:
 	.db #0x3f	; 63
 	.db #0x3f	; 63
 	.db #0x3f	; 63

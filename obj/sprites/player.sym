@@ -8,9 +8,9 @@ Symbol Table
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
   0 _PALETTE                                                       0000 GR
-  0 _array_0                                                       0014 GR
-  0 _array_1                                                       0034 GR
   0 _playerSprite                                                  0010 GR
+  0 _playerSprite_0                                                0014 GR
+  0 _playerSprite_1                                                0034 GR
 
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.

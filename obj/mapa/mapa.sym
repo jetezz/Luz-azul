@@ -7,11 +7,11 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
-    _array_00                                                      **** GX
     _cpct_etm_drawTilemap4x8_ag                                    **** GX
     _cpct_etm_setDrawTilemap4x8_ag                                 **** GX
   0 _crearMapa                                                     0000 GR
     _map                                                           **** GX
+    _tiles_00                                                      **** GX
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
 Hexadecimal [16-Bits]

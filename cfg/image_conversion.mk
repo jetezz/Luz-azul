@@ -32,7 +32,7 @@
 PALETTE=0 5 15 1 10 19 3 16 7 4 5 25 17 13 6 26
 
 ## Default values
-$(eval $(call IMG2SP, SET_MODE        ,0                  ))  #{ 0, 1, 2 }
+#$(eval $(call IMG2SP, SET_MODE        ,0                  ))  #{ 0, 1, 2 }
 #$(eval $(call IMG2SP, SET_MASK        , none               ))  { interlaced, none }
 $(eval $(call IMG2SP, SET_FOLDER      , src/sprites/               ))
 #$(eval $(call IMG2SP, SET_EXTRAPAR    ,                    ))
@@ -40,12 +40,15 @@ $(eval $(call IMG2SP, SET_FOLDER      , src/sprites/               ))
 #$(eval $(call IMG2SP, SET_OUTPUT      , c                  ))  { bin, c }
 $(eval $(call IMG2SP, SET_PALETTE_FW  , $(PALETTE)         ))
 #$(eval $(call IMG2SP, CONVERT_PALETTE , $(PALETTE), g_palette ))
-$(eval $(call IMG2SP, CONVERT         , sprites/player.png , 8, 8, array, PALETTE, playerSprite))
+$(eval $(call IMG2SP, CONVERT         , sprites/player.png , 8,8 , playerSprite, PALETTE, playerSprite)) #8x16
 
 
+
+
+#Tiles
 $(eval $(call IMG2SP, SET_FOLDER      , src/mapa/               ))
 $(eval $(call IMG2SP, SET_IMG_FORMAT  , zgtiles            ))	
-$(eval $(call IMG2SP, CONVERT         , tiles.png , 8, 8, array, PALETTE2, tileset2))
+$(eval $(call IMG2SP, CONVERT         , tiles.png , 8, 8, tiles, PALETTE2, tiles))
 
 
 

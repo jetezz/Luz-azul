@@ -3,7 +3,11 @@
 #include "niveles/niveles.h"
 #include "constantes.h"
 #include "sprites/player.h"
-#define  Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 5, 5)
+#include "sprites/sprites.h"
+#define  Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
+
+
+
 
 
 TGameObject player;
@@ -13,10 +17,8 @@ TGameObject rocas[5];
 
 
 void game(){
-    //initGame();
-    //dibujarGameObject(&player);
-    cpct_drawSprite(playerSprite, Punto_Inicial_De_Pantalla, 4, 16); 
-
+    initGame();
+    dibujarGameObject(&player);    
     while(1){            
                     
     }

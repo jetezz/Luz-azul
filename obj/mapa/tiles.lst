@@ -8,95 +8,95 @@
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
-                             11 	.globl _array_87
-                             12 	.globl _array_86
-                             13 	.globl _array_85
-                             14 	.globl _array_84
-                             15 	.globl _array_83
-                             16 	.globl _array_82
-                             17 	.globl _array_81
-                             18 	.globl _array_80
-                             19 	.globl _array_79
-                             20 	.globl _array_78
-                             21 	.globl _array_77
-                             22 	.globl _array_76
-                             23 	.globl _array_75
-                             24 	.globl _array_74
-                             25 	.globl _array_73
-                             26 	.globl _array_72
-                             27 	.globl _array_71
-                             28 	.globl _array_70
-                             29 	.globl _array_69
-                             30 	.globl _array_68
-                             31 	.globl _array_67
-                             32 	.globl _array_66
-                             33 	.globl _array_65
-                             34 	.globl _array_64
-                             35 	.globl _array_63
-                             36 	.globl _array_62
-                             37 	.globl _array_61
-                             38 	.globl _array_60
-                             39 	.globl _array_59
-                             40 	.globl _array_58
-                             41 	.globl _array_57
-                             42 	.globl _array_56
-                             43 	.globl _array_55
-                             44 	.globl _array_54
-                             45 	.globl _array_53
-                             46 	.globl _array_52
-                             47 	.globl _array_51
-                             48 	.globl _array_50
-                             49 	.globl _array_49
-                             50 	.globl _array_48
-                             51 	.globl _array_47
-                             52 	.globl _array_46
-                             53 	.globl _array_45
-                             54 	.globl _array_44
-                             55 	.globl _array_43
-                             56 	.globl _array_42
-                             57 	.globl _array_41
-                             58 	.globl _array_40
-                             59 	.globl _array_39
-                             60 	.globl _array_38
-                             61 	.globl _array_37
-                             62 	.globl _array_36
-                             63 	.globl _array_35
-                             64 	.globl _array_34
-                             65 	.globl _array_33
-                             66 	.globl _array_32
-                             67 	.globl _array_31
-                             68 	.globl _array_30
-                             69 	.globl _array_29
-                             70 	.globl _array_28
-                             71 	.globl _array_27
-                             72 	.globl _array_26
-                             73 	.globl _array_25
-                             74 	.globl _array_24
-                             75 	.globl _array_23
-                             76 	.globl _array_22
-                             77 	.globl _array_21
-                             78 	.globl _array_20
-                             79 	.globl _array_19
-                             80 	.globl _array_18
-                             81 	.globl _array_17
-                             82 	.globl _array_16
-                             83 	.globl _array_15
-                             84 	.globl _array_14
-                             85 	.globl _array_13
-                             86 	.globl _array_12
-                             87 	.globl _array_11
-                             88 	.globl _array_10
-                             89 	.globl _array_09
-                             90 	.globl _array_08
-                             91 	.globl _array_07
-                             92 	.globl _array_06
-                             93 	.globl _array_05
-                             94 	.globl _array_04
-                             95 	.globl _array_03
-                             96 	.globl _array_02
-                             97 	.globl _array_01
-                             98 	.globl _array_00
-                             99 	.globl _tileset2
+                             11 	.globl _tiles_87
+                             12 	.globl _tiles_86
+                             13 	.globl _tiles_85
+                             14 	.globl _tiles_84
+                             15 	.globl _tiles_83
+                             16 	.globl _tiles_82
+                             17 	.globl _tiles_81
+                             18 	.globl _tiles_80
+                             19 	.globl _tiles_79
+                             20 	.globl _tiles_78
+                             21 	.globl _tiles_77
+                             22 	.globl _tiles_76
+                             23 	.globl _tiles_75
+                             24 	.globl _tiles_74
+                             25 	.globl _tiles_73
+                             26 	.globl _tiles_72
+                             27 	.globl _tiles_71
+                             28 	.globl _tiles_70
+                             29 	.globl _tiles_69
+                             30 	.globl _tiles_68
+                             31 	.globl _tiles_67
+                             32 	.globl _tiles_66
+                             33 	.globl _tiles_65
+                             34 	.globl _tiles_64
+                             35 	.globl _tiles_63
+                             36 	.globl _tiles_62
+                             37 	.globl _tiles_61
+                             38 	.globl _tiles_60
+                             39 	.globl _tiles_59
+                             40 	.globl _tiles_58
+                             41 	.globl _tiles_57
+                             42 	.globl _tiles_56
+                             43 	.globl _tiles_55
+                             44 	.globl _tiles_54
+                             45 	.globl _tiles_53
+                             46 	.globl _tiles_52
+                             47 	.globl _tiles_51
+                             48 	.globl _tiles_50
+                             49 	.globl _tiles_49
+                             50 	.globl _tiles_48
+                             51 	.globl _tiles_47
+                             52 	.globl _tiles_46
+                             53 	.globl _tiles_45
+                             54 	.globl _tiles_44
+                             55 	.globl _tiles_43
+                             56 	.globl _tiles_42
+                             57 	.globl _tiles_41
+                             58 	.globl _tiles_40
+                             59 	.globl _tiles_39
+                             60 	.globl _tiles_38
+                             61 	.globl _tiles_37
+                             62 	.globl _tiles_36
+                             63 	.globl _tiles_35
+                             64 	.globl _tiles_34
+                             65 	.globl _tiles_33
+                             66 	.globl _tiles_32
+                             67 	.globl _tiles_31
+                             68 	.globl _tiles_30
+                             69 	.globl _tiles_29
+                             70 	.globl _tiles_28
+                             71 	.globl _tiles_27
+                             72 	.globl _tiles_26
+                             73 	.globl _tiles_25
+                             74 	.globl _tiles_24
+                             75 	.globl _tiles_23
+                             76 	.globl _tiles_22
+                             77 	.globl _tiles_21
+                             78 	.globl _tiles_20
+                             79 	.globl _tiles_19
+                             80 	.globl _tiles_18
+                             81 	.globl _tiles_17
+                             82 	.globl _tiles_16
+                             83 	.globl _tiles_15
+                             84 	.globl _tiles_14
+                             85 	.globl _tiles_13
+                             86 	.globl _tiles_12
+                             87 	.globl _tiles_11
+                             88 	.globl _tiles_10
+                             89 	.globl _tiles_09
+                             90 	.globl _tiles_08
+                             91 	.globl _tiles_07
+                             92 	.globl _tiles_06
+                             93 	.globl _tiles_05
+                             94 	.globl _tiles_04
+                             95 	.globl _tiles_03
+                             96 	.globl _tiles_02
+                             97 	.globl _tiles_01
+                             98 	.globl _tiles_00
+                             99 	.globl _tiles
                             100 	.globl _PALETTE2
                             101 ;--------------------------------------------------------
                             102 ; special function registers
@@ -147,96 +147,96 @@
    000D 40                  147 	.db #0x40	; 64
    000E 4C                  148 	.db #0x4c	; 76	'L'
    000F 4B                  149 	.db #0x4b	; 75	'K'
-   0010                     150 _tileset2:
-   0010rC0r00               151 	.dw _array_00
-   0012rE0r00               152 	.dw _array_01
-   0014r00r01               153 	.dw _array_02
-   0016r20r01               154 	.dw _array_03
-   0018r40r01               155 	.dw _array_04
-   001Ar60r01               156 	.dw _array_05
-   001Cr80r01               157 	.dw _array_06
-   001ErA0r01               158 	.dw _array_07
-   0020rC0r01               159 	.dw _array_08
-   0022rE0r01               160 	.dw _array_09
-   0024r00r02               161 	.dw _array_10
-   0026r20r02               162 	.dw _array_11
-   0028r40r02               163 	.dw _array_12
-   002Ar60r02               164 	.dw _array_13
-   002Cr80r02               165 	.dw _array_14
-   002ErA0r02               166 	.dw _array_15
-   0030rC0r02               167 	.dw _array_16
-   0032rE0r02               168 	.dw _array_17
-   0034r00r03               169 	.dw _array_18
-   0036r20r03               170 	.dw _array_19
-   0038r40r03               171 	.dw _array_20
-   003Ar60r03               172 	.dw _array_21
-   003Cr80r03               173 	.dw _array_22
-   003ErA0r03               174 	.dw _array_23
-   0040rC0r03               175 	.dw _array_24
-   0042rE0r03               176 	.dw _array_25
-   0044r00r04               177 	.dw _array_26
-   0046r20r04               178 	.dw _array_27
-   0048r40r04               179 	.dw _array_28
-   004Ar60r04               180 	.dw _array_29
-   004Cr80r04               181 	.dw _array_30
-   004ErA0r04               182 	.dw _array_31
-   0050rC0r04               183 	.dw _array_32
-   0052rE0r04               184 	.dw _array_33
-   0054r00r05               185 	.dw _array_34
-   0056r20r05               186 	.dw _array_35
-   0058r40r05               187 	.dw _array_36
-   005Ar60r05               188 	.dw _array_37
-   005Cr80r05               189 	.dw _array_38
-   005ErA0r05               190 	.dw _array_39
-   0060rC0r05               191 	.dw _array_40
-   0062rE0r05               192 	.dw _array_41
-   0064r00r06               193 	.dw _array_42
-   0066r20r06               194 	.dw _array_43
-   0068r40r06               195 	.dw _array_44
-   006Ar60r06               196 	.dw _array_45
-   006Cr80r06               197 	.dw _array_46
-   006ErA0r06               198 	.dw _array_47
-   0070rC0r06               199 	.dw _array_48
-   0072rE0r06               200 	.dw _array_49
-   0074r00r07               201 	.dw _array_50
-   0076r20r07               202 	.dw _array_51
-   0078r40r07               203 	.dw _array_52
-   007Ar60r07               204 	.dw _array_53
-   007Cr80r07               205 	.dw _array_54
-   007ErA0r07               206 	.dw _array_55
-   0080rC0r07               207 	.dw _array_56
-   0082rE0r07               208 	.dw _array_57
-   0084r00r08               209 	.dw _array_58
-   0086r20r08               210 	.dw _array_59
-   0088r40r08               211 	.dw _array_60
-   008Ar60r08               212 	.dw _array_61
-   008Cr80r08               213 	.dw _array_62
-   008ErA0r08               214 	.dw _array_63
-   0090rC0r08               215 	.dw _array_64
-   0092rE0r08               216 	.dw _array_65
-   0094r00r09               217 	.dw _array_66
-   0096r20r09               218 	.dw _array_67
-   0098r40r09               219 	.dw _array_68
-   009Ar60r09               220 	.dw _array_69
-   009Cr80r09               221 	.dw _array_70
-   009ErA0r09               222 	.dw _array_71
-   00A0rC0r09               223 	.dw _array_72
-   00A2rE0r09               224 	.dw _array_73
-   00A4r00r0A               225 	.dw _array_74
-   00A6r20r0A               226 	.dw _array_75
-   00A8r40r0A               227 	.dw _array_76
-   00AAr60r0A               228 	.dw _array_77
-   00ACr80r0A               229 	.dw _array_78
-   00AErA0r0A               230 	.dw _array_79
-   00B0rC0r0A               231 	.dw _array_80
-   00B2rE0r0A               232 	.dw _array_81
-   00B4r00r0B               233 	.dw _array_82
-   00B6r20r0B               234 	.dw _array_83
-   00B8r40r0B               235 	.dw _array_84
-   00BAr60r0B               236 	.dw _array_85
-   00BCr80r0B               237 	.dw _array_86
-   00BErA0r0B               238 	.dw _array_87
-   00C0                     239 _array_00:
+   0010                     150 _tiles:
+   0010rC0r00               151 	.dw _tiles_00
+   0012rE0r00               152 	.dw _tiles_01
+   0014r00r01               153 	.dw _tiles_02
+   0016r20r01               154 	.dw _tiles_03
+   0018r40r01               155 	.dw _tiles_04
+   001Ar60r01               156 	.dw _tiles_05
+   001Cr80r01               157 	.dw _tiles_06
+   001ErA0r01               158 	.dw _tiles_07
+   0020rC0r01               159 	.dw _tiles_08
+   0022rE0r01               160 	.dw _tiles_09
+   0024r00r02               161 	.dw _tiles_10
+   0026r20r02               162 	.dw _tiles_11
+   0028r40r02               163 	.dw _tiles_12
+   002Ar60r02               164 	.dw _tiles_13
+   002Cr80r02               165 	.dw _tiles_14
+   002ErA0r02               166 	.dw _tiles_15
+   0030rC0r02               167 	.dw _tiles_16
+   0032rE0r02               168 	.dw _tiles_17
+   0034r00r03               169 	.dw _tiles_18
+   0036r20r03               170 	.dw _tiles_19
+   0038r40r03               171 	.dw _tiles_20
+   003Ar60r03               172 	.dw _tiles_21
+   003Cr80r03               173 	.dw _tiles_22
+   003ErA0r03               174 	.dw _tiles_23
+   0040rC0r03               175 	.dw _tiles_24
+   0042rE0r03               176 	.dw _tiles_25
+   0044r00r04               177 	.dw _tiles_26
+   0046r20r04               178 	.dw _tiles_27
+   0048r40r04               179 	.dw _tiles_28
+   004Ar60r04               180 	.dw _tiles_29
+   004Cr80r04               181 	.dw _tiles_30
+   004ErA0r04               182 	.dw _tiles_31
+   0050rC0r04               183 	.dw _tiles_32
+   0052rE0r04               184 	.dw _tiles_33
+   0054r00r05               185 	.dw _tiles_34
+   0056r20r05               186 	.dw _tiles_35
+   0058r40r05               187 	.dw _tiles_36
+   005Ar60r05               188 	.dw _tiles_37
+   005Cr80r05               189 	.dw _tiles_38
+   005ErA0r05               190 	.dw _tiles_39
+   0060rC0r05               191 	.dw _tiles_40
+   0062rE0r05               192 	.dw _tiles_41
+   0064r00r06               193 	.dw _tiles_42
+   0066r20r06               194 	.dw _tiles_43
+   0068r40r06               195 	.dw _tiles_44
+   006Ar60r06               196 	.dw _tiles_45
+   006Cr80r06               197 	.dw _tiles_46
+   006ErA0r06               198 	.dw _tiles_47
+   0070rC0r06               199 	.dw _tiles_48
+   0072rE0r06               200 	.dw _tiles_49
+   0074r00r07               201 	.dw _tiles_50
+   0076r20r07               202 	.dw _tiles_51
+   0078r40r07               203 	.dw _tiles_52
+   007Ar60r07               204 	.dw _tiles_53
+   007Cr80r07               205 	.dw _tiles_54
+   007ErA0r07               206 	.dw _tiles_55
+   0080rC0r07               207 	.dw _tiles_56
+   0082rE0r07               208 	.dw _tiles_57
+   0084r00r08               209 	.dw _tiles_58
+   0086r20r08               210 	.dw _tiles_59
+   0088r40r08               211 	.dw _tiles_60
+   008Ar60r08               212 	.dw _tiles_61
+   008Cr80r08               213 	.dw _tiles_62
+   008ErA0r08               214 	.dw _tiles_63
+   0090rC0r08               215 	.dw _tiles_64
+   0092rE0r08               216 	.dw _tiles_65
+   0094r00r09               217 	.dw _tiles_66
+   0096r20r09               218 	.dw _tiles_67
+   0098r40r09               219 	.dw _tiles_68
+   009Ar60r09               220 	.dw _tiles_69
+   009Cr80r09               221 	.dw _tiles_70
+   009ErA0r09               222 	.dw _tiles_71
+   00A0rC0r09               223 	.dw _tiles_72
+   00A2rE0r09               224 	.dw _tiles_73
+   00A4r00r0A               225 	.dw _tiles_74
+   00A6r20r0A               226 	.dw _tiles_75
+   00A8r40r0A               227 	.dw _tiles_76
+   00AAr60r0A               228 	.dw _tiles_77
+   00ACr80r0A               229 	.dw _tiles_78
+   00AErA0r0A               230 	.dw _tiles_79
+   00B0rC0r0A               231 	.dw _tiles_80
+   00B2rE0r0A               232 	.dw _tiles_81
+   00B4r00r0B               233 	.dw _tiles_82
+   00B6r20r0B               234 	.dw _tiles_83
+   00B8r40r0B               235 	.dw _tiles_84
+   00BAr60r0B               236 	.dw _tiles_85
+   00BCr80r0B               237 	.dw _tiles_86
+   00BErA0r0B               238 	.dw _tiles_87
+   00C0                     239 _tiles_00:
    00C0 00                  240 	.db #0x00	; 0
    00C1 00                  241 	.db #0x00	; 0
    00C2 00                  242 	.db #0x00	; 0
@@ -269,7 +269,7 @@
    00DD 3C                  269 	.db #0x3c	; 60
    00DE 1C                  270 	.db #0x1c	; 28
    00DF 04                  271 	.db #0x04	; 4
-   00E0                     272 _array_01:
+   00E0                     272 _tiles_01:
    00E0 00                  273 	.db #0x00	; 0
    00E1 00                  274 	.db #0x00	; 0
    00E2 00                  275 	.db #0x00	; 0
@@ -302,7 +302,7 @@
    00FD 3C                  302 	.db #0x3c	; 60
    00FE 3C                  303 	.db #0x3c	; 60
    00FF 3C                  304 	.db #0x3c	; 60
-   0100                     305 _array_02:
+   0100                     305 _tiles_02:
    0100 00                  306 	.db #0x00	; 0
    0101 00                  307 	.db #0x00	; 0
    0102 00                  308 	.db #0x00	; 0
@@ -335,7 +335,7 @@
    011D 3C                  335 	.db #0x3c	; 60
    011E 3C                  336 	.db #0x3c	; 60
    011F 3C                  337 	.db #0x3c	; 60
-   0120                     338 _array_03:
+   0120                     338 _tiles_03:
    0120 00                  339 	.db #0x00	; 0
    0121 00                  340 	.db #0x00	; 0
    0122 00                  341 	.db #0x00	; 0
@@ -368,7 +368,7 @@
    013D 0C                  368 	.db #0x0c	; 12
    013E 2C                  369 	.db #0x2c	; 44
    013F 3C                  370 	.db #0x3c	; 60
-   0140                     371 _array_04:
+   0140                     371 _tiles_04:
    0140 00                  372 	.db #0x00	; 0
    0141 00                  373 	.db #0x00	; 0
    0142 00                  374 	.db #0x00	; 0
@@ -401,7 +401,7 @@
    015D 00                  401 	.db #0x00	; 0
    015E 00                  402 	.db #0x00	; 0
    015F 00                  403 	.db #0x00	; 0
-   0160                     404 _array_05:
+   0160                     404 _tiles_05:
    0160 00                  405 	.db #0x00	; 0
    0161 00                  406 	.db #0x00	; 0
    0162 00                  407 	.db #0x00	; 0
@@ -434,7 +434,7 @@
    017D 00                  434 	.db #0x00	; 0
    017E 00                  435 	.db #0x00	; 0
    017F 00                  436 	.db #0x00	; 0
-   0180                     437 _array_06:
+   0180                     437 _tiles_06:
    0180 00                  438 	.db #0x00	; 0
    0181 00                  439 	.db #0x00	; 0
    0182 00                  440 	.db #0x00	; 0
@@ -467,7 +467,7 @@
    019D 00                  467 	.db #0x00	; 0
    019E 00                  468 	.db #0x00	; 0
    019F 00                  469 	.db #0x00	; 0
-   01A0                     470 _array_07:
+   01A0                     470 _tiles_07:
    01A0 00                  471 	.db #0x00	; 0
    01A1 00                  472 	.db #0x00	; 0
    01A2 00                  473 	.db #0x00	; 0
@@ -500,7 +500,7 @@
    01BD 00                  500 	.db #0x00	; 0
    01BE 00                  501 	.db #0x00	; 0
    01BF 00                  502 	.db #0x00	; 0
-   01C0                     503 _array_08:
+   01C0                     503 _tiles_08:
    01C0 3F                  504 	.db #0x3f	; 63
    01C1 3F                  505 	.db #0x3f	; 63
    01C2 3F                  506 	.db #0x3f	; 63
@@ -533,7 +533,7 @@
    01DD 3F                  533 	.db #0x3f	; 63
    01DE 3F                  534 	.db #0x3f	; 63
    01DF 3F                  535 	.db #0x3f	; 63
-   01E0                     536 _array_09:
+   01E0                     536 _tiles_09:
    01E0 00                  537 	.db #0x00	; 0
    01E1 00                  538 	.db #0x00	; 0
    01E2 00                  539 	.db #0x00	; 0
@@ -566,7 +566,7 @@
    01FD 00                  566 	.db #0x00	; 0
    01FE 00                  567 	.db #0x00	; 0
    01FF 00                  568 	.db #0x00	; 0
-   0200                     569 _array_10:
+   0200                     569 _tiles_10:
    0200 00                  570 	.db #0x00	; 0
    0201 00                  571 	.db #0x00	; 0
    0202 00                  572 	.db #0x00	; 0
@@ -599,7 +599,7 @@
    021D 1C                  599 	.db #0x1c	; 28
    021E 0C                  600 	.db #0x0c	; 12
    021F 00                  601 	.db #0x00	; 0
-   0220                     602 _array_11:
+   0220                     602 _tiles_11:
    0220 04                  603 	.db #0x04	; 4
    0221 1C                  604 	.db #0x1c	; 28
    0222 14                  605 	.db #0x14	; 20
@@ -632,7 +632,7 @@
    023D 20                  632 	.db #0x20	; 32
    023E 1C                  633 	.db #0x1c	; 28
    023F 04                  634 	.db #0x04	; 4
-   0240                     635 _array_12:
+   0240                     635 _tiles_12:
    0240 0C                  636 	.db #0x0c	; 12
    0241 0C                  637 	.db #0x0c	; 12
    0242 0C                  638 	.db #0x0c	; 12
@@ -665,7 +665,7 @@
    025D 3C                  665 	.db #0x3c	; 60
    025E 3C                  666 	.db #0x3c	; 60
    025F 3C                  667 	.db #0x3c	; 60
-   0260                     668 _array_13:
+   0260                     668 _tiles_13:
    0260 0C                  669 	.db #0x0c	; 12
    0261 2C                  670 	.db #0x2c	; 44
    0262 3C                  671 	.db #0x3c	; 60
@@ -698,7 +698,7 @@
    027D 3C                  698 	.db #0x3c	; 60
    027E 2C                  699 	.db #0x2c	; 44
    027F 3C                  700 	.db #0x3c	; 60
-   0280                     701 _array_14:
+   0280                     701 _tiles_14:
    0280 3C                  702 	.db #0x3c	; 60
    0281 3C                  703 	.db #0x3c	; 60
    0282 3C                  704 	.db #0x3c	; 60
@@ -731,7 +731,7 @@
    029D 3C                  731 	.db #0x3c	; 60
    029E 2C                  732 	.db #0x2c	; 44
    029F 3C                  733 	.db #0x3c	; 60
-   02A0                     734 _array_15:
+   02A0                     734 _tiles_15:
    02A0 0C                  735 	.db #0x0c	; 12
    02A1 0C                  736 	.db #0x0c	; 12
    02A2 0C                  737 	.db #0x0c	; 12
@@ -764,7 +764,7 @@
    02BD 3C                  764 	.db #0x3c	; 60
    02BE 3C                  765 	.db #0x3c	; 60
    02BF 3C                  766 	.db #0x3c	; 60
-   02C0                     767 _array_16:
+   02C0                     767 _tiles_16:
    02C0 0C                  768 	.db #0x0c	; 12
    02C1 0C                  769 	.db #0x0c	; 12
    02C2 0C                  770 	.db #0x0c	; 12
@@ -797,7 +797,7 @@
    02DD 3C                  797 	.db #0x3c	; 60
    02DE 3C                  798 	.db #0x3c	; 60
    02DF 3C                  799 	.db #0x3c	; 60
-   02E0                     800 _array_17:
+   02E0                     800 _tiles_17:
    02E0 0C                  801 	.db #0x0c	; 12
    02E1 0C                  802 	.db #0x0c	; 12
    02E2 1C                  803 	.db #0x1c	; 28
@@ -830,7 +830,7 @@
    02FD 2C                  830 	.db #0x2c	; 44
    02FE 3C                  831 	.db #0x3c	; 60
    02FF 3C                  832 	.db #0x3c	; 60
-   0300                     833 _array_18:
+   0300                     833 _tiles_18:
    0300 3C                  834 	.db #0x3c	; 60
    0301 2C                  835 	.db #0x2c	; 44
    0302 0C                  836 	.db #0x0c	; 12
@@ -863,7 +863,7 @@
    031D 3C                  863 	.db #0x3c	; 60
    031E 1C                  864 	.db #0x1c	; 28
    031F 34                  865 	.db #0x34	; 52	'4'
-   0320                     866 _array_19:
+   0320                     866 _tiles_19:
    0320 0C                  867 	.db #0x0c	; 12
    0321 0C                  868 	.db #0x0c	; 12
    0322 0C                  869 	.db #0x0c	; 12
@@ -896,7 +896,7 @@
    033D 3C                  896 	.db #0x3c	; 60
    033E 3C                  897 	.db #0x3c	; 60
    033F 3C                  898 	.db #0x3c	; 60
-   0340                     899 _array_20:
+   0340                     899 _tiles_20:
    0340 0C                  900 	.db #0x0c	; 12
    0341 0C                  901 	.db #0x0c	; 12
    0342 0C                  902 	.db #0x0c	; 12
@@ -929,7 +929,7 @@
    035D 3C                  929 	.db #0x3c	; 60
    035E 3C                  930 	.db #0x3c	; 60
    035F 3C                  931 	.db #0x3c	; 60
-   0360                     932 _array_21:
+   0360                     932 _tiles_21:
    0360 1C                  933 	.db #0x1c	; 28
    0361 3C                  934 	.db #0x3c	; 60
    0362 3C                  935 	.db #0x3c	; 60
@@ -962,7 +962,7 @@
    037D 1C                  962 	.db #0x1c	; 28
    037E 3C                  963 	.db #0x3c	; 60
    037F 3C                  964 	.db #0x3c	; 60
-   0380                     965 _array_22:
+   0380                     965 _tiles_22:
    0380 04                  966 	.db #0x04	; 4
    0381 1C                  967 	.db #0x1c	; 28
    0382 BA                  968 	.db #0xba	; 186
@@ -995,7 +995,7 @@
    039D 64                  995 	.db #0x64	; 100	'd'
    039E 1C                  996 	.db #0x1c	; 28
    039F 04                  997 	.db #0x04	; 4
-   03A0                     998 _array_23:
+   03A0                     998 _tiles_23:
    03A0 3C                  999 	.db #0x3c	; 60
    03A1 3C                 1000 	.db #0x3c	; 60
    03A2 3C                 1001 	.db #0x3c	; 60
@@ -1028,7 +1028,7 @@
    03BD 3F                 1028 	.db #0x3f	; 63
    03BE 2E                 1029 	.db #0x2e	; 46
    03BF 2E                 1030 	.db #0x2e	; 46
-   03C0                    1031 _array_24:
+   03C0                    1031 _tiles_24:
    03C0 3C                 1032 	.db #0x3c	; 60
    03C1 3C                 1033 	.db #0x3c	; 60
    03C2 3C                 1034 	.db #0x3c	; 60
@@ -1061,7 +1061,7 @@
    03DD 2E                 1061 	.db #0x2e	; 46
    03DE 3F                 1062 	.db #0x3f	; 63
    03DF 3F                 1063 	.db #0x3f	; 63
-   03E0                    1064 _array_25:
+   03E0                    1064 _tiles_25:
    03E0 3C                 1065 	.db #0x3c	; 60
    03E1 3C                 1066 	.db #0x3c	; 60
    03E2 3C                 1067 	.db #0x3c	; 60
@@ -1094,7 +1094,7 @@
    03FD 3F                 1094 	.db #0x3f	; 63
    03FE 2E                 1095 	.db #0x2e	; 46
    03FF 2E                 1096 	.db #0x2e	; 46
-   0400                    1097 _array_26:
+   0400                    1097 _tiles_26:
    0400 3C                 1098 	.db #0x3c	; 60
    0401 3C                 1099 	.db #0x3c	; 60
    0402 3C                 1100 	.db #0x3c	; 60
@@ -1127,7 +1127,7 @@
    041D 2E                 1127 	.db #0x2e	; 46
    041E 3F                 1128 	.db #0x3f	; 63
    041F 3F                 1129 	.db #0x3f	; 63
-   0420                    1130 _array_27:
+   0420                    1130 _tiles_27:
    0420 3C                 1131 	.db #0x3c	; 60
    0421 3C                 1132 	.db #0x3c	; 60
    0422 3C                 1133 	.db #0x3c	; 60
@@ -1160,7 +1160,7 @@
    043D 3F                 1160 	.db #0x3f	; 63
    043E 2E                 1161 	.db #0x2e	; 46
    043F 2E                 1162 	.db #0x2e	; 46
-   0440                    1163 _array_28:
+   0440                    1163 _tiles_28:
    0440 3C                 1164 	.db #0x3c	; 60
    0441 3C                 1165 	.db #0x3c	; 60
    0442 28                 1166 	.db #0x28	; 40
@@ -1193,7 +1193,7 @@
    045D 3F                 1193 	.db #0x3f	; 63
    045E 3F                 1194 	.db #0x3f	; 63
    045F 3F                 1195 	.db #0x3f	; 63
-   0460                    1196 _array_29:
+   0460                    1196 _tiles_29:
    0460 BA                 1197 	.db #0xba	; 186
    0461 14                 1198 	.db #0x14	; 20
    0462 3C                 1199 	.db #0x3c	; 60
@@ -1226,7 +1226,7 @@
    047D 3F                 1226 	.db #0x3f	; 63
    047E 3F                 1227 	.db #0x3f	; 63
    047F BA                 1228 	.db #0xba	; 186
-   0480                    1229 _array_30:
+   0480                    1229 _tiles_30:
    0480 00                 1230 	.db #0x00	; 0
    0481 00                 1231 	.db #0x00	; 0
    0482 00                 1232 	.db #0x00	; 0
@@ -1259,7 +1259,7 @@
    049D 3C                 1259 	.db #0x3c	; 60
    049E 3C                 1260 	.db #0x3c	; 60
    049F 3C                 1261 	.db #0x3c	; 60
-   04A0                    1262 _array_31:
+   04A0                    1262 _tiles_31:
    04A0 00                 1263 	.db #0x00	; 0
    04A1 00                 1264 	.db #0x00	; 0
    04A2 00                 1265 	.db #0x00	; 0
@@ -1292,7 +1292,7 @@
    04BD 2C                 1292 	.db #0x2c	; 44
    04BE 3C                 1293 	.db #0x3c	; 60
    04BF 3C                 1294 	.db #0x3c	; 60
-   04C0                    1295 _array_32:
+   04C0                    1295 _tiles_32:
    04C0 3C                 1296 	.db #0x3c	; 60
    04C1 75                 1297 	.db #0x75	; 117	'u'
    04C2 2C                 1298 	.db #0x2c	; 44
@@ -1325,7 +1325,7 @@
    04DD 2C                 1325 	.db #0x2c	; 44
    04DE 98                 1326 	.db #0x98	; 152
    04DF 3C                 1327 	.db #0x3c	; 60
-   04E0                    1328 _array_33:
+   04E0                    1328 _tiles_33:
    04E0 1C                 1329 	.db #0x1c	; 28
    04E1 3F                 1330 	.db #0x3f	; 63
    04E2 3F                 1331 	.db #0x3f	; 63
@@ -1358,7 +1358,7 @@
    04FD 3F                 1358 	.db #0x3f	; 63
    04FE 3F                 1359 	.db #0x3f	; 63
    04FF 64                 1360 	.db #0x64	; 100	'd'
-   0500                    1361 _array_34:
+   0500                    1361 _tiles_34:
    0500 0C                 1362 	.db #0x0c	; 12
    0501 2E                 1363 	.db #0x2e	; 46
    0502 1D                 1364 	.db #0x1d	; 29
@@ -1391,7 +1391,7 @@
    051D 3F                 1391 	.db #0x3f	; 63
    051E 3F                 1392 	.db #0x3f	; 63
    051F 3F                 1393 	.db #0x3f	; 63
-   0520                    1394 _array_35:
+   0520                    1394 _tiles_35:
    0520 04                 1395 	.db #0x04	; 4
    0521 0C                 1396 	.db #0x0c	; 12
    0522 14                 1397 	.db #0x14	; 20
@@ -1424,7 +1424,7 @@
    053D 3F                 1424 	.db #0x3f	; 63
    053E 3F                 1425 	.db #0x3f	; 63
    053F 64                 1426 	.db #0x64	; 100	'd'
-   0540                    1427 _array_36:
+   0540                    1427 _tiles_36:
    0540 3F                 1428 	.db #0x3f	; 63
    0541 3F                 1429 	.db #0x3f	; 63
    0542 3F                 1430 	.db #0x3f	; 63
@@ -1457,7 +1457,7 @@
    055D 3F                 1457 	.db #0x3f	; 63
    055E 2E                 1458 	.db #0x2e	; 46
    055F 2E                 1459 	.db #0x2e	; 46
-   0560                    1460 _array_37:
+   0560                    1460 _tiles_37:
    0560 3F                 1461 	.db #0x3f	; 63
    0561 3F                 1462 	.db #0x3f	; 63
    0562 3F                 1463 	.db #0x3f	; 63
@@ -1490,7 +1490,7 @@
    057D 3F                 1490 	.db #0x3f	; 63
    057E 2E                 1491 	.db #0x2e	; 46
    057F 2E                 1492 	.db #0x2e	; 46
-   0580                    1493 _array_38:
+   0580                    1493 _tiles_38:
    0580 BA                 1494 	.db #0xba	; 186
    0581 3F                 1495 	.db #0x3f	; 63
    0582 3F                 1496 	.db #0x3f	; 63
@@ -1523,7 +1523,7 @@
    059D 2E                 1523 	.db #0x2e	; 46
    059E 3F                 1524 	.db #0x3f	; 63
    059F BA                 1525 	.db #0xba	; 186
-   05A0                    1526 _array_39:
+   05A0                    1526 _tiles_39:
    05A0 3C                 1527 	.db #0x3c	; 60
    05A1 28                 1528 	.db #0x28	; 40
    05A2 0C                 1529 	.db #0x0c	; 12
@@ -1556,7 +1556,7 @@
    05BD 3F                 1556 	.db #0x3f	; 63
    05BE 3F                 1557 	.db #0x3f	; 63
    05BF 3F                 1558 	.db #0x3f	; 63
-   05C0                    1559 _array_40:
+   05C0                    1559 _tiles_40:
    05C0 3C                 1560 	.db #0x3c	; 60
    05C1 3C                 1561 	.db #0x3c	; 60
    05C2 3C                 1562 	.db #0x3c	; 60
@@ -1589,7 +1589,7 @@
    05DD 2E                 1589 	.db #0x2e	; 46
    05DE 3F                 1590 	.db #0x3f	; 63
    05DF 3F                 1591 	.db #0x3f	; 63
-   05E0                    1592 _array_41:
+   05E0                    1592 _tiles_41:
    05E0 0C                 1593 	.db #0x0c	; 12
    05E1 0C                 1594 	.db #0x0c	; 12
    05E2 0C                 1595 	.db #0x0c	; 12
@@ -1622,7 +1622,7 @@
    05FD 3C                 1622 	.db #0x3c	; 60
    05FE 3C                 1623 	.db #0x3c	; 60
    05FF 3C                 1624 	.db #0x3c	; 60
-   0600                    1625 _array_42:
+   0600                    1625 _tiles_42:
    0600 0C                 1626 	.db #0x0c	; 12
    0601 28                 1627 	.db #0x28	; 40
    0602 2C                 1628 	.db #0x2c	; 44
@@ -1655,7 +1655,7 @@
    061D 2C                 1655 	.db #0x2c	; 44
    061E 10                 1656 	.db #0x10	; 16
    061F 00                 1657 	.db #0x00	; 0
-   0620                    1658 _array_43:
+   0620                    1658 _tiles_43:
    0620 00                 1659 	.db #0x00	; 0
    0621 00                 1660 	.db #0x00	; 0
    0622 00                 1661 	.db #0x00	; 0
@@ -1688,7 +1688,7 @@
    063D 3C                 1688 	.db #0x3c	; 60
    063E 3C                 1689 	.db #0x3c	; 60
    063F 3C                 1690 	.db #0x3c	; 60
-   0640                    1691 _array_44:
+   0640                    1691 _tiles_44:
    0640 3F                 1692 	.db #0x3f	; 63
    0641 3F                 1693 	.db #0x3f	; 63
    0642 3F                 1694 	.db #0x3f	; 63
@@ -1721,7 +1721,7 @@
    065D 3F                 1721 	.db #0x3f	; 63
    065E 3F                 1722 	.db #0x3f	; 63
    065F 3F                 1723 	.db #0x3f	; 63
-   0660                    1724 _array_45:
+   0660                    1724 _tiles_45:
    0660 3F                 1725 	.db #0x3f	; 63
    0661 3F                 1726 	.db #0x3f	; 63
    0662 3F                 1727 	.db #0x3f	; 63
@@ -1754,7 +1754,7 @@
    067D 3F                 1754 	.db #0x3f	; 63
    067E 3F                 1755 	.db #0x3f	; 63
    067F 3F                 1756 	.db #0x3f	; 63
-   0680                    1757 _array_46:
+   0680                    1757 _tiles_46:
    0680 64                 1758 	.db #0x64	; 100	'd'
    0681 3F                 1759 	.db #0x3f	; 63
    0682 3F                 1760 	.db #0x3f	; 63
@@ -1787,7 +1787,7 @@
    069D 3C                 1787 	.db #0x3c	; 60
    069E 3C                 1788 	.db #0x3c	; 60
    069F 3C                 1789 	.db #0x3c	; 60
-   06A0                    1790 _array_47:
+   06A0                    1790 _tiles_47:
    06A0 3F                 1791 	.db #0x3f	; 63
    06A1 3F                 1792 	.db #0x3f	; 63
    06A2 3F                 1793 	.db #0x3f	; 63
@@ -1820,7 +1820,7 @@
    06BD 2E                 1820 	.db #0x2e	; 46
    06BE 3F                 1821 	.db #0x3f	; 63
    06BF 3F                 1822 	.db #0x3f	; 63
-   06C0                    1823 _array_48:
+   06C0                    1823 _tiles_48:
    06C0 3F                 1824 	.db #0x3f	; 63
    06C1 3F                 1825 	.db #0x3f	; 63
    06C2 3F                 1826 	.db #0x3f	; 63
@@ -1853,7 +1853,7 @@
    06DD 3F                 1853 	.db #0x3f	; 63
    06DE 3F                 1854 	.db #0x3f	; 63
    06DF 3F                 1855 	.db #0x3f	; 63
-   06E0                    1856 _array_49:
+   06E0                    1856 _tiles_49:
    06E0 FA                 1857 	.db #0xfa	; 250
    06E1 3F                 1858 	.db #0x3f	; 63
    06E2 3F                 1859 	.db #0x3f	; 63
@@ -1886,7 +1886,7 @@
    06FD 3F                 1886 	.db #0x3f	; 63
    06FE 3F                 1887 	.db #0x3f	; 63
    06FF FA                 1888 	.db #0xfa	; 250
-   0700                    1889 _array_50:
+   0700                    1889 _tiles_50:
    0700 3F                 1890 	.db #0x3f	; 63
    0701 3F                 1891 	.db #0x3f	; 63
    0702 3F                 1892 	.db #0x3f	; 63
@@ -1919,7 +1919,7 @@
    071D 3C                 1919 	.db #0x3c	; 60
    071E 3C                 1920 	.db #0x3c	; 60
    071F 3C                 1921 	.db #0x3c	; 60
-   0720                    1922 _array_51:
+   0720                    1922 _tiles_51:
    0720 3F                 1923 	.db #0x3f	; 63
    0721 3F                 1924 	.db #0x3f	; 63
    0722 3F                 1925 	.db #0x3f	; 63
@@ -1952,7 +1952,7 @@
    073D 3C                 1952 	.db #0x3c	; 60
    073E 3C                 1953 	.db #0x3c	; 60
    073F 3E                 1954 	.db #0x3e	; 62
-   0740                    1955 _array_52:
+   0740                    1955 _tiles_52:
    0740 00                 1956 	.db #0x00	; 0
    0741 00                 1957 	.db #0x00	; 0
    0742 00                 1958 	.db #0x00	; 0
@@ -1985,7 +1985,7 @@
    075D 3C                 1985 	.db #0x3c	; 60
    075E 3C                 1986 	.db #0x3c	; 60
    075F 3C                 1987 	.db #0x3c	; 60
-   0760                    1988 _array_53:
+   0760                    1988 _tiles_53:
    0760 00                 1989 	.db #0x00	; 0
    0761 10                 1990 	.db #0x10	; 16
    0762 2C                 1991 	.db #0x2c	; 44
@@ -2018,7 +2018,7 @@
    077D 2C                 2018 	.db #0x2c	; 44
    077E 00                 2019 	.db #0x00	; 0
    077F 00                 2020 	.db #0x00	; 0
-   0780                    2021 _array_54:
+   0780                    2021 _tiles_54:
    0780 3C                 2022 	.db #0x3c	; 60
    0781 3C                 2023 	.db #0x3c	; 60
    0782 1C                 2024 	.db #0x1c	; 28
@@ -2051,7 +2051,7 @@
    079D 1C                 2051 	.db #0x1c	; 28
    079E 3C                 2052 	.db #0x3c	; 60
    079F 3C                 2053 	.db #0x3c	; 60
-   07A0                    2054 _array_55:
+   07A0                    2054 _tiles_55:
    07A0 04                 2055 	.db #0x04	; 4
    07A1 1C                 2056 	.db #0x1c	; 28
    07A2 64                 2057 	.db #0x64	; 100	'd'
@@ -2084,7 +2084,7 @@
    07BD BA                 2084 	.db #0xba	; 186
    07BE 1C                 2085 	.db #0x1c	; 28
    07BF 04                 2086 	.db #0x04	; 4
-   07C0                    2087 _array_56:
+   07C0                    2087 _tiles_56:
    07C0 2E                 2088 	.db #0x2e	; 46
    07C1 2E                 2089 	.db #0x2e	; 46
    07C2 3F                 2090 	.db #0x3f	; 63
@@ -2117,7 +2117,7 @@
    07DD 3C                 2117 	.db #0x3c	; 60
    07DE 3C                 2118 	.db #0x3c	; 60
    07DF 3C                 2119 	.db #0x3c	; 60
-   07E0                    2120 _array_57:
+   07E0                    2120 _tiles_57:
    07E0 3F                 2121 	.db #0x3f	; 63
    07E1 3F                 2122 	.db #0x3f	; 63
    07E2 3F                 2123 	.db #0x3f	; 63
@@ -2150,7 +2150,7 @@
    07FD 3C                 2150 	.db #0x3c	; 60
    07FE 3C                 2151 	.db #0x3c	; 60
    07FF 3C                 2152 	.db #0x3c	; 60
-   0800                    2153 _array_58:
+   0800                    2153 _tiles_58:
    0800 3F                 2154 	.db #0x3f	; 63
    0801 3F                 2155 	.db #0x3f	; 63
    0802 3F                 2156 	.db #0x3f	; 63
@@ -2183,7 +2183,7 @@
    081D 3C                 2183 	.db #0x3c	; 60
    081E 3C                 2184 	.db #0x3c	; 60
    081F 3C                 2185 	.db #0x3c	; 60
-   0820                    2186 _array_59:
+   0820                    2186 _tiles_59:
    0820 3F                 2187 	.db #0x3f	; 63
    0821 3F                 2188 	.db #0x3f	; 63
    0822 3F                 2189 	.db #0x3f	; 63
@@ -2216,7 +2216,7 @@
    083D 3F                 2216 	.db #0x3f	; 63
    083E 3F                 2217 	.db #0x3f	; 63
    083F 3F                 2218 	.db #0x3f	; 63
-   0840                    2219 _array_60:
+   0840                    2219 _tiles_60:
    0840 3F                 2220 	.db #0x3f	; 63
    0841 3F                 2221 	.db #0x3f	; 63
    0842 3F                 2222 	.db #0x3f	; 63
@@ -2249,7 +2249,7 @@
    085D 3F                 2249 	.db #0x3f	; 63
    085E 3F                 2250 	.db #0x3f	; 63
    085F 3F                 2251 	.db #0x3f	; 63
-   0860                    2252 _array_61:
+   0860                    2252 _tiles_61:
    0860 3F                 2253 	.db #0x3f	; 63
    0861 3F                 2254 	.db #0x3f	; 63
    0862 3F                 2255 	.db #0x3f	; 63
@@ -2282,7 +2282,7 @@
    087D 3C                 2282 	.db #0x3c	; 60
    087E 3F                 2283 	.db #0x3f	; 63
    087F 3F                 2284 	.db #0x3f	; 63
-   0880                    2285 _array_62:
+   0880                    2285 _tiles_62:
    0880 BA                 2286 	.db #0xba	; 186
    0881 3F                 2287 	.db #0x3f	; 63
    0882 3F                 2288 	.db #0x3f	; 63
@@ -2315,7 +2315,7 @@
    089D 3F                 2315 	.db #0x3f	; 63
    089E 3C                 2316 	.db #0x3c	; 60
    089F BA                 2317 	.db #0xba	; 186
-   08A0                    2318 _array_63:
+   08A0                    2318 _tiles_63:
    08A0 3C                 2319 	.db #0x3c	; 60
    08A1 3C                 2320 	.db #0x3c	; 60
    08A2 3C                 2321 	.db #0x3c	; 60
@@ -2348,7 +2348,7 @@
    08BD 0C                 2348 	.db #0x0c	; 12
    08BE 0C                 2349 	.db #0x0c	; 12
    08BF 0C                 2350 	.db #0x0c	; 12
-   08C0                    2351 _array_64:
+   08C0                    2351 _tiles_64:
    08C0 3C                 2352 	.db #0x3c	; 60
    08C1 00                 2353 	.db #0x00	; 0
    08C2 2C                 2354 	.db #0x2c	; 44
@@ -2381,7 +2381,7 @@
    08DD 0C                 2381 	.db #0x0c	; 12
    08DE 0C                 2382 	.db #0x0c	; 12
    08DF 0C                 2383 	.db #0x0c	; 12
-   08E0                    2384 _array_65:
+   08E0                    2384 _tiles_65:
    08E0 3C                 2385 	.db #0x3c	; 60
    08E1 98                 2386 	.db #0x98	; 152
    08E2 2C                 2387 	.db #0x2c	; 44
@@ -2414,7 +2414,7 @@
    08FD 2C                 2414 	.db #0x2c	; 44
    08FE 75                 2415 	.db #0x75	; 117	'u'
    08FF 3C                 2416 	.db #0x3c	; 60
-   0900                    2417 _array_66:
+   0900                    2417 _tiles_66:
    0900 04                 2418 	.db #0x04	; 4
    0901 1C                 2419 	.db #0x1c	; 28
    0902 20                 2420 	.db #0x20	; 32
@@ -2447,7 +2447,7 @@
    091D 00                 2447 	.db #0x00	; 0
    091E 1C                 2448 	.db #0x1c	; 28
    091F 04                 2449 	.db #0x04	; 4
-   0920                    2450 _array_67:
+   0920                    2450 _tiles_67:
    0920 00                 2451 	.db #0x00	; 0
    0921 00                 2452 	.db #0x00	; 0
    0922 00                 2453 	.db #0x00	; 0
@@ -2480,7 +2480,7 @@
    093D 3C                 2480 	.db #0x3c	; 60
    093E 3C                 2481 	.db #0x3c	; 60
    093F 3C                 2482 	.db #0x3c	; 60
-   0940                    2483 _array_68:
+   0940                    2483 _tiles_68:
    0940 00                 2484 	.db #0x00	; 0
    0941 00                 2485 	.db #0x00	; 0
    0942 00                 2486 	.db #0x00	; 0
@@ -2513,7 +2513,7 @@
    095D 0C                 2513 	.db #0x0c	; 12
    095E 1C                 2514 	.db #0x1c	; 28
    095F 3C                 2515 	.db #0x3c	; 60
-   0960                    2516 _array_69:
+   0960                    2516 _tiles_69:
    0960 00                 2517 	.db #0x00	; 0
    0961 00                 2518 	.db #0x00	; 0
    0962 00                 2519 	.db #0x00	; 0
@@ -2546,7 +2546,7 @@
    097D 2C                 2546 	.db #0x2c	; 44
    097E 2C                 2547 	.db #0x2c	; 44
    097F 0C                 2548 	.db #0x0c	; 12
-   0980                    2549 _array_70:
+   0980                    2549 _tiles_70:
    0980 00                 2550 	.db #0x00	; 0
    0981 00                 2551 	.db #0x00	; 0
    0982 00                 2552 	.db #0x00	; 0
@@ -2579,7 +2579,7 @@
    099D 3C                 2579 	.db #0x3c	; 60
    099E 0C                 2580 	.db #0x0c	; 12
    099F 0C                 2581 	.db #0x0c	; 12
-   09A0                    2582 _array_71:
+   09A0                    2582 _tiles_71:
    09A0 00                 2583 	.db #0x00	; 0
    09A1 00                 2584 	.db #0x00	; 0
    09A2 00                 2585 	.db #0x00	; 0
@@ -2612,7 +2612,7 @@
    09BD 0C                 2612 	.db #0x0c	; 12
    09BE 0C                 2613 	.db #0x0c	; 12
    09BF 0C                 2614 	.db #0x0c	; 12
-   09C0                    2615 _array_72:
+   09C0                    2615 _tiles_72:
    09C0 00                 2616 	.db #0x00	; 0
    09C1 00                 2617 	.db #0x00	; 0
    09C2 04                 2618 	.db #0x04	; 4
@@ -2645,7 +2645,7 @@
    09DD 2C                 2645 	.db #0x2c	; 44
    09DE 0C                 2646 	.db #0x0c	; 12
    09DF 0C                 2647 	.db #0x0c	; 12
-   09E0                    2648 _array_73:
+   09E0                    2648 _tiles_73:
    09E0 BA                 2649 	.db #0xba	; 186
    09E1 08                 2650 	.db #0x08	; 8
    09E2 00                 2651 	.db #0x00	; 0
@@ -2678,7 +2678,7 @@
    09FD 0C                 2678 	.db #0x0c	; 12
    09FE 1C                 2679 	.db #0x1c	; 28
    09FF 0C                 2680 	.db #0x0c	; 12
-   0A00                    2681 _array_74:
+   0A00                    2681 _tiles_74:
    0A00 00                 2682 	.db #0x00	; 0
    0A01 00                 2683 	.db #0x00	; 0
    0A02 00                 2684 	.db #0x00	; 0
@@ -2711,7 +2711,7 @@
    0A1D 0C                 2711 	.db #0x0c	; 12
    0A1E 0C                 2712 	.db #0x0c	; 12
    0A1F 0C                 2713 	.db #0x0c	; 12
-   0A20                    2714 _array_75:
+   0A20                    2714 _tiles_75:
    0A20 00                 2715 	.db #0x00	; 0
    0A21 00                 2716 	.db #0x00	; 0
    0A22 00                 2717 	.db #0x00	; 0
@@ -2744,7 +2744,7 @@
    0A3D 0C                 2744 	.db #0x0c	; 12
    0A3E 3C                 2745 	.db #0x3c	; 60
    0A3F 3C                 2746 	.db #0x3c	; 60
-   0A40                    2747 _array_76:
+   0A40                    2747 _tiles_76:
    0A40 00                 2748 	.db #0x00	; 0
    0A41 00                 2749 	.db #0x00	; 0
    0A42 00                 2750 	.db #0x00	; 0
@@ -2777,7 +2777,7 @@
    0A5D 1C                 2777 	.db #0x1c	; 28
    0A5E 1C                 2778 	.db #0x1c	; 28
    0A5F 0C                 2779 	.db #0x0c	; 12
-   0A60                    2780 _array_77:
+   0A60                    2780 _tiles_77:
    0A60 04                 2781 	.db #0x04	; 4
    0A61 1C                 2782 	.db #0x1c	; 28
    0A62 00                 2783 	.db #0x00	; 0
@@ -2810,7 +2810,7 @@
    0A7D 0C                 2810 	.db #0x0c	; 12
    0A7E 0C                 2811 	.db #0x0c	; 12
    0A7F 04                 2812 	.db #0x04	; 4
-   0A80                    2813 _array_78:
+   0A80                    2813 _tiles_78:
    0A80 3C                 2814 	.db #0x3c	; 60
    0A81 3C                 2815 	.db #0x3c	; 60
    0A82 3C                 2816 	.db #0x3c	; 60
@@ -2843,7 +2843,7 @@
    0A9D 0C                 2843 	.db #0x0c	; 12
    0A9E 0C                 2844 	.db #0x0c	; 12
    0A9F 0C                 2845 	.db #0x0c	; 12
-   0AA0                    2846 _array_79:
+   0AA0                    2846 _tiles_79:
    0AA0 3C                 2847 	.db #0x3c	; 60
    0AA1 1C                 2848 	.db #0x1c	; 28
    0AA2 2C                 2849 	.db #0x2c	; 44
@@ -2876,7 +2876,7 @@
    0ABD 0C                 2876 	.db #0x0c	; 12
    0ABE 0C                 2877 	.db #0x0c	; 12
    0ABF 0C                 2878 	.db #0x0c	; 12
-   0AC0                    2879 _array_80:
+   0AC0                    2879 _tiles_80:
    0AC0 2C                 2880 	.db #0x2c	; 44
    0AC1 3C                 2881 	.db #0x3c	; 60
    0AC2 3C                 2882 	.db #0x3c	; 60
@@ -2909,7 +2909,7 @@
    0ADD 08                 2909 	.db #0x08	; 8
    0ADE 0C                 2910 	.db #0x0c	; 12
    0ADF 0C                 2911 	.db #0x0c	; 12
-   0AE0                    2912 _array_81:
+   0AE0                    2912 _tiles_81:
    0AE0 0C                 2913 	.db #0x0c	; 12
    0AE1 0C                 2914 	.db #0x0c	; 12
    0AE2 0C                 2915 	.db #0x0c	; 12
@@ -2942,7 +2942,7 @@
    0AFD 00                 2942 	.db #0x00	; 0
    0AFE 00                 2943 	.db #0x00	; 0
    0AFF 00                 2944 	.db #0x00	; 0
-   0B00                    2945 _array_82:
+   0B00                    2945 _tiles_82:
    0B00 0C                 2946 	.db #0x0c	; 12
    0B01 0C                 2947 	.db #0x0c	; 12
    0B02 0C                 2948 	.db #0x0c	; 12
@@ -2975,7 +2975,7 @@
    0B1D 00                 2975 	.db #0x00	; 0
    0B1E 00                 2976 	.db #0x00	; 0
    0B1F 00                 2977 	.db #0x00	; 0
-   0B20                    2978 _array_83:
+   0B20                    2978 _tiles_83:
    0B20 0C                 2979 	.db #0x0c	; 12
    0B21 0C                 2980 	.db #0x0c	; 12
    0B22 0C                 2981 	.db #0x0c	; 12
@@ -3008,7 +3008,7 @@
    0B3D 00                 3008 	.db #0x00	; 0
    0B3E 00                 3009 	.db #0x00	; 0
    0B3F 00                 3010 	.db #0x00	; 0
-   0B40                    3011 _array_84:
+   0B40                    3011 _tiles_84:
    0B40 1C                 3012 	.db #0x1c	; 28
    0B41 3C                 3013 	.db #0x3c	; 60
    0B42 3C                 3014 	.db #0x3c	; 60
@@ -3041,7 +3041,7 @@
    0B5D 0C                 3041 	.db #0x0c	; 12
    0B5E 0C                 3042 	.db #0x0c	; 12
    0B5F 00                 3043 	.db #0x00	; 0
-   0B60                    3044 _array_85:
+   0B60                    3044 _tiles_85:
    0B60 0C                 3045 	.db #0x0c	; 12
    0B61 1C                 3046 	.db #0x1c	; 28
    0B62 2C                 3047 	.db #0x2c	; 44
@@ -3074,7 +3074,7 @@
    0B7D 0C                 3074 	.db #0x0c	; 12
    0B7E 0C                 3075 	.db #0x0c	; 12
    0B7F 0C                 3076 	.db #0x0c	; 12
-   0B80                    3077 _array_86:
+   0B80                    3077 _tiles_86:
    0B80 00                 3078 	.db #0x00	; 0
    0B81 00                 3079 	.db #0x00	; 0
    0B82 00                 3080 	.db #0x00	; 0
@@ -3107,7 +3107,7 @@
    0B9D 2C                 3107 	.db #0x2c	; 44
    0B9E 0C                 3108 	.db #0x0c	; 12
    0B9F 0C                 3109 	.db #0x0c	; 12
-   0BA0                    3110 _array_87:
+   0BA0                    3110 _tiles_87:
    0BA0 3F                 3111 	.db #0x3f	; 63
    0BA1 3F                 3112 	.db #0x3f	; 63
    0BA2 3F                 3113 	.db #0x3f	; 63

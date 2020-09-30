@@ -7,11 +7,11 @@ extern const u8 PALETTE[16];
 
 extern u8* const playerSprite[2];
 
-#define ARRAY_0_W 4
-#define ARRAY_0_H 8
-extern const u8 array_0[4 * 8];
-#define ARRAY_1_W 4
-#define ARRAY_1_H 8
-extern const u8 array_1[4 * 8];
+#define PLAYERSPRITE_0_W 4
+#define PLAYERSPRITE_0_H 8
+extern const u8 playerSprite_0[4 * 8];
+#define PLAYERSPRITE_1_W 4
+#define PLAYERSPRITE_1_H 8
+extern const u8 playerSprite_1[4 * 8];
 
 #endif

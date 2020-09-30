@@ -9,7 +9,7 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _crearNivel
-	.globl _cpct_drawSprite
+	.globl _dibujarGameObject
 	.globl _rocas
 	.globl _player
 	.globl _game
@@ -50,46 +50,45 @@ _rocas::
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;src/juego/juego.c:15: void game(){
+;src/juego/juego.c:19: void game(){
 ;	---------------------------------
 ; Function game
 ; ---------------------------------
 _game::
-;src/juego/juego.c:18: cpct_drawSprite(playerSprite, Punto_Inicial_De_Pantalla, 4, 16); 
-	ld	hl, #0x1004
+;src/juego/juego.c:20: initGame();
+	call	_initGame
+;src/juego/juego.c:21: dibujarGameObject(&player);
+	ld	hl, #_player
 	push	hl
-	ld	hl, #0xe805
-	push	hl
-	ld	hl, #_playerSprite
-	push	hl
-	call	_cpct_drawSprite
-;src/juego/juego.c:20: while(1){            
+	call	_dibujarGameObject
+	pop	af
+;src/juego/juego.c:29: while(1){            
 00102$:
 	jr	00102$
-;src/juego/juego.c:24: void initGame(){
+;src/juego/juego.c:33: void initGame(){
 ;	---------------------------------
 ; Function initGame
 ; ---------------------------------
 _initGame::
-;src/juego/juego.c:25: crearNivel();
+;src/juego/juego.c:34: crearNivel();
 	call	_crearNivel
-;src/juego/juego.c:26: createPlayer();
+;src/juego/juego.c:35: createPlayer();
 	jp  _createPlayer
-;src/juego/juego.c:28: void createPlayer(){
+;src/juego/juego.c:37: void createPlayer(){
 ;	---------------------------------
 ; Function createPlayer
 ; ---------------------------------
 _createPlayer::
-;src/juego/juego.c:29: player.posx=1;
+;src/juego/juego.c:38: player.posx=1;
 	ld	hl, #_player
 	ld	(hl), #0x01
-;src/juego/juego.c:30: player.posy=1;
+;src/juego/juego.c:39: player.posy=1;
 	ld	hl, #(_player + 0x0001)
 	ld	(hl), #0x01
-;src/juego/juego.c:31: player.tipo=tipo_RocaNormal;
+;src/juego/juego.c:40: player.tipo=tipo_RocaNormal;
 	ld	hl, #(_player + 0x0002)
 	ld	(hl), #0x01
-;src/juego/juego.c:32: player.sprite=sprite_Player;
+;src/juego/juego.c:41: player.sprite=sprite_Player;
 	ld	hl, #(_player + 0x0003)
 	ld	(hl), #0x00
 	ret

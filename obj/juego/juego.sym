@@ -7,21 +7,21 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
-    _cpct_drawSprite                                               **** GX
     _crearNivel                                                    **** GX
-  0 _createPlayer                                                  0017 GR
+  0 _createPlayer                                                  0013 GR
+    _dibujarGameObject                                             **** GX
   0 _game                                                          0000 GR
-  0 _initGame                                                      0011 GR
+  0 _initGame                                                      000D GR
   1 _player                                                        0000 GR
-    _playerSprite                                                  **** GX
   1 _rocas                                                         0004 GR
+
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
 Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size   2C   flags    0
+   0 _CODE                                      size   28   flags    0
    1 _DATA                                      size   18   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8

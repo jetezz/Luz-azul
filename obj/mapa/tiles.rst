@@ -8,95 +8,95 @@
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
-                             11 	.globl _array_87
-                             12 	.globl _array_86
-                             13 	.globl _array_85
-                             14 	.globl _array_84
-                             15 	.globl _array_83
-                             16 	.globl _array_82
-                             17 	.globl _array_81
-                             18 	.globl _array_80
-                             19 	.globl _array_79
-                             20 	.globl _array_78
-                             21 	.globl _array_77
-                             22 	.globl _array_76
-                             23 	.globl _array_75
-                             24 	.globl _array_74
-                             25 	.globl _array_73
-                             26 	.globl _array_72
-                             27 	.globl _array_71
-                             28 	.globl _array_70
-                             29 	.globl _array_69
-                             30 	.globl _array_68
-                             31 	.globl _array_67
-                             32 	.globl _array_66
-                             33 	.globl _array_65
-                             34 	.globl _array_64
-                             35 	.globl _array_63
-                             36 	.globl _array_62
-                             37 	.globl _array_61
-                             38 	.globl _array_60
-                             39 	.globl _array_59
-                             40 	.globl _array_58
-                             41 	.globl _array_57
-                             42 	.globl _array_56
-                             43 	.globl _array_55
-                             44 	.globl _array_54
-                             45 	.globl _array_53
-                             46 	.globl _array_52
-                             47 	.globl _array_51
-                             48 	.globl _array_50
-                             49 	.globl _array_49
-                             50 	.globl _array_48
-                             51 	.globl _array_47
-                             52 	.globl _array_46
-                             53 	.globl _array_45
-                             54 	.globl _array_44
-                             55 	.globl _array_43
-                             56 	.globl _array_42
-                             57 	.globl _array_41
-                             58 	.globl _array_40
-                             59 	.globl _array_39
-                             60 	.globl _array_38
-                             61 	.globl _array_37
-                             62 	.globl _array_36
-                             63 	.globl _array_35
-                             64 	.globl _array_34
-                             65 	.globl _array_33
-                             66 	.globl _array_32
-                             67 	.globl _array_31
-                             68 	.globl _array_30
-                             69 	.globl _array_29
-                             70 	.globl _array_28
-                             71 	.globl _array_27
-                             72 	.globl _array_26
-                             73 	.globl _array_25
-                             74 	.globl _array_24
-                             75 	.globl _array_23
-                             76 	.globl _array_22
-                             77 	.globl _array_21
-                             78 	.globl _array_20
-                             79 	.globl _array_19
-                             80 	.globl _array_18
-                             81 	.globl _array_17
-                             82 	.globl _array_16
-                             83 	.globl _array_15
-                             84 	.globl _array_14
-                             85 	.globl _array_13
-                             86 	.globl _array_12
-                             87 	.globl _array_11
-                             88 	.globl _array_10
-                             89 	.globl _array_09
-                             90 	.globl _array_08
-                             91 	.globl _array_07
-                             92 	.globl _array_06
-                             93 	.globl _array_05
-                             94 	.globl _array_04
-                             95 	.globl _array_03
-                             96 	.globl _array_02
-                             97 	.globl _array_01
-                             98 	.globl _array_00
-                             99 	.globl _tileset2
+                             11 	.globl _tiles_87
+                             12 	.globl _tiles_86
+                             13 	.globl _tiles_85
+                             14 	.globl _tiles_84
+                             15 	.globl _tiles_83
+                             16 	.globl _tiles_82
+                             17 	.globl _tiles_81
+                             18 	.globl _tiles_80
+                             19 	.globl _tiles_79
+                             20 	.globl _tiles_78
+                             21 	.globl _tiles_77
+                             22 	.globl _tiles_76
+                             23 	.globl _tiles_75
+                             24 	.globl _tiles_74
+                             25 	.globl _tiles_73
+                             26 	.globl _tiles_72
+                             27 	.globl _tiles_71
+                             28 	.globl _tiles_70
+                             29 	.globl _tiles_69
+                             30 	.globl _tiles_68
+                             31 	.globl _tiles_67
+                             32 	.globl _tiles_66
+                             33 	.globl _tiles_65
+                             34 	.globl _tiles_64
+                             35 	.globl _tiles_63
+                             36 	.globl _tiles_62
+                             37 	.globl _tiles_61
+                             38 	.globl _tiles_60
+                             39 	.globl _tiles_59
+                             40 	.globl _tiles_58
+                             41 	.globl _tiles_57
+                             42 	.globl _tiles_56
+                             43 	.globl _tiles_55
+                             44 	.globl _tiles_54
+                             45 	.globl _tiles_53
+                             46 	.globl _tiles_52
+                             47 	.globl _tiles_51
+                             48 	.globl _tiles_50
+                             49 	.globl _tiles_49
+                             50 	.globl _tiles_48
+                             51 	.globl _tiles_47
+                             52 	.globl _tiles_46
+                             53 	.globl _tiles_45
+                             54 	.globl _tiles_44
+                             55 	.globl _tiles_43
+                             56 	.globl _tiles_42
+                             57 	.globl _tiles_41
+                             58 	.globl _tiles_40
+                             59 	.globl _tiles_39
+                             60 	.globl _tiles_38
+                             61 	.globl _tiles_37
+                             62 	.globl _tiles_36
+                             63 	.globl _tiles_35
+                             64 	.globl _tiles_34
+                             65 	.globl _tiles_33
+                             66 	.globl _tiles_32
+                             67 	.globl _tiles_31
+                             68 	.globl _tiles_30
+                             69 	.globl _tiles_29
+                             70 	.globl _tiles_28
+                             71 	.globl _tiles_27
+                             72 	.globl _tiles_26
+                             73 	.globl _tiles_25
+                             74 	.globl _tiles_24
+                             75 	.globl _tiles_23
+                             76 	.globl _tiles_22
+                             77 	.globl _tiles_21
+                             78 	.globl _tiles_20
+                             79 	.globl _tiles_19
+                             80 	.globl _tiles_18
+                             81 	.globl _tiles_17
+                             82 	.globl _tiles_16
+                             83 	.globl _tiles_15
+                             84 	.globl _tiles_14
+                             85 	.globl _tiles_13
+                             86 	.globl _tiles_12
+                             87 	.globl _tiles_11
+                             88 	.globl _tiles_10
+                             89 	.globl _tiles_09
+                             90 	.globl _tiles_08
+                             91 	.globl _tiles_07
+                             92 	.globl _tiles_06
+                             93 	.globl _tiles_05
+                             94 	.globl _tiles_04
+                             95 	.globl _tiles_03
+                             96 	.globl _tiles_02
+                             97 	.globl _tiles_01
+                             98 	.globl _tiles_00
+                             99 	.globl _tiles
                             100 	.globl _PALETTE2
                             101 ;--------------------------------------------------------
                             102 ; special function registers
@@ -147,96 +147,96 @@
    4199 40                  147 	.db #0x40	; 64
    419A 4C                  148 	.db #0x4c	; 76	'L'
    419B 4B                  149 	.db #0x4b	; 75	'K'
-   419C                     150 _tileset2:
-   419C 4C 42               151 	.dw _array_00
-   419E 6C 42               152 	.dw _array_01
-   41A0 8C 42               153 	.dw _array_02
-   41A2 AC 42               154 	.dw _array_03
-   41A4 CC 42               155 	.dw _array_04
-   41A6 EC 42               156 	.dw _array_05
-   41A8 0C 43               157 	.dw _array_06
-   41AA 2C 43               158 	.dw _array_07
-   41AC 4C 43               159 	.dw _array_08
-   41AE 6C 43               160 	.dw _array_09
-   41B0 8C 43               161 	.dw _array_10
-   41B2 AC 43               162 	.dw _array_11
-   41B4 CC 43               163 	.dw _array_12
-   41B6 EC 43               164 	.dw _array_13
-   41B8 0C 44               165 	.dw _array_14
-   41BA 2C 44               166 	.dw _array_15
-   41BC 4C 44               167 	.dw _array_16
-   41BE 6C 44               168 	.dw _array_17
-   41C0 8C 44               169 	.dw _array_18
-   41C2 AC 44               170 	.dw _array_19
-   41C4 CC 44               171 	.dw _array_20
-   41C6 EC 44               172 	.dw _array_21
-   41C8 0C 45               173 	.dw _array_22
-   41CA 2C 45               174 	.dw _array_23
-   41CC 4C 45               175 	.dw _array_24
-   41CE 6C 45               176 	.dw _array_25
-   41D0 8C 45               177 	.dw _array_26
-   41D2 AC 45               178 	.dw _array_27
-   41D4 CC 45               179 	.dw _array_28
-   41D6 EC 45               180 	.dw _array_29
-   41D8 0C 46               181 	.dw _array_30
-   41DA 2C 46               182 	.dw _array_31
-   41DC 4C 46               183 	.dw _array_32
-   41DE 6C 46               184 	.dw _array_33
-   41E0 8C 46               185 	.dw _array_34
-   41E2 AC 46               186 	.dw _array_35
-   41E4 CC 46               187 	.dw _array_36
-   41E6 EC 46               188 	.dw _array_37
-   41E8 0C 47               189 	.dw _array_38
-   41EA 2C 47               190 	.dw _array_39
-   41EC 4C 47               191 	.dw _array_40
-   41EE 6C 47               192 	.dw _array_41
-   41F0 8C 47               193 	.dw _array_42
-   41F2 AC 47               194 	.dw _array_43
-   41F4 CC 47               195 	.dw _array_44
-   41F6 EC 47               196 	.dw _array_45
-   41F8 0C 48               197 	.dw _array_46
-   41FA 2C 48               198 	.dw _array_47
-   41FC 4C 48               199 	.dw _array_48
-   41FE 6C 48               200 	.dw _array_49
-   4200 8C 48               201 	.dw _array_50
-   4202 AC 48               202 	.dw _array_51
-   4204 CC 48               203 	.dw _array_52
-   4206 EC 48               204 	.dw _array_53
-   4208 0C 49               205 	.dw _array_54
-   420A 2C 49               206 	.dw _array_55
-   420C 4C 49               207 	.dw _array_56
-   420E 6C 49               208 	.dw _array_57
-   4210 8C 49               209 	.dw _array_58
-   4212 AC 49               210 	.dw _array_59
-   4214 CC 49               211 	.dw _array_60
-   4216 EC 49               212 	.dw _array_61
-   4218 0C 4A               213 	.dw _array_62
-   421A 2C 4A               214 	.dw _array_63
-   421C 4C 4A               215 	.dw _array_64
-   421E 6C 4A               216 	.dw _array_65
-   4220 8C 4A               217 	.dw _array_66
-   4222 AC 4A               218 	.dw _array_67
-   4224 CC 4A               219 	.dw _array_68
-   4226 EC 4A               220 	.dw _array_69
-   4228 0C 4B               221 	.dw _array_70
-   422A 2C 4B               222 	.dw _array_71
-   422C 4C 4B               223 	.dw _array_72
-   422E 6C 4B               224 	.dw _array_73
-   4230 8C 4B               225 	.dw _array_74
-   4232 AC 4B               226 	.dw _array_75
-   4234 CC 4B               227 	.dw _array_76
-   4236 EC 4B               228 	.dw _array_77
-   4238 0C 4C               229 	.dw _array_78
-   423A 2C 4C               230 	.dw _array_79
-   423C 4C 4C               231 	.dw _array_80
-   423E 6C 4C               232 	.dw _array_81
-   4240 8C 4C               233 	.dw _array_82
-   4242 AC 4C               234 	.dw _array_83
-   4244 CC 4C               235 	.dw _array_84
-   4246 EC 4C               236 	.dw _array_85
-   4248 0C 4D               237 	.dw _array_86
-   424A 2C 4D               238 	.dw _array_87
-   424C                     239 _array_00:
+   419C                     150 _tiles:
+   419C 4C 42               151 	.dw _tiles_00
+   419E 6C 42               152 	.dw _tiles_01
+   41A0 8C 42               153 	.dw _tiles_02
+   41A2 AC 42               154 	.dw _tiles_03
+   41A4 CC 42               155 	.dw _tiles_04
+   41A6 EC 42               156 	.dw _tiles_05
+   41A8 0C 43               157 	.dw _tiles_06
+   41AA 2C 43               158 	.dw _tiles_07
+   41AC 4C 43               159 	.dw _tiles_08
+   41AE 6C 43               160 	.dw _tiles_09
+   41B0 8C 43               161 	.dw _tiles_10
+   41B2 AC 43               162 	.dw _tiles_11
+   41B4 CC 43               163 	.dw _tiles_12
+   41B6 EC 43               164 	.dw _tiles_13
+   41B8 0C 44               165 	.dw _tiles_14
+   41BA 2C 44               166 	.dw _tiles_15
+   41BC 4C 44               167 	.dw _tiles_16
+   41BE 6C 44               168 	.dw _tiles_17
+   41C0 8C 44               169 	.dw _tiles_18
+   41C2 AC 44               170 	.dw _tiles_19
+   41C4 CC 44               171 	.dw _tiles_20
+   41C6 EC 44               172 	.dw _tiles_21
+   41C8 0C 45               173 	.dw _tiles_22
+   41CA 2C 45               174 	.dw _tiles_23
+   41CC 4C 45               175 	.dw _tiles_24
+   41CE 6C 45               176 	.dw _tiles_25
+   41D0 8C 45               177 	.dw _tiles_26
+   41D2 AC 45               178 	.dw _tiles_27
+   41D4 CC 45               179 	.dw _tiles_28
+   41D6 EC 45               180 	.dw _tiles_29
+   41D8 0C 46               181 	.dw _tiles_30
+   41DA 2C 46               182 	.dw _tiles_31
+   41DC 4C 46               183 	.dw _tiles_32
+   41DE 6C 46               184 	.dw _tiles_33
+   41E0 8C 46               185 	.dw _tiles_34
+   41E2 AC 46               186 	.dw _tiles_35
+   41E4 CC 46               187 	.dw _tiles_36
+   41E6 EC 46               188 	.dw _tiles_37
+   41E8 0C 47               189 	.dw _tiles_38
+   41EA 2C 47               190 	.dw _tiles_39
+   41EC 4C 47               191 	.dw _tiles_40
+   41EE 6C 47               192 	.dw _tiles_41
+   41F0 8C 47               193 	.dw _tiles_42
+   41F2 AC 47               194 	.dw _tiles_43
+   41F4 CC 47               195 	.dw _tiles_44
+   41F6 EC 47               196 	.dw _tiles_45
+   41F8 0C 48               197 	.dw _tiles_46
+   41FA 2C 48               198 	.dw _tiles_47
+   41FC 4C 48               199 	.dw _tiles_48
+   41FE 6C 48               200 	.dw _tiles_49
+   4200 8C 48               201 	.dw _tiles_50
+   4202 AC 48               202 	.dw _tiles_51
+   4204 CC 48               203 	.dw _tiles_52
+   4206 EC 48               204 	.dw _tiles_53
+   4208 0C 49               205 	.dw _tiles_54
+   420A 2C 49               206 	.dw _tiles_55
+   420C 4C 49               207 	.dw _tiles_56
+   420E 6C 49               208 	.dw _tiles_57
+   4210 8C 49               209 	.dw _tiles_58
+   4212 AC 49               210 	.dw _tiles_59
+   4214 CC 49               211 	.dw _tiles_60
+   4216 EC 49               212 	.dw _tiles_61
+   4218 0C 4A               213 	.dw _tiles_62
+   421A 2C 4A               214 	.dw _tiles_63
+   421C 4C 4A               215 	.dw _tiles_64
+   421E 6C 4A               216 	.dw _tiles_65
+   4220 8C 4A               217 	.dw _tiles_66
+   4222 AC 4A               218 	.dw _tiles_67
+   4224 CC 4A               219 	.dw _tiles_68
+   4226 EC 4A               220 	.dw _tiles_69
+   4228 0C 4B               221 	.dw _tiles_70
+   422A 2C 4B               222 	.dw _tiles_71
+   422C 4C 4B               223 	.dw _tiles_72
+   422E 6C 4B               224 	.dw _tiles_73
+   4230 8C 4B               225 	.dw _tiles_74
+   4232 AC 4B               226 	.dw _tiles_75
+   4234 CC 4B               227 	.dw _tiles_76
+   4236 EC 4B               228 	.dw _tiles_77
+   4238 0C 4C               229 	.dw _tiles_78
+   423A 2C 4C               230 	.dw _tiles_79
+   423C 4C 4C               231 	.dw _tiles_80
+   423E 6C 4C               232 	.dw _tiles_81
+   4240 8C 4C               233 	.dw _tiles_82
+   4242 AC 4C               234 	.dw _tiles_83
+   4244 CC 4C               235 	.dw _tiles_84
+   4246 EC 4C               236 	.dw _tiles_85
+   4248 0C 4D               237 	.dw _tiles_86
+   424A 2C 4D               238 	.dw _tiles_87
+   424C                     239 _tiles_00:
    424C 00                  240 	.db #0x00	; 0
    424D 00                  241 	.db #0x00	; 0
    424E 00                  242 	.db #0x00	; 0
@@ -269,7 +269,7 @@
    4269 3C                  269 	.db #0x3c	; 60
    426A 1C                  270 	.db #0x1c	; 28
    426B 04                  271 	.db #0x04	; 4
-   426C                     272 _array_01:
+   426C                     272 _tiles_01:
    426C 00                  273 	.db #0x00	; 0
    426D 00                  274 	.db #0x00	; 0
    426E 00                  275 	.db #0x00	; 0
@@ -302,7 +302,7 @@
    4289 3C                  302 	.db #0x3c	; 60
    428A 3C                  303 	.db #0x3c	; 60
    428B 3C                  304 	.db #0x3c	; 60
-   428C                     305 _array_02:
+   428C                     305 _tiles_02:
    428C 00                  306 	.db #0x00	; 0
    428D 00                  307 	.db #0x00	; 0
    428E 00                  308 	.db #0x00	; 0
@@ -335,7 +335,7 @@
    42A9 3C                  335 	.db #0x3c	; 60
    42AA 3C                  336 	.db #0x3c	; 60
    42AB 3C                  337 	.db #0x3c	; 60
-   42AC                     338 _array_03:
+   42AC                     338 _tiles_03:
    42AC 00                  339 	.db #0x00	; 0
    42AD 00                  340 	.db #0x00	; 0
    42AE 00                  341 	.db #0x00	; 0
@@ -368,7 +368,7 @@
    42C9 0C                  368 	.db #0x0c	; 12
    42CA 2C                  369 	.db #0x2c	; 44
    42CB 3C                  370 	.db #0x3c	; 60
-   42CC                     371 _array_04:
+   42CC                     371 _tiles_04:
    42CC 00                  372 	.db #0x00	; 0
    42CD 00                  373 	.db #0x00	; 0
    42CE 00                  374 	.db #0x00	; 0
@@ -401,7 +401,7 @@
    42E9 00                  401 	.db #0x00	; 0
    42EA 00                  402 	.db #0x00	; 0
    42EB 00                  403 	.db #0x00	; 0
-   42EC                     404 _array_05:
+   42EC                     404 _tiles_05:
    42EC 00                  405 	.db #0x00	; 0
    42ED 00                  406 	.db #0x00	; 0
    42EE 00                  407 	.db #0x00	; 0
@@ -434,7 +434,7 @@
    4309 00                  434 	.db #0x00	; 0
    430A 00                  435 	.db #0x00	; 0
    430B 00                  436 	.db #0x00	; 0
-   430C                     437 _array_06:
+   430C                     437 _tiles_06:
    430C 00                  438 	.db #0x00	; 0
    430D 00                  439 	.db #0x00	; 0
    430E 00                  440 	.db #0x00	; 0
@@ -467,7 +467,7 @@
    4329 00                  467 	.db #0x00	; 0
    432A 00                  468 	.db #0x00	; 0
    432B 00                  469 	.db #0x00	; 0
-   432C                     470 _array_07:
+   432C                     470 _tiles_07:
    432C 00                  471 	.db #0x00	; 0
    432D 00                  472 	.db #0x00	; 0
    432E 00                  473 	.db #0x00	; 0
@@ -500,7 +500,7 @@
    4349 00                  500 	.db #0x00	; 0
    434A 00                  501 	.db #0x00	; 0
    434B 00                  502 	.db #0x00	; 0
-   434C                     503 _array_08:
+   434C                     503 _tiles_08:
    434C 3F                  504 	.db #0x3f	; 63
    434D 3F                  505 	.db #0x3f	; 63
    434E 3F                  506 	.db #0x3f	; 63
@@ -533,7 +533,7 @@
    4369 3F                  533 	.db #0x3f	; 63
    436A 3F                  534 	.db #0x3f	; 63
    436B 3F                  535 	.db #0x3f	; 63
-   436C                     536 _array_09:
+   436C                     536 _tiles_09:
    436C 00                  537 	.db #0x00	; 0
    436D 00                  538 	.db #0x00	; 0
    436E 00                  539 	.db #0x00	; 0
@@ -566,7 +566,7 @@
    4389 00                  566 	.db #0x00	; 0
    438A 00                  567 	.db #0x00	; 0
    438B 00                  568 	.db #0x00	; 0
-   438C                     569 _array_10:
+   438C                     569 _tiles_10:
    438C 00                  570 	.db #0x00	; 0
    438D 00                  571 	.db #0x00	; 0
    438E 00                  572 	.db #0x00	; 0
@@ -599,7 +599,7 @@
    43A9 1C                  599 	.db #0x1c	; 28
    43AA 0C                  600 	.db #0x0c	; 12
    43AB 00                  601 	.db #0x00	; 0
-   43AC                     602 _array_11:
+   43AC                     602 _tiles_11:
    43AC 04                  603 	.db #0x04	; 4
    43AD 1C                  604 	.db #0x1c	; 28
    43AE 14                  605 	.db #0x14	; 20
@@ -632,7 +632,7 @@
    43C9 20                  632 	.db #0x20	; 32
    43CA 1C                  633 	.db #0x1c	; 28
    43CB 04                  634 	.db #0x04	; 4
-   43CC                     635 _array_12:
+   43CC                     635 _tiles_12:
    43CC 0C                  636 	.db #0x0c	; 12
    43CD 0C                  637 	.db #0x0c	; 12
    43CE 0C                  638 	.db #0x0c	; 12
@@ -665,7 +665,7 @@
    43E9 3C                  665 	.db #0x3c	; 60
    43EA 3C                  666 	.db #0x3c	; 60
    43EB 3C                  667 	.db #0x3c	; 60
-   43EC                     668 _array_13:
+   43EC                     668 _tiles_13:
    43EC 0C                  669 	.db #0x0c	; 12
    43ED 2C                  670 	.db #0x2c	; 44
    43EE 3C                  671 	.db #0x3c	; 60
@@ -698,7 +698,7 @@
    4409 3C                  698 	.db #0x3c	; 60
    440A 2C                  699 	.db #0x2c	; 44
    440B 3C                  700 	.db #0x3c	; 60
-   440C                     701 _array_14:
+   440C                     701 _tiles_14:
    440C 3C                  702 	.db #0x3c	; 60
    440D 3C                  703 	.db #0x3c	; 60
    440E 3C                  704 	.db #0x3c	; 60
@@ -731,7 +731,7 @@
    4429 3C                  731 	.db #0x3c	; 60
    442A 2C                  732 	.db #0x2c	; 44
    442B 3C                  733 	.db #0x3c	; 60
-   442C                     734 _array_15:
+   442C                     734 _tiles_15:
    442C 0C                  735 	.db #0x0c	; 12
    442D 0C                  736 	.db #0x0c	; 12
    442E 0C                  737 	.db #0x0c	; 12
@@ -764,7 +764,7 @@
    4449 3C                  764 	.db #0x3c	; 60
    444A 3C                  765 	.db #0x3c	; 60
    444B 3C                  766 	.db #0x3c	; 60
-   444C                     767 _array_16:
+   444C                     767 _tiles_16:
    444C 0C                  768 	.db #0x0c	; 12
    444D 0C                  769 	.db #0x0c	; 12
    444E 0C                  770 	.db #0x0c	; 12
@@ -797,7 +797,7 @@
    4469 3C                  797 	.db #0x3c	; 60
    446A 3C                  798 	.db #0x3c	; 60
    446B 3C                  799 	.db #0x3c	; 60
-   446C                     800 _array_17:
+   446C                     800 _tiles_17:
    446C 0C                  801 	.db #0x0c	; 12
    446D 0C                  802 	.db #0x0c	; 12
    446E 1C                  803 	.db #0x1c	; 28
@@ -830,7 +830,7 @@
    4489 2C                  830 	.db #0x2c	; 44
    448A 3C                  831 	.db #0x3c	; 60
    448B 3C                  832 	.db #0x3c	; 60
-   448C                     833 _array_18:
+   448C                     833 _tiles_18:
    448C 3C                  834 	.db #0x3c	; 60
    448D 2C                  835 	.db #0x2c	; 44
    448E 0C                  836 	.db #0x0c	; 12
@@ -863,7 +863,7 @@
    44A9 3C                  863 	.db #0x3c	; 60
    44AA 1C                  864 	.db #0x1c	; 28
    44AB 34                  865 	.db #0x34	; 52	'4'
-   44AC                     866 _array_19:
+   44AC                     866 _tiles_19:
    44AC 0C                  867 	.db #0x0c	; 12
    44AD 0C                  868 	.db #0x0c	; 12
    44AE 0C                  869 	.db #0x0c	; 12
@@ -896,7 +896,7 @@
    44C9 3C                  896 	.db #0x3c	; 60
    44CA 3C                  897 	.db #0x3c	; 60
    44CB 3C                  898 	.db #0x3c	; 60
-   44CC                     899 _array_20:
+   44CC                     899 _tiles_20:
    44CC 0C                  900 	.db #0x0c	; 12
    44CD 0C                  901 	.db #0x0c	; 12
    44CE 0C                  902 	.db #0x0c	; 12
@@ -929,7 +929,7 @@
    44E9 3C                  929 	.db #0x3c	; 60
    44EA 3C                  930 	.db #0x3c	; 60
    44EB 3C                  931 	.db #0x3c	; 60
-   44EC                     932 _array_21:
+   44EC                     932 _tiles_21:
    44EC 1C                  933 	.db #0x1c	; 28
    44ED 3C                  934 	.db #0x3c	; 60
    44EE 3C                  935 	.db #0x3c	; 60
@@ -962,7 +962,7 @@
    4509 1C                  962 	.db #0x1c	; 28
    450A 3C                  963 	.db #0x3c	; 60
    450B 3C                  964 	.db #0x3c	; 60
-   450C                     965 _array_22:
+   450C                     965 _tiles_22:
    450C 04                  966 	.db #0x04	; 4
    450D 1C                  967 	.db #0x1c	; 28
    450E BA                  968 	.db #0xba	; 186
@@ -995,7 +995,7 @@
    4529 64                  995 	.db #0x64	; 100	'd'
    452A 1C                  996 	.db #0x1c	; 28
    452B 04                  997 	.db #0x04	; 4
-   452C                     998 _array_23:
+   452C                     998 _tiles_23:
    452C 3C                  999 	.db #0x3c	; 60
    452D 3C                 1000 	.db #0x3c	; 60
    452E 3C                 1001 	.db #0x3c	; 60
@@ -1028,7 +1028,7 @@
    4549 3F                 1028 	.db #0x3f	; 63
    454A 2E                 1029 	.db #0x2e	; 46
    454B 2E                 1030 	.db #0x2e	; 46
-   454C                    1031 _array_24:
+   454C                    1031 _tiles_24:
    454C 3C                 1032 	.db #0x3c	; 60
    454D 3C                 1033 	.db #0x3c	; 60
    454E 3C                 1034 	.db #0x3c	; 60
@@ -1061,7 +1061,7 @@
    4569 2E                 1061 	.db #0x2e	; 46
    456A 3F                 1062 	.db #0x3f	; 63
    456B 3F                 1063 	.db #0x3f	; 63
-   456C                    1064 _array_25:
+   456C                    1064 _tiles_25:
    456C 3C                 1065 	.db #0x3c	; 60
    456D 3C                 1066 	.db #0x3c	; 60
    456E 3C                 1067 	.db #0x3c	; 60
@@ -1094,7 +1094,7 @@
    4589 3F                 1094 	.db #0x3f	; 63
    458A 2E                 1095 	.db #0x2e	; 46
    458B 2E                 1096 	.db #0x2e	; 46
-   458C                    1097 _array_26:
+   458C                    1097 _tiles_26:
    458C 3C                 1098 	.db #0x3c	; 60
    458D 3C                 1099 	.db #0x3c	; 60
    458E 3C                 1100 	.db #0x3c	; 60
@@ -1127,7 +1127,7 @@
    45A9 2E                 1127 	.db #0x2e	; 46
    45AA 3F                 1128 	.db #0x3f	; 63
    45AB 3F                 1129 	.db #0x3f	; 63
-   45AC                    1130 _array_27:
+   45AC                    1130 _tiles_27:
    45AC 3C                 1131 	.db #0x3c	; 60
    45AD 3C                 1132 	.db #0x3c	; 60
    45AE 3C                 1133 	.db #0x3c	; 60
@@ -1160,7 +1160,7 @@
    45C9 3F                 1160 	.db #0x3f	; 63
    45CA 2E                 1161 	.db #0x2e	; 46
    45CB 2E                 1162 	.db #0x2e	; 46
-   45CC                    1163 _array_28:
+   45CC                    1163 _tiles_28:
    45CC 3C                 1164 	.db #0x3c	; 60
    45CD 3C                 1165 	.db #0x3c	; 60
    45CE 28                 1166 	.db #0x28	; 40
@@ -1193,7 +1193,7 @@
    45E9 3F                 1193 	.db #0x3f	; 63
    45EA 3F                 1194 	.db #0x3f	; 63
    45EB 3F                 1195 	.db #0x3f	; 63
-   45EC                    1196 _array_29:
+   45EC                    1196 _tiles_29:
    45EC BA                 1197 	.db #0xba	; 186
    45ED 14                 1198 	.db #0x14	; 20
    45EE 3C                 1199 	.db #0x3c	; 60
@@ -1226,7 +1226,7 @@
    4609 3F                 1226 	.db #0x3f	; 63
    460A 3F                 1227 	.db #0x3f	; 63
    460B BA                 1228 	.db #0xba	; 186
-   460C                    1229 _array_30:
+   460C                    1229 _tiles_30:
    460C 00                 1230 	.db #0x00	; 0
    460D 00                 1231 	.db #0x00	; 0
    460E 00                 1232 	.db #0x00	; 0
@@ -1259,7 +1259,7 @@
    4629 3C                 1259 	.db #0x3c	; 60
    462A 3C                 1260 	.db #0x3c	; 60
    462B 3C                 1261 	.db #0x3c	; 60
-   462C                    1262 _array_31:
+   462C                    1262 _tiles_31:
    462C 00                 1263 	.db #0x00	; 0
    462D 00                 1264 	.db #0x00	; 0
    462E 00                 1265 	.db #0x00	; 0
@@ -1292,7 +1292,7 @@
    4649 2C                 1292 	.db #0x2c	; 44
    464A 3C                 1293 	.db #0x3c	; 60
    464B 3C                 1294 	.db #0x3c	; 60
-   464C                    1295 _array_32:
+   464C                    1295 _tiles_32:
    464C 3C                 1296 	.db #0x3c	; 60
    464D 75                 1297 	.db #0x75	; 117	'u'
    464E 2C                 1298 	.db #0x2c	; 44
@@ -1325,7 +1325,7 @@
    4669 2C                 1325 	.db #0x2c	; 44
    466A 98                 1326 	.db #0x98	; 152
    466B 3C                 1327 	.db #0x3c	; 60
-   466C                    1328 _array_33:
+   466C                    1328 _tiles_33:
    466C 1C                 1329 	.db #0x1c	; 28
    466D 3F                 1330 	.db #0x3f	; 63
    466E 3F                 1331 	.db #0x3f	; 63
@@ -1358,7 +1358,7 @@
    4689 3F                 1358 	.db #0x3f	; 63
    468A 3F                 1359 	.db #0x3f	; 63
    468B 64                 1360 	.db #0x64	; 100	'd'
-   468C                    1361 _array_34:
+   468C                    1361 _tiles_34:
    468C 0C                 1362 	.db #0x0c	; 12
    468D 2E                 1363 	.db #0x2e	; 46
    468E 1D                 1364 	.db #0x1d	; 29
@@ -1391,7 +1391,7 @@
    46A9 3F                 1391 	.db #0x3f	; 63
    46AA 3F                 1392 	.db #0x3f	; 63
    46AB 3F                 1393 	.db #0x3f	; 63
-   46AC                    1394 _array_35:
+   46AC                    1394 _tiles_35:
    46AC 04                 1395 	.db #0x04	; 4
    46AD 0C                 1396 	.db #0x0c	; 12
    46AE 14                 1397 	.db #0x14	; 20
@@ -1424,7 +1424,7 @@
    46C9 3F                 1424 	.db #0x3f	; 63
    46CA 3F                 1425 	.db #0x3f	; 63
    46CB 64                 1426 	.db #0x64	; 100	'd'
-   46CC                    1427 _array_36:
+   46CC                    1427 _tiles_36:
    46CC 3F                 1428 	.db #0x3f	; 63
    46CD 3F                 1429 	.db #0x3f	; 63
    46CE 3F                 1430 	.db #0x3f	; 63
@@ -1457,7 +1457,7 @@
    46E9 3F                 1457 	.db #0x3f	; 63
    46EA 2E                 1458 	.db #0x2e	; 46
    46EB 2E                 1459 	.db #0x2e	; 46
-   46EC                    1460 _array_37:
+   46EC                    1460 _tiles_37:
    46EC 3F                 1461 	.db #0x3f	; 63
    46ED 3F                 1462 	.db #0x3f	; 63
    46EE 3F                 1463 	.db #0x3f	; 63
@@ -1490,7 +1490,7 @@
    4709 3F                 1490 	.db #0x3f	; 63
    470A 2E                 1491 	.db #0x2e	; 46
    470B 2E                 1492 	.db #0x2e	; 46
-   470C                    1493 _array_38:
+   470C                    1493 _tiles_38:
    470C BA                 1494 	.db #0xba	; 186
    470D 3F                 1495 	.db #0x3f	; 63
    470E 3F                 1496 	.db #0x3f	; 63
@@ -1523,7 +1523,7 @@
    4729 2E                 1523 	.db #0x2e	; 46
    472A 3F                 1524 	.db #0x3f	; 63
    472B BA                 1525 	.db #0xba	; 186
-   472C                    1526 _array_39:
+   472C                    1526 _tiles_39:
    472C 3C                 1527 	.db #0x3c	; 60
    472D 28                 1528 	.db #0x28	; 40
    472E 0C                 1529 	.db #0x0c	; 12
@@ -1556,7 +1556,7 @@
    4749 3F                 1556 	.db #0x3f	; 63
    474A 3F                 1557 	.db #0x3f	; 63
    474B 3F                 1558 	.db #0x3f	; 63
-   474C                    1559 _array_40:
+   474C                    1559 _tiles_40:
    474C 3C                 1560 	.db #0x3c	; 60
    474D 3C                 1561 	.db #0x3c	; 60
    474E 3C                 1562 	.db #0x3c	; 60
@@ -1589,7 +1589,7 @@
    4769 2E                 1589 	.db #0x2e	; 46
    476A 3F                 1590 	.db #0x3f	; 63
    476B 3F                 1591 	.db #0x3f	; 63
-   476C                    1592 _array_41:
+   476C                    1592 _tiles_41:
    476C 0C                 1593 	.db #0x0c	; 12
    476D 0C                 1594 	.db #0x0c	; 12
    476E 0C                 1595 	.db #0x0c	; 12
@@ -1622,7 +1622,7 @@
    4789 3C                 1622 	.db #0x3c	; 60
    478A 3C                 1623 	.db #0x3c	; 60
    478B 3C                 1624 	.db #0x3c	; 60
-   478C                    1625 _array_42:
+   478C                    1625 _tiles_42:
    478C 0C                 1626 	.db #0x0c	; 12
    478D 28                 1627 	.db #0x28	; 40
    478E 2C                 1628 	.db #0x2c	; 44
@@ -1655,7 +1655,7 @@
    47A9 2C                 1655 	.db #0x2c	; 44
    47AA 10                 1656 	.db #0x10	; 16
    47AB 00                 1657 	.db #0x00	; 0
-   47AC                    1658 _array_43:
+   47AC                    1658 _tiles_43:
    47AC 00                 1659 	.db #0x00	; 0
    47AD 00                 1660 	.db #0x00	; 0
    47AE 00                 1661 	.db #0x00	; 0
@@ -1688,7 +1688,7 @@
    47C9 3C                 1688 	.db #0x3c	; 60
    47CA 3C                 1689 	.db #0x3c	; 60
    47CB 3C                 1690 	.db #0x3c	; 60
-   47CC                    1691 _array_44:
+   47CC                    1691 _tiles_44:
    47CC 3F                 1692 	.db #0x3f	; 63
    47CD 3F                 1693 	.db #0x3f	; 63
    47CE 3F                 1694 	.db #0x3f	; 63
@@ -1721,7 +1721,7 @@
    47E9 3F                 1721 	.db #0x3f	; 63
    47EA 3F                 1722 	.db #0x3f	; 63
    47EB 3F                 1723 	.db #0x3f	; 63
-   47EC                    1724 _array_45:
+   47EC                    1724 _tiles_45:
    47EC 3F                 1725 	.db #0x3f	; 63
    47ED 3F                 1726 	.db #0x3f	; 63
    47EE 3F                 1727 	.db #0x3f	; 63
@@ -1754,7 +1754,7 @@
    4809 3F                 1754 	.db #0x3f	; 63
    480A 3F                 1755 	.db #0x3f	; 63
    480B 3F                 1756 	.db #0x3f	; 63
-   480C                    1757 _array_46:
+   480C                    1757 _tiles_46:
    480C 64                 1758 	.db #0x64	; 100	'd'
    480D 3F                 1759 	.db #0x3f	; 63
    480E 3F                 1760 	.db #0x3f	; 63
@@ -1787,7 +1787,7 @@
    4829 3C                 1787 	.db #0x3c	; 60
    482A 3C                 1788 	.db #0x3c	; 60
    482B 3C                 1789 	.db #0x3c	; 60
-   482C                    1790 _array_47:
+   482C                    1790 _tiles_47:
    482C 3F                 1791 	.db #0x3f	; 63
    482D 3F                 1792 	.db #0x3f	; 63
    482E 3F                 1793 	.db #0x3f	; 63
@@ -1820,7 +1820,7 @@
    4849 2E                 1820 	.db #0x2e	; 46
    484A 3F                 1821 	.db #0x3f	; 63
    484B 3F                 1822 	.db #0x3f	; 63
-   484C                    1823 _array_48:
+   484C                    1823 _tiles_48:
    484C 3F                 1824 	.db #0x3f	; 63
    484D 3F                 1825 	.db #0x3f	; 63
    484E 3F                 1826 	.db #0x3f	; 63
@@ -1853,7 +1853,7 @@
    4869 3F                 1853 	.db #0x3f	; 63
    486A 3F                 1854 	.db #0x3f	; 63
    486B 3F                 1855 	.db #0x3f	; 63
-   486C                    1856 _array_49:
+   486C                    1856 _tiles_49:
    486C FA                 1857 	.db #0xfa	; 250
    486D 3F                 1858 	.db #0x3f	; 63
    486E 3F                 1859 	.db #0x3f	; 63
@@ -1886,7 +1886,7 @@
    4889 3F                 1886 	.db #0x3f	; 63
    488A 3F                 1887 	.db #0x3f	; 63
    488B FA                 1888 	.db #0xfa	; 250
-   488C                    1889 _array_50:
+   488C                    1889 _tiles_50:
    488C 3F                 1890 	.db #0x3f	; 63
    488D 3F                 1891 	.db #0x3f	; 63
    488E 3F                 1892 	.db #0x3f	; 63
@@ -1919,7 +1919,7 @@
    48A9 3C                 1919 	.db #0x3c	; 60
    48AA 3C                 1920 	.db #0x3c	; 60
    48AB 3C                 1921 	.db #0x3c	; 60
-   48AC                    1922 _array_51:
+   48AC                    1922 _tiles_51:
    48AC 3F                 1923 	.db #0x3f	; 63
    48AD 3F                 1924 	.db #0x3f	; 63
    48AE 3F                 1925 	.db #0x3f	; 63
@@ -1952,7 +1952,7 @@
    48C9 3C                 1952 	.db #0x3c	; 60
    48CA 3C                 1953 	.db #0x3c	; 60
    48CB 3E                 1954 	.db #0x3e	; 62
-   48CC                    1955 _array_52:
+   48CC                    1955 _tiles_52:
    48CC 00                 1956 	.db #0x00	; 0
    48CD 00                 1957 	.db #0x00	; 0
    48CE 00                 1958 	.db #0x00	; 0
@@ -1985,7 +1985,7 @@
    48E9 3C                 1985 	.db #0x3c	; 60
    48EA 3C                 1986 	.db #0x3c	; 60
    48EB 3C                 1987 	.db #0x3c	; 60
-   48EC                    1988 _array_53:
+   48EC                    1988 _tiles_53:
    48EC 00                 1989 	.db #0x00	; 0
    48ED 10                 1990 	.db #0x10	; 16
    48EE 2C                 1991 	.db #0x2c	; 44
@@ -2018,7 +2018,7 @@
    4909 2C                 2018 	.db #0x2c	; 44
    490A 00                 2019 	.db #0x00	; 0
    490B 00                 2020 	.db #0x00	; 0
-   490C                    2021 _array_54:
+   490C                    2021 _tiles_54:
    490C 3C                 2022 	.db #0x3c	; 60
    490D 3C                 2023 	.db #0x3c	; 60
    490E 1C                 2024 	.db #0x1c	; 28
@@ -2051,7 +2051,7 @@
    4929 1C                 2051 	.db #0x1c	; 28
    492A 3C                 2052 	.db #0x3c	; 60
    492B 3C                 2053 	.db #0x3c	; 60
-   492C                    2054 _array_55:
+   492C                    2054 _tiles_55:
    492C 04                 2055 	.db #0x04	; 4
    492D 1C                 2056 	.db #0x1c	; 28
    492E 64                 2057 	.db #0x64	; 100	'd'
@@ -2084,7 +2084,7 @@
    4949 BA                 2084 	.db #0xba	; 186
    494A 1C                 2085 	.db #0x1c	; 28
    494B 04                 2086 	.db #0x04	; 4
-   494C                    2087 _array_56:
+   494C                    2087 _tiles_56:
    494C 2E                 2088 	.db #0x2e	; 46
    494D 2E                 2089 	.db #0x2e	; 46
    494E 3F                 2090 	.db #0x3f	; 63
@@ -2117,7 +2117,7 @@
    4969 3C                 2117 	.db #0x3c	; 60
    496A 3C                 2118 	.db #0x3c	; 60
    496B 3C                 2119 	.db #0x3c	; 60
-   496C                    2120 _array_57:
+   496C                    2120 _tiles_57:
    496C 3F                 2121 	.db #0x3f	; 63
    496D 3F                 2122 	.db #0x3f	; 63
    496E 3F                 2123 	.db #0x3f	; 63
@@ -2150,7 +2150,7 @@
    4989 3C                 2150 	.db #0x3c	; 60
    498A 3C                 2151 	.db #0x3c	; 60
    498B 3C                 2152 	.db #0x3c	; 60
-   498C                    2153 _array_58:
+   498C                    2153 _tiles_58:
    498C 3F                 2154 	.db #0x3f	; 63
    498D 3F                 2155 	.db #0x3f	; 63
    498E 3F                 2156 	.db #0x3f	; 63
@@ -2183,7 +2183,7 @@
    49A9 3C                 2183 	.db #0x3c	; 60
    49AA 3C                 2184 	.db #0x3c	; 60
    49AB 3C                 2185 	.db #0x3c	; 60
-   49AC                    2186 _array_59:
+   49AC                    2186 _tiles_59:
    49AC 3F                 2187 	.db #0x3f	; 63
    49AD 3F                 2188 	.db #0x3f	; 63
    49AE 3F                 2189 	.db #0x3f	; 63
@@ -2216,7 +2216,7 @@
    49C9 3F                 2216 	.db #0x3f	; 63
    49CA 3F                 2217 	.db #0x3f	; 63
    49CB 3F                 2218 	.db #0x3f	; 63
-   49CC                    2219 _array_60:
+   49CC                    2219 _tiles_60:
    49CC 3F                 2220 	.db #0x3f	; 63
    49CD 3F                 2221 	.db #0x3f	; 63
    49CE 3F                 2222 	.db #0x3f	; 63
@@ -2249,7 +2249,7 @@
    49E9 3F                 2249 	.db #0x3f	; 63
    49EA 3F                 2250 	.db #0x3f	; 63
    49EB 3F                 2251 	.db #0x3f	; 63
-   49EC                    2252 _array_61:
+   49EC                    2252 _tiles_61:
    49EC 3F                 2253 	.db #0x3f	; 63
    49ED 3F                 2254 	.db #0x3f	; 63
    49EE 3F                 2255 	.db #0x3f	; 63
@@ -2282,7 +2282,7 @@
    4A09 3C                 2282 	.db #0x3c	; 60
    4A0A 3F                 2283 	.db #0x3f	; 63
    4A0B 3F                 2284 	.db #0x3f	; 63
-   4A0C                    2285 _array_62:
+   4A0C                    2285 _tiles_62:
    4A0C BA                 2286 	.db #0xba	; 186
    4A0D 3F                 2287 	.db #0x3f	; 63
    4A0E 3F                 2288 	.db #0x3f	; 63
@@ -2315,7 +2315,7 @@
    4A29 3F                 2315 	.db #0x3f	; 63
    4A2A 3C                 2316 	.db #0x3c	; 60
    4A2B BA                 2317 	.db #0xba	; 186
-   4A2C                    2318 _array_63:
+   4A2C                    2318 _tiles_63:
    4A2C 3C                 2319 	.db #0x3c	; 60
    4A2D 3C                 2320 	.db #0x3c	; 60
    4A2E 3C                 2321 	.db #0x3c	; 60
@@ -2348,7 +2348,7 @@
    4A49 0C                 2348 	.db #0x0c	; 12
    4A4A 0C                 2349 	.db #0x0c	; 12
    4A4B 0C                 2350 	.db #0x0c	; 12
-   4A4C                    2351 _array_64:
+   4A4C                    2351 _tiles_64:
    4A4C 3C                 2352 	.db #0x3c	; 60
    4A4D 00                 2353 	.db #0x00	; 0
    4A4E 2C                 2354 	.db #0x2c	; 44
@@ -2381,7 +2381,7 @@
    4A69 0C                 2381 	.db #0x0c	; 12
    4A6A 0C                 2382 	.db #0x0c	; 12
    4A6B 0C                 2383 	.db #0x0c	; 12
-   4A6C                    2384 _array_65:
+   4A6C                    2384 _tiles_65:
    4A6C 3C                 2385 	.db #0x3c	; 60
    4A6D 98                 2386 	.db #0x98	; 152
    4A6E 2C                 2387 	.db #0x2c	; 44
@@ -2414,7 +2414,7 @@
    4A89 2C                 2414 	.db #0x2c	; 44
    4A8A 75                 2415 	.db #0x75	; 117	'u'
    4A8B 3C                 2416 	.db #0x3c	; 60
-   4A8C                    2417 _array_66:
+   4A8C                    2417 _tiles_66:
    4A8C 04                 2418 	.db #0x04	; 4
    4A8D 1C                 2419 	.db #0x1c	; 28
    4A8E 20                 2420 	.db #0x20	; 32
@@ -2447,7 +2447,7 @@
    4AA9 00                 2447 	.db #0x00	; 0
    4AAA 1C                 2448 	.db #0x1c	; 28
    4AAB 04                 2449 	.db #0x04	; 4
-   4AAC                    2450 _array_67:
+   4AAC                    2450 _tiles_67:
    4AAC 00                 2451 	.db #0x00	; 0
    4AAD 00                 2452 	.db #0x00	; 0
    4AAE 00                 2453 	.db #0x00	; 0
@@ -2480,7 +2480,7 @@
    4AC9 3C                 2480 	.db #0x3c	; 60
    4ACA 3C                 2481 	.db #0x3c	; 60
    4ACB 3C                 2482 	.db #0x3c	; 60
-   4ACC                    2483 _array_68:
+   4ACC                    2483 _tiles_68:
    4ACC 00                 2484 	.db #0x00	; 0
    4ACD 00                 2485 	.db #0x00	; 0
    4ACE 00                 2486 	.db #0x00	; 0
@@ -2513,7 +2513,7 @@
    4AE9 0C                 2513 	.db #0x0c	; 12
    4AEA 1C                 2514 	.db #0x1c	; 28
    4AEB 3C                 2515 	.db #0x3c	; 60
-   4AEC                    2516 _array_69:
+   4AEC                    2516 _tiles_69:
    4AEC 00                 2517 	.db #0x00	; 0
    4AED 00                 2518 	.db #0x00	; 0
    4AEE 00                 2519 	.db #0x00	; 0
@@ -2546,7 +2546,7 @@
    4B09 2C                 2546 	.db #0x2c	; 44
    4B0A 2C                 2547 	.db #0x2c	; 44
    4B0B 0C                 2548 	.db #0x0c	; 12
-   4B0C                    2549 _array_70:
+   4B0C                    2549 _tiles_70:
    4B0C 00                 2550 	.db #0x00	; 0
    4B0D 00                 2551 	.db #0x00	; 0
    4B0E 00                 2552 	.db #0x00	; 0
@@ -2579,7 +2579,7 @@
    4B29 3C                 2579 	.db #0x3c	; 60
    4B2A 0C                 2580 	.db #0x0c	; 12
    4B2B 0C                 2581 	.db #0x0c	; 12
-   4B2C                    2582 _array_71:
+   4B2C                    2582 _tiles_71:
    4B2C 00                 2583 	.db #0x00	; 0
    4B2D 00                 2584 	.db #0x00	; 0
    4B2E 00                 2585 	.db #0x00	; 0
@@ -2612,7 +2612,7 @@
    4B49 0C                 2612 	.db #0x0c	; 12
    4B4A 0C                 2613 	.db #0x0c	; 12
    4B4B 0C                 2614 	.db #0x0c	; 12
-   4B4C                    2615 _array_72:
+   4B4C                    2615 _tiles_72:
    4B4C 00                 2616 	.db #0x00	; 0
    4B4D 00                 2617 	.db #0x00	; 0
    4B4E 04                 2618 	.db #0x04	; 4
@@ -2645,7 +2645,7 @@
    4B69 2C                 2645 	.db #0x2c	; 44
    4B6A 0C                 2646 	.db #0x0c	; 12
    4B6B 0C                 2647 	.db #0x0c	; 12
-   4B6C                    2648 _array_73:
+   4B6C                    2648 _tiles_73:
    4B6C BA                 2649 	.db #0xba	; 186
    4B6D 08                 2650 	.db #0x08	; 8
    4B6E 00                 2651 	.db #0x00	; 0
@@ -2678,7 +2678,7 @@
    4B89 0C                 2678 	.db #0x0c	; 12
    4B8A 1C                 2679 	.db #0x1c	; 28
    4B8B 0C                 2680 	.db #0x0c	; 12
-   4B8C                    2681 _array_74:
+   4B8C                    2681 _tiles_74:
    4B8C 00                 2682 	.db #0x00	; 0
    4B8D 00                 2683 	.db #0x00	; 0
    4B8E 00                 2684 	.db #0x00	; 0
@@ -2711,7 +2711,7 @@
    4BA9 0C                 2711 	.db #0x0c	; 12
    4BAA 0C                 2712 	.db #0x0c	; 12
    4BAB 0C                 2713 	.db #0x0c	; 12
-   4BAC                    2714 _array_75:
+   4BAC                    2714 _tiles_75:
    4BAC 00                 2715 	.db #0x00	; 0
    4BAD 00                 2716 	.db #0x00	; 0
    4BAE 00                 2717 	.db #0x00	; 0
@@ -2744,7 +2744,7 @@
    4BC9 0C                 2744 	.db #0x0c	; 12
    4BCA 3C                 2745 	.db #0x3c	; 60
    4BCB 3C                 2746 	.db #0x3c	; 60
-   4BCC                    2747 _array_76:
+   4BCC                    2747 _tiles_76:
    4BCC 00                 2748 	.db #0x00	; 0
    4BCD 00                 2749 	.db #0x00	; 0
    4BCE 00                 2750 	.db #0x00	; 0
@@ -2777,7 +2777,7 @@
    4BE9 1C                 2777 	.db #0x1c	; 28
    4BEA 1C                 2778 	.db #0x1c	; 28
    4BEB 0C                 2779 	.db #0x0c	; 12
-   4BEC                    2780 _array_77:
+   4BEC                    2780 _tiles_77:
    4BEC 04                 2781 	.db #0x04	; 4
    4BED 1C                 2782 	.db #0x1c	; 28
    4BEE 00                 2783 	.db #0x00	; 0
@@ -2810,7 +2810,7 @@
    4C09 0C                 2810 	.db #0x0c	; 12
    4C0A 0C                 2811 	.db #0x0c	; 12
    4C0B 04                 2812 	.db #0x04	; 4
-   4C0C                    2813 _array_78:
+   4C0C                    2813 _tiles_78:
    4C0C 3C                 2814 	.db #0x3c	; 60
    4C0D 3C                 2815 	.db #0x3c	; 60
    4C0E 3C                 2816 	.db #0x3c	; 60
@@ -2843,7 +2843,7 @@
    4C29 0C                 2843 	.db #0x0c	; 12
    4C2A 0C                 2844 	.db #0x0c	; 12
    4C2B 0C                 2845 	.db #0x0c	; 12
-   4C2C                    2846 _array_79:
+   4C2C                    2846 _tiles_79:
    4C2C 3C                 2847 	.db #0x3c	; 60
    4C2D 1C                 2848 	.db #0x1c	; 28
    4C2E 2C                 2849 	.db #0x2c	; 44
@@ -2876,7 +2876,7 @@
    4C49 0C                 2876 	.db #0x0c	; 12
    4C4A 0C                 2877 	.db #0x0c	; 12
    4C4B 0C                 2878 	.db #0x0c	; 12
-   4C4C                    2879 _array_80:
+   4C4C                    2879 _tiles_80:
    4C4C 2C                 2880 	.db #0x2c	; 44
    4C4D 3C                 2881 	.db #0x3c	; 60
    4C4E 3C                 2882 	.db #0x3c	; 60
@@ -2909,7 +2909,7 @@
    4C69 08                 2909 	.db #0x08	; 8
    4C6A 0C                 2910 	.db #0x0c	; 12
    4C6B 0C                 2911 	.db #0x0c	; 12
-   4C6C                    2912 _array_81:
+   4C6C                    2912 _tiles_81:
    4C6C 0C                 2913 	.db #0x0c	; 12
    4C6D 0C                 2914 	.db #0x0c	; 12
    4C6E 0C                 2915 	.db #0x0c	; 12
@@ -2942,7 +2942,7 @@
    4C89 00                 2942 	.db #0x00	; 0
    4C8A 00                 2943 	.db #0x00	; 0
    4C8B 00                 2944 	.db #0x00	; 0
-   4C8C                    2945 _array_82:
+   4C8C                    2945 _tiles_82:
    4C8C 0C                 2946 	.db #0x0c	; 12
    4C8D 0C                 2947 	.db #0x0c	; 12
    4C8E 0C                 2948 	.db #0x0c	; 12
@@ -2975,7 +2975,7 @@
    4CA9 00                 2975 	.db #0x00	; 0
    4CAA 00                 2976 	.db #0x00	; 0
    4CAB 00                 2977 	.db #0x00	; 0
-   4CAC                    2978 _array_83:
+   4CAC                    2978 _tiles_83:
    4CAC 0C                 2979 	.db #0x0c	; 12
    4CAD 0C                 2980 	.db #0x0c	; 12
    4CAE 0C                 2981 	.db #0x0c	; 12
@@ -3008,7 +3008,7 @@
    4CC9 00                 3008 	.db #0x00	; 0
    4CCA 00                 3009 	.db #0x00	; 0
    4CCB 00                 3010 	.db #0x00	; 0
-   4CCC                    3011 _array_84:
+   4CCC                    3011 _tiles_84:
    4CCC 1C                 3012 	.db #0x1c	; 28
    4CCD 3C                 3013 	.db #0x3c	; 60
    4CCE 3C                 3014 	.db #0x3c	; 60
@@ -3041,7 +3041,7 @@
    4CE9 0C                 3041 	.db #0x0c	; 12
    4CEA 0C                 3042 	.db #0x0c	; 12
    4CEB 00                 3043 	.db #0x00	; 0
-   4CEC                    3044 _array_85:
+   4CEC                    3044 _tiles_85:
    4CEC 0C                 3045 	.db #0x0c	; 12
    4CED 1C                 3046 	.db #0x1c	; 28
    4CEE 2C                 3047 	.db #0x2c	; 44
@@ -3074,7 +3074,7 @@
    4D09 0C                 3074 	.db #0x0c	; 12
    4D0A 0C                 3075 	.db #0x0c	; 12
    4D0B 0C                 3076 	.db #0x0c	; 12
-   4D0C                    3077 _array_86:
+   4D0C                    3077 _tiles_86:
    4D0C 00                 3078 	.db #0x00	; 0
    4D0D 00                 3079 	.db #0x00	; 0
    4D0E 00                 3080 	.db #0x00	; 0
@@ -3107,7 +3107,7 @@
    4D29 2C                 3107 	.db #0x2c	; 44
    4D2A 0C                 3108 	.db #0x0c	; 12
    4D2B 0C                 3109 	.db #0x0c	; 12
-   4D2C                    3110 _array_87:
+   4D2C                    3110 _tiles_87:
    4D2C 3F                 3111 	.db #0x3f	; 63
    4D2D 3F                 3112 	.db #0x3f	; 63
    4D2E 3F                 3113 	.db #0x3f	; 63

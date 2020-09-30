@@ -45,14 +45,14 @@
                              45 ;	---------------------------------
                              46 ; Function crearNivel
                              47 ; ---------------------------------
-   4E19                      48 _crearNivel::
+   4E23                      48 _crearNivel::
                              49 ;src/niveles/niveles.c:6: crearMapa(0);
-   4E19 AF            [ 4]   50 	xor	a, a
-   4E1A F5            [11]   51 	push	af
-   4E1B 33            [ 6]   52 	inc	sp
-   4E1C CD D3 4D      [17]   53 	call	_crearMapa
-   4E1F 33            [ 6]   54 	inc	sp
-   4E20 C9            [10]   55 	ret
+   4E23 AF            [ 4]   50 	xor	a, a
+   4E24 F5            [11]   51 	push	af
+   4E25 33            [ 6]   52 	inc	sp
+   4E26 CD E1 4D      [17]   53 	call	_crearMapa
+   4E29 33            [ 6]   54 	inc	sp
+   4E2A C9            [10]   55 	ret
                              56 	.area _CODE
                              57 	.area _INITIALIZER
                              58 	.area _CABS (ABS)

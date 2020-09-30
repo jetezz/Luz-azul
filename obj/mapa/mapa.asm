@@ -47,8 +47,8 @@
 ; Function crearMapa
 ; ---------------------------------
 _crearMapa::
-;src/mapa/mapa.c:9: cpct_etm_setDrawTilemap4x8_ag(map_W, map_H, map_W, array_00);
-	ld	hl, #_array_00
+;src/mapa/mapa.c:9: cpct_etm_setDrawTilemap4x8_ag(map_W, map_H, map_W, tiles_00);
+	ld	hl, #_tiles_00
 	push	hl
 	ld	hl, #0x0012
 	push	hl

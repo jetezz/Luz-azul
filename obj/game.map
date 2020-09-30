@@ -18,185 +18,185 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000000  s__CABS                         
      00000000  s__DABS                         
      00000018  l__DATA                         
-     000010B4  l__CODE                         
+     000010BE  l__CODE                         
      00004000  s__CODE                         
-     000050B4  s__DATA                         
-     000050CC  s__GSFINAL                      
-     000050CC  s__GSINIT                       
-     000050CC  s__HOME                         
-     000050CC  s__INITIALIZED                  
-     000050CC  s__INITIALIZER                  
+     000050BE  s__DATA                         
+     000050D6  s__GSFINAL                      
+     000050D6  s__GSINIT                       
+     000050D6  s__HOME                         
+     000050D6  s__INITIALIZED                  
+     000050D6  s__INITIALIZER                  
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000010B4 =        4276. bytes (REL,CON)
+_CODE                               00004000    000010BE =        4286. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
      00004000  _map                               court
      0000418C  _PALETTE2                          tiles
-     0000419C  _tileset2                          tiles
-     0000424C  _array_00                          tiles
-     0000426C  _array_01                          tiles
-     0000428C  _array_02                          tiles
-     000042AC  _array_03                          tiles
-     000042CC  _array_04                          tiles
-     000042EC  _array_05                          tiles
-     0000430C  _array_06                          tiles
-     0000432C  _array_07                          tiles
-     0000434C  _array_08                          tiles
-     0000436C  _array_09                          tiles
-     0000438C  _array_10                          tiles
-     000043AC  _array_11                          tiles
-     000043CC  _array_12                          tiles
-     000043EC  _array_13                          tiles
-     0000440C  _array_14                          tiles
-     0000442C  _array_15                          tiles
-     0000444C  _array_16                          tiles
-     0000446C  _array_17                          tiles
-     0000448C  _array_18                          tiles
-     000044AC  _array_19                          tiles
-     000044CC  _array_20                          tiles
-     000044EC  _array_21                          tiles
-     0000450C  _array_22                          tiles
-     0000452C  _array_23                          tiles
-     0000454C  _array_24                          tiles
-     0000456C  _array_25                          tiles
-     0000458C  _array_26                          tiles
-     000045AC  _array_27                          tiles
-     000045CC  _array_28                          tiles
-     000045EC  _array_29                          tiles
-     0000460C  _array_30                          tiles
-     0000462C  _array_31                          tiles
-     0000464C  _array_32                          tiles
-     0000466C  _array_33                          tiles
-     0000468C  _array_34                          tiles
-     000046AC  _array_35                          tiles
-     000046CC  _array_36                          tiles
-     000046EC  _array_37                          tiles
-     0000470C  _array_38                          tiles
-     0000472C  _array_39                          tiles
-     0000474C  _array_40                          tiles
-     0000476C  _array_41                          tiles
-     0000478C  _array_42                          tiles
-     000047AC  _array_43                          tiles
-     000047CC  _array_44                          tiles
-     000047EC  _array_45                          tiles
-     0000480C  _array_46                          tiles
+     0000419C  _tiles                             tiles
+     0000424C  _tiles_00                          tiles
+     0000426C  _tiles_01                          tiles
+     0000428C  _tiles_02                          tiles
+     000042AC  _tiles_03                          tiles
+     000042CC  _tiles_04                          tiles
+     000042EC  _tiles_05                          tiles
+     0000430C  _tiles_06                          tiles
+     0000432C  _tiles_07                          tiles
+     0000434C  _tiles_08                          tiles
+     0000436C  _tiles_09                          tiles
+     0000438C  _tiles_10                          tiles
+     000043AC  _tiles_11                          tiles
+     000043CC  _tiles_12                          tiles
+     000043EC  _tiles_13                          tiles
+     0000440C  _tiles_14                          tiles
+     0000442C  _tiles_15                          tiles
+     0000444C  _tiles_16                          tiles
+     0000446C  _tiles_17                          tiles
+     0000448C  _tiles_18                          tiles
+     000044AC  _tiles_19                          tiles
+     000044CC  _tiles_20                          tiles
+     000044EC  _tiles_21                          tiles
+     0000450C  _tiles_22                          tiles
+     0000452C  _tiles_23                          tiles
+     0000454C  _tiles_24                          tiles
+     0000456C  _tiles_25                          tiles
+     0000458C  _tiles_26                          tiles
+     000045AC  _tiles_27                          tiles
+     000045CC  _tiles_28                          tiles
+     000045EC  _tiles_29                          tiles
+     0000460C  _tiles_30                          tiles
+     0000462C  _tiles_31                          tiles
+     0000464C  _tiles_32                          tiles
+     0000466C  _tiles_33                          tiles
+     0000468C  _tiles_34                          tiles
+     000046AC  _tiles_35                          tiles
+     000046CC  _tiles_36                          tiles
+     000046EC  _tiles_37                          tiles
+     0000470C  _tiles_38                          tiles
+     0000472C  _tiles_39                          tiles
+     0000474C  _tiles_40                          tiles
+     0000476C  _tiles_41                          tiles
+     0000478C  _tiles_42                          tiles
+     000047AC  _tiles_43                          tiles
+     000047CC  _tiles_44                          tiles
+     000047EC  _tiles_45                          tiles
+     0000480C  _tiles_46                          tiles
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000010B4 =        4276. bytes (REL,CON)
+_CODE                               00004000    000010BE =        4286. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     0000482C  _array_47                          tiles
-     0000484C  _array_48                          tiles
-     0000486C  _array_49                          tiles
-     0000488C  _array_50                          tiles
-     000048AC  _array_51                          tiles
-     000048CC  _array_52                          tiles
-     000048EC  _array_53                          tiles
-     0000490C  _array_54                          tiles
-     0000492C  _array_55                          tiles
-     0000494C  _array_56                          tiles
-     0000496C  _array_57                          tiles
-     0000498C  _array_58                          tiles
-     000049AC  _array_59                          tiles
-     000049CC  _array_60                          tiles
-     000049EC  _array_61                          tiles
-     00004A0C  _array_62                          tiles
-     00004A2C  _array_63                          tiles
-     00004A4C  _array_64                          tiles
-     00004A6C  _array_65                          tiles
-     00004A8C  _array_66                          tiles
-     00004AAC  _array_67                          tiles
-     00004ACC  _array_68                          tiles
-     00004AEC  _array_69                          tiles
-     00004B0C  _array_70                          tiles
-     00004B2C  _array_71                          tiles
-     00004B4C  _array_72                          tiles
-     00004B6C  _array_73                          tiles
-     00004B8C  _array_74                          tiles
-     00004BAC  _array_75                          tiles
-     00004BCC  _array_76                          tiles
-     00004BEC  _array_77                          tiles
-     00004C0C  _array_78                          tiles
-     00004C2C  _array_79                          tiles
-     00004C4C  _array_80                          tiles
-     00004C6C  _array_81                          tiles
-     00004C8C  _array_82                          tiles
-     00004CAC  _array_83                          tiles
-     00004CCC  _array_84                          tiles
-     00004CEC  _array_85                          tiles
-     00004D0C  _array_86                          tiles
-     00004D2C  _array_87                          tiles
+     0000482C  _tiles_47                          tiles
+     0000484C  _tiles_48                          tiles
+     0000486C  _tiles_49                          tiles
+     0000488C  _tiles_50                          tiles
+     000048AC  _tiles_51                          tiles
+     000048CC  _tiles_52                          tiles
+     000048EC  _tiles_53                          tiles
+     0000490C  _tiles_54                          tiles
+     0000492C  _tiles_55                          tiles
+     0000494C  _tiles_56                          tiles
+     0000496C  _tiles_57                          tiles
+     0000498C  _tiles_58                          tiles
+     000049AC  _tiles_59                          tiles
+     000049CC  _tiles_60                          tiles
+     000049EC  _tiles_61                          tiles
+     00004A0C  _tiles_62                          tiles
+     00004A2C  _tiles_63                          tiles
+     00004A4C  _tiles_64                          tiles
+     00004A6C  _tiles_65                          tiles
+     00004A8C  _tiles_66                          tiles
+     00004AAC  _tiles_67                          tiles
+     00004ACC  _tiles_68                          tiles
+     00004AEC  _tiles_69                          tiles
+     00004B0C  _tiles_70                          tiles
+     00004B2C  _tiles_71                          tiles
+     00004B4C  _tiles_72                          tiles
+     00004B6C  _tiles_73                          tiles
+     00004B8C  _tiles_74                          tiles
+     00004BAC  _tiles_75                          tiles
+     00004BCC  _tiles_76                          tiles
+     00004BEC  _tiles_77                          tiles
+     00004C0C  _tiles_78                          tiles
+     00004C2C  _tiles_79                          tiles
+     00004C4C  _tiles_80                          tiles
+     00004C6C  _tiles_81                          tiles
+     00004C8C  _tiles_82                          tiles
+     00004CAC  _tiles_83                          tiles
+     00004CCC  _tiles_84                          tiles
+     00004CEC  _tiles_85                          tiles
+     00004D0C  _tiles_86                          tiles
+     00004D2C  _tiles_87                          tiles
      00004D4C  _PALETTE                           player
      00004D5C  _playerSprite                      player
-     00004D60  _array_0                           player
-     00004D80  _array_1                           player
+     00004D60  _playerSprite_0                    player
+     00004D80  _playerSprite_1                    player
      00004DA0  _main                              main
      00004DB7  _game_palette                      main
      00004DC7  _dibujarGameObject                 gameObject
-     00004DD3  _crearMapa                         mapa
-     00004DED  _game                              juego
-     00004DFE  _initGame                          juego
+     00004DE1  _crearMapa                         mapa
+     00004DFB  _game                              juego
+     00004E08  _initGame                          juego
 ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000010B4 =        4276. bytes (REL,CON)
+_CODE                               00004000    000010BE =        4286. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00004E04  _createPlayer                      juego
-     00004E19  _crearNivel                        niveles
-     00004E21  _scanKey                           input
-     00004E24  _keyScape                          input
-     00004E34  _keyUp                             input
-     00004E44  _keyDown                           input
-     00004E54  _keyLeft                           input
-     00004E64  _keyRight                          input
-     00004E74  _keyFire                           input
-     00004E84  _cpct_isKeyPressed                 cpct_keyboard
-     00004E84  cpct_isKeyPressed_asm              cpct_keyboard
-     00004E90  _cpct_scanKeyboard_f               cpct_keyboard
-     00004E90  cpct_scanKeyboard_f_asm            cpct_keyboard
-     00004EFA  _cpct_setPalette                   cpct_video
-     00004F11  _cpct_drawSprite                   cpct_sprites
-     00004FB6  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
-     00004FC0  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
-     00004FD6  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
-     00005041  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
-     00005047  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
-     0000504C  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
-     0000504F  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
-     0000505B  _cpct_keyboardStatusBuffer         cpct_keyboard
-     00005065  _cpct_setVideoMode                 cpct_video
-     00005073  _cpct_disableFirmware              cpct_firmware
-     00005073  _cpct_removeInterruptHandler       cpct_firmware
-     00005073  cpct_disableFirmware_asm           cpct_firmware
-     00005073  cpct_removeInterruptHandler_asm    cpct_firmware
-     00005083  _cpct_mode_rom_status              cpct_firmware
-     00005084  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
+     00004E0E  _createPlayer                      juego
+     00004E23  _crearNivel                        niveles
+     00004E2B  _scanKey                           input
+     00004E2E  _keyScape                          input
+     00004E3E  _keyUp                             input
+     00004E4E  _keyDown                           input
+     00004E5E  _keyLeft                           input
+     00004E6E  _keyRight                          input
+     00004E7E  _keyFire                           input
+     00004E8E  _cpct_isKeyPressed                 cpct_keyboard
+     00004E8E  cpct_isKeyPressed_asm              cpct_keyboard
+     00004E9A  _cpct_scanKeyboard_f               cpct_keyboard
+     00004E9A  cpct_scanKeyboard_f_asm            cpct_keyboard
+     00004F04  _cpct_setPalette                   cpct_video
+     00004F1B  _cpct_drawSprite                   cpct_sprites
+     00004FC0  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
+     00004FCA  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
+     00004FE0  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
+     0000504B  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
+     00005051  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
+     00005056  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
+     00005059  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
+     00005065  _cpct_keyboardStatusBuffer         cpct_keyboard
+     0000506F  _cpct_setVideoMode                 cpct_video
+     0000507D  _cpct_disableFirmware              cpct_firmware
+     0000507D  _cpct_removeInterruptHandler       cpct_firmware
+     0000507D  cpct_disableFirmware_asm           cpct_firmware
+     0000507D  cpct_removeInterruptHandler_asm    cpct_firmware
+     0000508D  _cpct_mode_rom_status              cpct_firmware
+     0000508E  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_DATA                               000050B4    00000018 =          24. bytes (REL,CON)
+_DATA                               000050BE    00000018 =          24. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000050B4  _player                            juego
-     000050B8  _rocas                             juego
+     000050BE  _player                            juego
+     000050C2  _rocas                             juego
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
 

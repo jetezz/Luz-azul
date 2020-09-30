@@ -51,18 +51,18 @@
                              51 ; ---------------------------------
    4DA0                      52 _main::
                              53 ;src/main.c:12: cpct_disableFirmware();
-   4DA0 CD 73 50      [17]   54 	call	_cpct_disableFirmware
+   4DA0 CD 7D 50      [17]   54 	call	_cpct_disableFirmware
                              55 ;src/main.c:13: cpct_setVideoMode(0);
    4DA3 2E 00         [ 7]   56 	ld	l, #0x00
-   4DA5 CD 65 50      [17]   57 	call	_cpct_setVideoMode
+   4DA5 CD 6F 50      [17]   57 	call	_cpct_setVideoMode
                              58 ;src/main.c:14: cpct_setPalette(game_palette, 16);   
    4DA8 21 10 00      [10]   59 	ld	hl, #0x0010
    4DAB E5            [11]   60 	push	hl
    4DAC 21 B7 4D      [10]   61 	ld	hl, #_game_palette
    4DAF E5            [11]   62 	push	hl
-   4DB0 CD FA 4E      [17]   63 	call	_cpct_setPalette
+   4DB0 CD 04 4F      [17]   63 	call	_cpct_setPalette
                              64 ;src/main.c:15: game();
-   4DB3 CD ED 4D      [17]   65 	call	_game
+   4DB3 CD FB 4D      [17]   65 	call	_game
    4DB6 C9            [10]   66 	ret
    4DB7                      67 _game_palette:
    4DB7 54                   68 	.db #0x54	; 84	'T'

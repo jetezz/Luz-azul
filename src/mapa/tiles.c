@@ -3,11 +3,11 @@
 // Palette uses hardware values.
 const u8 PALETTE2[16] = { 0x54, 0x5d, 0x4e, 0x44, 0x46, 0x42, 0x5c, 0x47, 0x45, 0x58, 0x5d, 0x43, 0x4f, 0x40, 0x4c, 0x4b };
 
-u8* const tileset2[88] = { 
-	array_00, array_01, array_02, array_03, array_04, array_05, array_06, array_07, array_08, array_09, array_10, array_11, array_12, array_13, array_14, array_15, array_16, array_17, array_18, array_19, array_20, array_21, array_22, array_23, array_24, array_25, array_26, array_27, array_28, array_29, array_30, array_31, array_32, array_33, array_34, array_35, array_36, array_37, array_38, array_39, array_40, array_41, array_42, array_43, array_44, array_45, array_46, array_47, array_48, array_49, array_50, array_51, array_52, array_53, array_54, array_55, array_56, array_57, array_58, array_59, array_60, array_61, array_62, array_63, array_64, array_65, array_66, array_67, array_68, array_69, array_70, array_71, array_72, array_73, array_74, array_75, array_76, array_77, array_78, array_79, array_80, array_81, array_82, array_83, array_84, array_85, array_86, array_87
+u8* const tiles[88] = { 
+	tiles_00, tiles_01, tiles_02, tiles_03, tiles_04, tiles_05, tiles_06, tiles_07, tiles_08, tiles_09, tiles_10, tiles_11, tiles_12, tiles_13, tiles_14, tiles_15, tiles_16, tiles_17, tiles_18, tiles_19, tiles_20, tiles_21, tiles_22, tiles_23, tiles_24, tiles_25, tiles_26, tiles_27, tiles_28, tiles_29, tiles_30, tiles_31, tiles_32, tiles_33, tiles_34, tiles_35, tiles_36, tiles_37, tiles_38, tiles_39, tiles_40, tiles_41, tiles_42, tiles_43, tiles_44, tiles_45, tiles_46, tiles_47, tiles_48, tiles_49, tiles_50, tiles_51, tiles_52, tiles_53, tiles_54, tiles_55, tiles_56, tiles_57, tiles_58, tiles_59, tiles_60, tiles_61, tiles_62, tiles_63, tiles_64, tiles_65, tiles_66, tiles_67, tiles_68, tiles_69, tiles_70, tiles_71, tiles_72, tiles_73, tiles_74, tiles_75, tiles_76, tiles_77, tiles_78, tiles_79, tiles_80, tiles_81, tiles_82, tiles_83, tiles_84, tiles_85, tiles_86, tiles_87
 };
-// Tile array_00: 8x8 pixels, 4x8 bytes.
-const u8 array_00[4 * 8] = {
+// Tile tiles_00: 8x8 pixels, 4x8 bytes.
+const u8 tiles_00[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x0c, 0x04, 0x0c, 0x04,
 	0x04, 0x0c, 0x0c, 0x0c,
@@ -18,8 +18,8 @@ const u8 array_00[4 * 8] = {
 	0x3c, 0x3c, 0x1c, 0x04
 };
 
-// Tile array_01: 8x8 pixels, 4x8 bytes.
-const u8 array_01[4 * 8] = {
+// Tile tiles_01: 8x8 pixels, 4x8 bytes.
+const u8 tiles_01[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x0c, 0x04, 0x0c, 0x04,
 	0x0c, 0x0c, 0x0c, 0x0c,
@@ -30,8 +30,8 @@ const u8 array_01[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_02: 8x8 pixels, 4x8 bytes.
-const u8 array_02[4 * 8] = {
+// Tile tiles_02: 8x8 pixels, 4x8 bytes.
+const u8 tiles_02[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x0c, 0x04, 0x0c, 0x04,
 	0x0c, 0x0c, 0x0c, 0x0c,
@@ -42,8 +42,8 @@ const u8 array_02[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_03: 8x8 pixels, 4x8 bytes.
-const u8 array_03[4 * 8] = {
+// Tile tiles_03: 8x8 pixels, 4x8 bytes.
+const u8 tiles_03[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x08, 0x04,
 	0x0c, 0x0c, 0x08, 0x00,
@@ -54,8 +54,8 @@ const u8 array_03[4 * 8] = {
 	0x00, 0x0c, 0x2c, 0x3c
 };
 
-// Tile array_04: 8x8 pixels, 4x8 bytes.
-const u8 array_04[4 * 8] = {
+// Tile tiles_04: 8x8 pixels, 4x8 bytes.
+const u8 tiles_04[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
@@ -66,8 +66,8 @@ const u8 array_04[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00
 };
 
-// Tile array_05: 8x8 pixels, 4x8 bytes.
-const u8 array_05[4 * 8] = {
+// Tile tiles_05: 8x8 pixels, 4x8 bytes.
+const u8 tiles_05[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
@@ -78,8 +78,8 @@ const u8 array_05[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00
 };
 
-// Tile array_06: 8x8 pixels, 4x8 bytes.
-const u8 array_06[4 * 8] = {
+// Tile tiles_06: 8x8 pixels, 4x8 bytes.
+const u8 tiles_06[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
@@ -90,8 +90,8 @@ const u8 array_06[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00
 };
 
-// Tile array_07: 8x8 pixels, 4x8 bytes.
-const u8 array_07[4 * 8] = {
+// Tile tiles_07: 8x8 pixels, 4x8 bytes.
+const u8 tiles_07[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
@@ -102,8 +102,8 @@ const u8 array_07[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00
 };
 
-// Tile array_08: 8x8 pixels, 4x8 bytes.
-const u8 array_08[4 * 8] = {
+// Tile tiles_08: 8x8 pixels, 4x8 bytes.
+const u8 tiles_08[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x3f, 0x3f, 0x3f, 0x3f,
@@ -114,8 +114,8 @@ const u8 array_08[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_09: 8x8 pixels, 4x8 bytes.
-const u8 array_09[4 * 8] = {
+// Tile tiles_09: 8x8 pixels, 4x8 bytes.
+const u8 tiles_09[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
@@ -126,8 +126,8 @@ const u8 array_09[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00
 };
 
-// Tile array_10: 8x8 pixels, 4x8 bytes.
-const u8 array_10[4 * 8] = {
+// Tile tiles_10: 8x8 pixels, 4x8 bytes.
+const u8 tiles_10[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x08, 0x04, 0x00, 0x00,
 	0x00, 0x04, 0x0c, 0x0c,
@@ -138,8 +138,8 @@ const u8 array_10[4 * 8] = {
 	0x3c, 0x1c, 0x0c, 0x00
 };
 
-// Tile array_11: 8x8 pixels, 4x8 bytes.
-const u8 array_11[4 * 8] = {
+// Tile tiles_11: 8x8 pixels, 4x8 bytes.
+const u8 tiles_11[4 * 8] = {
 	0x04, 0x1c, 0x14, 0x0c,
 	0x14, 0x00, 0x1c, 0x04,
 	0x04, 0x1c, 0x00, 0x00,
@@ -150,8 +150,8 @@ const u8 array_11[4 * 8] = {
 	0x00, 0x20, 0x1c, 0x04
 };
 
-// Tile array_12: 8x8 pixels, 4x8 bytes.
-const u8 array_12[4 * 8] = {
+// Tile tiles_12: 8x8 pixels, 4x8 bytes.
+const u8 tiles_12[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -162,8 +162,8 @@ const u8 array_12[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_13: 8x8 pixels, 4x8 bytes.
-const u8 array_13[4 * 8] = {
+// Tile tiles_13: 8x8 pixels, 4x8 bytes.
+const u8 tiles_13[4 * 8] = {
 	0x0c, 0x2c, 0x3c, 0x3c,
 	0x0c, 0x0c, 0x1c, 0x3c,
 	0x3c, 0x1c, 0x0c, 0x0c,
@@ -174,8 +174,8 @@ const u8 array_13[4 * 8] = {
 	0x3c, 0x3c, 0x2c, 0x3c
 };
 
-// Tile array_14: 8x8 pixels, 4x8 bytes.
-const u8 array_14[4 * 8] = {
+// Tile tiles_14: 8x8 pixels, 4x8 bytes.
+const u8 tiles_14[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x2c,
 	0x3c, 0x2c, 0x2c, 0x0c,
 	0x0c, 0x2c, 0x2c, 0x0c,
@@ -186,8 +186,8 @@ const u8 array_14[4 * 8] = {
 	0x3c, 0x3c, 0x2c, 0x3c
 };
 
-// Tile array_15: 8x8 pixels, 4x8 bytes.
-const u8 array_15[4 * 8] = {
+// Tile tiles_15: 8x8 pixels, 4x8 bytes.
+const u8 tiles_15[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x3c, 0x3c,
@@ -198,8 +198,8 @@ const u8 array_15[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_16: 8x8 pixels, 4x8 bytes.
-const u8 array_16[4 * 8] = {
+// Tile tiles_16: 8x8 pixels, 4x8 bytes.
+const u8 tiles_16[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x0c,
@@ -210,8 +210,8 @@ const u8 array_16[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_17: 8x8 pixels, 4x8 bytes.
-const u8 array_17[4 * 8] = {
+// Tile tiles_17: 8x8 pixels, 4x8 bytes.
+const u8 tiles_17[4 * 8] = {
 	0x0c, 0x0c, 0x1c, 0x3c,
 	0x3c, 0x3c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x2c, 0x0c,
@@ -222,8 +222,8 @@ const u8 array_17[4 * 8] = {
 	0x38, 0x2c, 0x3c, 0x3c
 };
 
-// Tile array_18: 8x8 pixels, 4x8 bytes.
-const u8 array_18[4 * 8] = {
+// Tile tiles_18: 8x8 pixels, 4x8 bytes.
+const u8 tiles_18[4 * 8] = {
 	0x3c, 0x2c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x3c, 0x3c,
 	0x0c, 0x1c, 0x0c, 0x0c,
@@ -234,8 +234,8 @@ const u8 array_18[4 * 8] = {
 	0x3c, 0x3c, 0x1c, 0x34
 };
 
-// Tile array_19: 8x8 pixels, 4x8 bytes.
-const u8 array_19[4 * 8] = {
+// Tile tiles_19: 8x8 pixels, 4x8 bytes.
+const u8 tiles_19[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x0c,
@@ -246,8 +246,8 @@ const u8 array_19[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_20: 8x8 pixels, 4x8 bytes.
-const u8 array_20[4 * 8] = {
+// Tile tiles_20: 8x8 pixels, 4x8 bytes.
+const u8 tiles_20[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x3c, 0x3c, 0x0c, 0x0c,
@@ -258,8 +258,8 @@ const u8 array_20[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_21: 8x8 pixels, 4x8 bytes.
-const u8 array_21[4 * 8] = {
+// Tile tiles_21: 8x8 pixels, 4x8 bytes.
+const u8 tiles_21[4 * 8] = {
 	0x1c, 0x3c, 0x3c, 0x3c,
 	0x0c, 0x1c, 0x1c, 0x3c,
 	0x0c, 0x1c, 0x1c, 0x0c,
@@ -270,8 +270,8 @@ const u8 array_21[4 * 8] = {
 	0x3c, 0x1c, 0x3c, 0x3c
 };
 
-// Tile array_22: 8x8 pixels, 4x8 bytes.
-const u8 array_22[4 * 8] = {
+// Tile tiles_22: 8x8 pixels, 4x8 bytes.
+const u8 tiles_22[4 * 8] = {
 	0x04, 0x1c, 0xba, 0x3c,
 	0x3c, 0xba, 0x1c, 0x04,
 	0x04, 0x1c, 0xba, 0x3c,
@@ -282,8 +282,8 @@ const u8 array_22[4 * 8] = {
 	0x3c, 0x64, 0x1c, 0x04
 };
 
-// Tile array_23: 8x8 pixels, 4x8 bytes.
-const u8 array_23[4 * 8] = {
+// Tile tiles_23: 8x8 pixels, 4x8 bytes.
+const u8 tiles_23[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -294,8 +294,8 @@ const u8 array_23[4 * 8] = {
 	0x3f, 0x3f, 0x2e, 0x2e
 };
 
-// Tile array_24: 8x8 pixels, 4x8 bytes.
-const u8 array_24[4 * 8] = {
+// Tile tiles_24: 8x8 pixels, 4x8 bytes.
+const u8 tiles_24[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -306,8 +306,8 @@ const u8 array_24[4 * 8] = {
 	0x2e, 0x2e, 0x3f, 0x3f
 };
 
-// Tile array_25: 8x8 pixels, 4x8 bytes.
-const u8 array_25[4 * 8] = {
+// Tile tiles_25: 8x8 pixels, 4x8 bytes.
+const u8 tiles_25[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3d,
@@ -318,8 +318,8 @@ const u8 array_25[4 * 8] = {
 	0x3f, 0x3f, 0x2e, 0x2e
 };
 
-// Tile array_26: 8x8 pixels, 4x8 bytes.
-const u8 array_26[4 * 8] = {
+// Tile tiles_26: 8x8 pixels, 4x8 bytes.
+const u8 tiles_26[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3f, 0x3f, 0x3f, 0x3f,
@@ -330,8 +330,8 @@ const u8 array_26[4 * 8] = {
 	0x2e, 0x2e, 0x3f, 0x3f
 };
 
-// Tile array_27: 8x8 pixels, 4x8 bytes.
-const u8 array_27[4 * 8] = {
+// Tile tiles_27: 8x8 pixels, 4x8 bytes.
+const u8 tiles_27[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3f, 0x3f, 0x3f, 0x3f,
@@ -342,8 +342,8 @@ const u8 array_27[4 * 8] = {
 	0x3f, 0x3f, 0x2e, 0x2e
 };
 
-// Tile array_28: 8x8 pixels, 4x8 bytes.
-const u8 array_28[4 * 8] = {
+// Tile tiles_28: 8x8 pixels, 4x8 bytes.
+const u8 tiles_28[4 * 8] = {
 	0x3c, 0x3c, 0x28, 0x75,
 	0x75, 0x3c, 0x3c, 0x3c,
 	0x3f, 0x3f, 0x3c, 0x75,
@@ -354,8 +354,8 @@ const u8 array_28[4 * 8] = {
 	0x75, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_29: 8x8 pixels, 4x8 bytes.
-const u8 array_29[4 * 8] = {
+// Tile tiles_29: 8x8 pixels, 4x8 bytes.
+const u8 tiles_29[4 * 8] = {
 	0xba, 0x14, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0xba,
 	0xba, 0x3c, 0x3f, 0x3f,
@@ -366,8 +366,8 @@ const u8 array_29[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0xba
 };
 
-// Tile array_30: 8x8 pixels, 4x8 bytes.
-const u8 array_30[4 * 8] = {
+// Tile tiles_30: 8x8 pixels, 4x8 bytes.
+const u8 tiles_30[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x08, 0x0c, 0x08, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x0c,
@@ -378,8 +378,8 @@ const u8 array_30[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_31: 8x8 pixels, 4x8 bytes.
-const u8 array_31[4 * 8] = {
+// Tile tiles_31: 8x8 pixels, 4x8 bytes.
+const u8 tiles_31[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x08, 0x0c, 0x08, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x08,
@@ -390,8 +390,8 @@ const u8 array_31[4 * 8] = {
 	0x08, 0x2c, 0x3c, 0x3c
 };
 
-// Tile array_32: 8x8 pixels, 4x8 bytes.
-const u8 array_32[4 * 8] = {
+// Tile tiles_32: 8x8 pixels, 4x8 bytes.
+const u8 tiles_32[4 * 8] = {
 	0x3c, 0x75, 0x2c, 0x08,
 	0x08, 0x2c, 0x75, 0x3c,
 	0x3c, 0x75, 0x2c, 0x08,
@@ -402,8 +402,8 @@ const u8 array_32[4 * 8] = {
 	0x08, 0x2c, 0x98, 0x3c
 };
 
-// Tile array_33: 8x8 pixels, 4x8 bytes.
-const u8 array_33[4 * 8] = {
+// Tile tiles_33: 8x8 pixels, 4x8 bytes.
+const u8 tiles_33[4 * 8] = {
 	0x1c, 0x3f, 0x3f, 0x3f,
 	0x3f, 0x3f, 0x3f, 0x1c,
 	0x1c, 0x3f, 0x3f, 0x3f,
@@ -414,8 +414,8 @@ const u8 array_33[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x64
 };
 
-// Tile array_34: 8x8 pixels, 4x8 bytes.
-const u8 array_34[4 * 8] = {
+// Tile tiles_34: 8x8 pixels, 4x8 bytes.
+const u8 tiles_34[4 * 8] = {
 	0x0c, 0x2e, 0x1d, 0x0c,
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x3f, 0x3f, 0x3f, 0x3f,
@@ -426,8 +426,8 @@ const u8 array_34[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_35: 8x8 pixels, 4x8 bytes.
-const u8 array_35[4 * 8] = {
+// Tile tiles_35: 8x8 pixels, 4x8 bytes.
+const u8 tiles_35[4 * 8] = {
 	0x04, 0x0c, 0x14, 0x3c,
 	0x3c, 0x14, 0x0c, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -438,8 +438,8 @@ const u8 array_35[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x64
 };
 
-// Tile array_36: 8x8 pixels, 4x8 bytes.
-const u8 array_36[4 * 8] = {
+// Tile tiles_36: 8x8 pixels, 4x8 bytes.
+const u8 tiles_36[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x0c, 0x2e, 0x2e, 0x2e,
 	0x2e, 0x2e, 0x2e, 0x0c,
@@ -450,8 +450,8 @@ const u8 array_36[4 * 8] = {
 	0x3f, 0x3f, 0x2e, 0x2e
 };
 
-// Tile array_37: 8x8 pixels, 4x8 bytes.
-const u8 array_37[4 * 8] = {
+// Tile tiles_37: 8x8 pixels, 4x8 bytes.
+const u8 tiles_37[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x75,
 	0x75, 0x3f, 0x2e, 0x2e,
 	0x2e, 0x2e, 0x3f, 0x75,
@@ -462,8 +462,8 @@ const u8 array_37[4 * 8] = {
 	0x75, 0x3f, 0x2e, 0x2e
 };
 
-// Tile array_38: 8x8 pixels, 4x8 bytes.
-const u8 array_38[4 * 8] = {
+// Tile tiles_38: 8x8 pixels, 4x8 bytes.
+const u8 tiles_38[4 * 8] = {
 	0xba, 0x3f, 0x3f, 0x3f,
 	0x2e, 0x2e, 0x3f, 0xba,
 	0xba, 0x3f, 0x2e, 0x2e,
@@ -474,8 +474,8 @@ const u8 array_38[4 * 8] = {
 	0x2e, 0x2e, 0x3f, 0xba
 };
 
-// Tile array_39: 8x8 pixels, 4x8 bytes.
-const u8 array_39[4 * 8] = {
+// Tile tiles_39: 8x8 pixels, 4x8 bytes.
+const u8 tiles_39[4 * 8] = {
 	0x3c, 0x28, 0x0c, 0x08,
 	0x00, 0x0c, 0x28, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -486,8 +486,8 @@ const u8 array_39[4 * 8] = {
 	0x98, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_40: 8x8 pixels, 4x8 bytes.
-const u8 array_40[4 * 8] = {
+// Tile tiles_40: 8x8 pixels, 4x8 bytes.
+const u8 tiles_40[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3e, 0x3c, 0x3c, 0x3c,
@@ -498,8 +498,8 @@ const u8 array_40[4 * 8] = {
 	0x2e, 0x2e, 0x3f, 0x3f
 };
 
-// Tile array_41: 8x8 pixels, 4x8 bytes.
-const u8 array_41[4 * 8] = {
+// Tile tiles_41: 8x8 pixels, 4x8 bytes.
+const u8 tiles_41[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -510,8 +510,8 @@ const u8 array_41[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_42: 8x8 pixels, 4x8 bytes.
-const u8 array_42[4 * 8] = {
+// Tile tiles_42: 8x8 pixels, 4x8 bytes.
+const u8 tiles_42[4 * 8] = {
 	0x0c, 0x28, 0x2c, 0x08,
 	0x08, 0x2c, 0x00, 0x28,
 	0x00, 0x00, 0x2c, 0x08,
@@ -522,8 +522,8 @@ const u8 array_42[4 * 8] = {
 	0x08, 0x2c, 0x10, 0x00
 };
 
-// Tile array_43: 8x8 pixels, 4x8 bytes.
-const u8 array_43[4 * 8] = {
+// Tile tiles_43: 8x8 pixels, 4x8 bytes.
+const u8 tiles_43[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x08, 0x0c, 0x08, 0x0c,
 	0x0c, 0x0c, 0x0c, 0x0c,
@@ -534,8 +534,8 @@ const u8 array_43[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_44: 8x8 pixels, 4x8 bytes.
-const u8 array_44[4 * 8] = {
+// Tile tiles_44: 8x8 pixels, 4x8 bytes.
+const u8 tiles_44[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x2c,
 	0x2c, 0x3f, 0x3f, 0x3f,
 	0x3f, 0x3f, 0x3f, 0x2c,
@@ -546,8 +546,8 @@ const u8 array_44[4 * 8] = {
 	0x98, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_45: 8x8 pixels, 4x8 bytes.
-const u8 array_45[4 * 8] = {
+// Tile tiles_45: 8x8 pixels, 4x8 bytes.
+const u8 tiles_45[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x3f, 0x3f, 0x3f, 0x3f,
@@ -558,8 +558,8 @@ const u8 array_45[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_46: 8x8 pixels, 4x8 bytes.
-const u8 array_46[4 * 8] = {
+// Tile tiles_46: 8x8 pixels, 4x8 bytes.
+const u8 tiles_46[4 * 8] = {
 	0x64, 0x3f, 0x3f, 0x3f,
 	0x0c, 0x0c, 0x3f, 0x64,
 	0x64, 0x3f, 0x0c, 0x0c,
@@ -570,8 +570,8 @@ const u8 array_46[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_47: 8x8 pixels, 4x8 bytes.
-const u8 array_47[4 * 8] = {
+// Tile tiles_47: 8x8 pixels, 4x8 bytes.
+const u8 tiles_47[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x2e, 0x2e, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x2e, 0x2e,
@@ -582,8 +582,8 @@ const u8 array_47[4 * 8] = {
 	0x2e, 0x2e, 0x3f, 0x3f
 };
 
-// Tile array_48: 8x8 pixels, 4x8 bytes.
-const u8 array_48[4 * 8] = {
+// Tile tiles_48: 8x8 pixels, 4x8 bytes.
+const u8 tiles_48[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0xf5,
 	0x75, 0x3f, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x3f, 0xf5,
@@ -594,8 +594,8 @@ const u8 array_48[4 * 8] = {
 	0xf5, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_49: 8x8 pixels, 4x8 bytes.
-const u8 array_49[4 * 8] = {
+// Tile tiles_49: 8x8 pixels, 4x8 bytes.
+const u8 tiles_49[4 * 8] = {
 	0xfa, 0x3f, 0x3f, 0x3f,
 	0x0c, 0x0c, 0x3f, 0xba,
 	0xfa, 0x3f, 0x0c, 0x0c,
@@ -606,8 +606,8 @@ const u8 array_49[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0xfa
 };
 
-// Tile array_50: 8x8 pixels, 4x8 bytes.
-const u8 array_50[4 * 8] = {
+// Tile tiles_50: 8x8 pixels, 4x8 bytes.
+const u8 tiles_50[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x98,
 	0x98, 0x3f, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x3f, 0x98,
@@ -618,8 +618,8 @@ const u8 array_50[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_51: 8x8 pixels, 4x8 bytes.
-const u8 array_51[4 * 8] = {
+// Tile tiles_51: 8x8 pixels, 4x8 bytes.
+const u8 tiles_51[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x0c, 0x2e, 0x2e, 0x2e,
 	0x2e, 0x2e, 0x2e, 0x0c,
@@ -630,8 +630,8 @@ const u8 array_51[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3e
 };
 
-// Tile array_52: 8x8 pixels, 4x8 bytes.
-const u8 array_52[4 * 8] = {
+// Tile tiles_52: 8x8 pixels, 4x8 bytes.
+const u8 tiles_52[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x28, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -642,8 +642,8 @@ const u8 array_52[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_53: 8x8 pixels, 4x8 bytes.
-const u8 array_53[4 * 8] = {
+// Tile tiles_53: 8x8 pixels, 4x8 bytes.
+const u8 tiles_53[4 * 8] = {
 	0x00, 0x10, 0x2c, 0x08,
 	0x08, 0x2c, 0x10, 0x00,
 	0x00, 0x10, 0x2c, 0x08,
@@ -654,8 +654,8 @@ const u8 array_53[4 * 8] = {
 	0x08, 0x2c, 0x00, 0x00
 };
 
-// Tile array_54: 8x8 pixels, 4x8 bytes.
-const u8 array_54[4 * 8] = {
+// Tile tiles_54: 8x8 pixels, 4x8 bytes.
+const u8 tiles_54[4 * 8] = {
 	0x3c, 0x3c, 0x1c, 0x0c,
 	0x3c, 0x2c, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x2c, 0x3c,
@@ -666,8 +666,8 @@ const u8 array_54[4 * 8] = {
 	0x3c, 0x1c, 0x3c, 0x3c
 };
 
-// Tile array_55: 8x8 pixels, 4x8 bytes.
-const u8 array_55[4 * 8] = {
+// Tile tiles_55: 8x8 pixels, 4x8 bytes.
+const u8 tiles_55[4 * 8] = {
 	0x04, 0x1c, 0x64, 0x3c,
 	0x3c, 0x64, 0x1c, 0x04,
 	0x04, 0x1c, 0x64, 0x3c,
@@ -678,8 +678,8 @@ const u8 array_55[4 * 8] = {
 	0x3c, 0xba, 0x1c, 0x04
 };
 
-// Tile array_56: 8x8 pixels, 4x8 bytes.
-const u8 array_56[4 * 8] = {
+// Tile tiles_56: 8x8 pixels, 4x8 bytes.
+const u8 tiles_56[4 * 8] = {
 	0x2e, 0x2e, 0x3f, 0x3f,
 	0x0c, 0x2e, 0x2e, 0x2e,
 	0x2e, 0x2e, 0x2e, 0x0c,
@@ -690,8 +690,8 @@ const u8 array_56[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_57: 8x8 pixels, 4x8 bytes.
-const u8 array_57[4 * 8] = {
+// Tile tiles_57: 8x8 pixels, 4x8 bytes.
+const u8 tiles_57[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x0c, 0x2e, 0x2e, 0x2e,
 	0x2e, 0x2e, 0x2e, 0x0c,
@@ -702,8 +702,8 @@ const u8 array_57[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_58: 8x8 pixels, 4x8 bytes.
-const u8 array_58[4 * 8] = {
+// Tile tiles_58: 8x8 pixels, 4x8 bytes.
+const u8 tiles_58[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x2e, 0x2e, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x2e, 0x2e,
@@ -714,8 +714,8 @@ const u8 array_58[4 * 8] = {
 	0x3d, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_59: 8x8 pixels, 4x8 bytes.
-const u8 array_59[4 * 8] = {
+// Tile tiles_59: 8x8 pixels, 4x8 bytes.
+const u8 tiles_59[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x0c, 0x2e, 0x2e, 0x2e,
 	0x2e, 0x2e, 0x2e, 0x0c,
@@ -726,8 +726,8 @@ const u8 array_59[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_60: 8x8 pixels, 4x8 bytes.
-const u8 array_60[4 * 8] = {
+// Tile tiles_60: 8x8 pixels, 4x8 bytes.
+const u8 tiles_60[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x2e, 0x2e, 0x0c, 0x0c,
 	0x0c, 0x0c, 0x2e, 0x2e,
@@ -738,8 +738,8 @@ const u8 array_60[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f
 };
 
-// Tile array_61: 8x8 pixels, 4x8 bytes.
-const u8 array_61[4 * 8] = {
+// Tile tiles_61: 8x8 pixels, 4x8 bytes.
+const u8 tiles_61[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x75,
 	0x75, 0x3f, 0x2e, 0x2e,
 	0x2e, 0x2e, 0x3f, 0x75,
@@ -750,8 +750,8 @@ const u8 array_61[4 * 8] = {
 	0x75, 0x3c, 0x3f, 0x3f
 };
 
-// Tile array_62: 8x8 pixels, 4x8 bytes.
-const u8 array_62[4 * 8] = {
+// Tile tiles_62: 8x8 pixels, 4x8 bytes.
+const u8 tiles_62[4 * 8] = {
 	0xba, 0x3f, 0x3f, 0x3f,
 	0x2e, 0x2e, 0x3f, 0xba,
 	0xba, 0x3f, 0x2e, 0x2e,
@@ -762,8 +762,8 @@ const u8 array_62[4 * 8] = {
 	0x3f, 0x3f, 0x3c, 0xba
 };
 
-// Tile array_63: 8x8 pixels, 4x8 bytes.
-const u8 array_63[4 * 8] = {
+// Tile tiles_63: 8x8 pixels, 4x8 bytes.
+const u8 tiles_63[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -774,8 +774,8 @@ const u8 array_63[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c
 };
 
-// Tile array_64: 8x8 pixels, 4x8 bytes.
-const u8 array_64[4 * 8] = {
+// Tile tiles_64: 8x8 pixels, 4x8 bytes.
+const u8 tiles_64[4 * 8] = {
 	0x3c, 0x00, 0x2c, 0x08,
 	0x08, 0x2c, 0x08, 0x0c,
 	0x3c, 0x3c, 0x2c, 0x08,
@@ -786,8 +786,8 @@ const u8 array_64[4 * 8] = {
 	0x08, 0x0c, 0x0c, 0x0c
 };
 
-// Tile array_65: 8x8 pixels, 4x8 bytes.
-const u8 array_65[4 * 8] = {
+// Tile tiles_65: 8x8 pixels, 4x8 bytes.
+const u8 tiles_65[4 * 8] = {
 	0x3c, 0x98, 0x2c, 0x08,
 	0x08, 0x2c, 0x98, 0x3c,
 	0x3c, 0x98, 0x2c, 0x08,
@@ -798,8 +798,8 @@ const u8 array_65[4 * 8] = {
 	0x08, 0x2c, 0x75, 0x3c
 };
 
-// Tile array_66: 8x8 pixels, 4x8 bytes.
-const u8 array_66[4 * 8] = {
+// Tile tiles_66: 8x8 pixels, 4x8 bytes.
+const u8 tiles_66[4 * 8] = {
 	0x04, 0x1c, 0x20, 0x00,
 	0x00, 0x20, 0x1c, 0x04,
 	0x04, 0x1c, 0x20, 0x00,
@@ -810,8 +810,8 @@ const u8 array_66[4 * 8] = {
 	0x00, 0x00, 0x1c, 0x04
 };
 
-// Tile array_67: 8x8 pixels, 4x8 bytes.
-const u8 array_67[4 * 8] = {
+// Tile tiles_67: 8x8 pixels, 4x8 bytes.
+const u8 tiles_67[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x14,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -822,8 +822,8 @@ const u8 array_67[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c
 };
 
-// Tile array_68: 8x8 pixels, 4x8 bytes.
-const u8 array_68[4 * 8] = {
+// Tile tiles_68: 8x8 pixels, 4x8 bytes.
+const u8 tiles_68[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x2c, 0x3c, 0x3c,
@@ -834,8 +834,8 @@ const u8 array_68[4 * 8] = {
 	0x0c, 0x0c, 0x1c, 0x3c
 };
 
-// Tile array_69: 8x8 pixels, 4x8 bytes.
-const u8 array_69[4 * 8] = {
+// Tile tiles_69: 8x8 pixels, 4x8 bytes.
+const u8 tiles_69[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x2c, 0x3c, 0x3c,
@@ -846,8 +846,8 @@ const u8 array_69[4 * 8] = {
 	0x0c, 0x2c, 0x2c, 0x0c
 };
 
-// Tile array_70: 8x8 pixels, 4x8 bytes.
-const u8 array_70[4 * 8] = {
+// Tile tiles_70: 8x8 pixels, 4x8 bytes.
+const u8 tiles_70[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -858,8 +858,8 @@ const u8 array_70[4 * 8] = {
 	0x3c, 0x3c, 0x0c, 0x0c
 };
 
-// Tile array_71: 8x8 pixels, 4x8 bytes.
-const u8 array_71[4 * 8] = {
+// Tile tiles_71: 8x8 pixels, 4x8 bytes.
+const u8 tiles_71[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -870,8 +870,8 @@ const u8 array_71[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c
 };
 
-// Tile array_72: 8x8 pixels, 4x8 bytes.
-const u8 array_72[4 * 8] = {
+// Tile tiles_72: 8x8 pixels, 4x8 bytes.
+const u8 tiles_72[4 * 8] = {
 	0x00, 0x00, 0x04, 0x75,
 	0x75, 0x2c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x2c, 0x38,
@@ -882,8 +882,8 @@ const u8 array_72[4 * 8] = {
 	0x0c, 0x2c, 0x0c, 0x0c
 };
 
-// Tile array_73: 8x8 pixels, 4x8 bytes.
-const u8 array_73[4 * 8] = {
+// Tile tiles_73: 8x8 pixels, 4x8 bytes.
+const u8 tiles_73[4 * 8] = {
 	0xba, 0x08, 0x00, 0x00,
 	0x3c, 0x3c, 0x1c, 0xba,
 	0x34, 0x1c, 0x3c, 0x3c,
@@ -894,8 +894,8 @@ const u8 array_73[4 * 8] = {
 	0x0c, 0x0c, 0x1c, 0x0c
 };
 
-// Tile array_74: 8x8 pixels, 4x8 bytes.
-const u8 array_74[4 * 8] = {
+// Tile tiles_74: 8x8 pixels, 4x8 bytes.
+const u8 tiles_74[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -906,8 +906,8 @@ const u8 array_74[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c
 };
 
-// Tile array_75: 8x8 pixels, 4x8 bytes.
-const u8 array_75[4 * 8] = {
+// Tile tiles_75: 8x8 pixels, 4x8 bytes.
+const u8 tiles_75[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -918,8 +918,8 @@ const u8 array_75[4 * 8] = {
 	0x0c, 0x0c, 0x3c, 0x3c
 };
 
-// Tile array_76: 8x8 pixels, 4x8 bytes.
-const u8 array_76[4 * 8] = {
+// Tile tiles_76: 8x8 pixels, 4x8 bytes.
+const u8 tiles_76[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x1c, 0x3c,
@@ -930,8 +930,8 @@ const u8 array_76[4 * 8] = {
 	0x0c, 0x1c, 0x1c, 0x0c
 };
 
-// Tile array_77: 8x8 pixels, 4x8 bytes.
-const u8 array_77[4 * 8] = {
+// Tile tiles_77: 8x8 pixels, 4x8 bytes.
+const u8 tiles_77[4 * 8] = {
 	0x04, 0x1c, 0x00, 0x3c,
 	0x0c, 0x04, 0x1c, 0x04,
 	0x04, 0x1c, 0x3c, 0x3c,
@@ -942,8 +942,8 @@ const u8 array_77[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x04
 };
 
-// Tile array_78: 8x8 pixels, 4x8 bytes.
-const u8 array_78[4 * 8] = {
+// Tile tiles_78: 8x8 pixels, 4x8 bytes.
+const u8 tiles_78[4 * 8] = {
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -954,8 +954,8 @@ const u8 array_78[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c
 };
 
-// Tile array_79: 8x8 pixels, 4x8 bytes.
-const u8 array_79[4 * 8] = {
+// Tile tiles_79: 8x8 pixels, 4x8 bytes.
+const u8 tiles_79[4 * 8] = {
 	0x3c, 0x1c, 0x2c, 0x0c,
 	0x2c, 0x2c, 0x3c, 0x0c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -966,8 +966,8 @@ const u8 array_79[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c
 };
 
-// Tile array_80: 8x8 pixels, 4x8 bytes.
-const u8 array_80[4 * 8] = {
+// Tile tiles_80: 8x8 pixels, 4x8 bytes.
+const u8 tiles_80[4 * 8] = {
 	0x2c, 0x3c, 0x3c, 0x0c,
 	0x0c, 0x2c, 0x3c, 0x2c,
 	0x3c, 0x2c, 0x0c, 0x00,
@@ -978,8 +978,8 @@ const u8 array_80[4 * 8] = {
 	0x00, 0x08, 0x0c, 0x0c
 };
 
-// Tile array_81: 8x8 pixels, 4x8 bytes.
-const u8 array_81[4 * 8] = {
+// Tile tiles_81: 8x8 pixels, 4x8 bytes.
+const u8 tiles_81[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
@@ -990,8 +990,8 @@ const u8 array_81[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00
 };
 
-// Tile array_82: 8x8 pixels, 4x8 bytes.
-const u8 array_82[4 * 8] = {
+// Tile tiles_82: 8x8 pixels, 4x8 bytes.
+const u8 tiles_82[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0xff, 0x0c, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00,
@@ -1002,8 +1002,8 @@ const u8 array_82[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00
 };
 
-// Tile array_83: 8x8 pixels, 4x8 bytes.
-const u8 array_83[4 * 8] = {
+// Tile tiles_83: 8x8 pixels, 4x8 bytes.
+const u8 tiles_83[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c,
 	0x00, 0x00, 0x0c, 0xff,
 	0x00, 0x00, 0x00, 0x00,
@@ -1014,8 +1014,8 @@ const u8 array_83[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00
 };
 
-// Tile array_84: 8x8 pixels, 4x8 bytes.
-const u8 array_84[4 * 8] = {
+// Tile tiles_84: 8x8 pixels, 4x8 bytes.
+const u8 tiles_84[4 * 8] = {
 	0x1c, 0x3c, 0x3c, 0x1c,
 	0x1c, 0x3c, 0x3c, 0x0c,
 	0x04, 0x0c, 0x3c, 0x3c,
@@ -1026,8 +1026,8 @@ const u8 array_84[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x00
 };
 
-// Tile array_85: 8x8 pixels, 4x8 bytes.
-const u8 array_85[4 * 8] = {
+// Tile tiles_85: 8x8 pixels, 4x8 bytes.
+const u8 tiles_85[4 * 8] = {
 	0x0c, 0x1c, 0x2c, 0x3c,
 	0x0c, 0x3c, 0x1c, 0x1c,
 	0x3c, 0x3c, 0x3c, 0x3c,
@@ -1038,8 +1038,8 @@ const u8 array_85[4 * 8] = {
 	0x0c, 0x0c, 0x0c, 0x0c
 };
 
-// Tile array_86: 8x8 pixels, 4x8 bytes.
-const u8 array_86[4 * 8] = {
+// Tile tiles_86: 8x8 pixels, 4x8 bytes.
+const u8 tiles_86[4 * 8] = {
 	0x00, 0x00, 0x00, 0x00,
 	0x3c, 0x3c, 0x3c, 0x3c,
 	0x3c, 0x3c, 0x1c, 0x3c,
@@ -1050,8 +1050,8 @@ const u8 array_86[4 * 8] = {
 	0x3c, 0x2c, 0x0c, 0x0c
 };
 
-// Tile array_87: 8x8 pixels, 4x8 bytes.
-const u8 array_87[4 * 8] = {
+// Tile tiles_87: 8x8 pixels, 4x8 bytes.
+const u8 tiles_87[4 * 8] = {
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x3f, 0x3f, 0x3f, 0x3f,
 	0x1c, 0x2c, 0x1c, 0x1c,

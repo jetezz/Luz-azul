@@ -8,8 +8,8 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl _array_1
-	.globl _array_0
+	.globl _playerSprite_1
+	.globl _playerSprite_0
 	.globl _playerSprite
 	.globl _PALETTE
 ;--------------------------------------------------------
@@ -62,73 +62,73 @@ _PALETTE:
 	.db #0x4c	; 76	'L'
 	.db #0x4b	; 75	'K'
 _playerSprite:
-	.dw _array_0
-	.dw _array_1
-_array_0:
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xaa	; 170
+	.dw _playerSprite_0
+	.dw _playerSprite_1
+_playerSprite_0:
+	.db #0x3f	; 63
+	.db #0x00	; 0
+	.db #0x15	; 21
+	.db #0x00	; 0
+	.db #0x2a	; 42
 	.db #0xf3	; 243
 	.db #0xa2	; 162
-	.db #0xfd	; 253
-	.db #0xaa	; 170
+	.db #0xa8	; 168
+	.db #0x2a	; 42
 	.db #0xf3	; 243
 	.db #0x54	; 84	'T'
-	.db #0xfd	; 253
-	.db #0xaa	; 170
+	.db #0xa8	; 168
+	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0xfc	; 252
-	.db #0xfd	; 253
-	.db #0xfb	; 251
+	.db #0xa8	; 168
+	.db #0x51	; 81	'Q'
 	.db #0xfc	; 252
 	.db #0xfc	; 252
-	.db #0xfd	; 253
-	.db #0xfb	; 251
+	.db #0xa8	; 168
+	.db #0x51	; 81	'Q'
 	.db #0x00	; 0
 	.db #0xfc	; 252
-	.db #0x55	; 85	'U'
-	.db #0xfb	; 251
+	.db #0x00	; 0
+	.db #0x51	; 81	'Q'
 	.db #0x00	; 0
 	.db #0xfc	; 252
-	.db #0x55	; 85	'U'
-	.db #0xfb	; 251
+	.db #0x00	; 0
+	.db #0x51	; 81	'Q'
 	.db #0x30	; 48	'0'
 	.db #0xfc	; 252
-	.db #0x75	; 117	'u'
-_array_1:
-	.db #0xfb	; 251
+	.db #0x20	; 32
+_playerSprite_1:
+	.db #0x51	; 81	'Q'
 	.db #0x30	; 48	'0'
 	.db #0xfc	; 252
-	.db #0x75	; 117	'u'
-	.db #0xfb	; 251
+	.db #0x20	; 32
+	.db #0x51	; 81	'Q'
 	.db #0x30	; 48	'0'
 	.db #0xfc	; 252
-	.db #0x75	; 117	'u'
-	.db #0xaa	; 170
+	.db #0x20	; 32
+	.db #0x2a	; 42
 	.db #0xf3	; 243
 	.db #0xf3	; 243
-	.db #0x55	; 85	'U'
-	.db #0xaa	; 170
+	.db #0x15	; 21
+	.db #0x2a	; 42
 	.db #0xf6	; 246
 	.db #0xfc	; 252
-	.db #0x55	; 85	'U'
-	.db #0xaa	; 170
+	.db #0x15	; 21
+	.db #0x00	; 0
 	.db #0xfc	; 252
 	.db #0xf3	; 243
-	.db #0x55	; 85	'U'
-	.db #0xff	; 255
+	.db #0x00	; 0
+	.db #0x51	; 81	'Q'
 	.db #0xfc	; 252
 	.db #0xfc	; 252
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
-	.db #0xff	; 255
+	.db #0xa8	; 168
+	.db #0x00	; 0
+	.db #0x00	; 0
+	.db #0x00	; 0
+	.db #0x00	; 0
+	.db #0x00	; 0
+	.db #0x00	; 0
+	.db #0x00	; 0
+	.db #0x00	; 0
 	.area _INITIALIZER
 	.area _CABS (ABS)
