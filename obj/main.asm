@@ -10,6 +10,7 @@
 ;--------------------------------------------------------
 	.globl _main
 	.globl _game
+	.globl _cpct_setPalette
 	.globl _cpct_setVideoMode
 	.globl _cpct_disableFirmware
 	.globl _game_palette
@@ -54,8 +55,15 @@ _main::
 ;src/main.c:13: cpct_setVideoMode(0);
 	ld	l, #0x00
 	call	_cpct_setVideoMode
+;src/main.c:14: cpct_setPalette(game_palette, 16);   
+	ld	hl, #0x0010
+	push	hl
+	ld	hl, #_game_palette
+	push	hl
+	call	_cpct_setPalette
 ;src/main.c:15: game();
-	jp  _game
+	call	_game
+	ret
 _game_palette:
 	.db #0x54	; 84	'T'
 	.db #0x5d	; 93

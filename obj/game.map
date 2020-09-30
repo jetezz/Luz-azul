@@ -10,7 +10,6 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000000  .__.ABS.                           cpct_easytilemaps
      00000000  l__CABS                         
      00000000  l__DABS                         
-     00000000  l__DATA                         
      00000000  l__GSFINAL                      
      00000000  l__GSINIT                       
      00000000  l__HOME                         
@@ -18,25 +17,26 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000000  l__INITIALIZER                  
      00000000  s__CABS                         
      00000000  s__DABS                         
-     00001010  l__CODE                         
+     00000018  l__DATA                         
+     000010B4  l__CODE                         
      00004000  s__CODE                         
-     00005010  s__DATA                         
-     00005010  s__GSFINAL                      
-     00005010  s__GSINIT                       
-     00005010  s__HOME                         
-     00005010  s__INITIALIZED                  
-     00005010  s__INITIALIZER                  
+     000050B4  s__DATA                         
+     000050CC  s__GSFINAL                      
+     000050CC  s__GSINIT                       
+     000050CC  s__HOME                         
+     000050CC  s__INITIALIZED                  
+     000050CC  s__INITIALIZER                  
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    00001010 =        4112. bytes (REL,CON)
+_CODE                               00004000    000010B4 =        4276. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00004000  _g_level0_4bit                     court
+     00004000  _map                               court
      0000418C  _PALETTE2                          tiles
      0000419C  _tileset2                          tiles
      0000424C  _array_00                          tiles
@@ -91,7 +91,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    00001010 =        4112. bytes (REL,CON)
+_CODE                               00004000    000010B4 =        4276. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -137,58 +137,80 @@ _CODE                               00004000    00001010 =        4112. bytes (R
      00004D0C  _array_86                          tiles
      00004D2C  _array_87                          tiles
      00004D4C  _PALETTE                           player
-     00004D5C  _tileset                           player
+     00004D5C  _playerSprite                      player
      00004D60  _array_0                           player
-     00004D92  _array_1                           player
-     00004DC4  _main                              main
-     00004DCF  _game_palette                      main
-     00004DDF  _game                              juego
-     00004E16  _scanKey                           input
-     00004E19  _keyScape                          input
-     00004E29  _keyUp                             input
+     00004D80  _array_1                           player
+     00004DA0  _main                              main
+     00004DB7  _game_palette                      main
+     00004DC7  _dibujarGameObject                 gameObject
+     00004DD3  _crearMapa                         mapa
+     00004DED  _game                              juego
+     00004DFE  _initGame                          juego
 ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    00001010 =        4112. bytes (REL,CON)
+_CODE                               00004000    000010B4 =        4276. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00004E39  _keyDown                           input
-     00004E49  _keyLeft                           input
-     00004E59  _keyRight                          input
-     00004E69  _keyFire                           input
-     00004E79  _cpct_isKeyPressed                 cpct_keyboard
-     00004E79  cpct_isKeyPressed_asm              cpct_keyboard
-     00004E85  _cpct_scanKeyboard_f               cpct_keyboard
-     00004E85  cpct_scanKeyboard_f_asm            cpct_keyboard
-     00004EEF  _cpct_setPalette                   cpct_video
-     00004F06  _cpct_setPALColour                 cpct_video
-     00004F12  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
-     00004F1C  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
-     00004F32  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
-     00004F9D  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
-     00004FA3  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
-     00004FA8  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
-     00004FAB  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
-     00004FB7  _cpct_keyboardStatusBuffer         cpct_keyboard
-     00004FC1  _cpct_setVideoMode                 cpct_video
-     00004FCF  _cpct_disableFirmware              cpct_firmware
-     00004FCF  _cpct_removeInterruptHandler       cpct_firmware
-     00004FCF  cpct_disableFirmware_asm           cpct_firmware
-     00004FCF  cpct_removeInterruptHandler_asm    cpct_firmware
-     00004FDF  _cpct_mode_rom_status              cpct_firmware
-     00004FE0  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
+     00004E04  _createPlayer                      juego
+     00004E19  _crearNivel                        niveles
+     00004E21  _scanKey                           input
+     00004E24  _keyScape                          input
+     00004E34  _keyUp                             input
+     00004E44  _keyDown                           input
+     00004E54  _keyLeft                           input
+     00004E64  _keyRight                          input
+     00004E74  _keyFire                           input
+     00004E84  _cpct_isKeyPressed                 cpct_keyboard
+     00004E84  cpct_isKeyPressed_asm              cpct_keyboard
+     00004E90  _cpct_scanKeyboard_f               cpct_keyboard
+     00004E90  cpct_scanKeyboard_f_asm            cpct_keyboard
+     00004EFA  _cpct_setPalette                   cpct_video
+     00004F11  _cpct_drawSprite                   cpct_sprites
+     00004FB6  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
+     00004FC0  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
+     00004FD6  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
+     00005041  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
+     00005047  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
+     0000504C  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
+     0000504F  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
+     0000505B  _cpct_keyboardStatusBuffer         cpct_keyboard
+     00005065  _cpct_setVideoMode                 cpct_video
+     00005073  _cpct_disableFirmware              cpct_firmware
+     00005073  _cpct_removeInterruptHandler       cpct_firmware
+     00005073  cpct_disableFirmware_asm           cpct_firmware
+     00005073  cpct_removeInterruptHandler_asm    cpct_firmware
+     00005083  _cpct_mode_rom_status              cpct_firmware
+     00005084  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
+
 ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_DATA                               000050B4    00000018 =          24. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000050B4  _player                            juego
+     000050B8  _rocas                             juego
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
 
 Files Linked                              [ module(s) ]
 
-obj/court.rel                             [ court ]
-obj/tiles.rel                             [ tiles ]
-obj/player.rel                            [ player ]
+obj/mapa/court.rel                        [ court ]
+obj/mapa/tiles.rel                        [ tiles ]
+obj/sprites/player.rel                    [ player ]
+obj/constantes.rel                        [ constantes ]
 obj/main.rel                              [ main ]
+obj/gameObject/gameObject.rel             [ gameObject ]
+obj/mapa/mapa.rel                         [ mapa ]
 obj/juego/juego.rel                       [ juego ]
+obj/niveles/niveles.rel                   [ niveles ]
 obj/input/input.rel                       [ input ]
 
 
@@ -201,7 +223,7 @@ Libraries Linked                          [ object file ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_setPalette_cbindings.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
-                                          [ cpct_setPALColour_cbindings.rel ]
+                                          [ cpct_drawSprite_cbindings.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_etm_drawTilemap4x8_ag_cbind ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
@@ -215,7 +237,7 @@ Libraries Linked                          [ object file ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_etm_setDrawTilemap4x8_ag_cb ]
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
 
 User Base Address Definitions
 

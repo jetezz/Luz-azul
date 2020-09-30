@@ -1,0 +1,44 @@
+XL2
+H 9 areas 5 global symbols
+M player
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 54 flags 0 addr 0
+S _array_0 Def0014
+S _array_1 Def0034
+S _playerSprite Def0010
+S _PALETTE Def0000
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 54 5D 4E 44 46 42 5C 47 45 58 5D 43 4F 40
+R 00 00 00 00
+T 0E 00 4C 4B
+R 00 00 00 00
+T 10 00
+R 00 00 00 00
+T 10 00 14 00 34 00
+R 00 00 00 00 00 02 00 00 00 04 00 00
+T 14 00
+R 00 00 00 00
+T 14 00 FF FF FF FF AA F3 A2 FD AA F3 54 FD AA 00
+R 00 00 00 00
+T 22 00 FC FD FB FC FC FD FB 00 FC 55 FB 00 FC 55
+R 00 00 00 00
+T 30 00 FB 30 FC 75
+R 00 00 00 00
+T 34 00
+R 00 00 00 00
+T 34 00 FB 30 FC 75 FB 30 FC 75 AA F3 F3 55 AA F6
+R 00 00 00 00
+T 42 00 FC 55 AA FC F3 55 FF FC FC FF FF FF FF FF
+R 00 00 00 00
+T 50 00 FF FF FF FF
+R 00 00 00 00

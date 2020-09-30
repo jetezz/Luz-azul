@@ -1,20 +1,18 @@
 XL2
-H 9 areas B global symbols
+H 9 areas 9 global symbols
 M juego
 O -mz80
-S _cpct_setPalette Ref0000
-S _cpct_setPALColour Ref0000
-S _cpct_etm_drawTilemap4x8_ag Ref0000
+S _cpct_drawSprite Ref0000
 S .__.ABS. Def0000
-S _PALETTE2 Ref0000
-S _scanKey Ref0000
-S _keyFire Ref0000
-S _array_00 Ref0000
-S _cpct_etm_setDrawTilemap4x8_ag Ref0000
-S _g_level0_4bit Ref0000
-A _CODE size 37 flags 0 addr 0
+S _playerSprite Ref0000
+S _crearNivel Ref0000
+A _CODE size 2C flags 0 addr 0
+S _createPlayer Def0017
+S _initGame Def0011
 S _game Def0000
-A _DATA size 0 flags 0 addr 0
+A _DATA size 18 flags 0 addr 0
+S _player Def0000
+S _rocas Def0004
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
@@ -23,16 +21,30 @@ A _GSFINAL size 0 flags 0 addr 0
 A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
 T 00 00
+R 00 00 01 00
+T 00 00
+R 00 00 01 00
+T 04 00
+R 00 00 01 00
+T 04 00
+R 00 00 01 00
+T 00 00
 R 00 00 00 00
-T 00 00 21 10 00 E5 21 00 00 E5 CD 00 00 21 10 14
-R 00 00 00 00 02 07 04 00 02 0B 00 00
-T 0E 00 E5 CD 00 00
-R 00 00 00 00 02 04 01 00
-T 12 00
+T 00 00 21 04 10 E5 21 05 E8 E5 21 00 00 E5 CD
+R 00 00 00 00 02 0B 02 00
+T 0D 00 00 00
+R 00 00 00 00 02 02 00 00
+T 0F 00
 R 00 00 00 00
-T 12 00 CD 00 00 CD 00 00 7D B7 28 F6 21 00 00 E5
-R 00 00 00 00 02 03 05 00 02 06 06 00 02 0D 07 00
-T 20 00 21 12 00 E5 26 16 E5 CD 00 00 21 00 00 E5
-R 00 00 00 00 02 0A 08 00 02 0D 09 00
-T 2E 00 21 A4 C0 E5 CD 00 00 18 DB
-R 00 00 00 00 02 07 02 00
+T 0F 00 18 FE
+R 00 00 00 00
+T 11 00
+R 00 00 00 00
+T 11 00 CD 00 00 C3 17 00
+R 00 00 00 00 02 03 03 00 00 06 00 00
+T 17 00
+R 00 00 00 00
+T 17 00 21 00 00 36 01 21 01 00 36 01 21 02 00 36
+R 00 00 00 00 00 03 01 00 00 08 01 00 00 0D 01 00
+T 25 00 01 21 03 00 36 00 C9
+R 00 00 00 00 00 04 01 00

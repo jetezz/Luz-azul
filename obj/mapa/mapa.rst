@@ -1,0 +1,67 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.6.8 #9946 (Linux)
+                              4 ;--------------------------------------------------------
+                              5 	.module mapa
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _cpct_etm_drawTilemap4x8_ag
+                             12 	.globl _cpct_etm_setDrawTilemap4x8_ag
+                             13 	.globl _crearMapa
+                             14 ;--------------------------------------------------------
+                             15 ; special function registers
+                             16 ;--------------------------------------------------------
+                             17 ;--------------------------------------------------------
+                             18 ; ram data
+                             19 ;--------------------------------------------------------
+                             20 	.area _DATA
+                             21 ;--------------------------------------------------------
+                             22 ; ram data
+                             23 ;--------------------------------------------------------
+                             24 	.area _INITIALIZED
+                             25 ;--------------------------------------------------------
+                             26 ; absolute external ram data
+                             27 ;--------------------------------------------------------
+                             28 	.area _DABS (ABS)
+                             29 ;--------------------------------------------------------
+                             30 ; global & static initialisations
+                             31 ;--------------------------------------------------------
+                             32 	.area _HOME
+                             33 	.area _GSINIT
+                             34 	.area _GSFINAL
+                             35 	.area _GSINIT
+                             36 ;--------------------------------------------------------
+                             37 ; Home
+                             38 ;--------------------------------------------------------
+                             39 	.area _HOME
+                             40 	.area _HOME
+                             41 ;--------------------------------------------------------
+                             42 ; code
+                             43 ;--------------------------------------------------------
+                             44 	.area _CODE
+                             45 ;src/mapa/mapa.c:7: void crearMapa(u8 id){
+                             46 ;	---------------------------------
+                             47 ; Function crearMapa
+                             48 ; ---------------------------------
+   4DD3                      49 _crearMapa::
+                             50 ;src/mapa/mapa.c:9: cpct_etm_setDrawTilemap4x8_ag(map_W, map_H, map_W, array_00);
+   4DD3 21 4C 42      [10]   51 	ld	hl, #_array_00
+   4DD6 E5            [11]   52 	push	hl
+   4DD7 21 12 00      [10]   53 	ld	hl, #0x0012
+   4DDA E5            [11]   54 	push	hl
+   4DDB 26 16         [ 7]   55 	ld	h, #0x16
+   4DDD E5            [11]   56 	push	hl
+   4DDE CD 84 50      [17]   57 	call	_cpct_etm_setDrawTilemap4x8_ag
+                             58 ;src/mapa/mapa.c:10: cpct_etm_drawTilemap4x8_ag(Punto_Inicial_De_Pantalla, map);
+   4DE1 21 00 40      [10]   59 	ld	hl, #_map
+   4DE4 E5            [11]   60 	push	hl
+   4DE5 21 00 C0      [10]   61 	ld	hl, #0xc000
+   4DE8 E5            [11]   62 	push	hl
+   4DE9 CD B6 4F      [17]   63 	call	_cpct_etm_drawTilemap4x8_ag
+   4DEC C9            [10]   64 	ret
+                             65 	.area _CODE
+                             66 	.area _INITIALIZER
+                             67 	.area _CABS (ABS)

@@ -7,11 +7,15 @@
 -k /home/jesus/Escritorio/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/share/sdcc/lib/z80
 -l /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
 -l z80
-obj/court.rel
-obj/tiles.rel
-obj/player.rel
+obj/mapa/court.rel
+obj/mapa/tiles.rel
+obj/sprites/player.rel
+obj/constantes.rel
 obj/main.rel
+obj/gameObject/gameObject.rel
+obj/mapa/mapa.rel
 obj/juego/juego.rel
+obj/niveles/niveles.rel
 obj/input/input.rel
 
 -e

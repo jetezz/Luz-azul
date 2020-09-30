@@ -8,13 +8,13 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
-	.globl _keyFire
-	.globl _scanKey
-	.globl _cpct_etm_drawTilemap4x8_ag
-	.globl _cpct_etm_setDrawTilemap4x8_ag
-	.globl _cpct_setPALColour
-	.globl _cpct_setPalette
+	.globl _crearNivel
+	.globl _cpct_drawSprite
+	.globl _rocas
+	.globl _player
 	.globl _game
+	.globl _initGame
+	.globl _createPlayer
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -22,6 +22,10 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _DATA
+_player::
+	.ds 4
+_rocas::
+	.ds 20
 ;--------------------------------------------------------
 ; ram data
 ;--------------------------------------------------------
@@ -46,45 +50,49 @@
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;src/juego/juego.c:13: void game(){
+;src/juego/juego.c:15: void game(){
 ;	---------------------------------
 ; Function game
 ; ---------------------------------
 _game::
-;src/juego/juego.c:14: cpct_setPalette(PALETTE2, 16);
-	ld	hl, #0x0010
+;src/juego/juego.c:18: cpct_drawSprite(playerSprite, Punto_Inicial_De_Pantalla, 4, 16); 
+	ld	hl, #0x1004
 	push	hl
-	ld	hl, #_PALETTE2
+	ld	hl, #0xe805
 	push	hl
-	call	_cpct_setPalette
-;src/juego/juego.c:15: cpct_setBorder(HW_BLACK);        // Set border colour to black
-	ld	hl, #0x1410
+	ld	hl, #_playerSprite
 	push	hl
-	call	_cpct_setPALColour
-;src/juego/juego.c:16: while(1){
-00104$:
-;src/juego/juego.c:17: scanKey();
-	call	_scanKey
-;src/juego/juego.c:18: if(keyFire()){
-	call	_keyFire
-	ld	a, l
-	or	a, a
-	jr	Z,00104$
-;src/juego/juego.c:23: cpct_etm_setDrawTilemap4x8_ag(g_level0_4bit_W, g_level0_4bit_H, g_level0_4bit_W, array_00);
-	ld	hl, #_array_00
-	push	hl
-	ld	hl, #0x0012
-	push	hl
-	ld	h, #0x16
-	push	hl
-	call	_cpct_etm_setDrawTilemap4x8_ag
-;src/juego/juego.c:24: cpct_etm_drawTilemap4x8_ag(TILEMAP_VMEM, g_level0_4bit);
-	ld	hl, #_g_level0_4bit
-	push	hl
-	ld	hl, #0xc0a4
-	push	hl
-	call	_cpct_etm_drawTilemap4x8_ag
-	jr	00104$
+	call	_cpct_drawSprite
+;src/juego/juego.c:20: while(1){            
+00102$:
+	jr	00102$
+;src/juego/juego.c:24: void initGame(){
+;	---------------------------------
+; Function initGame
+; ---------------------------------
+_initGame::
+;src/juego/juego.c:25: crearNivel();
+	call	_crearNivel
+;src/juego/juego.c:26: createPlayer();
+	jp  _createPlayer
+;src/juego/juego.c:28: void createPlayer(){
+;	---------------------------------
+; Function createPlayer
+; ---------------------------------
+_createPlayer::
+;src/juego/juego.c:29: player.posx=1;
+	ld	hl, #_player
+	ld	(hl), #0x01
+;src/juego/juego.c:30: player.posy=1;
+	ld	hl, #(_player + 0x0001)
+	ld	(hl), #0x01
+;src/juego/juego.c:31: player.tipo=tipo_RocaNormal;
+	ld	hl, #(_player + 0x0002)
+	ld	(hl), #0x01
+;src/juego/juego.c:32: player.sprite=sprite_Player;
+	ld	hl, #(_player + 0x0003)
+	ld	(hl), #0x00
+	ret
 	.area _CODE
 	.area _INITIALIZER
 	.area _CABS (ABS)

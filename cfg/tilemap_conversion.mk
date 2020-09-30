@@ -33,10 +33,10 @@
 #$(eval $(call TMX2DATA, SET_OUTPUTS     , h c       ))   { bin hs h s c }
 #$(eval $(call TMX2DATA, SET_BASE        , dec       ))   { dec hex bin }
 #$(eval $(call TMX2DATA, SET_BITSPERITEM , 8         ))   { 1, 2, 4, 6, 8 }
-#$(eval $(call TMX2DATA, SET_FOLDER      , src/      )) 
+$(eval $(call TMX2DATA, SET_FOLDER      , src/mapa      )) 
 #$(eval $(call TMX2DATA, SET_EXTRAPAR    ,           ))	
 # Conversion 
-#$(eval $(call TMX2DATA, CONVERT, mapa.tmx, map )) 
+$(eval $(call TMX2DATA, CONVERT, court.tmx, map )) 
 
 
 ##
@@ -63,7 +63,7 @@
 ## will contain 2 tile IDs.
 ##
 
-$(eval $(call TMX2C,court.tmx,g_level0_4bit,src/,))
+#$(eval $(call TMX2C,court.tmx,g_level0_4bit,src/mapa,))
 
 
 
