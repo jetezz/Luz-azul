@@ -19,8 +19,10 @@ TGameObject rocas[5];
 void game(){
     initGame();
     dibujarGameObject(&player);    
-    while(1){            
-                    
+    while(1){ 
+        scanKey();
+        comprobarMovimiento();      
+        moverGameObject(&player,movimientoGuardado);              
     }
 }
 void initGame(){
@@ -29,7 +31,15 @@ void initGame(){
 }
 void createPlayer(){
     player.posx=1;
-    player.posy=1;
-    player.tipo=tipo_RocaNormal;
+    player.posy=1;   
     player.sprite=sprite_Player;
+}
+
+void comprobarMovimiento(){
+    if(player.cronoMovimiento==0){
+        movimientoGuardado=mover_SinMovimiento;
+    }
+    if(movimientoPlayer()!=mover_SinMovimiento){
+        movimientoGuardado=movimientoPlayer();
+    }
 }
