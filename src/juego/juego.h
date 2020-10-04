@@ -10,4 +10,8 @@ extern TGameObject rocas[5];
 void game();
 void initGame();
 void createPlayer();
+void createRocas();
+void dibujarGameObjects();
 void comprobarMovimiento();
+
+void resetGameobjects();

@@ -2,6 +2,7 @@
 #include "constantes.h"
 
 
+
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
 #define     posxMax                     7
 #define     posyMax                     9
@@ -30,4 +31,11 @@ u8 calcularSiguientePosicion(u8 movimiento,u8 posx, u8 posy){
         }
     }
     return movimiento;
+}
+u8 comprobarColisiones1vs1(u8 posx, u8 posy,u8 posxRock, u8 posyRock){    
+    if(posx==posxRock && posy==posyRock){        
+        return hay_Colision;
+    }else{
+        return no_Hay_Colision;
+    }
 }

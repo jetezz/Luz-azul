@@ -11,4 +11,5 @@ typedef struct {
 void dibujarGameObject(TGameObject* objeto);
 void limpiarRastro(u8 posx, u8 posy);
 
-void moverGameObject(TGameObject* objeto,u8 movimiento);
+void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocas);
+u8 comprobarColisiones(TGameObject* objeto,TGameObject* rocas);
