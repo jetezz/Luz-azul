@@ -1,10 +1,7 @@
 #define     SinColision                 50
 #define     RocasMaximas                5  
 
-extern enum{
-    tipo_Player,
-    tipo_RocaNormal
-}ETiposGameObject;
+
 
 extern enum{
     sprite_SinDefinir,

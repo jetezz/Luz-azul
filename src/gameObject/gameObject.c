@@ -27,32 +27,33 @@ void dibujarGameObject(TGameObject* objeto){
 void limpiarRastro(u8 posx, u8 posy){
     cpct_drawSolidBox(calcularPosicionEnPantalla(posx,posy),0x00,4,16);
 }
-void moverGameObject(TGameObject* objeto,u8 movimiento,TGameObject* rocas){    
-    if(objeto->cronoMovimiento==0){    
-        movimiento=calcularSiguientePosicion(movimiento,objeto->posx,objeto->posy);            
-        if(movimiento!=mover_SinMovimiento){
-            u8 posxLast=objeto->posx;
-            u8 posyLast=objeto->posy;
+void moverGameObject(TGameObject* objeto,u8 movimiento,TGameObject* rocas){       
+    if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){    
+        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy);            
+        if(movimiento!=mover_SinMovimiento){                  
+            u8 nextPosx=objeto->posx;
+            u8 nextPosy=objeto->posy;
+
             u8 ObjetoColisionado=SinColision;
             if(movimiento==mover_Izquierda){
-                objeto->posx-=1;
+                nextPosx-=1;
             }else if(movimiento==mover_Arriba){
-                objeto->posy-=1;
+                nextPosy-=1;
             }else if(movimiento==mover_Derecha){
-                objeto->posx+=1;
+                nextPosx+=1;
             }else if(movimiento==mover_Abajo){
-                objeto->posy+=1;
-            }
-            ObjetoColisionado=comprobarColisiones(objeto,rocas);  
-            //if(objeto->posx==rocas[0].posx){
-            //    ObjetoColisionado=1;
-            //}        
-            if(ObjetoColisionado==SinColision){
-                dibujarGameObject(objeto);
-                limpiarRastro(posxLast,posyLast);  
-            }else{                              
-                objeto->posx=posxLast;
-                objeto->posy=posyLast;
+                nextPosy+=1;
+            }          
+            ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocas);               
+                                                      
+            if(ObjetoColisionado==SinColision){             
+                limpiarRastro(objeto->posx,objeto->posy);
+                objeto->posx=nextPosx;
+                objeto->posy=nextPosy;
+                dibujarGameObject(objeto);                 
+            }else{ 
+                if(objeto->sprite==sprite_Player)          
+                moverGameObject(&rocas[ObjetoColisionado],movimiento,rocas);                      
             }            
             objeto->cronoMovimiento=retardoMovimiento;
         }
@@ -60,12 +61,12 @@ void moverGameObject(TGameObject* objeto,u8 movimiento,TGameObject* rocas){
         objeto->cronoMovimiento-=1;
     }
 }
-u8 comprobarColisiones(TGameObject* objeto,TGameObject* rocas){
+u8 comprobarColisiones(u8 posx,u8 posy,TGameObject* rocas){
     u8 colision=SinColision;
    
     for(u8 i=0;i<RocasMaximas;i++){
         if(rocas[i].posx!=0){
-            if(comprobarColisiones1vs1(objeto->posx,objeto->posy,rocas[i].posx,rocas[i].posy)==hay_Colision){           
+            if(comprobarColisiones1vs1(posx,posy,rocas[i].posx,rocas[i].posy)==hay_Colision){           
                 colision=i;
             }
         }

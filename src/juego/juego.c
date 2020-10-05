@@ -30,9 +30,7 @@ void initGame(){
     crearNivel();
     createPlayer();
     createRocas();
-    dibujarGameObjects();
-    dibujarGameObject(&player); 
-    
+    dibujarGameObjects();    
 }
 void createPlayer(){
     player.posx=1;
