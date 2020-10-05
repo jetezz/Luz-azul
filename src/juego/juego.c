@@ -14,6 +14,9 @@
 
 TGameObject player;
 TGameObject rocas[RocasMaximas];
+TGameObject rocasEspejo[RocasMaximas];
+u8 posicion;
+
 
 
 
@@ -23,39 +26,73 @@ void game(){
     while(1){ 
         scanKey();
         comprobarMovimiento();      
-        moverGameObject(&player,movimientoGuardado,rocas);              
+        moverGameObject(&player,movimientoGuardado,rocas,rocasEspejo,posicion);              
     }
 }
 void initGame(){
+    posicion=posicion_Izquieda;
     crearNivel();
     createPlayer();
     createRocas();
+    createRocasEspejo();
     dibujarGameObjects();    
 }
 void createPlayer(){
+    player.num=-1;
     player.posx=1;
     player.posy=1;   
     player.sprite=sprite_Player;
 }
 void createRocas(){
+    rocas[0].num=0;
     rocas[0].posx=5;
     rocas[0].posy=5;
     rocas[0].sprite=sprite_Rock;
 
+    rocas[1].num=1;
     rocas[1].posx=6;
     rocas[1].posy=6;
     rocas[1].sprite=sprite_Rock;
 
+    rocas[2].num=2;
     rocas[2].posx=7;
     rocas[2].posy=7;
     rocas[2].sprite=sprite_Rock;
+    
+
+    
+}
+void createRocasEspejo(){
+    rocasEspejo[0].num=0;
+    rocasEspejo[0].posx=12;
+    rocasEspejo[0].posy=5;
+    rocasEspejo[0].sprite=sprite_Rock;
+
+    rocasEspejo[1].num=1;
+    rocasEspejo[1].posx=11;
+    rocasEspejo[1].posy=6;
+    rocasEspejo[1].sprite=sprite_Rock;
+
+    rocasEspejo[2].num=2;
+    rocasEspejo[2].posx=10;
+    rocasEspejo[2].posy=7;
+    rocasEspejo[2].sprite=sprite_RockInmovil;
+
+    rocasEspejo[3].num=3;
+    rocasEspejo[3].posx=14;
+    rocasEspejo[3].posy=5;
+    rocasEspejo[3].sprite=sprite_RockInmovil;
 }
 void dibujarGameObjects(){
     dibujarGameObject(&player);
     for (u8 i =0; i<RocasMaximas;i++){        
         dibujarGameObject(&rocas[i]);
         
-    } 
+    }
+    for (u8 i =0; i<RocasMaximas;i++){        
+        dibujarGameObject(&rocasEspejo[i]);
+        
+    }  
 }
 
 void comprobarMovimiento(){

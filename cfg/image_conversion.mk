@@ -42,6 +42,8 @@ $(eval $(call IMG2SP, SET_PALETTE_FW  , $(PALETTE)         ))
 #$(eval $(call IMG2SP, CONVERT_PALETTE , $(PALETTE), g_palette ))
 $(eval $(call IMG2SP, CONVERT         , sprites/player.png , 8,8 , playerSprite, PALETTE, playerSprite)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/rock.png , 8,8 , rock, rockPALETTE, rock)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/rockInmovil.png , 8,8 , rockInmovil, rockInmovilPALETTE, rockInmovil)) #8x16
+
 
 
 

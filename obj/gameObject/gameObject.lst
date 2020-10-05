@@ -8,64 +8,665 @@
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
-                             11 	.globl _cpct_drawSprite
-                             12 	.globl _dibujarGameObject
-                             13 ;--------------------------------------------------------
-                             14 ; special function registers
-                             15 ;--------------------------------------------------------
-                             16 ;--------------------------------------------------------
-                             17 ; ram data
-                             18 ;--------------------------------------------------------
-                             19 	.area _DATA
-                             20 ;--------------------------------------------------------
-                             21 ; ram data
+                             11 	.globl _comprobarColisiones1vs1
+                             12 	.globl _calcularMaximosyMinimos
+                             13 	.globl _calcularPosicionEnPantalla
+                             14 	.globl _cpct_drawSprite
+                             15 	.globl _cpct_drawSolidBox
+                             16 	.globl _dibujarGameObject
+                             17 	.globl _limpiarRastro
+                             18 	.globl _moverGameObject
+                             19 	.globl _comprobarColisiones
+                             20 	.globl _moverElEspejo
+                             21 	.globl _movimientoSimple
                              22 ;--------------------------------------------------------
-                             23 	.area _INITIALIZED
+                             23 ; special function registers
                              24 ;--------------------------------------------------------
-                             25 ; absolute external ram data
-                             26 ;--------------------------------------------------------
-                             27 	.area _DABS (ABS)
-                             28 ;--------------------------------------------------------
-                             29 ; global & static initialisations
-                             30 ;--------------------------------------------------------
-                             31 	.area _HOME
-                             32 	.area _GSINIT
-                             33 	.area _GSFINAL
-                             34 	.area _GSINIT
+                             25 ;--------------------------------------------------------
+                             26 ; ram data
+                             27 ;--------------------------------------------------------
+                             28 	.area _DATA
+                             29 ;--------------------------------------------------------
+                             30 ; ram data
+                             31 ;--------------------------------------------------------
+                             32 	.area _INITIALIZED
+                             33 ;--------------------------------------------------------
+                             34 ; absolute external ram data
                              35 ;--------------------------------------------------------
-                             36 ; Home
+                             36 	.area _DABS (ABS)
                              37 ;--------------------------------------------------------
-                             38 	.area _HOME
-                             39 	.area _HOME
-                             40 ;--------------------------------------------------------
-                             41 ; code
-                             42 ;--------------------------------------------------------
-                             43 	.area _CODE
-                             44 ;src/gameObject/gameObject.c:7: void dibujarGameObject(TGameObject* objeto){
-                             45 ;	---------------------------------
-                             46 ; Function dibujarGameObject
-                             47 ; ---------------------------------
-   0000                      48 _dibujarGameObject::
-                             49 ;src/gameObject/gameObject.c:8: if(objeto->sprite==sprite_Player){
-   0000 C1            [10]   50 	pop	bc
-   0001 E1            [10]   51 	pop	hl
-   0002 E5            [11]   52 	push	hl
-   0003 C5            [11]   53 	push	bc
-   0004 23            [ 6]   54 	inc	hl
-   0005 23            [ 6]   55 	inc	hl
-   0006 23            [ 6]   56 	inc	hl
-   0007 7E            [ 7]   57 	ld	a, (hl)
-   0008 B7            [ 4]   58 	or	a, a
-   0009 C0            [11]   59 	ret	NZ
-                             60 ;src/gameObject/gameObject.c:9: cpct_drawSprite(playerSprite_0, Punto_Inicial_De_Pantalla, 4, 16);  
-   000A 21 04 10      [10]   61 	ld	hl, #0x1004
-   000D E5            [11]   62 	push	hl
-   000E 21 A4 C0      [10]   63 	ld	hl, #0xc0a4
-   0011 E5            [11]   64 	push	hl
-   0012 21r00r00      [10]   65 	ld	hl, #_playerSprite_0
-   0015 E5            [11]   66 	push	hl
-   0016 CDr00r00      [17]   67 	call	_cpct_drawSprite
-   0019 C9            [10]   68 	ret
-                             69 	.area _CODE
-                             70 	.area _INITIALIZER
-                             71 	.area _CABS (ABS)
+                             38 ; global & static initialisations
+                             39 ;--------------------------------------------------------
+                             40 	.area _HOME
+                             41 	.area _GSINIT
+                             42 	.area _GSFINAL
+                             43 	.area _GSINIT
+                             44 ;--------------------------------------------------------
+                             45 ; Home
+                             46 ;--------------------------------------------------------
+                             47 	.area _HOME
+                             48 	.area _HOME
+                             49 ;--------------------------------------------------------
+                             50 ; code
+                             51 ;--------------------------------------------------------
+                             52 	.area _CODE
+                             53 ;src/gameObject/gameObject.c:18: void dibujarGameObject(TGameObject* objeto){
+                             54 ;	---------------------------------
+                             55 ; Function dibujarGameObject
+                             56 ; ---------------------------------
+   0000                      57 _dibujarGameObject::
+   0000 DD E5         [15]   58 	push	ix
+   0002 DD 21 00 00   [14]   59 	ld	ix,#0
+   0006 DD 39         [15]   60 	add	ix,sp
+                             61 ;src/gameObject/gameObject.c:19: if(objeto->posx!=0){
+   0008 DD 4E 04      [19]   62 	ld	c,4 (ix)
+   000B DD 46 05      [19]   63 	ld	b,5 (ix)
+   000E 69            [ 4]   64 	ld	l, c
+   000F 60            [ 4]   65 	ld	h, b
+   0010 23            [ 6]   66 	inc	hl
+   0011 56            [ 7]   67 	ld	d, (hl)
+   0012 7A            [ 4]   68 	ld	a, d
+   0013 B7            [ 4]   69 	or	a, a
+   0014 28 59         [12]   70 	jr	Z,00111$
+                             71 ;src/gameObject/gameObject.c:20: if(objeto->sprite==sprite_Player){
+   0016 69            [ 4]   72 	ld	l, c
+   0017 60            [ 4]   73 	ld	h, b
+   0018 23            [ 6]   74 	inc	hl
+   0019 23            [ 6]   75 	inc	hl
+   001A 23            [ 6]   76 	inc	hl
+   001B 5E            [ 7]   77 	ld	e, (hl)
+                             78 ;src/gameObject/gameObject.c:21: cpct_drawSprite(playerSprite_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);  
+   001C 69            [ 4]   79 	ld	l, c
+   001D 60            [ 4]   80 	ld	h, b
+   001E 23            [ 6]   81 	inc	hl
+   001F 23            [ 6]   82 	inc	hl
+                             83 ;src/gameObject/gameObject.c:20: if(objeto->sprite==sprite_Player){
+   0020 7B            [ 4]   84 	ld	a, e
+   0021 3D            [ 4]   85 	dec	a
+   0022 20 17         [12]   86 	jr	NZ,00107$
+                             87 ;src/gameObject/gameObject.c:21: cpct_drawSprite(playerSprite_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);  
+   0024 46            [ 7]   88 	ld	b, (hl)
+   0025 4A            [ 4]   89 	ld	c, d
+   0026 C5            [11]   90 	push	bc
+   0027 CDr00r00      [17]   91 	call	_calcularPosicionEnPantalla
+   002A F1            [10]   92 	pop	af
+   002B 4D            [ 4]   93 	ld	c, l
+   002C 44            [ 4]   94 	ld	b, h
+   002D 21 04 10      [10]   95 	ld	hl, #0x1004
+   0030 E5            [11]   96 	push	hl
+   0031 C5            [11]   97 	push	bc
+   0032 21r00r00      [10]   98 	ld	hl, #_playerSprite_0
+   0035 E5            [11]   99 	push	hl
+   0036 CDr00r00      [17]  100 	call	_cpct_drawSprite
+   0039 18 34         [12]  101 	jr	00111$
+   003B                     102 00107$:
+                            103 ;src/gameObject/gameObject.c:22: }else if(objeto->sprite==sprite_Rock){
+   003B 7B            [ 4]  104 	ld	a, e
+   003C D6 02         [ 7]  105 	sub	a, #0x02
+   003E 20 17         [12]  106 	jr	NZ,00104$
+                            107 ;src/gameObject/gameObject.c:23: cpct_drawSprite(rock_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+   0040 46            [ 7]  108 	ld	b, (hl)
+   0041 4A            [ 4]  109 	ld	c, d
+   0042 C5            [11]  110 	push	bc
+   0043 CDr00r00      [17]  111 	call	_calcularPosicionEnPantalla
+   0046 F1            [10]  112 	pop	af
+   0047 4D            [ 4]  113 	ld	c, l
+   0048 44            [ 4]  114 	ld	b, h
+   0049 21 04 10      [10]  115 	ld	hl, #0x1004
+   004C E5            [11]  116 	push	hl
+   004D C5            [11]  117 	push	bc
+   004E 21r00r00      [10]  118 	ld	hl, #_rock_0
+   0051 E5            [11]  119 	push	hl
+   0052 CDr00r00      [17]  120 	call	_cpct_drawSprite
+   0055 18 18         [12]  121 	jr	00111$
+   0057                     122 00104$:
+                            123 ;src/gameObject/gameObject.c:24: }else if(objeto->sprite==sprite_RockInmovil){
+   0057 7B            [ 4]  124 	ld	a, e
+   0058 D6 03         [ 7]  125 	sub	a, #0x03
+   005A 20 13         [12]  126 	jr	NZ,00111$
+                            127 ;src/gameObject/gameObject.c:25: cpct_drawSprite(rockInmovil_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+   005C 46            [ 7]  128 	ld	b, (hl)
+   005D 4A            [ 4]  129 	ld	c, d
+   005E C5            [11]  130 	push	bc
+   005F CDr00r00      [17]  131 	call	_calcularPosicionEnPantalla
+   0062 F1            [10]  132 	pop	af
+   0063 01r00r00      [10]  133 	ld	bc, #_rockInmovil_0+0
+   0066 11 04 10      [10]  134 	ld	de, #0x1004
+   0069 D5            [11]  135 	push	de
+   006A E5            [11]  136 	push	hl
+   006B C5            [11]  137 	push	bc
+   006C CDr00r00      [17]  138 	call	_cpct_drawSprite
+   006F                     139 00111$:
+   006F DD E1         [14]  140 	pop	ix
+   0071 C9            [10]  141 	ret
+                            142 ;src/gameObject/gameObject.c:30: void limpiarRastro(u8 posx, u8 posy){
+                            143 ;	---------------------------------
+                            144 ; Function limpiarRastro
+                            145 ; ---------------------------------
+   0072                     146 _limpiarRastro::
+                            147 ;src/gameObject/gameObject.c:31: cpct_drawSolidBox(calcularPosicionEnPantalla(posx,posy),0x00,4,16);
+   0072 21 03 00      [10]  148 	ld	hl, #3+0
+   0075 39            [11]  149 	add	hl, sp
+   0076 7E            [ 7]  150 	ld	a, (hl)
+   0077 F5            [11]  151 	push	af
+   0078 33            [ 6]  152 	inc	sp
+   0079 21 03 00      [10]  153 	ld	hl, #3+0
+   007C 39            [11]  154 	add	hl, sp
+   007D 7E            [ 7]  155 	ld	a, (hl)
+   007E F5            [11]  156 	push	af
+   007F 33            [ 6]  157 	inc	sp
+   0080 CDr00r00      [17]  158 	call	_calcularPosicionEnPantalla
+   0083 F1            [10]  159 	pop	af
+   0084 01 04 10      [10]  160 	ld	bc, #0x1004
+   0087 C5            [11]  161 	push	bc
+   0088 01 00 00      [10]  162 	ld	bc, #0x0000
+   008B C5            [11]  163 	push	bc
+   008C E5            [11]  164 	push	hl
+   008D CDr00r00      [17]  165 	call	_cpct_drawSolidBox
+   0090 C9            [10]  166 	ret
+                            167 ;src/gameObject/gameObject.c:33: void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8 posicion){       
+                            168 ;	---------------------------------
+                            169 ; Function moverGameObject
+                            170 ; ---------------------------------
+   0091                     171 _moverGameObject::
+   0091 DD E5         [15]  172 	push	ix
+   0093 DD 21 00 00   [14]  173 	ld	ix,#0
+   0097 DD 39         [15]  174 	add	ix,sp
+   0099 21 F3 FF      [10]  175 	ld	hl, #-13
+   009C 39            [11]  176 	add	hl, sp
+   009D F9            [ 6]  177 	ld	sp, hl
+                            178 ;src/gameObject/gameObject.c:34: if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){    
+   009E DD 7E 04      [19]  179 	ld	a, 4 (ix)
+   00A1 DD 77 F5      [19]  180 	ld	-11 (ix), a
+   00A4 DD 7E 05      [19]  181 	ld	a, 5 (ix)
+   00A7 DD 77 F6      [19]  182 	ld	-10 (ix), a
+   00AA DD 7E F5      [19]  183 	ld	a, -11 (ix)
+   00AD C6 04         [ 7]  184 	add	a, #0x04
+   00AF DD 77 FE      [19]  185 	ld	-2 (ix), a
+   00B2 DD 7E F6      [19]  186 	ld	a, -10 (ix)
+   00B5 CE 00         [ 7]  187 	adc	a, #0x00
+   00B7 DD 77 FF      [19]  188 	ld	-1 (ix), a
+   00BA DD 6E FE      [19]  189 	ld	l,-2 (ix)
+   00BD DD 66 FF      [19]  190 	ld	h,-1 (ix)
+   00C0 4E            [ 7]  191 	ld	c, (hl)
+   00C1 DD 7E F5      [19]  192 	ld	a, -11 (ix)
+   00C4 C6 03         [ 7]  193 	add	a, #0x03
+   00C6 DD 77 FC      [19]  194 	ld	-4 (ix), a
+   00C9 DD 7E F6      [19]  195 	ld	a, -10 (ix)
+   00CC CE 00         [ 7]  196 	adc	a, #0x00
+   00CE DD 77 FD      [19]  197 	ld	-3 (ix), a
+   00D1 79            [ 4]  198 	ld	a, c
+   00D2 B7            [ 4]  199 	or	a, a
+   00D3 28 0B         [12]  200 	jr	Z,00113$
+   00D5 DD 6E FC      [19]  201 	ld	l,-4 (ix)
+   00D8 DD 66 FD      [19]  202 	ld	h,-3 (ix)
+   00DB 46            [ 7]  203 	ld	b, (hl)
+   00DC 05            [ 4]  204 	dec	b
+   00DD CAr21r02      [10]  205 	jp	Z,00114$
+   00E0                     206 00113$:
+                            207 ;src/gameObject/gameObject.c:35: movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy);            
+   00E0 DD 7E F5      [19]  208 	ld	a, -11 (ix)
+   00E3 C6 02         [ 7]  209 	add	a, #0x02
+   00E5 DD 77 FA      [19]  210 	ld	-6 (ix), a
+   00E8 DD 7E F6      [19]  211 	ld	a, -10 (ix)
+   00EB CE 00         [ 7]  212 	adc	a, #0x00
+   00ED DD 77 FB      [19]  213 	ld	-5 (ix), a
+   00F0 DD 6E FA      [19]  214 	ld	l,-6 (ix)
+   00F3 DD 66 FB      [19]  215 	ld	h,-5 (ix)
+   00F6 56            [ 7]  216 	ld	d, (hl)
+   00F7 DD 7E F5      [19]  217 	ld	a, -11 (ix)
+   00FA C6 01         [ 7]  218 	add	a, #0x01
+   00FC DD 77 F8      [19]  219 	ld	-8 (ix), a
+   00FF DD 7E F6      [19]  220 	ld	a, -10 (ix)
+   0102 CE 00         [ 7]  221 	adc	a, #0x00
+   0104 DD 77 F9      [19]  222 	ld	-7 (ix), a
+   0107 DD 6E F8      [19]  223 	ld	l,-8 (ix)
+   010A DD 66 F9      [19]  224 	ld	h,-7 (ix)
+   010D 5E            [ 7]  225 	ld	e, (hl)
+   010E D5            [11]  226 	push	de
+   010F DD 7E 06      [19]  227 	ld	a, 6 (ix)
+   0112 F5            [11]  228 	push	af
+   0113 33            [ 6]  229 	inc	sp
+   0114 CDr00r00      [17]  230 	call	_calcularMaximosyMinimos
+   0117 F1            [10]  231 	pop	af
+   0118 33            [ 6]  232 	inc	sp
+                            233 ;src/gameObject/gameObject.c:36: if(movimiento!=mover_SinMovimiento){                  
+   0119 DD 75 F7      [19]  234 	ld	-9 (ix), l
+   011C 7D            [ 4]  235 	ld	a, l
+   011D B7            [ 4]  236 	or	a, a
+   011E CAr29r02      [10]  237 	jp	Z, 00117$
+                            238 ;src/gameObject/gameObject.c:37: u8 nextPosx=objeto->posx;
+   0121 DD 6E F8      [19]  239 	ld	l,-8 (ix)
+   0124 DD 66 F9      [19]  240 	ld	h,-7 (ix)
+   0127 7E            [ 7]  241 	ld	a, (hl)
+   0128 DD 77 F4      [19]  242 	ld	-12 (ix), a
+                            243 ;src/gameObject/gameObject.c:38: u8 nextPosy=objeto->posy;
+   012B DD 6E FA      [19]  244 	ld	l,-6 (ix)
+   012E DD 66 FB      [19]  245 	ld	h,-5 (ix)
+   0131 7E            [ 7]  246 	ld	a, (hl)
+   0132 DD 77 F3      [19]  247 	ld	-13 (ix), a
+                            248 ;src/gameObject/gameObject.c:41: if(objeto->sprite==sprite_Player|| objeto->sprite==sprite_Rock){
+   0135 DD 6E FC      [19]  249 	ld	l,-4 (ix)
+   0138 DD 66 FD      [19]  250 	ld	h,-3 (ix)
+   013B 7E            [ 7]  251 	ld	a, (hl)
+   013C FE 01         [ 7]  252 	cp	a, #0x01
+   013E 28 04         [12]  253 	jr	Z,00101$
+   0140 D6 02         [ 7]  254 	sub	a, #0x02
+   0142 20 18         [12]  255 	jr	NZ,00102$
+   0144                     256 00101$:
+                            257 ;src/gameObject/gameObject.c:42: movimientoSimple(&nextPosx,&nextPosy,movimiento); 
+   0144 21 00 00      [10]  258 	ld	hl, #0x0000
+   0147 39            [11]  259 	add	hl, sp
+   0148 EB            [ 4]  260 	ex	de,hl
+   0149 21 01 00      [10]  261 	ld	hl, #0x0001
+   014C 39            [11]  262 	add	hl, sp
+   014D 4D            [ 4]  263 	ld	c, l
+   014E 44            [ 4]  264 	ld	b, h
+   014F DD 7E F7      [19]  265 	ld	a, -9 (ix)
+   0152 F5            [11]  266 	push	af
+   0153 33            [ 6]  267 	inc	sp
+   0154 D5            [11]  268 	push	de
+   0155 C5            [11]  269 	push	bc
+   0156 CDr64r03      [17]  270 	call	_movimientoSimple
+   0159 F1            [10]  271 	pop	af
+   015A F1            [10]  272 	pop	af
+   015B 33            [ 6]  273 	inc	sp
+   015C                     274 00102$:
+                            275 ;src/gameObject/gameObject.c:45: ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasCol);               
+   015C DD 6E 07      [19]  276 	ld	l,7 (ix)
+   015F DD 66 08      [19]  277 	ld	h,8 (ix)
+   0162 E5            [11]  278 	push	hl
+   0163 DD 66 F3      [19]  279 	ld	h, -13 (ix)
+   0166 DD 6E F4      [19]  280 	ld	l, -12 (ix)
+   0169 E5            [11]  281 	push	hl
+   016A CDr2Er02      [17]  282 	call	_comprobarColisiones
+   016D F1            [10]  283 	pop	af
+   016E F1            [10]  284 	pop	af
+   016F 4D            [ 4]  285 	ld	c, l
+                            286 ;src/gameObject/gameObject.c:47: if(ObjetoColisionado==SinColision){             
+   0170 79            [ 4]  287 	ld	a, c
+   0171 D6 32         [ 7]  288 	sub	a, #0x32
+   0173 20 65         [12]  289 	jr	NZ,00109$
+                            290 ;src/gameObject/gameObject.c:48: limpiarRastro(objeto->posx,objeto->posy);
+   0175 DD 6E FA      [19]  291 	ld	l,-6 (ix)
+   0178 DD 66 FB      [19]  292 	ld	h,-5 (ix)
+   017B 46            [ 7]  293 	ld	b, (hl)
+   017C DD 6E F8      [19]  294 	ld	l,-8 (ix)
+   017F DD 66 F9      [19]  295 	ld	h,-7 (ix)
+   0182 4E            [ 7]  296 	ld	c, (hl)
+   0183 C5            [11]  297 	push	bc
+   0184 CDr72r00      [17]  298 	call	_limpiarRastro
+   0187 F1            [10]  299 	pop	af
+                            300 ;src/gameObject/gameObject.c:49: objeto->posx=nextPosx;
+   0188 DD 6E F8      [19]  301 	ld	l,-8 (ix)
+   018B DD 66 F9      [19]  302 	ld	h,-7 (ix)
+   018E DD 7E F4      [19]  303 	ld	a, -12 (ix)
+   0191 77            [ 7]  304 	ld	(hl), a
+                            305 ;src/gameObject/gameObject.c:50: objeto->posy=nextPosy;
+   0192 DD 6E FA      [19]  306 	ld	l,-6 (ix)
+   0195 DD 66 FB      [19]  307 	ld	h,-5 (ix)
+   0198 DD 7E F3      [19]  308 	ld	a, -13 (ix)
+   019B 77            [ 7]  309 	ld	(hl), a
+                            310 ;src/gameObject/gameObject.c:51: dibujarGameObject(objeto);
+   019C C1            [10]  311 	pop	bc
+   019D E1            [10]  312 	pop	hl
+   019E E5            [11]  313 	push	hl
+   019F C5            [11]  314 	push	bc
+   01A0 E5            [11]  315 	push	hl
+   01A1 CDr00r00      [17]  316 	call	_dibujarGameObject
+   01A4 F1            [10]  317 	pop	af
+                            318 ;src/gameObject/gameObject.c:52: if(objeto->sprite!=sprite_Player)
+   01A5 DD 6E FC      [19]  319 	ld	l,-4 (ix)
+   01A8 DD 66 FD      [19]  320 	ld	h,-3 (ix)
+   01AB 4E            [ 7]  321 	ld	c, (hl)
+   01AC 0D            [ 4]  322 	dec	c
+   01AD 28 68         [12]  323 	jr	Z,00110$
+                            324 ;src/gameObject/gameObject.c:53: moverElEspejo(objeto->num,movimiento,rocasCol,rocasEspejo,posicion);                 
+   01AF DD 6E F5      [19]  325 	ld	l,-11 (ix)
+   01B2 DD 66 F6      [19]  326 	ld	h,-10 (ix)
+   01B5 46            [ 7]  327 	ld	b, (hl)
+   01B6 DD 7E 0B      [19]  328 	ld	a, 11 (ix)
+   01B9 F5            [11]  329 	push	af
+   01BA 33            [ 6]  330 	inc	sp
+   01BB DD 6E 09      [19]  331 	ld	l,9 (ix)
+   01BE DD 66 0A      [19]  332 	ld	h,10 (ix)
+   01C1 E5            [11]  333 	push	hl
+   01C2 DD 6E 07      [19]  334 	ld	l,7 (ix)
+   01C5 DD 66 08      [19]  335 	ld	h,8 (ix)
+   01C8 E5            [11]  336 	push	hl
+   01C9 DD 7E F7      [19]  337 	ld	a, -9 (ix)
+   01CC F5            [11]  338 	push	af
+   01CD 33            [ 6]  339 	inc	sp
+   01CE C5            [11]  340 	push	bc
+   01CF 33            [ 6]  341 	inc	sp
+   01D0 CDr77r02      [17]  342 	call	_moverElEspejo
+   01D3 21 07 00      [10]  343 	ld	hl, #7
+   01D6 39            [11]  344 	add	hl, sp
+   01D7 F9            [ 6]  345 	ld	sp, hl
+   01D8 18 3D         [12]  346 	jr	00110$
+   01DA                     347 00109$:
+                            348 ;src/gameObject/gameObject.c:55: if(objeto->sprite==sprite_Player)          
+   01DA DD 6E FC      [19]  349 	ld	l,-4 (ix)
+   01DD DD 66 FD      [19]  350 	ld	h,-3 (ix)
+   01E0 46            [ 7]  351 	ld	b, (hl)
+   01E1 10 34         [13]  352 	djnz	00110$
+                            353 ;src/gameObject/gameObject.c:56: moverGameObject(&rocasCol[ObjetoColisionado],movimiento,rocasCol,rocasEspejo,posicion);                      
+   01E3 06 00         [ 7]  354 	ld	b,#0x00
+   01E5 69            [ 4]  355 	ld	l, c
+   01E6 60            [ 4]  356 	ld	h, b
+   01E7 29            [11]  357 	add	hl, hl
+   01E8 29            [11]  358 	add	hl, hl
+   01E9 09            [11]  359 	add	hl, bc
+   01EA 4D            [ 4]  360 	ld	c, l
+   01EB 44            [ 4]  361 	ld	b, h
+   01EC 79            [ 4]  362 	ld	a, c
+   01ED DD 86 07      [19]  363 	add	a, 7 (ix)
+   01F0 4F            [ 4]  364 	ld	c, a
+   01F1 78            [ 4]  365 	ld	a, b
+   01F2 DD 8E 08      [19]  366 	adc	a, 8 (ix)
+   01F5 47            [ 4]  367 	ld	b, a
+   01F6 DD 7E 0B      [19]  368 	ld	a, 11 (ix)
+   01F9 F5            [11]  369 	push	af
+   01FA 33            [ 6]  370 	inc	sp
+   01FB DD 6E 09      [19]  371 	ld	l,9 (ix)
+   01FE DD 66 0A      [19]  372 	ld	h,10 (ix)
+   0201 E5            [11]  373 	push	hl
+   0202 DD 6E 07      [19]  374 	ld	l,7 (ix)
+   0205 DD 66 08      [19]  375 	ld	h,8 (ix)
+   0208 E5            [11]  376 	push	hl
+   0209 DD 7E F7      [19]  377 	ld	a, -9 (ix)
+   020C F5            [11]  378 	push	af
+   020D 33            [ 6]  379 	inc	sp
+   020E C5            [11]  380 	push	bc
+   020F CDr91r00      [17]  381 	call	_moverGameObject
+   0212 21 08 00      [10]  382 	ld	hl, #8
+   0215 39            [11]  383 	add	hl, sp
+   0216 F9            [ 6]  384 	ld	sp, hl
+   0217                     385 00110$:
+                            386 ;src/gameObject/gameObject.c:58: objeto->cronoMovimiento=retardoMovimiento;
+   0217 DD 6E FE      [19]  387 	ld	l,-2 (ix)
+   021A DD 66 FF      [19]  388 	ld	h,-1 (ix)
+   021D 36 FF         [10]  389 	ld	(hl), #0xff
+   021F 18 08         [12]  390 	jr	00117$
+   0221                     391 00114$:
+                            392 ;src/gameObject/gameObject.c:61: objeto->cronoMovimiento-=1;
+   0221 0D            [ 4]  393 	dec	c
+   0222 DD 6E FE      [19]  394 	ld	l,-2 (ix)
+   0225 DD 66 FF      [19]  395 	ld	h,-1 (ix)
+   0228 71            [ 7]  396 	ld	(hl), c
+   0229                     397 00117$:
+   0229 DD F9         [10]  398 	ld	sp, ix
+   022B DD E1         [14]  399 	pop	ix
+   022D C9            [10]  400 	ret
+                            401 ;src/gameObject/gameObject.c:64: u8 comprobarColisiones(u8 posx,u8 posy,TGameObject* rocas){
+                            402 ;	---------------------------------
+                            403 ; Function comprobarColisiones
+                            404 ; ---------------------------------
+   022E                     405 _comprobarColisiones::
+   022E DD E5         [15]  406 	push	ix
+   0230 DD 21 00 00   [14]  407 	ld	ix,#0
+   0234 DD 39         [15]  408 	add	ix,sp
+                            409 ;src/gameObject/gameObject.c:65: u8 colision=SinColision;
+                            410 ;src/gameObject/gameObject.c:67: for(u8 i=0;i<RocasMaximas;i++){
+   0236 01 32 00      [10]  411 	ld	bc,#0x0032
+   0239                     412 00107$:
+   0239 78            [ 4]  413 	ld	a, b
+   023A D6 05         [ 7]  414 	sub	a, #0x05
+   023C 30 35         [12]  415 	jr	NC,00105$
+                            416 ;src/gameObject/gameObject.c:68: if(rocas[i].posx!=0){
+   023E 58            [ 4]  417 	ld	e,b
+   023F 16 00         [ 7]  418 	ld	d,#0x00
+   0241 6B            [ 4]  419 	ld	l, e
+   0242 62            [ 4]  420 	ld	h, d
+   0243 29            [11]  421 	add	hl, hl
+   0244 29            [11]  422 	add	hl, hl
+   0245 19            [11]  423 	add	hl, de
+   0246 EB            [ 4]  424 	ex	de,hl
+   0247 DD 7E 06      [19]  425 	ld	a, 6 (ix)
+   024A 83            [ 4]  426 	add	a, e
+   024B 5F            [ 4]  427 	ld	e, a
+   024C DD 7E 07      [19]  428 	ld	a, 7 (ix)
+   024F 8A            [ 4]  429 	adc	a, d
+   0250 57            [ 4]  430 	ld	d, a
+   0251 6B            [ 4]  431 	ld	l, e
+   0252 62            [ 4]  432 	ld	h, d
+   0253 23            [ 6]  433 	inc	hl
+   0254 7E            [ 7]  434 	ld	a, (hl)
+   0255 B7            [ 4]  435 	or	a, a
+   0256 28 18         [12]  436 	jr	Z,00108$
+                            437 ;src/gameObject/gameObject.c:69: if(comprobarColisiones1vs1(posx,posy,rocas[i].posx,rocas[i].posy)==hay_Colision){           
+   0258 EB            [ 4]  438 	ex	de,hl
+   0259 23            [ 6]  439 	inc	hl
+   025A 23            [ 6]  440 	inc	hl
+   025B 56            [ 7]  441 	ld	d, (hl)
+   025C C5            [11]  442 	push	bc
+   025D 5F            [ 4]  443 	ld	e, a
+   025E D5            [11]  444 	push	de
+   025F DD 66 05      [19]  445 	ld	h, 5 (ix)
+   0262 DD 6E 04      [19]  446 	ld	l, 4 (ix)
+   0265 E5            [11]  447 	push	hl
+   0266 CDr00r00      [17]  448 	call	_comprobarColisiones1vs1
+   0269 F1            [10]  449 	pop	af
+   026A F1            [10]  450 	pop	af
+   026B C1            [10]  451 	pop	bc
+   026C 2D            [ 4]  452 	dec	l
+   026D 20 01         [12]  453 	jr	NZ,00108$
+                            454 ;src/gameObject/gameObject.c:70: colision=i;
+   026F 48            [ 4]  455 	ld	c, b
+   0270                     456 00108$:
+                            457 ;src/gameObject/gameObject.c:67: for(u8 i=0;i<RocasMaximas;i++){
+   0270 04            [ 4]  458 	inc	b
+   0271 18 C6         [12]  459 	jr	00107$
+   0273                     460 00105$:
+                            461 ;src/gameObject/gameObject.c:74: return colision;
+   0273 69            [ 4]  462 	ld	l, c
+   0274 DD E1         [14]  463 	pop	ix
+   0276 C9            [10]  464 	ret
+                            465 ;src/gameObject/gameObject.c:76: void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocas,TGameObject* rocasEspejo,u8 posicion){
+                            466 ;	---------------------------------
+                            467 ; Function moverElEspejo
+                            468 ; ---------------------------------
+   0277                     469 _moverElEspejo::
+   0277 DD E5         [15]  470 	push	ix
+   0279 DD 21 00 00   [14]  471 	ld	ix,#0
+   027D DD 39         [15]  472 	add	ix,sp
+   027F 21 F6 FF      [10]  473 	ld	hl, #-10
+   0282 39            [11]  474 	add	hl, sp
+   0283 F9            [ 6]  475 	ld	sp, hl
+                            476 ;src/gameObject/gameObject.c:80: u8 nextMovimiento=movimiento;   
+   0284 DD 5E 05      [19]  477 	ld	e, 5 (ix)
+                            478 ;src/gameObject/gameObject.c:83: objetoEspejo=&rocasEspejo[num];
+   0287 DD 4E 04      [19]  479 	ld	c,4 (ix)
+   028A 06 00         [ 7]  480 	ld	b,#0x00
+   028C 69            [ 4]  481 	ld	l, c
+   028D 60            [ 4]  482 	ld	h, b
+   028E 29            [11]  483 	add	hl, hl
+   028F 29            [11]  484 	add	hl, hl
+   0290 09            [11]  485 	add	hl, bc
+   0291 4D            [ 4]  486 	ld	c, l
+   0292 44            [ 4]  487 	ld	b, h
+                            488 ;src/gameObject/gameObject.c:82: if(posicion==posicion_Izquieda){
+   0293 DD 7E 0A      [19]  489 	ld	a, 10 (ix)
+   0296 B7            [ 4]  490 	or	a, a
+   0297 20 17         [12]  491 	jr	NZ,00102$
+                            492 ;src/gameObject/gameObject.c:83: objetoEspejo=&rocasEspejo[num];
+   0299 DD 6E 08      [19]  493 	ld	l,8 (ix)
+   029C DD 66 09      [19]  494 	ld	h,9 (ix)
+   029F 09            [11]  495 	add	hl, bc
+   02A0 4D            [ 4]  496 	ld	c, l
+   02A1 44            [ 4]  497 	ld	b, h
+                            498 ;src/gameObject/gameObject.c:84: objetosColisionables=rocasEspejo;        
+   02A2 DD 7E 08      [19]  499 	ld	a, 8 (ix)
+   02A5 DD 77 F8      [19]  500 	ld	-8 (ix), a
+   02A8 DD 7E 09      [19]  501 	ld	a, 9 (ix)
+   02AB DD 77 F9      [19]  502 	ld	-7 (ix), a
+   02AE 18 15         [12]  503 	jr	00103$
+   02B0                     504 00102$:
+                            505 ;src/gameObject/gameObject.c:86: objetoEspejo=&rocas[num];
+   02B0 DD 6E 06      [19]  506 	ld	l,6 (ix)
+   02B3 DD 66 07      [19]  507 	ld	h,7 (ix)
+   02B6 09            [11]  508 	add	hl, bc
+   02B7 4D            [ 4]  509 	ld	c, l
+   02B8 44            [ 4]  510 	ld	b, h
+                            511 ;src/gameObject/gameObject.c:87: objetosColisionables=rocas;        
+   02B9 DD 7E 06      [19]  512 	ld	a, 6 (ix)
+   02BC DD 77 F8      [19]  513 	ld	-8 (ix), a
+   02BF DD 7E 07      [19]  514 	ld	a, 7 (ix)
+   02C2 DD 77 F9      [19]  515 	ld	-7 (ix), a
+   02C5                     516 00103$:
+                            517 ;src/gameObject/gameObject.c:90: if(movimiento==mover_Izquierda){
+   02C5 7B            [ 4]  518 	ld	a, e
+   02C6 3D            [ 4]  519 	dec	a
+   02C7 20 02         [12]  520 	jr	NZ,00105$
+                            521 ;src/gameObject/gameObject.c:91: nextMovimiento=mover_Derecha;
+   02C9 1E 03         [ 7]  522 	ld	e, #0x03
+   02CB                     523 00105$:
+                            524 ;src/gameObject/gameObject.c:92: }if(movimiento==mover_Derecha){
+   02CB DD 7E 05      [19]  525 	ld	a, 5 (ix)
+   02CE D6 03         [ 7]  526 	sub	a, #0x03
+   02D0 20 02         [12]  527 	jr	NZ,00107$
+                            528 ;src/gameObject/gameObject.c:93: nextMovimiento=mover_Izquierda;
+   02D2 1E 01         [ 7]  529 	ld	e, #0x01
+   02D4                     530 00107$:
+                            531 ;src/gameObject/gameObject.c:98: if(nextMovimiento!=mover_SinMovimiento){                  
+   02D4 7B            [ 4]  532 	ld	a, e
+   02D5 B7            [ 4]  533 	or	a, a
+   02D6 CAr5Fr03      [10]  534 	jp	Z, 00112$
+                            535 ;src/gameObject/gameObject.c:99: u8 nextPosx=objetoEspejo->posx;
+   02D9 21 01 00      [10]  536 	ld	hl, #0x0001
+   02DC 09            [11]  537 	add	hl,bc
+   02DD DD 75 FE      [19]  538 	ld	-2 (ix), l
+   02E0 DD 74 FF      [19]  539 	ld	-1 (ix), h
+   02E3 7E            [ 7]  540 	ld	a, (hl)
+   02E4 DD 77 F7      [19]  541 	ld	-9 (ix), a
+                            542 ;src/gameObject/gameObject.c:100: u8 nextPosy=objetoEspejo->posy;
+   02E7 21 02 00      [10]  543 	ld	hl, #0x0002
+   02EA 09            [11]  544 	add	hl,bc
+   02EB DD 75 FC      [19]  545 	ld	-4 (ix), l
+   02EE DD 74 FD      [19]  546 	ld	-3 (ix), h
+   02F1 7E            [ 7]  547 	ld	a, (hl)
+   02F2 DD 77 F6      [19]  548 	ld	-10 (ix), a
+                            549 ;src/gameObject/gameObject.c:103: movimientoSimple(&nextPosx,&nextPosy,nextMovimiento);           
+   02F5 21 00 00      [10]  550 	ld	hl, #0x0000
+   02F8 39            [11]  551 	add	hl, sp
+   02F9 DD 75 FA      [19]  552 	ld	-6 (ix), l
+   02FC DD 74 FB      [19]  553 	ld	-5 (ix), h
+   02FF 21 01 00      [10]  554 	ld	hl, #0x0001
+   0302 39            [11]  555 	add	hl, sp
+   0303 C5            [11]  556 	push	bc
+   0304 7B            [ 4]  557 	ld	a, e
+   0305 F5            [11]  558 	push	af
+   0306 33            [ 6]  559 	inc	sp
+   0307 DD 5E FA      [19]  560 	ld	e,-6 (ix)
+   030A DD 56 FB      [19]  561 	ld	d,-5 (ix)
+   030D D5            [11]  562 	push	de
+   030E E5            [11]  563 	push	hl
+   030F CDr64r03      [17]  564 	call	_movimientoSimple
+   0312 F1            [10]  565 	pop	af
+   0313 F1            [10]  566 	pop	af
+   0314 33            [ 6]  567 	inc	sp
+   0315 DD 6E F8      [19]  568 	ld	l,-8 (ix)
+   0318 DD 66 F9      [19]  569 	ld	h,-7 (ix)
+   031B E5            [11]  570 	push	hl
+   031C DD 66 F6      [19]  571 	ld	h, -10 (ix)
+   031F DD 6E F7      [19]  572 	ld	l, -9 (ix)
+   0322 E5            [11]  573 	push	hl
+   0323 CDr2Er02      [17]  574 	call	_comprobarColisiones
+   0326 F1            [10]  575 	pop	af
+   0327 F1            [10]  576 	pop	af
+   0328 C1            [10]  577 	pop	bc
+                            578 ;src/gameObject/gameObject.c:107: if(ObjetoColisionado==SinColision){             
+   0329 7D            [ 4]  579 	ld	a, l
+   032A D6 32         [ 7]  580 	sub	a, #0x32
+   032C 20 31         [12]  581 	jr	NZ,00112$
+                            582 ;src/gameObject/gameObject.c:108: limpiarRastro(objetoEspejo->posx,objetoEspejo->posy);
+   032E DD 6E FC      [19]  583 	ld	l,-4 (ix)
+   0331 DD 66 FD      [19]  584 	ld	h,-3 (ix)
+   0334 7E            [ 7]  585 	ld	a, (hl)
+   0335 DD 6E FE      [19]  586 	ld	l,-2 (ix)
+   0338 DD 66 FF      [19]  587 	ld	h,-1 (ix)
+   033B 56            [ 7]  588 	ld	d, (hl)
+   033C C5            [11]  589 	push	bc
+   033D F5            [11]  590 	push	af
+   033E 33            [ 6]  591 	inc	sp
+   033F D5            [11]  592 	push	de
+   0340 33            [ 6]  593 	inc	sp
+   0341 CDr72r00      [17]  594 	call	_limpiarRastro
+   0344 F1            [10]  595 	pop	af
+   0345 C1            [10]  596 	pop	bc
+                            597 ;src/gameObject/gameObject.c:109: objetoEspejo->posx=nextPosx;
+   0346 DD 6E FE      [19]  598 	ld	l,-2 (ix)
+   0349 DD 66 FF      [19]  599 	ld	h,-1 (ix)
+   034C DD 7E F7      [19]  600 	ld	a, -9 (ix)
+   034F 77            [ 7]  601 	ld	(hl), a
+                            602 ;src/gameObject/gameObject.c:110: objetoEspejo->posy=nextPosy;
+   0350 DD 6E FC      [19]  603 	ld	l,-4 (ix)
+   0353 DD 66 FD      [19]  604 	ld	h,-3 (ix)
+   0356 DD 7E F6      [19]  605 	ld	a, -10 (ix)
+   0359 77            [ 7]  606 	ld	(hl), a
+                            607 ;src/gameObject/gameObject.c:111: dibujarGameObject(objetoEspejo);                             
+   035A C5            [11]  608 	push	bc
+   035B CDr00r00      [17]  609 	call	_dibujarGameObject
+   035E F1            [10]  610 	pop	af
+   035F                     611 00112$:
+   035F DD F9         [10]  612 	ld	sp, ix
+   0361 DD E1         [14]  613 	pop	ix
+   0363 C9            [10]  614 	ret
+                            615 ;src/gameObject/gameObject.c:117: void movimientoSimple(u8* posx, u8* posy,u8 movimiento){
+                            616 ;	---------------------------------
+                            617 ; Function movimientoSimple
+                            618 ; ---------------------------------
+   0364                     619 _movimientoSimple::
+   0364 DD E5         [15]  620 	push	ix
+   0366 DD 21 00 00   [14]  621 	ld	ix,#0
+   036A DD 39         [15]  622 	add	ix,sp
+                            623 ;src/gameObject/gameObject.c:119: *posx-=1;
+   036C DD 4E 04      [19]  624 	ld	c,4 (ix)
+   036F DD 46 05      [19]  625 	ld	b,5 (ix)
+                            626 ;src/gameObject/gameObject.c:118: if(movimiento==mover_Izquierda){
+   0372 DD 7E 08      [19]  627 	ld	a, 8 (ix)
+   0375 3D            [ 4]  628 	dec	a
+   0376 20 06         [12]  629 	jr	NZ,00110$
+                            630 ;src/gameObject/gameObject.c:119: *posx-=1;
+   0378 0A            [ 7]  631 	ld	a, (bc)
+   0379 C6 FF         [ 7]  632 	add	a, #0xff
+   037B 02            [ 7]  633 	ld	(bc), a
+   037C 18 28         [12]  634 	jr	00112$
+   037E                     635 00110$:
+                            636 ;src/gameObject/gameObject.c:121: *posy-=1;
+   037E DD 6E 06      [19]  637 	ld	l,6 (ix)
+   0381 DD 66 07      [19]  638 	ld	h,7 (ix)
+                            639 ;src/gameObject/gameObject.c:120: }else if(movimiento==mover_Arriba){
+   0384 DD 7E 08      [19]  640 	ld	a, 8 (ix)
+   0387 D6 02         [ 7]  641 	sub	a, #0x02
+   0389 20 05         [12]  642 	jr	NZ,00107$
+                            643 ;src/gameObject/gameObject.c:121: *posy-=1;
+   038B 4E            [ 7]  644 	ld	c, (hl)
+   038C 0D            [ 4]  645 	dec	c
+   038D 71            [ 7]  646 	ld	(hl), c
+   038E 18 16         [12]  647 	jr	00112$
+   0390                     648 00107$:
+                            649 ;src/gameObject/gameObject.c:122: }else if(movimiento==mover_Derecha){
+   0390 DD 7E 08      [19]  650 	ld	a, 8 (ix)
+   0393 D6 03         [ 7]  651 	sub	a, #0x03
+   0395 20 05         [12]  652 	jr	NZ,00104$
+                            653 ;src/gameObject/gameObject.c:123: *posx+=1;
+   0397 0A            [ 7]  654 	ld	a, (bc)
+   0398 3C            [ 4]  655 	inc	a
+   0399 02            [ 7]  656 	ld	(bc), a
+   039A 18 0A         [12]  657 	jr	00112$
+   039C                     658 00104$:
+                            659 ;src/gameObject/gameObject.c:124: }else if(movimiento==mover_Abajo){
+   039C DD 7E 08      [19]  660 	ld	a, 8 (ix)
+   039F D6 04         [ 7]  661 	sub	a, #0x04
+   03A1 20 03         [12]  662 	jr	NZ,00112$
+                            663 ;src/gameObject/gameObject.c:125: *posy+=1;
+   03A3 4E            [ 7]  664 	ld	c, (hl)
+   03A4 0C            [ 4]  665 	inc	c
+   03A5 71            [ 7]  666 	ld	(hl), c
+   03A6                     667 00112$:
+   03A6 DD E1         [14]  668 	pop	ix
+   03A8 C9            [10]  669 	ret
+                            670 	.area _CODE
+                            671 	.area _INITIALIZER
+                            672 	.area _CABS (ABS)

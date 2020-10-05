@@ -7,17 +7,27 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
+    _calcularMaximosyMinimos                                       **** GX
+    _calcularPosicionEnPantalla                                    **** GX
+  0 _comprobarColisiones                                           022E GR
+    _comprobarColisiones1vs1                                       **** GX
+    _cpct_drawSolidBox                                             **** GX
     _cpct_drawSprite                                               **** GX
   0 _dibujarGameObject                                             0000 GR
+  0 _limpiarRastro                                                 0072 GR
+  0 _moverElEspejo                                                 0277 GR
+  0 _moverGameObject                                               0091 GR
+  0 _movimientoSimple                                              0364 GR
     _playerSprite_0                                                **** GX
-
+    _rockInmovil_0                                                 **** GX
+    _rock_0                                                        **** GX
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
 Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size   1A   flags    0
+   0 _CODE                                      size  3A9   flags    0
    1 _DATA                                      size    0   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8

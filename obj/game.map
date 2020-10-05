@@ -17,22 +17,22 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000000  l__INITIALIZER                  
      00000000  s__CABS                         
      00000000  s__DABS                         
-     00000018  l__DATA                         
-     000010BE  l__CODE                         
+     0000003A  l__DATA                         
+     000017E7  l__CODE                         
      00004000  s__CODE                         
-     000050BE  s__DATA                         
-     000050D6  s__GSFINAL                      
-     000050D6  s__GSINIT                       
-     000050D6  s__HOME                         
-     000050D6  s__INITIALIZED                  
-     000050D6  s__INITIALIZER                  
+     000057E7  s__DATA                         
+     00005821  s__GSFINAL                      
+     00005821  s__GSINIT                       
+     00005821  s__HOME                         
+     00005821  s__INITIALIZED                  
+     00005821  s__INITIALIZER                  
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000010BE =        4286. bytes (REL,CON)
+_CODE                               00004000    000017E7 =        6119. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -91,7 +91,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000010BE =        4286. bytes (REL,CON)
+_CODE                               00004000    000017E7 =        6119. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -136,67 +136,87 @@ _CODE                               00004000    000010BE =        4286. bytes (R
      00004CEC  _tiles_85                          tiles
      00004D0C  _tiles_86                          tiles
      00004D2C  _tiles_87                          tiles
-     00004D4C  _PALETTE                           player
-     00004D5C  _playerSprite                      player
-     00004D60  _playerSprite_0                    player
-     00004D80  _playerSprite_1                    player
-     00004DA0  _main                              main
-     00004DB7  _game_palette                      main
-     00004DC7  _dibujarGameObject                 gameObject
-     00004DE1  _crearMapa                         mapa
-     00004DFB  _game                              juego
-     00004E08  _initGame                          juego
+     00004D4C  _rockInmovilPALETTE                rockInmovil
+     00004D5C  _rockInmovil                       rockInmovil
+     00004D60  _rockInmovil_0                     rockInmovil
+     00004D80  _rockInmovil_1                     rockInmovil
+     00004DA0  _rockPALETTE                       rock
+     00004DB0  _rock                              rock
+     00004DB4  _rock_0                            rock
+     00004DD4  _rock_1                            rock
+     00004DF4  _PALETTE                           player
+     00004E04  _playerSprite                      player
 ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000010BE =        4286. bytes (REL,CON)
+_CODE                               00004000    000017E7 =        6119. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00004E0E  _createPlayer                      juego
-     00004E23  _crearNivel                        niveles
-     00004E2B  _scanKey                           input
-     00004E2E  _keyScape                          input
-     00004E3E  _keyUp                             input
-     00004E4E  _keyDown                           input
-     00004E5E  _keyLeft                           input
-     00004E6E  _keyRight                          input
-     00004E7E  _keyFire                           input
-     00004E8E  _cpct_isKeyPressed                 cpct_keyboard
-     00004E8E  cpct_isKeyPressed_asm              cpct_keyboard
-     00004E9A  _cpct_scanKeyboard_f               cpct_keyboard
-     00004E9A  cpct_scanKeyboard_f_asm            cpct_keyboard
-     00004F04  _cpct_setPalette                   cpct_video
-     00004F1B  _cpct_drawSprite                   cpct_sprites
-     00004FC0  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
-     00004FCA  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
-     00004FE0  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
-     0000504B  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
-     00005051  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
-     00005056  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
-     00005059  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
-     00005065  _cpct_keyboardStatusBuffer         cpct_keyboard
-     0000506F  _cpct_setVideoMode                 cpct_video
-     0000507D  _cpct_disableFirmware              cpct_firmware
-     0000507D  _cpct_removeInterruptHandler       cpct_firmware
-     0000507D  cpct_disableFirmware_asm           cpct_firmware
-     0000507D  cpct_removeInterruptHandler_asm    cpct_firmware
-     0000508D  _cpct_mode_rom_status              cpct_firmware
-     0000508E  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
-
+     00004E08  _playerSprite_0                    player
+     00004E28  _playerSprite_1                    player
+     00004E48  _main                              main
+     00004E5F  _game_palette                      main
+     00004E6F  _dibujarGameObject                 gameObject
+     00004EE1  _limpiarRastro                     gameObject
+     00004F00  _moverGameObject                   gameObject
+     0000509D  _comprobarColisiones               gameObject
+     000050E6  _moverElEspejo                     gameObject
+     000051D3  _movimientoSimple                  gameObject
+     00005218  _crearMapa                         mapa
+     00005232  _game                              juego
+     0000525B  _initGame                          juego
+     0000526F  _createPlayer                      juego
+     00005284  _createRocas                       juego
+     000052C1  _createRocasEspejo                 juego
+     00005312  _dibujarGameObjects                juego
+     00005351  _comprobarMovimiento               juego
+     0000536D  _resetGameobjects                  juego
+     000053A0  _crearNivel                        niveles
+     000053A8  _scanKey                           input
+     000053AB  _keyScape                          input
+     000053BB  _keyFire                           input
+     000053CB  _movimientoPlayer                  input
+     0000541B  _calcularPosicionEnPantalla        fisicas
+     00005461  _calcularMaximosyMinimos           fisicas
+     000054E7  _comprobarColisiones1vs1           fisicas
+     0000550D  _cpct_isKeyPressed                 cpct_keyboard
+     0000550D  cpct_isKeyPressed_asm              cpct_keyboard
+     00005519  _cpct_scanKeyboard_f               cpct_keyboard
+     00005519  cpct_scanKeyboard_f_asm            cpct_keyboard
+     00005583  _cpct_setPalette                   cpct_video
+     0000559A  _cpct_drawSprite                   cpct_sprites
+     0000563F  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
+     00005649  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
+     0000565F  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
+     000056CA  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
+     000056D0  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
+     000056D5  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
+     000056D8  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
+     000056E4  _cpct_keyboardStatusBuffer         cpct_keyboard
+     000056EE  _cpct_setVideoMode                 cpct_video
+     000056FC  _cpct_disableFirmware              cpct_firmware
+     000056FC  _cpct_removeInterruptHandler       cpct_firmware
+     000056FC  cpct_disableFirmware_asm           cpct_firmware
+     000056FC  cpct_removeInterruptHandler_asm    cpct_firmware
+     0000570C  _cpct_drawSolidBox                 cpct_sprites
+     000057B6  _cpct_mode_rom_status              cpct_firmware
+     000057B7  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
 ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_DATA                               000050BE    00000018 =          24. bytes (REL,CON)
+_DATA                               000057E7    0000003A =          58. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000050BE  _player                            juego
-     000050C2  _rocas                             juego
+     000057E9  _player                            juego
+     000057EE  _rocas                             juego
+     00005807  _rocasEspejo                       juego
+     00005820  _posicion                          juego
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
 
@@ -204,6 +224,8 @@ Files Linked                              [ module(s) ]
 
 obj/mapa/court.rel                        [ court ]
 obj/mapa/tiles.rel                        [ tiles ]
+obj/sprites/rockInmovil.rel               [ rockInmovil ]
+obj/sprites/rock.rel                      [ rock ]
 obj/sprites/player.rel                    [ player ]
 obj/constantes.rel                        [ constantes ]
 obj/main.rel                              [ main ]
@@ -212,6 +234,7 @@ obj/mapa/mapa.rel                         [ mapa ]
 obj/juego/juego.rel                       [ juego ]
 obj/niveles/niveles.rel                   [ niveles ]
 obj/input/input.rel                       [ input ]
+obj/fisicas/fisicas.rel                   [ fisicas ]
 
 
 Libraries Linked                          [ object file ]
@@ -232,6 +255,8 @@ Libraries Linked                          [ object file ]
                                           [ cpct_setVideoMode_cbindings.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_removeInterruptHandler.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawSolidBox_cbindings.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpc_mode_rom_status.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib

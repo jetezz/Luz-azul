@@ -6,7 +6,8 @@
 extern enum{
     sprite_SinDefinir,
     sprite_Player,
-    sprite_Rock
+    sprite_Rock,
+    sprite_RockInmovil
 }ETiposSprite;
 
 extern enum{
@@ -21,3 +22,8 @@ extern enum{
     no_Hay_Colision,
     hay_Colision
 }ETipoColision;
+
+extern enum{
+    posicion_Izquieda,
+    posicion_Derecha
+}ETipoPosicion;

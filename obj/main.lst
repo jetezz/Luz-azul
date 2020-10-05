@@ -21,66 +21,68 @@
                              21 ; ram data
                              22 ;--------------------------------------------------------
                              23 	.area _DATA
-                             24 ;--------------------------------------------------------
-                             25 ; ram data
+   0000                      24 _movimientoGuardado:
+   0000                      25 	.ds 1
                              26 ;--------------------------------------------------------
-                             27 	.area _INITIALIZED
+                             27 ; ram data
                              28 ;--------------------------------------------------------
-                             29 ; absolute external ram data
+                             29 	.area _INITIALIZED
                              30 ;--------------------------------------------------------
-                             31 	.area _DABS (ABS)
+                             31 ; absolute external ram data
                              32 ;--------------------------------------------------------
-                             33 ; global & static initialisations
+                             33 	.area _DABS (ABS)
                              34 ;--------------------------------------------------------
-                             35 	.area _HOME
-                             36 	.area _GSINIT
-                             37 	.area _GSFINAL
+                             35 ; global & static initialisations
+                             36 ;--------------------------------------------------------
+                             37 	.area _HOME
                              38 	.area _GSINIT
-                             39 ;--------------------------------------------------------
-                             40 ; Home
+                             39 	.area _GSFINAL
+                             40 	.area _GSINIT
                              41 ;--------------------------------------------------------
-                             42 	.area _HOME
-                             43 	.area _HOME
-                             44 ;--------------------------------------------------------
-                             45 ; code
+                             42 ; Home
+                             43 ;--------------------------------------------------------
+                             44 	.area _HOME
+                             45 	.area _HOME
                              46 ;--------------------------------------------------------
-                             47 	.area _CODE
-                             48 ;src/main.c:11: void main(void) {
-                             49 ;	---------------------------------
-                             50 ; Function main
-                             51 ; ---------------------------------
-   0000                      52 _main::
-                             53 ;src/main.c:12: cpct_disableFirmware();
-   0000 CDr00r00      [17]   54 	call	_cpct_disableFirmware
-                             55 ;src/main.c:13: cpct_setVideoMode(0);
-   0003 2E 00         [ 7]   56 	ld	l, #0x00
-   0005 CDr00r00      [17]   57 	call	_cpct_setVideoMode
-                             58 ;src/main.c:14: cpct_setPalette(game_palette, 16);   
-   0008 21 10 00      [10]   59 	ld	hl, #0x0010
-   000B E5            [11]   60 	push	hl
-   000C 21r17r00      [10]   61 	ld	hl, #_game_palette
-   000F E5            [11]   62 	push	hl
-   0010 CDr00r00      [17]   63 	call	_cpct_setPalette
-                             64 ;src/main.c:15: game();
-   0013 CDr00r00      [17]   65 	call	_game
-   0016 C9            [10]   66 	ret
-   0017                      67 _game_palette:
-   0017 54                   68 	.db #0x54	; 84	'T'
-   0018 5D                   69 	.db #0x5d	; 93
-   0019 4E                   70 	.db #0x4e	; 78	'N'
-   001A 44                   71 	.db #0x44	; 68	'D'
-   001B 46                   72 	.db #0x46	; 70	'F'
-   001C 42                   73 	.db #0x42	; 66	'B'
-   001D 5C                   74 	.db #0x5c	; 92
-   001E 47                   75 	.db #0x47	; 71	'G'
-   001F 45                   76 	.db #0x45	; 69	'E'
-   0020 58                   77 	.db #0x58	; 88	'X'
-   0021 4D                   78 	.db #0x4d	; 77	'M'
-   0022 43                   79 	.db #0x43	; 67	'C'
-   0023 4F                   80 	.db #0x4f	; 79	'O'
-   0024 40                   81 	.db #0x40	; 64
-   0025 4C                   82 	.db #0x4c	; 76	'L'
-   0026 4B                   83 	.db #0x4b	; 75	'K'
-                             84 	.area _CODE
-                             85 	.area _INITIALIZER
-                             86 	.area _CABS (ABS)
+                             47 ; code
+                             48 ;--------------------------------------------------------
+                             49 	.area _CODE
+                             50 ;src/main.c:11: void main(void) {
+                             51 ;	---------------------------------
+                             52 ; Function main
+                             53 ; ---------------------------------
+   0000                      54 _main::
+                             55 ;src/main.c:12: cpct_disableFirmware();
+   0000 CDr00r00      [17]   56 	call	_cpct_disableFirmware
+                             57 ;src/main.c:13: cpct_setVideoMode(0);
+   0003 2E 00         [ 7]   58 	ld	l, #0x00
+   0005 CDr00r00      [17]   59 	call	_cpct_setVideoMode
+                             60 ;src/main.c:14: cpct_setPalette(game_palette, 16);   
+   0008 21 10 00      [10]   61 	ld	hl, #0x0010
+   000B E5            [11]   62 	push	hl
+   000C 21r17r00      [10]   63 	ld	hl, #_game_palette
+   000F E5            [11]   64 	push	hl
+   0010 CDr00r00      [17]   65 	call	_cpct_setPalette
+                             66 ;src/main.c:15: game();
+   0013 CDr00r00      [17]   67 	call	_game
+   0016 C9            [10]   68 	ret
+   0017                      69 _game_palette:
+   0017 54                   70 	.db #0x54	; 84	'T'
+   0018 5D                   71 	.db #0x5d	; 93
+   0019 4E                   72 	.db #0x4e	; 78	'N'
+   001A 44                   73 	.db #0x44	; 68	'D'
+   001B 46                   74 	.db #0x46	; 70	'F'
+   001C 42                   75 	.db #0x42	; 66	'B'
+   001D 5C                   76 	.db #0x5c	; 92
+   001E 47                   77 	.db #0x47	; 71	'G'
+   001F 45                   78 	.db #0x45	; 69	'E'
+   0020 58                   79 	.db #0x58	; 88	'X'
+   0021 4D                   80 	.db #0x4d	; 77	'M'
+   0022 43                   81 	.db #0x43	; 67	'C'
+   0023 4F                   82 	.db #0x4f	; 79	'O'
+   0024 40                   83 	.db #0x40	; 64
+   0025 4C                   84 	.db #0x4c	; 76	'L'
+   0026 4B                   85 	.db #0x4b	; 75	'K'
+                             86 	.area _CODE
+                             87 	.area _INITIALIZER
+                             88 	.area _CABS (ABS)

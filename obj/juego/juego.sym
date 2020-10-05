@@ -7,13 +7,24 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
+  0 _comprobarMovimiento                                           011F GR
     _crearNivel                                                    **** GX
-  0 _createPlayer                                                  0013 GR
+  0 _createPlayer                                                  003D GR
+  0 _createRocas                                                   0052 GR
+  0 _createRocasEspejo                                             008F GR
     _dibujarGameObject                                             **** GX
+  0 _dibujarGameObjects                                            00E0 GR
   0 _game                                                          0000 GR
-  0 _initGame                                                      000D GR
-  1 _player                                                        0000 GR
-  1 _rocas                                                         0004 GR
+  0 _initGame                                                      0029 GR
+    _moverGameObject                                               **** GX
+  1 _movimientoGuardado                                            0000 R
+    _movimientoPlayer                                              **** GX
+  1 _player                                                        0001 GR
+  1 _posicion                                                      0038 GR
+  0 _resetGameobjects                                              013B GR
+  1 _rocas                                                         0006 GR
+  1 _rocasEspejo                                                   001F GR
+    _scanKey                                                       **** GX
 
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
@@ -21,8 +32,8 @@ Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size   28   flags    0
-   1 _DATA                                      size   18   flags    0
+   0 _CODE                                      size  16E   flags    0
+   1 _DATA                                      size   39   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8
    4 _HOME                                      size    0   flags    0

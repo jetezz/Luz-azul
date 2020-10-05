@@ -1,0 +1,221 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.6.8 #9946 (Linux)
+                              4 ;--------------------------------------------------------
+                              5 	.module fisicas
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _calcularPosicionEnPantalla
+                             12 	.globl _calcularMaximosyMinimos
+                             13 	.globl _comprobarColisiones1vs1
+                             14 ;--------------------------------------------------------
+                             15 ; special function registers
+                             16 ;--------------------------------------------------------
+                             17 ;--------------------------------------------------------
+                             18 ; ram data
+                             19 ;--------------------------------------------------------
+                             20 	.area _DATA
+                             21 ;--------------------------------------------------------
+                             22 ; ram data
+                             23 ;--------------------------------------------------------
+                             24 	.area _INITIALIZED
+                             25 ;--------------------------------------------------------
+                             26 ; absolute external ram data
+                             27 ;--------------------------------------------------------
+                             28 	.area _DABS (ABS)
+                             29 ;--------------------------------------------------------
+                             30 ; global & static initialisations
+                             31 ;--------------------------------------------------------
+                             32 	.area _HOME
+                             33 	.area _GSINIT
+                             34 	.area _GSFINAL
+                             35 	.area _GSINIT
+                             36 ;--------------------------------------------------------
+                             37 ; Home
+                             38 ;--------------------------------------------------------
+                             39 	.area _HOME
+                             40 	.area _HOME
+                             41 ;--------------------------------------------------------
+                             42 ; code
+                             43 ;--------------------------------------------------------
+                             44 	.area _CODE
+                             45 ;src/fisicas/fisicas.c:13: u8* calcularPosicionEnPantalla(u8 posx, u8 posy){
+                             46 ;	---------------------------------
+                             47 ; Function calcularPosicionEnPantalla
+                             48 ; ---------------------------------
+   0000                      49 _calcularPosicionEnPantalla::
+   0000 DD E5         [15]   50 	push	ix
+   0002 DD 21 00 00   [14]   51 	ld	ix,#0
+   0006 DD 39         [15]   52 	add	ix,sp
+                             53 ;src/fisicas/fisicas.c:15: return cpctm_screenPtr(CPCT_VMEM_START, posx*4, posy*16);
+   0008 DD 6E 05      [19]   54 	ld	l, 5 (ix)
+   000B 26 00         [ 7]   55 	ld	h, #0x00
+   000D 29            [11]   56 	add	hl, hl
+   000E 29            [11]   57 	add	hl, hl
+   000F 29            [11]   58 	add	hl, hl
+   0010 29            [11]   59 	add	hl, hl
+   0011 EB            [ 4]   60 	ex	de,hl
+   0012 4B            [ 4]   61 	ld	c, e
+   0013 42            [ 4]   62 	ld	b, d
+   0014 CB 28         [ 8]   63 	sra	b
+   0016 CB 19         [ 8]   64 	rr	c
+   0018 CB 28         [ 8]   65 	sra	b
+   001A CB 19         [ 8]   66 	rr	c
+   001C CB 28         [ 8]   67 	sra	b
+   001E CB 19         [ 8]   68 	rr	c
+   0020 69            [ 4]   69 	ld	l, c
+   0021 60            [ 4]   70 	ld	h, b
+   0022 29            [11]   71 	add	hl, hl
+   0023 29            [11]   72 	add	hl, hl
+   0024 09            [11]   73 	add	hl, bc
+   0025 29            [11]   74 	add	hl, hl
+   0026 29            [11]   75 	add	hl, hl
+   0027 29            [11]   76 	add	hl, hl
+   0028 29            [11]   77 	add	hl, hl
+   0029 01 00 C0      [10]   78 	ld	bc, #0xc000
+   002C 09            [11]   79 	add	hl, bc
+   002D 7B            [ 4]   80 	ld	a, e
+   002E E6 07         [ 7]   81 	and	a, #0x07
+   0030 07            [ 4]   82 	rlca
+   0031 07            [ 4]   83 	rlca
+   0032 07            [ 4]   84 	rlca
+   0033 E6 F8         [ 7]   85 	and	a, #0xf8
+   0035 47            [ 4]   86 	ld	b, a
+   0036 0E 00         [ 7]   87 	ld	c, #0x00
+   0038 09            [11]   88 	add	hl,bc
+   0039 4D            [ 4]   89 	ld	c, l
+   003A 44            [ 4]   90 	ld	b, h
+   003B DD 6E 04      [19]   91 	ld	l, 4 (ix)
+   003E 26 00         [ 7]   92 	ld	h, #0x00
+   0040 29            [11]   93 	add	hl, hl
+   0041 29            [11]   94 	add	hl, hl
+   0042 09            [11]   95 	add	hl, bc
+   0043 DD E1         [14]   96 	pop	ix
+   0045 C9            [10]   97 	ret
+                             98 ;src/fisicas/fisicas.c:17: u8 calcularMaximosyMinimos(u8 movimiento,u8 posx, u8 posy){      
+                             99 ;	---------------------------------
+                            100 ; Function calcularMaximosyMinimos
+                            101 ; ---------------------------------
+   0046                     102 _calcularMaximosyMinimos::
+   0046 DD E5         [15]  103 	push	ix
+   0048 DD 21 00 00   [14]  104 	ld	ix,#0
+   004C DD 39         [15]  105 	add	ix,sp
+                            106 ;src/fisicas/fisicas.c:18: if(movimiento!=mover_SinMovimiento){
+   004E DD 7E 04      [19]  107 	ld	a, 4 (ix)
+   0051 B7            [ 4]  108 	or	a, a
+   0052 28 72         [12]  109 	jr	Z,00121$
+                            110 ;src/fisicas/fisicas.c:20: if(posx-1<posMin)
+   0054 DD 5E 05      [19]  111 	ld	e, 5 (ix)
+   0057 16 00         [ 7]  112 	ld	d, #0x00
+                            113 ;src/fisicas/fisicas.c:19: if(movimiento==mover_Izquierda){
+   0059 DD 7E 04      [19]  114 	ld	a, 4 (ix)
+   005C 3D            [ 4]  115 	dec	a
+   005D 20 12         [12]  116 	jr	NZ,00118$
+                            117 ;src/fisicas/fisicas.c:20: if(posx-1<posMin)
+   005F 1B            [ 6]  118 	dec	de
+   0060 7B            [ 4]  119 	ld	a, e
+   0061 D6 01         [ 7]  120 	sub	a, #0x01
+   0063 7A            [ 4]  121 	ld	a, d
+   0064 17            [ 4]  122 	rla
+   0065 3F            [ 4]  123 	ccf
+   0066 1F            [ 4]  124 	rra
+   0067 DE 80         [ 7]  125 	sbc	a, #0x80
+   0069 30 5B         [12]  126 	jr	NC,00121$
+                            127 ;src/fisicas/fisicas.c:21: movimiento=mover_SinMovimiento;
+   006B DD 36 04 00   [19]  128 	ld	4 (ix), #0x00
+   006F 18 55         [12]  129 	jr	00121$
+   0071                     130 00118$:
+                            131 ;src/fisicas/fisicas.c:23: if(posy-1<posMin)
+   0071 DD 4E 06      [19]  132 	ld	c, 6 (ix)
+   0074 06 00         [ 7]  133 	ld	b, #0x00
+                            134 ;src/fisicas/fisicas.c:22: }else if(movimiento==mover_Arriba){
+   0076 DD 7E 04      [19]  135 	ld	a, 4 (ix)
+   0079 D6 02         [ 7]  136 	sub	a, #0x02
+   007B 20 12         [12]  137 	jr	NZ,00115$
+                            138 ;src/fisicas/fisicas.c:23: if(posy-1<posMin)
+   007D 0B            [ 6]  139 	dec	bc
+   007E 79            [ 4]  140 	ld	a, c
+   007F D6 01         [ 7]  141 	sub	a, #0x01
+   0081 78            [ 4]  142 	ld	a, b
+   0082 17            [ 4]  143 	rla
+   0083 3F            [ 4]  144 	ccf
+   0084 1F            [ 4]  145 	rra
+   0085 DE 80         [ 7]  146 	sbc	a, #0x80
+   0087 30 3D         [12]  147 	jr	NC,00121$
+                            148 ;src/fisicas/fisicas.c:24: movimiento=mover_SinMovimiento;
+   0089 DD 36 04 00   [19]  149 	ld	4 (ix), #0x00
+   008D 18 37         [12]  150 	jr	00121$
+   008F                     151 00115$:
+                            152 ;src/fisicas/fisicas.c:25: }else if(movimiento==mover_Derecha){
+   008F DD 7E 04      [19]  153 	ld	a, 4 (ix)
+   0092 D6 03         [ 7]  154 	sub	a, #0x03
+   0094 20 16         [12]  155 	jr	NZ,00112$
+                            156 ;src/fisicas/fisicas.c:26: if(posx+1>posxMax)
+   0096 13            [ 6]  157 	inc	de
+   0097 4B            [ 4]  158 	ld	c, e
+   0098 3E 07         [ 7]  159 	ld	a, #0x07
+   009A B9            [ 4]  160 	cp	a, c
+   009B 3E 00         [ 7]  161 	ld	a, #0x00
+   009D 9A            [ 4]  162 	sbc	a, d
+   009E E2rA3r00      [10]  163 	jp	PO, 00166$
+   00A1 EE 80         [ 7]  164 	xor	a, #0x80
+   00A3                     165 00166$:
+   00A3 F2rC6r00      [10]  166 	jp	P, 00121$
+                            167 ;src/fisicas/fisicas.c:27: movimiento=mover_SinMovimiento;
+   00A6 DD 36 04 00   [19]  168 	ld	4 (ix), #0x00
+   00AA 18 1A         [12]  169 	jr	00121$
+   00AC                     170 00112$:
+                            171 ;src/fisicas/fisicas.c:28: }else if(movimiento==mover_Abajo){
+   00AC DD 7E 04      [19]  172 	ld	a, 4 (ix)
+   00AF D6 04         [ 7]  173 	sub	a, #0x04
+   00B1 20 13         [12]  174 	jr	NZ,00121$
+                            175 ;src/fisicas/fisicas.c:29: if(posy+1>posyMax)
+   00B3 03            [ 6]  176 	inc	bc
+   00B4 3E 09         [ 7]  177 	ld	a, #0x09
+   00B6 B9            [ 4]  178 	cp	a, c
+   00B7 3E 00         [ 7]  179 	ld	a, #0x00
+   00B9 98            [ 4]  180 	sbc	a, b
+   00BA E2rBFr00      [10]  181 	jp	PO, 00169$
+   00BD EE 80         [ 7]  182 	xor	a, #0x80
+   00BF                     183 00169$:
+   00BF F2rC6r00      [10]  184 	jp	P, 00121$
+                            185 ;src/fisicas/fisicas.c:30: movimiento=mover_SinMovimiento;
+   00C2 DD 36 04 00   [19]  186 	ld	4 (ix), #0x00
+   00C6                     187 00121$:
+                            188 ;src/fisicas/fisicas.c:33: return movimiento;
+   00C6 DD 6E 04      [19]  189 	ld	l, 4 (ix)
+   00C9 DD E1         [14]  190 	pop	ix
+   00CB C9            [10]  191 	ret
+                            192 ;src/fisicas/fisicas.c:35: u8 comprobarColisiones1vs1(u8 posx, u8 posy,u8 posxRock, u8 posyRock){    
+                            193 ;	---------------------------------
+                            194 ; Function comprobarColisiones1vs1
+                            195 ; ---------------------------------
+   00CC                     196 _comprobarColisiones1vs1::
+                            197 ;src/fisicas/fisicas.c:36: if(posx==posxRock && posy==posyRock){        
+   00CC 21 02 00      [10]  198 	ld	hl, #2+0
+   00CF 39            [11]  199 	add	hl, sp
+   00D0 7E            [ 7]  200 	ld	a, (hl)
+   00D1 FD 21 04 00   [14]  201 	ld	iy, #4
+   00D5 FD 39         [15]  202 	add	iy, sp
+   00D7 FD 96 00      [19]  203 	sub	a, 0 (iy)
+   00DA 20 13         [12]  204 	jr	NZ,00102$
+   00DC 21 03 00      [10]  205 	ld	hl, #3+0
+   00DF 39            [11]  206 	add	hl, sp
+   00E0 7E            [ 7]  207 	ld	a, (hl)
+   00E1 FD 21 05 00   [14]  208 	ld	iy, #5
+   00E5 FD 39         [15]  209 	add	iy, sp
+   00E7 FD 96 00      [19]  210 	sub	a, 0 (iy)
+   00EA 20 03         [12]  211 	jr	NZ,00102$
+                            212 ;src/fisicas/fisicas.c:37: return hay_Colision;
+   00EC 2E 01         [ 7]  213 	ld	l, #0x01
+   00EE C9            [10]  214 	ret
+   00EF                     215 00102$:
+                            216 ;src/fisicas/fisicas.c:39: return no_Hay_Colision;
+   00EF 2E 00         [ 7]  217 	ld	l, #0x00
+   00F1 C9            [10]  218 	ret
+                            219 	.area _CODE
+                            220 	.area _INITIALIZER
+                            221 	.area _CABS (ABS)

@@ -9,6 +9,8 @@
 -l z80
 obj/mapa/court.rel
 obj/mapa/tiles.rel
+obj/sprites/rockInmovil.rel
+obj/sprites/rock.rel
 obj/sprites/player.rel
 obj/constantes.rel
 obj/main.rel
@@ -17,5 +19,6 @@ obj/mapa/mapa.rel
 obj/juego/juego.rel
 obj/niveles/niveles.rel
 obj/input/input.rel
+obj/fisicas/fisicas.rel
 
 -e
