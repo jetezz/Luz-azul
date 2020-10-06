@@ -32,7 +32,7 @@ void limpiarRastro(u8 posx, u8 posy){
 }
 void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8 posicion){       
     if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){    
-        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy);            
+        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,posicion);            
         if(movimiento!=mover_SinMovimiento){                  
             u8 nextPosx=objeto->posx;
             u8 nextPosy=objeto->posy;
@@ -93,8 +93,13 @@ void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocas,TGameObject* rocasEsp
         nextMovimiento=mover_Izquierda;
     }   
 
+    if(posicion==posicion_Izquieda){
+        posicion=posicion_Derecha;
+    }else{
+        posicion=posicion_Izquieda;
+    }
     
-    //nextMovimiento=calcularMaximosyMinimos(nextMovimiento,objetoEspejo->posx,objetoEspejo->posy);            
+    nextMovimiento=calcularMaximosyMinimos(nextMovimiento,objetoEspejo->posx,objetoEspejo->posy,posicion);            
         if(nextMovimiento!=mover_SinMovimiento){                  
             u8 nextPosx=objetoEspejo->posx;
             u8 nextPosy=objetoEspejo->posy;
