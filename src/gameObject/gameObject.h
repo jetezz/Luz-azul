@@ -8,6 +8,13 @@ typedef struct {
     u8 cronoMovimiento;    
 } TGameObject;
 
+static TGameObject* P_portal;
+
+
+ 
+void initGameobjest(TGameObject* portales);
+
+
 
 void dibujarGameObject(TGameObject* objeto);
 void limpiarRastro(u8 posx, u8 posy);
@@ -15,6 +22,8 @@ void limpiarRastro(u8 posx, u8 posy);
 void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocas,TGameObject* rocasEspejo,u8 posicion);
 u8 comprobarColisiones(u8 posx,u8 posy,TGameObject* rocas);
 void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocas,TGameObject* rocasEspejo,u8 posicion);
+u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento);
+
 
 //movimientos
 void movimientoSimple(u8* posx, u8* posy,u8 movimiento);

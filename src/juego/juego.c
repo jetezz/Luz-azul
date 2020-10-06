@@ -1,7 +1,6 @@
 #include "juego.h"
 #include "input/input.h"
 #include "niveles/niveles.h"
-#include "constantes.h"
 #include "sprites/player.h"
 #include "sprites/sprites.h"
 
@@ -15,6 +14,8 @@
 TGameObject player;
 TGameObject rocas[RocasMaximas];
 TGameObject rocasEspejo[RocasMaximas];
+TGameObject portal[2];
+
 u8 posicion;
 
 
@@ -35,6 +36,8 @@ void initGame(){
     createPlayer();
     createRocas();
     createRocasEspejo();
+    createPortal();
+    initGameobjest(portal);
     dibujarGameObjects();    
 }
 void createPlayer(){
@@ -83,6 +86,16 @@ void createRocasEspejo(){
     rocasEspejo[3].posy=5;
     rocasEspejo[3].sprite=sprite_RockInmovil;
 }
+void createPortal(){
+    portal[0].posx=7;
+    portal[0].posy=5;
+    portal[0].sprite=sprite_Portal;
+
+    portal[1].posx=10;
+    portal[1].posy=5;
+    portal[1].sprite=sprite_Portal;
+}
+
 void dibujarGameObjects(){
     dibujarGameObject(&player);
     for (u8 i =0; i<RocasMaximas;i++){        
@@ -92,7 +105,10 @@ void dibujarGameObjects(){
     for (u8 i =0; i<RocasMaximas;i++){        
         dibujarGameObject(&rocasEspejo[i]);
         
-    }  
+    } 
+    for(u8 i=0;i<2;i++){
+        dibujarGameObject(&portal[i]);
+    } 
 }
 
 void comprobarMovimiento(){

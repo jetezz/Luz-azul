@@ -25,7 +25,7 @@ u8 calcularMaximosyMinimos(u8 movimiento,u8 posx, u8 posy,u8 posicion){
     if(posicion==posicion_Izquieda){
         maximox=posxMax;
         minimox=posMin;
-    }else{       
+    }else{             
         maximox=posxMaxEspejo;
         minimox=posxminEspejo;
     }
