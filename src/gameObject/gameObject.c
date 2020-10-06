@@ -39,21 +39,36 @@ void dibujarGameObject(TGameObject* objeto){
 void limpiarRastro(u8 posx, u8 posy){
     cpct_drawSolidBox(calcularPosicionEnPantalla(posx,posy),0x00,4,16);
 }
-void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8 posicion){       
+void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){       
     if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){    
-        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,posicion);            
+        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
         if(movimiento!=mover_SinMovimiento){                  
             u8 nextPosx=objeto->posx;
             u8 nextPosy=objeto->posy;
             u8 ObjetoColisionado=SinColision;
-            u8 portalesUsados=no_Se_Ha_Usado;
+            u8 colisionPortales=no_Hay_Colision;
+            u8 moverRoca=mover_roca;
+            
 
 
             if(objeto->sprite==sprite_Player|| objeto->sprite==sprite_Rock){
                movimientoSimple(&nextPosx,&nextPosy,movimiento); 
             }
-            portalesUsados=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento);
-            ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasCol);               
+            
+            colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);            
+            ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasCol);
+            if(objeto->sprite!=sprite_Player && colisionPortales==hay_Colision){
+               ObjetoColisionado=0; 
+            }
+            if(objeto->sprite==sprite_Player && colisionPortales==hay_Colision){
+                ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);
+                if(ObjetoColisionado!=SinColision){
+                    moverRoca=no_mover_roca;
+                }else{
+                    cambiarPosicion(posicion);
+                }
+            }
+                          
                                                       
             if(ObjetoColisionado==SinColision){             
                 limpiarRastro(objeto->posx,objeto->posy);
@@ -61,13 +76,10 @@ void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TG
                 objeto->posy=nextPosy;
                 dibujarGameObject(objeto);
                 if(objeto->sprite!=sprite_Player){
-                    moverElEspejo(objeto->num,movimiento,rocasCol,rocasEspejo,posicion);
-                }
-                if(objeto->sprite==sprite_Player && portalesUsados==se_Ha_Usado ){
-                    
-                }                 
+                    moverElEspejo(objeto->num,movimiento,rocasEspejo,*posicion);
+                }                               
             }else{ 
-                if(objeto->sprite==sprite_Player)          
+                if(objeto->sprite==sprite_Player && moverRoca==mover_roca)          
                 moverGameObject(&rocasCol[ObjetoColisionado],movimiento,rocasCol,rocasEspejo,posicion);                      
             }            
             objeto->cronoMovimiento=retardoMovimiento;
@@ -89,19 +101,11 @@ u8 comprobarColisiones(u8 posx,u8 posy,TGameObject* rocas){
     }
     return colision;
 }
-void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocas,TGameObject* rocasEspejo,u8 posicion){
+void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion){
    
-    TGameObject* objetoEspejo;
-    TGameObject* objetosColisionables;    
-    u8 nextMovimiento=movimiento;   
+    TGameObject* objetoEspejo=&rocasEspejo[num];       
+    u8 nextMovimiento=movimiento;
       
-    if(posicion==posicion_Izquieda){
-        objetoEspejo=&rocasEspejo[num];
-        objetosColisionables=rocasEspejo;        
-    }else{
-        objetoEspejo=&rocas[num];
-        objetosColisionables=rocas;        
-    }   
     
     if(movimiento==mover_Izquierda){
         nextMovimiento=mover_Derecha;
@@ -120,12 +124,13 @@ void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocas,TGameObject* rocasEsp
             u8 nextPosx=objetoEspejo->posx;
             u8 nextPosy=objetoEspejo->posy;
             u8 ObjetoColisionado=SinColision;
+            u8 colisionPortales=no_Hay_Colision; 
             
             movimientoSimple(&nextPosx,&nextPosy,nextMovimiento);           
-            
-            ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,objetosColisionables);               
-                                                      
-            if(ObjetoColisionado==SinColision){             
+            comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
+            ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);               
+            colisionPortales=comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);                                         
+            if(ObjetoColisionado==SinColision && colisionPortales==no_Hay_Colision){             
                 limpiarRastro(objetoEspejo->posx,objetoEspejo->posy);
                 objetoEspejo->posx=nextPosx;
                 objetoEspejo->posy=nextPosy;
@@ -134,27 +139,41 @@ void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocas,TGameObject* rocasEsp
         }
 
 }
-u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento){
-    if(objeto->sprite==sprite_Player){
-        if(*posx==P_portal[0].posx ){
-            if(*posy==P_portal[0].posy ){
+u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* posicion){    
+    if(*posx==P_portal[0].posx ){
+        if(*posy==P_portal[0].posy ){
+            if(objeto->sprite==sprite_Player){                
                 *posx=P_portal[1].posx;
                 *posy=P_portal[1].posy;
-                movimientoSimple(posx,posy,movimiento);
-                return se_Ha_Usado;
+                movimientoSimple(posx,posy,movimiento);                
             }
-        }        
-        if(*posx==P_portal[1].posx){
-            if(*posy==P_portal[1].posy){
+            return hay_Colision;               
+        }
+    }        
+    if(*posx==P_portal[1].posx){
+        if(*posy==P_portal[1].posy){
+            if(objeto->sprite==sprite_Player){
                 *posx=P_portal[0].posx;
                 *posy=P_portal[0].posy;
-                movimientoSimple(posx,posy,movimiento);
-                return se_Ha_Usado;
+                movimientoSimple(posx,posy,movimiento);                
             }
+            return hay_Colision;                   
         }
     }
-    return no_Se_Ha_Usado;
+    return no_Hay_Colision;        
 }
+
+
+void cambiarPosicion(u8* posicion){    
+    if(*posicion==posicion_Izquieda){
+        *posicion=posicion_Derecha;        
+    }else{
+        *posicion=posicion_Izquieda;       
+    }
+    
+   
+}
+
 
 
 //movimientos

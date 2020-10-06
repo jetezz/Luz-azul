@@ -13,6 +13,7 @@ extern u8 posicion;
 
 void game();
 void initGame();
+void moverPlayer();
 void createPlayer();
 void createRocas();
 void createRocasEspejo();

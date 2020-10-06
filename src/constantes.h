@@ -24,12 +24,13 @@ extern enum{
     hay_Colision
 }ETipoColision;
 
-extern enum{
-    no_Se_Ha_Usado,
-    se_Ha_Usado
-}ETipoPortales;
 
 extern enum{
     posicion_Izquieda,
     posicion_Derecha
 }ETipoPosicion;
+
+extern enum{
+    mover_roca,
+    no_mover_roca
+}ETipoMoverRoca;

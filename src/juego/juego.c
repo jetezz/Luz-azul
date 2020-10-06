@@ -27,7 +27,7 @@ void game(){
     while(1){ 
         scanKey();
         comprobarMovimiento();      
-        moverGameObject(&player,movimientoGuardado,rocas,rocasEspejo,posicion);              
+        moverPlayer();       
     }
 }
 void initGame(){
@@ -39,6 +39,13 @@ void initGame(){
     createPortal();
     initGameobjest(portal);
     dibujarGameObjects();    
+}
+void moverPlayer(){
+    if(posicion==posicion_Izquieda){
+        moverGameObject(&player,movimientoGuardado,rocas,rocasEspejo,&posicion);
+    }else{
+        moverGameObject(&player,movimientoGuardado,rocasEspejo,rocas,&posicion);
+    }
 }
 void createPlayer(){
     player.num=-1;

@@ -22,7 +22,7 @@ u8* calcularPosicionEnPantalla(u8 posx, u8 posy){
 u8 calcularMaximosyMinimos(u8 movimiento,u8 posx, u8 posy,u8 posicion){   
     u8 maximox;
     u8 minimox;
-    if(posicion==posicion_Izquieda){
+    if(posicion==posicion_Izquieda){        
         maximox=posxMax;
         minimox=posMin;
     }else{             
