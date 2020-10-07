@@ -2,6 +2,7 @@
 #include "sprites/player.h"
 #include "sprites/rock.h"
 #include "sprites/rockInmovil.h"
+#include "sprites/rockLineal.h"
 #include "sprites/portal.h"
 #include "sprites/puerta.h"
 #include "constantes.h"
@@ -31,6 +32,8 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(rock_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil){
             cpct_drawSprite(rockInmovil_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockLineal){
+            cpct_drawSprite(rockLineal_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Portal){
              cpct_drawSprite(portalSprite_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Puerta){
@@ -52,21 +55,27 @@ u8 moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
             u8 colisionPortales=no_Hay_Colision;
             u8 moverRoca=mover_roca;
             u8 colisionPuerta=seguir_En_Nivel;
+            u8 numMovimientos=0;
             
 
 
-            if(objeto->sprite==sprite_Player|| objeto->sprite==sprite_Rock){
-               movimientoSimple(&nextPosx,&nextPosy,movimiento); 
+            if(objeto->sprite==sprite_Player || objeto->sprite==sprite_Rock){
+                movimientoSimple(&nextPosx,&nextPosy,movimiento);
+                numMovimientos=1;                 
+            }else if(objeto->sprite==sprite_RockLineal){
+                numMovimientos=movimientoLineal(&nextPosx,&nextPosy,movimiento,rocasCol,posicion);
             }
+            
             colisionPuerta=comprobarPuertas(nextPosx,nextPosy);
             if(colisionPuerta!=seguir_En_Nivel && objeto->sprite==sprite_Player){
                 return colisionPuerta;
-            }
+            }            
             colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);            
             ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasCol);
             if(objeto->sprite!=sprite_Player && colisionPortales==hay_Colision){
                ObjetoColisionado=0; 
             }
+            
             if(objeto->sprite==sprite_Player && colisionPortales==hay_Colision){
                 ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);
                 if(ObjetoColisionado!=SinColision){
@@ -77,13 +86,13 @@ u8 moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
             }
                           
                                                       
-            if(ObjetoColisionado==SinColision){             
+            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision){             
                 limpiarRastro(objeto->posx,objeto->posy);
                 objeto->posx=nextPosx;
                 objeto->posy=nextPosy;
                 dibujarGameObject(objeto);
                 if(objeto->sprite!=sprite_Player){
-                    moverElEspejo(objeto->num,movimiento,rocasEspejo,*posicion);
+                    moverElEspejo(objeto->num,movimiento,rocasEspejo,*posicion,numMovimientos);                    
                 }                               
             }else{ 
                 if(objeto->sprite==sprite_Player && moverRoca==mover_roca)          
@@ -108,42 +117,46 @@ u8 comprobarColisiones(u8 posx,u8 posy,TGameObject* rocas){
     }
     return colision;
 }
-void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion){
+void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion,u8 numMovimientos){
    
     TGameObject* objetoEspejo=&rocasEspejo[num];       
     u8 nextMovimiento=movimiento;
+
+    if(objetoEspejo->posx!=0){
       
     
-    if(movimiento==mover_Izquierda){
-        nextMovimiento=mover_Derecha;
-    }if(movimiento==mover_Derecha){
-        nextMovimiento=mover_Izquierda;
-    }   
+        if(movimiento==mover_Izquierda){
+            nextMovimiento=mover_Derecha;
+        }if(movimiento==mover_Derecha){
+            nextMovimiento=mover_Izquierda;
+        }   
 
-    if(posicion==posicion_Izquieda){
-        posicion=posicion_Derecha;
-    }else{
-        posicion=posicion_Izquieda;
-    }
-    
-    nextMovimiento=calcularMaximosyMinimos(nextMovimiento,objetoEspejo->posx,objetoEspejo->posy,posicion);            
-        if(nextMovimiento!=mover_SinMovimiento){                  
-            u8 nextPosx=objetoEspejo->posx;
-            u8 nextPosy=objetoEspejo->posy;
-            u8 ObjetoColisionado=SinColision;
-            u8 colisionPortales=no_Hay_Colision; 
-            
-            movimientoSimple(&nextPosx,&nextPosy,nextMovimiento);           
-            comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
-            ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);               
-            colisionPortales=comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);                                         
-            if(ObjetoColisionado==SinColision && colisionPortales==no_Hay_Colision){             
-                limpiarRastro(objetoEspejo->posx,objetoEspejo->posy);
-                objetoEspejo->posx=nextPosx;
-                objetoEspejo->posy=nextPosy;
-                dibujarGameObject(objetoEspejo);                             
-            }           
+        if(posicion==posicion_Izquieda){
+            posicion=posicion_Derecha;
+        }else{
+            posicion=posicion_Izquieda;
         }
+        for(u8 i=0;i<numMovimientos;i++){
+            nextMovimiento=calcularMaximosyMinimos(nextMovimiento,objetoEspejo->posx,objetoEspejo->posy,posicion);            
+            if(nextMovimiento!=mover_SinMovimiento){                  
+                u8 nextPosx=objetoEspejo->posx;
+                u8 nextPosy=objetoEspejo->posy;
+                u8 ObjetoColisionado=SinColision;
+                u8 colisionPortales=no_Hay_Colision; 
+                
+                movimientoSimple(&nextPosx,&nextPosy,nextMovimiento);           
+                comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
+                ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);               
+                colisionPortales=comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);                                         
+                if(ObjetoColisionado==SinColision && colisionPortales==no_Hay_Colision){                                           
+                    limpiarRastro(objetoEspejo->posx,objetoEspejo->posy);
+                    objetoEspejo->posx=nextPosx;
+                    objetoEspejo->posy=nextPosy;
+                    dibujarGameObject(objetoEspejo);                             
+                }           
+            }
+        }
+    }
 
 }
 u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* posicion){    
@@ -204,3 +217,31 @@ void movimientoSimple(u8* posx, u8* posy,u8 movimiento){
                 *posy+=1;
             }          
 }
+u8 movimientoLineal(u8* posx, u8* posy,u8 movimiento,TGameObject* objetosCol,u8* posicion){    
+    u8 colisionObjetos=SinColision;
+    u8 colisionPuerta=no_Hay_Colision;    
+    u8 nextPosx=*posx;
+    u8 nextPosy=*posy;
+    u8 contador=0;
+    
+   while (colisionObjetos==SinColision && movimiento!=mover_SinMovimiento && colisionPuerta==no_Hay_Colision )
+    {     
+        movimiento=calcularMaximosyMinimos(movimiento,nextPosx,nextPosy,*posicion);       
+        movimientoSimple(&nextPosx,&nextPosy,movimiento);
+        colisionPuerta=comprobarPuertas(nextPosx,nextPosy);
+        colisionObjetos=comprobarColisiones(nextPosx,nextPosy,objetosCol);        
+        if(colisionObjetos==SinColision && colisionPuerta==no_Hay_Colision){                       
+            *posx=nextPosx;
+            *posy=nextPosy;
+            contador++;
+        }else{
+            nextPosx=*posx;
+            nextPosy=*posy;
+        }                 
+    }
+    return contador;
+    
+    
+          
+}
+

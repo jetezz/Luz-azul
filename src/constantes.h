@@ -9,6 +9,7 @@ extern enum{
     sprite_Player,
     sprite_Rock,
     sprite_RockInmovil,
+    sprite_RockLineal,
     sprite_Portal,
     sprite_Puerta
 }ETiposSprite;

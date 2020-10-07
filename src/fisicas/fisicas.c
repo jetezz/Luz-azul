@@ -7,9 +7,9 @@
 
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
 #define     posxMax                     7
-#define     posyMax                     9
-#define     posxMaxEspejo               16
-#define     posxminEspejo               10
+#define     posyMax                     7
+#define     posxMaxEspejo               15
+#define     posxminEspejo               9
 
 #define     posMin                      1
 

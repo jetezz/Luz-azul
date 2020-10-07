@@ -69,7 +69,7 @@ void createRocas(){
     rocas[0].num=0;
     rocas[0].posx=5;
     rocas[0].posy=5;
-    rocas[0].sprite=sprite_Rock;
+    rocas[0].sprite=sprite_RockLineal;
 
     rocas[1].num=1;
     rocas[1].posx=6;
@@ -86,38 +86,38 @@ void createRocas(){
 }
 void createRocasEspejo(){
     rocasEspejo[0].num=0;
-    rocasEspejo[0].posx=12;
+    rocasEspejo[0].posx=11;
     rocasEspejo[0].posy=5;
     rocasEspejo[0].sprite=sprite_Rock;
 
     rocasEspejo[1].num=1;
-    rocasEspejo[1].posx=11;
+    rocasEspejo[1].posx=10;
     rocasEspejo[1].posy=6;
     rocasEspejo[1].sprite=sprite_Rock;
 
     rocasEspejo[2].num=2;
-    rocasEspejo[2].posx=10;
+    rocasEspejo[2].posx=9;
     rocasEspejo[2].posy=7;
     rocasEspejo[2].sprite=sprite_RockInmovil;
 
     rocasEspejo[3].num=3;
-    rocasEspejo[3].posx=14;
+    rocasEspejo[3].posx=13;
     rocasEspejo[3].posy=5;
-    rocasEspejo[3].sprite=sprite_RockInmovil;
+    rocasEspejo[3].sprite=sprite_RockLineal;
 }
 void createPortal(){
     portal[0].posx=7;
-    portal[0].posy=5;
+    portal[0].posy=4;
     portal[0].sprite=sprite_Portal;
 
-    portal[1].posx=10;
-    portal[1].posy=5;
+    portal[1].posx=9;
+    portal[1].posy=4;
     portal[1].sprite=sprite_Portal;
 }
 void createPuerta(){
     puertas[0].num=nivel_2;
     puertas[0].posx=1;
-    puertas[0].posy=9;
+    puertas[0].posy=7;
     puertas[0].sprite=sprite_Puerta;
 }
 
