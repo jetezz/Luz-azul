@@ -44,6 +44,8 @@ $(eval $(call IMG2SP, CONVERT         , sprites/player.png , 8,8 , playerSprite,
 $(eval $(call IMG2SP, CONVERT         , sprites/rock.png , 8,8 , rock, rockPALETTE, rock)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/rockInmovil.png , 8,8 , rockInmovil, rockInmovilPALETTE, rockInmovil)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/portal.png , 8,8 , portalSprite, portalPALETTE, portalSprite)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/puerta.png , 8,8 , puertalSprite, puertaPALETTE, puertaSprite)) #8x16
+
 
 
 

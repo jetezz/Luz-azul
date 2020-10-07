@@ -9,6 +9,7 @@ extern TGameObject player;
 extern TGameObject rocas[RocasMaximas];
 extern TGameObject rocasEspejo[RocasMaximas];
 extern TGameObject portal[2];
+extern TGameObject puertas[10];
 extern u8 posicion;
 
 void game();
@@ -18,6 +19,7 @@ void createPlayer();
 void createRocas();
 void createRocasEspejo();
 void createPortal();
+void createPuerta();
 void dibujarGameObjects();
 void comprobarMovimiento();
 

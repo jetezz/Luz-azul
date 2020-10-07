@@ -4,6 +4,10 @@
 #include "sprites/player.h"
 #include "sprites/sprites.h"
 
+
+#include <stdio.h>
+#include <stdlib.h>
+
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
 
 
@@ -15,6 +19,8 @@ TGameObject player;
 TGameObject rocas[RocasMaximas];
 TGameObject rocasEspejo[RocasMaximas];
 TGameObject portal[2];
+TGameObject puertas[10];
+
 
 u8 posicion;
 
@@ -37,14 +43,20 @@ void initGame(){
     createRocas();
     createRocasEspejo();
     createPortal();
-    initGameobjest(portal);
+    createPuerta();
+    initGameobjest(portal,puertas);
     dibujarGameObjects();    
 }
 void moverPlayer(){
+    u8 nivel=seguir_En_Nivel;
     if(posicion==posicion_Izquieda){
-        moverGameObject(&player,movimientoGuardado,rocas,rocasEspejo,&posicion);
+        nivel=moverGameObject(&player,movimientoGuardado,rocas,rocasEspejo,&posicion);
     }else{
-        moverGameObject(&player,movimientoGuardado,rocasEspejo,rocas,&posicion);
+        nivel=moverGameObject(&player,movimientoGuardado,rocasEspejo,rocas,&posicion);
+    }
+
+    if(nivel!=seguir_En_Nivel){
+        resetGameobjects();
     }
 }
 void createPlayer(){
@@ -102,6 +114,12 @@ void createPortal(){
     portal[1].posy=5;
     portal[1].sprite=sprite_Portal;
 }
+void createPuerta(){
+    puertas[0].num=nivel_2;
+    puertas[0].posx=1;
+    puertas[0].posy=9;
+    puertas[0].sprite=sprite_Puerta;
+}
 
 void dibujarGameObjects(){
     dibujarGameObject(&player);
@@ -115,6 +133,9 @@ void dibujarGameObjects(){
     } 
     for(u8 i=0;i<2;i++){
         dibujarGameObject(&portal[i]);
+    }
+    for(u8 i=0;i<2;i++){
+        dibujarGameObject(&puertas[i]);
     } 
 }
 
@@ -128,13 +149,13 @@ void comprobarMovimiento(){
 }
 
 void resetGameobjects(){
-    player.posx=0;
-    player.posy=0;   
-    player.sprite=sprite_Player;
-
-    for (u8 i=0;i<RocasMaximas;i++){
-        rocas[i].posx=0;
-        rocas[i].posy=0;
-        rocas[i].sprite=sprite_SinDefinir;
-    }
+    posicion=posicion_Izquieda;
+    crearNivel();
+    createPlayer();
+    createRocas();
+    createRocasEspejo();
+    createPortal();
+    createPuerta();
+    initGameobjest(portal,puertas);
+    dibujarGameObjects();  
 }

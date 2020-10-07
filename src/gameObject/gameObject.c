@@ -3,6 +3,7 @@
 #include "sprites/rock.h"
 #include "sprites/rockInmovil.h"
 #include "sprites/portal.h"
+#include "sprites/puerta.h"
 #include "constantes.h"
 #include "fisicas/fisicas.h"
 
@@ -17,9 +18,9 @@
 #define     retardoMovimiento           0xFF
 
 
-void initGameobjest(TGameObject* portales){
+void initGameobjest(TGameObject* portales,TGameObject* puertas){
     P_portal=portales;
-   
+    P_puertas=puertas;
 }
 
 void dibujarGameObject(TGameObject* objeto){
@@ -32,6 +33,8 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(rockInmovil_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Portal){
              cpct_drawSprite(portalSprite_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_Puerta){
+             cpct_drawSprite(puertalSprite_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }
 
     }     
@@ -39,7 +42,7 @@ void dibujarGameObject(TGameObject* objeto){
 void limpiarRastro(u8 posx, u8 posy){
     cpct_drawSolidBox(calcularPosicionEnPantalla(posx,posy),0x00,4,16);
 }
-void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){       
+u8 moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){       
     if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){    
         movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
         if(movimiento!=mover_SinMovimiento){                  
@@ -48,13 +51,17 @@ void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TG
             u8 ObjetoColisionado=SinColision;
             u8 colisionPortales=no_Hay_Colision;
             u8 moverRoca=mover_roca;
+            u8 colisionPuerta=seguir_En_Nivel;
             
 
 
             if(objeto->sprite==sprite_Player|| objeto->sprite==sprite_Rock){
                movimientoSimple(&nextPosx,&nextPosy,movimiento); 
             }
-            
+            colisionPuerta=comprobarPuertas(nextPosx,nextPosy);
+            if(colisionPuerta!=seguir_En_Nivel && objeto->sprite==sprite_Player){
+                return colisionPuerta;
+            }
             colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);            
             ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasCol);
             if(objeto->sprite!=sprite_Player && colisionPortales==hay_Colision){
@@ -87,7 +94,7 @@ void moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TG
     }else{
         objeto->cronoMovimiento-=1;
     }
-    
+    return seguir_En_Nivel;
 }
 u8 comprobarColisiones(u8 posx,u8 posy,TGameObject* rocas){
     u8 colision=SinColision;
@@ -172,6 +179,15 @@ void cambiarPosicion(u8* posicion){
     }
     
    
+}
+
+u8 comprobarPuertas(u8 posx, u8 posy){
+    for(u8 i=0;i<3;i++){
+        if(posx==P_puertas[i].posx && posy==P_puertas[i].posy){
+            return P_puertas[i].num;
+        }
+    }
+    return seguir_En_Nivel;
 }
 
 
