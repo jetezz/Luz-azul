@@ -59,10 +59,10 @@ u8 moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
             
 
 
-            if(objeto->sprite==sprite_Player || objeto->sprite==sprite_Rock){
+            if(objeto->movimiento==mover_1){
                 movimientoSimple(&nextPosx,&nextPosy,movimiento);
                 numMovimientos=1;                 
-            }else if(objeto->sprite==sprite_RockLineal){
+            }else if(objeto->movimiento==mover_Linea){
                 numMovimientos=movimientoLineal(&nextPosx,&nextPosy,movimiento,rocasCol,posicion);
             }
             
@@ -142,13 +142,15 @@ void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion,u8 
                 u8 nextPosx=objetoEspejo->posx;
                 u8 nextPosy=objetoEspejo->posy;
                 u8 ObjetoColisionado=SinColision;
-                u8 colisionPortales=no_Hay_Colision; 
+                u8 colisionPortales=no_Hay_Colision;
+                u8 colisionPuerta=seguir_En_Nivel; 
                 
                 movimientoSimple(&nextPosx,&nextPosy,nextMovimiento);           
                 comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
                 ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);               
-                colisionPortales=comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);                                         
-                if(ObjetoColisionado==SinColision && colisionPortales==no_Hay_Colision){                                           
+                colisionPortales=comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
+                colisionPuerta=comprobarPuertas(nextPosx,nextPosy);                                         
+                if(ObjetoColisionado==SinColision && colisionPortales==no_Hay_Colision && colisionPuerta==seguir_En_Nivel){                                           
                     limpiarRastro(objetoEspejo->posx,objetoEspejo->posy);
                     objetoEspejo->posx=nextPosx;
                     objetoEspejo->posy=nextPosy;

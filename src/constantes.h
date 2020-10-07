@@ -39,6 +39,12 @@ extern enum{
 }ETipoMoverRoca;
 
 extern enum{
+    sin_Movimiento,
+    mover_1,
+    mover_Linea    
+}ETipoMovimiento;
+
+extern enum{
     seguir_En_Nivel,
     nivel_1,
     nivel_2    
