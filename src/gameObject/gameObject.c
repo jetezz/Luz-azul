@@ -60,10 +60,10 @@ u8 moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
 
 
             if(objeto->movimiento==mover_1){
-                movimientoSimple(&nextPosx,&nextPosy,movimiento);
+                movimientoSimple(&nextPosx,&nextPosy,movimiento,*posicion);
                 numMovimientos=1;                 
             }else if(objeto->movimiento==mover_Linea){
-                numMovimientos=movimientoLineal(&nextPosx,&nextPosy,movimiento,rocasCol,posicion);
+                numMovimientos=movimientoLineal(objeto,&nextPosx,&nextPosy,movimiento,rocasCol,*posicion);
             }
             
             colisionPuerta=comprobarPuertas(nextPosx,nextPosy);
@@ -145,7 +145,7 @@ void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion,u8 
                 u8 colisionPortales=no_Hay_Colision;
                 u8 colisionPuerta=seguir_En_Nivel; 
                 
-                movimientoSimple(&nextPosx,&nextPosy,nextMovimiento);           
+                mover1casilla(&nextPosx,&nextPosy,nextMovimiento);           
                 comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
                 ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);               
                 colisionPortales=comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
@@ -167,7 +167,7 @@ u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* pos
             if(objeto->sprite==sprite_Player){                
                 *posx=P_portal[1].posx;
                 *posy=P_portal[1].posy;
-                movimientoSimple(posx,posy,movimiento);                
+                mover1casilla(posx,posy,movimiento);                
             }
             return hay_Colision;               
         }
@@ -177,7 +177,7 @@ u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* pos
             if(objeto->sprite==sprite_Player){
                 *posx=P_portal[0].posx;
                 *posy=P_portal[0].posy;
-                movimientoSimple(posx,posy,movimiento);                
+                mover1casilla(posx,posy,movimiento);                
             }
             return hay_Colision;                   
         }
@@ -208,31 +208,38 @@ u8 comprobarPuertas(u8 posx, u8 posy){
 
 
 //movimientos
-void movimientoSimple(u8* posx, u8* posy,u8 movimiento){
-            if(movimiento==mover_Izquierda){
-                *posx-=1;
-            }else if(movimiento==mover_Arriba){
-                *posy-=1;
-            }else if(movimiento==mover_Derecha){
-                *posx+=1;
-            }else if(movimiento==mover_Abajo){
-                *posy+=1;
-            }          
+
+void mover1casilla(u8* posx, u8* posy,u8 movimiento){
+    if(movimiento==mover_Izquierda){
+        *posx-=1;
+    }else if(movimiento==mover_Arriba){
+        *posy-=1;
+    }else if(movimiento==mover_Derecha){
+        *posx+=1;
+    }else if(movimiento==mover_Abajo){
+        *posy+=1;
+    }          
 }
-u8 movimientoLineal(u8* posx, u8* posy,u8 movimiento,TGameObject* objetosCol,u8* posicion){    
+
+void movimientoSimple(u8* posx, u8* posy,u8 movimiento,u8 posicion){
+      mover1casilla(posx,posy,movimiento);       
+}
+u8 movimientoLineal(TGameObject* objeto,u8* posx, u8* posy,u8 movimiento,TGameObject* objetosCol,u8 posicion){    
     u8 colisionObjetos=SinColision;
-    u8 colisionPuerta=no_Hay_Colision;    
+    u8 colisionPuerta=no_Hay_Colision;
+    u8 colisionPortales=no_Hay_Colision;    
     u8 nextPosx=*posx;
     u8 nextPosy=*posy;
     u8 contador=0;
     
-   while (colisionObjetos==SinColision && movimiento!=mover_SinMovimiento && colisionPuerta==no_Hay_Colision )
+   while (colisionObjetos==SinColision && movimiento!=mover_SinMovimiento && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision)
     {     
-        movimiento=calcularMaximosyMinimos(movimiento,nextPosx,nextPosy,*posicion);       
-        movimientoSimple(&nextPosx,&nextPosy,movimiento);
+        movimiento=calcularMaximosyMinimos(movimiento,nextPosx,nextPosy,posicion);       
+        mover1casilla(&nextPosx,&nextPosy,movimiento);
         colisionPuerta=comprobarPuertas(nextPosx,nextPosy);
-        colisionObjetos=comprobarColisiones(nextPosx,nextPosy,objetosCol);        
-        if(colisionObjetos==SinColision && colisionPuerta==no_Hay_Colision){                       
+        colisionObjetos=comprobarColisiones(nextPosx,nextPosy,objetosCol);
+        colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);           
+        if(colisionObjetos==SinColision && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision){                       
             *posx=nextPosx;
             *posy=nextPosy;
             contador++;
@@ -247,3 +254,9 @@ u8 movimientoLineal(u8* posx, u8* posy,u8 movimiento,TGameObject* objetosCol,u8*
           
 }
 
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
