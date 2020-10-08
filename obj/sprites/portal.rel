@@ -1,0 +1,44 @@
+XL2
+H 9 areas 5 global symbols
+M portal
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 54 flags 0 addr 0
+S _portalPALETTE Def0000
+S _portalSprite Def0010
+S _portalSprite_0 Def0014
+S _portalSprite_1 Def0034
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 54 5D 4E 44 46 42 5C 47 45 58 5D 43 4F 40
+R 00 00 00 00
+T 0E 00 4C 4B
+R 00 00 00 00
+T 10 00
+R 00 00 00 00
+T 10 00 14 00 34 00
+R 00 00 00 00 00 02 00 00 00 04 00 00
+T 14 00
+R 00 00 00 00
+T 14 00 0C 0C 0C 0C 0C 0C 0C 0C 3F 3F 3F 3F 3F 3F
+R 00 00 00 00
+T 22 00 3F 3F 3F 2E BF 3F 3F 4D DF 3F 2E CF CF BF
+R 00 00 00 00
+T 30 00 2E CF CF BF
+R 00 00 00 00
+T 34 00
+R 00 00 00 00
+T 34 00 2E CF CF BF 3F 4D DF 3F 3F 2E BF 3F 3F 3F
+R 00 00 00 00
+T 42 00 3F 3F 3F 3F 3F 3F 3F 3F 3F 3F 0C 0C 0C 0C
+R 00 00 00 00
+T 50 00 0C 0C 0C 0C
+R 00 00 00 00

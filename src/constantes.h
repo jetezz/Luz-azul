@@ -45,6 +45,11 @@ extern enum{
 }ETipoMovimiento;
 
 extern enum{
+    sin_repeticion,
+    con_repeticion        
+}ETipoFlag;
+
+extern enum{
     seguir_En_Nivel,
     nivel_1,
     nivel_2    
