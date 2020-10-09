@@ -53,26 +53,13 @@ u8 moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
     }   
 }
 
-u8 comprobarColisiones(u8 posx,u8 posy,TGameObject* rocas){
-    u8 colision=SinColision;
-   
-    for(u8 i=0;i<RocasMaximas;i++){
-        if(rocas[i].posx!=0){
-            if(comprobarColisiones1vs1(posx,posy,rocas[i].posx,rocas[i].posy)==hay_Colision){                          
-                colision=i;
-            }
-        }
-    }
-    return colision;
-}
 void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion,u8 numMovimientos){
    
     TGameObject* objetoEspejo=&rocasEspejo[num];       
     u8 nextMovimiento=movimiento;
-
-    if(objetoEspejo->posx!=0){
-      
-    
+    u8 nextPosx=objetoEspejo->posx;
+    u8 nextPosy=objetoEspejo->posy;
+    if(objetoEspejo->posx!=0){    
         if(movimiento==mover_Izquierda){
             nextMovimiento=mover_Derecha;
         }if(movimiento==mover_Derecha){
@@ -84,31 +71,172 @@ void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion,u8 
         }else{
             posicion=posicion_Izquieda;
         }
+
         for(u8 i=0;i<numMovimientos;i++){
             nextMovimiento=calcularMaximosyMinimos(nextMovimiento,objetoEspejo->posx,objetoEspejo->posy,posicion);            
-            if(nextMovimiento!=mover_SinMovimiento){                  
-                u8 nextPosx=objetoEspejo->posx;
-                u8 nextPosy=objetoEspejo->posy;
-                u8 ObjetoColisionado=SinColision;
-                u8 colisionPortales=no_Hay_Colision;
-                u8 colisionPuerta=seguir_En_Nivel; 
-                
-                mover1casilla(&nextPosx,&nextPosy,nextMovimiento);           
-                comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
-                ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);               
-                colisionPortales=comprobarPortales(objetoEspejo,&nextPosx,&nextPosy,movimiento,posicion);
-                colisionPuerta=comprobarPuertas(nextPosx,nextPosy);                                         
-                if(ObjetoColisionado==SinColision && colisionPortales==no_Hay_Colision && colisionPuerta==seguir_En_Nivel){                                           
-                    limpiarRastro(objetoEspejo->posx,objetoEspejo->posy);
-                    objetoEspejo->posx=nextPosx;
-                    objetoEspejo->posy=nextPosy;
-                    dibujarGameObject(objetoEspejo);                             
+            if(nextMovimiento!=mover_SinMovimiento){                                          
+                if(colisionesSiguientePosicion(objetoEspejo,objetoEspejo->posx,objetoEspejo->posy,nextMovimiento,rocasEspejo,posicion)==no_Hay_Colision){
+                    mover1casilla(&nextPosx,&nextPosy,nextMovimiento);                                                                                 
+                    moverYdibujar(objetoEspejo,nextPosx,nextPosy);                             
                 }           
             }
         }
     }
 
 }
+
+void cambiarPosicion(u8* posicion){    
+    if(*posicion==posicion_Izquieda){
+        *posicion=posicion_Derecha;        
+    }else{
+        *posicion=posicion_Izquieda;       
+    }  
+}
+
+
+void moverYdibujar(TGameObject* objeto,u8 posx,u8 posy){
+    limpiarRastro(objeto->posx,objeto->posy);    
+    objeto->posx=posx;
+    objeto->posy=posy;
+    dibujarGameObject(objeto);
+}
+
+
+//////////
+//Tipos//
+/////////
+
+u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){
+    if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){    
+        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
+        if(movimiento!=mover_SinMovimiento){                  
+            u8 nextPosx=objeto->posx;
+            u8 nextPosy=objeto->posy;
+            u8 ObjetoColisionado=SinColision;
+            u8 colisionPortales=no_Hay_Colision;
+            u8 moverRoca=mover_roca;
+            u8 colisionPuerta=seguir_En_Nivel;
+            u8 numMovimientos=1;
+            
+            mover1casilla(&nextPosx,&nextPosy,movimiento);            
+            
+            colisionPuerta=comprobarPuertas(nextPosx,nextPosy);
+            if(colisionPuerta!=seguir_En_Nivel){
+                return colisionPuerta;
+            }            
+            colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);            
+            ObjetoColisionado=comprobarRocas(nextPosx,nextPosy,rocasCol);            
+            if(colisionPortales==hay_Colision){
+                ObjetoColisionado=comprobarRocas(nextPosx,nextPosy,rocasEspejo);
+                if(ObjetoColisionado!=SinColision){
+                    moverRoca=no_mover_roca;
+                }else{
+                    cambiarPosicion(posicion);
+                }
+            }                                                      
+            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision){             
+                moverYdibujar(objeto,nextPosx,nextPosy);                             
+                                               
+            }else{ 
+                if(moverRoca==mover_roca)          
+                moverGameObject(&rocasCol[ObjetoColisionado],movimiento,rocasCol,rocasEspejo,posicion);                      
+            }            
+            objeto->cronoMovimiento=retardoMovimiento;
+        }
+    }else{
+        objeto->cronoMovimiento-=1;
+    }
+    return seguir_En_Nivel;
+}
+u8 moverTipoRoca(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){
+      
+        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
+        if(movimiento!=mover_SinMovimiento){                  
+            u8 nextPosx=objeto->posx;
+            u8 nextPosy=objeto->posy;
+            u8 numMovimientos=0;
+            
+            
+            if(objeto->movimiento==mover_1){
+                mover1casilla(&nextPosx,&nextPosy,movimiento);
+                numMovimientos=1;                 
+            }else if(objeto->movimiento==mover_Linea){
+                numMovimientos=movimientoLineal(objeto,&nextPosx,&nextPosy,movimiento,rocasCol,*posicion);
+            }                                
+                                                   
+            if(colisionesSiguientePosicion(objeto,objeto->posx,objeto->posy,movimiento,rocasCol,posicion)==no_Hay_Colision){             
+                moverYdibujar(objeto,nextPosx,nextPosy);                      
+                moverElEspejo(objeto->num,movimiento,rocasEspejo,*posicion,numMovimientos);                    
+                }                              
+            }        
+   
+    return seguir_En_Nivel;
+}
+
+
+///////////////
+//movimientos//
+///////////////
+
+void mover1casilla(u8* posx, u8* posy,u8 movimiento){
+    if(movimiento==mover_Izquierda){
+        *posx-=1;
+    }else if(movimiento==mover_Arriba){
+        *posy-=1;
+    }else if(movimiento==mover_Derecha){
+        *posx+=1;
+    }else if(movimiento==mover_Abajo){
+        *posy+=1;
+    }          
+}
+u8 movimientoLineal(TGameObject* objeto,u8* posx, u8* posy,u8 movimiento,TGameObject* objetosCol,u8 posicion){    
+    u8 contador=0;
+    
+    while (colisionesSiguientePosicion(objeto,*posx,*posy,movimiento,objetosCol,posicion)==no_Hay_Colision && movimiento!=mover_SinMovimiento)
+    {         
+        movimiento=calcularMaximosyMinimos(movimiento,*posx,*posy,posicion);       
+        mover1casilla(posx,posy,movimiento);
+        contador++;                    
+    }
+    return contador;             
+}
+
+
+//////////////
+//colisiones//
+//////////////
+
+u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento, TGameObject* rocasCol,u8* posicion){
+    u8 nextPosx=posx;
+    u8 nextPosy=posy;
+    u8 ObjetoColisionado=SinColision;
+    u8 colisionPortales=no_Hay_Colision;    
+    u8 colisionPuerta=seguir_En_Nivel;
+   
+    mover1casilla(&nextPosx,&nextPosy,movimiento);
+    colisionPuerta=comprobarPuertas(nextPosx,nextPosy);                      
+    colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);                 
+    ObjetoColisionado=comprobarRocas(nextPosx,nextPosy,rocasCol);
+    
+
+    if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision){        
+        return no_Hay_Colision;
+    }
+    return hay_Colision;
+}
+
+u8 comprobarRocas(u8 posx,u8 posy,TGameObject* rocas){
+    u8 colision=SinColision;   
+    for(u8 i=0;i<RocasMaximas;i++){
+        if(rocas[i].posx!=0){
+            if(comprobarColisiones1vs1(posx,posy,rocas[i].posx,rocas[i].posy)==hay_Colision){                          
+                colision=i;
+            }
+        }
+    }
+    return colision;
+}
+
 u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* posicion){    
     if(*posx==P_portal[0].posx ){
         if(*posy==P_portal[0].posy ){
@@ -132,16 +260,6 @@ u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* pos
     }
     return no_Hay_Colision;        
 }
-
-
-void cambiarPosicion(u8* posicion){    
-    if(*posicion==posicion_Izquieda){
-        *posicion=posicion_Derecha;        
-    }else{
-        *posicion=posicion_Izquieda;       
-    }  
-}
-
 u8 comprobarPuertas(u8 posx, u8 posy){
     for(u8 i=0;i<3;i++){
         if(posx==P_puertas[i].posx && posy==P_puertas[i].posy){
@@ -150,132 +268,3 @@ u8 comprobarPuertas(u8 posx, u8 posy){
     }
     return seguir_En_Nivel;
 }
-
-u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento, TGameObject* rocasCol,u8* posicion){
-    u8 nextPosx=posx;
-    u8 nextPosy=posy;
-    u8 ObjetoColisionado=SinColision;
-    u8 colisionPortales=no_Hay_Colision;    
-    u8 colisionPuerta=seguir_En_Nivel;
-   
-    movimientoSimple(&nextPosx,&nextPosy,movimiento);
-    colisionPuerta=comprobarPuertas(nextPosx,nextPosy);                      
-    colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);                 
-    ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasCol);
-    
-
-    if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision){
-        
-        return no_Hay_Colision;
-    }
-    return hay_Colision;
-}
-
-
-//
-u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){
-    if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){    
-        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
-        if(movimiento!=mover_SinMovimiento){                  
-            u8 nextPosx=objeto->posx;
-            u8 nextPosy=objeto->posy;
-            u8 ObjetoColisionado=SinColision;
-            u8 colisionPortales=no_Hay_Colision;
-            u8 moverRoca=mover_roca;
-            u8 colisionPuerta=seguir_En_Nivel;
-            u8 numMovimientos=1;
-            
-            movimientoSimple(&nextPosx,&nextPosy,movimiento);            
-            
-            colisionPuerta=comprobarPuertas(nextPosx,nextPosy);
-            if(colisionPuerta!=seguir_En_Nivel){
-                return colisionPuerta;
-            }            
-            colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);            
-            ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasCol);            
-            if(colisionPortales==hay_Colision){
-                ObjetoColisionado=comprobarColisiones(nextPosx,nextPosy,rocasEspejo);
-                if(ObjetoColisionado!=SinColision){
-                    moverRoca=no_mover_roca;
-                }else{
-                    cambiarPosicion(posicion);
-                }
-            }                                                      
-            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision){             
-                limpiarRastro(objeto->posx,objeto->posy);
-                objeto->posx=nextPosx;
-                objeto->posy=nextPosy;
-                dibujarGameObject(objeto);                                               
-            }else{ 
-                if(moverRoca==mover_roca)          
-                moverGameObject(&rocasCol[ObjetoColisionado],movimiento,rocasCol,rocasEspejo,posicion);                      
-            }            
-            objeto->cronoMovimiento=retardoMovimiento;
-        }
-    }else{
-        objeto->cronoMovimiento-=1;
-    }
-    return seguir_En_Nivel;
-}
-u8 moverTipoRoca(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){
-      
-        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
-        if(movimiento!=mover_SinMovimiento){                  
-            u8 nextPosx=objeto->posx;
-            u8 nextPosy=objeto->posy;
-            u8 numMovimientos=0;
-            
-            
-            if(objeto->movimiento==mover_1){
-                movimientoSimple(&nextPosx,&nextPosy,movimiento);
-                numMovimientos=1;                 
-            }else if(objeto->movimiento==mover_Linea){
-                numMovimientos=movimientoLineal(objeto,&nextPosx,&nextPosy,movimiento,rocasCol,*posicion);
-            }                                
-                                                   
-            if(colisionesSiguientePosicion(objeto,objeto->posx,objeto->posy,movimiento,rocasCol,posicion)==no_Hay_Colision){             
-                limpiarRastro(objeto->posx,objeto->posy);
-                objeto->posx=nextPosx;
-                objeto->posy=nextPosy;
-                dibujarGameObject(objeto);                
-                moverElEspejo(objeto->num,movimiento,rocasEspejo,*posicion,numMovimientos);                    
-                }                              
-            }        
-   
-    return seguir_En_Nivel;
-}
-
-
-
-//movimientos
-
-void mover1casilla(u8* posx, u8* posy,u8 movimiento){
-    if(movimiento==mover_Izquierda){
-        *posx-=1;
-    }else if(movimiento==mover_Arriba){
-        *posy-=1;
-    }else if(movimiento==mover_Derecha){
-        *posx+=1;
-    }else if(movimiento==mover_Abajo){
-        *posy+=1;
-    }          
-}
-
-void movimientoSimple(u8* posx, u8* posy,u8 movimiento){
-      mover1casilla(posx,posy,movimiento);       
-}
-u8 movimientoLineal(TGameObject* objeto,u8* posx, u8* posy,u8 movimiento,TGameObject* objetosCol,u8 posicion){    
-    u8 contador=0;
-    
-    while (colisionesSiguientePosicion(objeto,*posx,*posy,movimiento,objetosCol,posicion)==no_Hay_Colision && movimiento!=mover_SinMovimiento)
-    {         
-        movimiento=calcularMaximosyMinimos(movimiento,*posx,*posy,posicion);       
-        mover1casilla(posx,posy,movimiento);
-        contador++;                    
-    }
-    return contador;
-    
-    
-          
-}
-
