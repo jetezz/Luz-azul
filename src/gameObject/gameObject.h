@@ -22,6 +22,7 @@ u8 moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
 void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion,u8 numMovimientos);
 void cambiarPosicion(u8* posicion);
 void moverYdibujar(TGameObject* objeto,u8 posx,u8 posy);
+void taparHole(TGameObject* roca,TGameObject* hole);
 
 
 

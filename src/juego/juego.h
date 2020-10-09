@@ -20,6 +20,7 @@ void createRocas();
 void createRocasEspejo();
 void createPortal();
 void createPuerta();
+void createHole();
 void dibujarGameObjects();
 void comprobarMovimiento();
 

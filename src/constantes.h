@@ -1,4 +1,5 @@
 #define     SinColision                 50
+#define     ColisionNoRocas             51
 #define     RocasMaximas                40 
 #define     PuertasMaximas              3
 
@@ -11,7 +12,8 @@ extern enum{
     sprite_RockInmovil,
     sprite_RockLineal,
     sprite_Portal,
-    sprite_Puerta
+    sprite_Puerta,
+    sprite_hole
 }ETiposSprite;
 
 extern enum{
