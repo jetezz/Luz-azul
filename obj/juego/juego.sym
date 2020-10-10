@@ -7,23 +7,32 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
-  0 _comprobarMovimiento                                           011F GR
+  1 _P_portal                                                      0000 R
+  1 _P_puertas                                                     0002 R
+  0 _comprobarMovimiento                                           01CB GR
     _crearNivel                                                    **** GX
-  0 _createPlayer                                                  003D GR
-  0 _createRocas                                                   0052 GR
-  0 _createRocasEspejo                                             008F GR
+  0 _createHole                                                    013A GR
+  0 _createPlayer                                                  0086 GR
+  0 _createPortal                                                  0106 GR
+  0 _createPuerta                                                  0125 GR
+  0 _createRocas                                                   00A0 GR
+  0 _createRocasEspejo                                             00D3 GR
     _dibujarGameObject                                             **** GX
-  0 _dibujarGameObjects                                            00E0 GR
+  0 _dibujarGameObjects                                            0154 GR
   0 _game                                                          0000 GR
-  0 _initGame                                                      0029 GR
+  0 _initGame                                                      000E GR
+    _initGameobjest                                                **** GX
     _moverGameObject                                               **** GX
-  1 _movimientoGuardado                                            0000 R
+  0 _moverPlayer                                                   0038 GR
+  1 _movimientoGuardado                                            0004 R
     _movimientoPlayer                                              **** GX
-  1 _player                                                        0001 GR
-  1 _posicion                                                      0038 GR
-  0 _resetGameobjects                                              013B GR
-  1 _rocas                                                         0006 GR
-  1 _rocasEspejo                                                   001F GR
+  1 _player                                                        0005 GR
+  1 _portal                                                        01EB GR
+  1 _posicion                                                      0233 GR
+  1 _puertas                                                       01F7 GR
+  0 _resetGameobjects                                              01E7 GR
+  1 _rocas                                                         000B GR
+  1 _rocasEspejo                                                   00FB GR
     _scanKey                                                       **** GX
 
 
@@ -32,8 +41,8 @@ Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size  16E   flags    0
-   1 _DATA                                      size   39   flags    0
+   0 _CODE                                      size  211   flags    0
+   1 _DATA                                      size  234   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8
    4 _HOME                                      size    0   flags    0

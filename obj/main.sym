@@ -7,13 +7,15 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
+  1 _P_portal                                                      0000 R
+  1 _P_puertas                                                     0002 R
     _cpct_disableFirmware                                          **** GX
     _cpct_setPalette                                               **** GX
     _cpct_setVideoMode                                             **** GX
     _game                                                          **** GX
   0 _game_palette                                                  0017 GR
   0 _main                                                          0000 GR
-  1 _movimientoGuardado                                            0000 R
+  1 _movimientoGuardado                                            0004 R
 
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
@@ -22,7 +24,7 @@ Hexadecimal [16-Bits]
 Area Table
 
    0 _CODE                                      size   27   flags    0
-   1 _DATA                                      size    1   flags    0
+   1 _DATA                                      size    5   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8
    4 _HOME                                      size    0   flags    0

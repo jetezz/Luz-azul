@@ -82,16 +82,20 @@ void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion,u8 
             nextPosx=objetoEspejo->posx;
             nextPosy=objetoEspejo->posy;
             if(objetoEspejo->posx!=0){
+                posicionObjeto=SinColision;
                 for(u8 i=0;i<numMovimientos;i++){
-                    nextMovimiento=calcularMaximosyMinimos(nextMovimiento,objetoEspejo->posx,objetoEspejo->posy,posicion);            
-                    if(nextMovimiento!=mover_SinMovimiento){
-                        posicionObjeto=colisionesSiguientePosicion(objetoEspejo,objetoEspejo->posx,objetoEspejo->posy,nextMovimiento,rocasEspejo,posicion);                                          
-                        if(posicionObjeto==SinColision){
-                            mover1casilla(&nextPosx,&nextPosy,nextMovimiento);                                                                                 
-                            moverYdibujar(objetoEspejo,nextPosx,nextPosy);                             
-                        }else{
-                            if(posicionObjeto!=ColisionNoRocas){
-                                taparHole(objetoEspejo,&rocasEspejo[posicionObjeto]);
+                    if(posicionObjeto==SinColision){
+                        nextMovimiento=calcularMaximosyMinimos(nextMovimiento,objetoEspejo->posx,objetoEspejo->posy,posicion);            
+                        if(nextMovimiento!=mover_SinMovimiento){
+                            posicionObjeto=colisionesSiguientePosicion(objetoEspejo,objetoEspejo->posx,objetoEspejo->posy,nextMovimiento,rocasEspejo,posicion);                                          
+                            if(posicionObjeto==SinColision){
+                                mover1casilla(&nextPosx,&nextPosy,nextMovimiento);                                                                                 
+                                moverYdibujar(objetoEspejo,nextPosx,nextPosy);                             
+                            }else{
+                                if(posicionObjeto!=SinColision && posicionObjeto != ColisionNoRocas){
+                                    taparHole(objetoEspejo,&rocasEspejo[posicionObjeto]);                                
+
+                                }
                             }
                         }           
                     }
@@ -177,8 +181,9 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
 }
 u8 moverTipoRoca(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){
       
-        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
-        if(movimiento!=mover_SinMovimiento){                  
+        movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);
+                  
+        if(movimiento!=mover_SinMovimiento && objeto->movimiento != sin_Movimiento){                  
             u8 nextPosx=objeto->posx;
             u8 nextPosy=objeto->posy;
             u8 numMovimientos=0;
@@ -196,10 +201,17 @@ u8 moverTipoRoca(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameO
                 posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,movimiento,rocasCol,posicion);             
                 moverYdibujar(objeto,nextPosx,nextPosy);                      
                 moverElEspejo(objeto->num,movimiento,rocasEspejo,*posicion,numMovimientos);
-                posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,mover_SinMovimiento,rocasCol,posicion);
-                if(posicionObjeto!=SinColision && posicionObjeto != ColisionNoRocas){
-                    taparHole(objeto,&rocasCol[posicionObjeto]);
-                }                     
+                if(objeto->movimiento==mover_1){
+                   posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,mover_SinMovimiento,rocasCol,posicion);
+                    if(posicionObjeto!=SinColision && posicionObjeto != ColisionNoRocas){
+                        taparHole(objeto,&rocasCol[posicionObjeto]);
+                    }         
+                }else if(objeto->movimiento==mover_Linea){
+                    posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,movimiento,rocasCol,posicion);
+                    if(posicionObjeto!=SinColision && posicionObjeto != ColisionNoRocas){
+                        taparHole(objeto,&rocasCol[posicionObjeto]);
+                    }     
+                }                                     
             }else{
                 if(posicionObjeto!=ColisionNoRocas){
                  taparHole(objeto,&rocasCol[posicionObjeto]);
@@ -227,6 +239,7 @@ void mover1casilla(u8* posx, u8* posy,u8 movimiento){
         *posy+=1;
     }          
 }
+
 u8 movimientoLineal(TGameObject* objeto,u8* posx, u8* posy,u8 movimiento,TGameObject* objetosCol,u8 posicion){    
     u8 contador=0;    
     

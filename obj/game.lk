@@ -9,6 +9,10 @@
 -l z80
 obj/mapa/court.rel
 obj/mapa/tiles.rel
+obj/sprites/hole.rel
+obj/sprites/puerta.rel
+obj/sprites/portal.rel
+obj/sprites/rockLineal.rel
 obj/sprites/rockInmovil.rel
 obj/sprites/rock.rel
 obj/sprites/player.rel

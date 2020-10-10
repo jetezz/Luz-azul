@@ -9,7 +9,7 @@ Symbol Table
     .__.H$L.                                                    =  0000 L
   0 _calcularMaximosyMinimos                                       0046 GR
   0 _calcularPosicionEnPantalla                                    0000 GR
-  0 _comprobarColisiones1vs1                                       00CC GR
+  0 _comprobarColisiones1vs1                                       00DF GR
 
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
@@ -17,7 +17,7 @@ Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size   F2   flags    0
+   0 _CODE                                      size  105   flags    0
    1 _DATA                                      size    0   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8

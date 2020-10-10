@@ -1,0 +1,44 @@
+XL2
+H 9 areas 5 global symbols
+M hole
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 54 flags 0 addr 0
+S _hole Def0010
+S _holePALETTE Def0000
+S _hole_0 Def0014
+S _hole_1 Def0034
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 54 5D 4E 44 46 42 5C 47 45 58 5D 43 4F 40
+R 00 00 00 00
+T 0E 00 4C 4B
+R 00 00 00 00
+T 10 00
+R 00 00 00 00
+T 10 00 14 00 34 00
+R 00 00 00 00 00 02 00 00 00 04 00 00
+T 14 00
+R 00 00 00 00
+T 14 00 00 00 3C 28 3C 3C 3C 3C 3C 3C 3C 3C 3C 3C
+R 00 00 00 00
+T 22 00 3C 3C F3 F3 F3 F3 51 00 A2 F3 51 00 00 A2
+R 00 00 00 00
+T 30 00 00 00 00 A2
+R 00 00 00 00
+T 34 00
+R 00 00 00 00
+T 34 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 00 00
+T 42 00 00 00 F3 F3 F3 F3 3C 3C 3C 3C 3C 3C 3C 3C
+R 00 00 00 00
+T 50 00 79 79 F3 B6
+R 00 00 00 00

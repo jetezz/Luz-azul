@@ -10,7 +10,7 @@ S _game Ref0000
 A _CODE size 27 flags 0 addr 0
 S _main Def0000
 S _game_palette Def0017
-A _DATA size 1 flags 0 addr 0
+A _DATA size 5 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
@@ -21,6 +21,14 @@ A _CABS size 0 flags 8 addr 0
 T 00 00
 R 00 00 01 00
 T 00 00
+R 00 00 01 00
+T 02 00
+R 00 00 01 00
+T 02 00
+R 00 00 01 00
+T 04 00
+R 00 00 01 00
+T 04 00
 R 00 00 01 00
 T 00 00
 R 00 00 00 00

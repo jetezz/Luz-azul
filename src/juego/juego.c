@@ -69,17 +69,17 @@ void createPlayer(){
 }
 void createRocas(){
     rocas[0].num=1;
-    rocas[0].posx=5;
-    rocas[0].posy=5;
+    rocas[0].posx=3;
+    rocas[0].posy=3;
     rocas[0].sprite=sprite_RockLineal;
     rocas[0].movimiento=mover_Linea;
 
 
-    //rocas[1].num=1;
-    //rocas[1].posx=6;
-    //rocas[1].posy=6;
-    //rocas[1].sprite=sprite_Rock;
-    //rocas[1].movimiento=mover_1;
+    rocas[1].num=2;
+    rocas[1].posx=4;
+    rocas[1].posy=3;
+    rocas[1].sprite=sprite_Rock;
+    rocas[1].movimiento=mover_1;
 
 
     //rocas[2].num=2;
@@ -94,14 +94,14 @@ void createRocas(){
 }
 void createRocasEspejo(){
     rocasEspejo[0].num=1;
-    rocasEspejo[0].posx=11;
+    rocasEspejo[0].posx=14;
     rocasEspejo[0].posy=5;
     rocasEspejo[0].sprite=sprite_RockLineal;
     rocasEspejo[0].movimiento=mover_Linea;
 
 
-    rocasEspejo[1].num=1;
-    rocasEspejo[1].posx=10;
+    rocasEspejo[1].num=2;
+    rocasEspejo[1].posx=14;
     rocasEspejo[1].posy=6;
     rocasEspejo[1].sprite=sprite_Rock;
     rocasEspejo[1].movimiento=mover_1;
@@ -137,9 +137,9 @@ void createPuerta(){
     puertas[0].sprite=sprite_Puerta;
 }
 void createHole(){
-    rocas[3].num=1;
-    rocas[3].posx=1;
-    rocas[3].posy=2;
+    rocas[3].num=0;
+    rocas[3].posx=6;
+    rocas[3].posy=3;
     rocas[3].sprite=sprite_hole;
     rocas[3].movimiento=sin_Movimiento;
 }
