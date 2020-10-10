@@ -1,13 +1,8 @@
 
-#include <cpctelera.h> 
+#include <cpctelera.h>
+#include "tGameobject.h" 
 
-typedef struct {
-    u8 num;
-    u8 posx,posy;    
-    u8 sprite;
-    u8 movimiento;
-    u8 cronoMovimiento;    
-} TGameObject;
+
 
 static TGameObject* P_portal;
 static TGameObject* P_puertas;

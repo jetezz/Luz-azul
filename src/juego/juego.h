@@ -15,13 +15,7 @@ extern u8 posicion;
 void game();
 void initGame();
 void moverPlayer();
-void createPlayer();
-void createRocas();
-void createRocasEspejo();
-void createPortal();
-void createPuerta();
-void createHole();
 void dibujarGameObjects();
 void comprobarMovimiento();
 
-void resetGameobjects();
+void resetGameobjects(u8 nivel);

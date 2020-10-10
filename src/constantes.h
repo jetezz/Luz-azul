@@ -51,8 +51,14 @@ extern enum{
     con_repeticion        
 }ETipoFlag;
 
+extern enum {
+    si,
+    no
+}ETipoHayPortal;
+
 extern enum{
     seguir_En_Nivel,
     nivel_1,
     nivel_2    
 }ETipoNivel;
+
