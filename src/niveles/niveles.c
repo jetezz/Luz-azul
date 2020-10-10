@@ -81,10 +81,10 @@ void createRocaEspejo(TGameObject* rocasEspejo,u8 posx, u8 posy,u8 mivimiento,u8
     contadorRocasEspejo++;
 }
 void createPuerta(TGameObject* puertas,u8 posx,u8 posy,u8 sprite,u8 nivel){
-    puertas[0].num=nivel;
-    puertas[0].posx=posx;
-    puertas[0].posy=posy;
-    puertas[0].sprite=sprite;
+    puertas[contadorPuertas].num=nivel;
+    puertas[contadorPuertas].posx=posx;
+    puertas[contadorPuertas].posy=posy;
+    puertas[contadorPuertas].sprite=sprite;
     contadorPuertas++;
 }
 void createPortal(TGameObject* portal,u8 hay){
