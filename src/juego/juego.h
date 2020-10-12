@@ -10,7 +10,15 @@ extern TGameObject rocas[RocasMaximas];
 extern TGameObject rocasEspejo[RocasMaximas];
 extern TGameObject portal[2];
 extern TGameObject puertas[10];
+extern TGameObjectCol coleccionables[ColeccionablesMaximos];
+
+
+
+
 extern u8 posicion;
+extern u8 coleccionablesLuz;
+extern u8 coleccionablesFam;
+
 
 void game();
 void initGame();

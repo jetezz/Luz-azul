@@ -5,43 +5,49 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void initNiveles(){
+void initNiveles(u8* collist){
     
     array[0]=crearNivel1;
     array[nivel_1]=crearNivel2;    
     array[nivel_2]=crearNivel3;    
 
-    
+    P_colList2=collist;
     contadorRocas=0;
     contadorRocasEspejo=0;
     contadorPuertas=0;
+    contadorColeccionables=0;
     
 }
 
-void crearNivel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,u8* posicion,u8 nivel){
-    resetLevel(player,rocas,rocasEspejo,puertas,portales);     
+void crearNivel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables,u8* posicion,u8 nivel){
+    resetLevel(player,rocas,rocasEspejo,puertas,portales,coleccionables);     
     crearMapa(0);
-    array[nivel](player,rocas,rocasEspejo,puertas,portales,posicion);
+    array[nivel](player,rocas,rocasEspejo,puertas,portales,coleccionables,posicion);
     
         
 }
-void resetLevel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales){
+void resetLevel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables){
     player->posx=0;
     for(u8 i =0;i<RocasMaximas;i++){
-       rocas[0].posx=0; 
+       rocas[i].posx=0; 
     }
     for(u8 i =0;i<RocasMaximas;i++){
-       rocasEspejo[0].posx=0; 
+       rocasEspejo[i].posx=0; 
     }
     for(u8 i =0;i<PuertasMaximas;i++){
-       puertas[0].posx=0; 
+       puertas[i].posx=0; 
     }
     portales[0].posx=0;
     portales[1].posx=0;
 
+     for(u8 i =0;i<ColeccionablesMaximos;i++){
+       coleccionables[i].posx=0; 
+    }
+
     contadorRocas=0;
     contadorRocasEspejo=0;
     contadorPuertas=0;
+    contadorColeccionables=0;
 }
 
 
@@ -116,20 +122,39 @@ void createHoleDerecha(TGameObject* rocasEspejo,u8 posx, u8 posy,u8 sprite, u8 s
     rocasEspejo[contadorRocasEspejo].movimiento=sin_Movimiento;
     contadorRocasEspejo++;
 }
+void createColeccionabeLuz(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id){
+    if(P_colList2[id]==coleccionable_activo){
+        coleccionable[contadorColeccionables].num=id;
+        coleccionable[contadorColeccionables].posx=posx;
+        coleccionable[contadorColeccionables].posy=posy;
+        coleccionable[contadorColeccionables].sprite=sprite_luz;
+    }
+}
+void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id){
+    if(P_colList2[id]==coleccionable_activo){
+        coleccionable[contadorColeccionables].num=id;
+        coleccionable[contadorColeccionables].posx=posx;
+        coleccionable[contadorColeccionables].posy=posy;
+        coleccionable[contadorColeccionables].sprite=sprite_familia;
+    }
+}
 
-void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,u8* posicion){
+
+void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
    
 }
-void crearNivel2(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,u8* posicion){
+void crearNivel2(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
     createPlayer(player,9,1,posicion);
     createRoca(rocas,rocasEspejo,2,2,mover_Linea,sprite_RockLineal,1,si);
-    //createRocaEspejo(rocasEspejo,10,2,mover_1,sprite_Rock,1);
+    createRocaEspejo(rocasEspejo,10,2,mover_1,sprite_Rock,1);
     createPuerta(puertas,2,7,sprite_Puerta,nivel_2);
     createPortal(portales,si);
     createHoleIzquierda(rocas,2,3,sprite_hole,0);
+    createColeccionabeFamilia(col,1,1,1);
+    
 }
-void crearNivel3(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,u8* posicion){
-    createPlayer(player,9,1,posicion);
+void crearNivel3(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
+    createPlayer(player,1,1,posicion);
     createRoca(rocas,rocasEspejo,2,2,sin_Movimiento,sprite_RockInmovil,1,si);
     //createRocaEspejo(rocasEspejo,10,2,mover_1,sprite_Rock,1);
     createPuerta(puertas,2,7,sprite_Puerta,nivel_1);

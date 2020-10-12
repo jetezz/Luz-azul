@@ -1,7 +1,12 @@
-#define     SinColision                 50
-#define     ColisionNoRocas             51
-#define     RocasMaximas                40 
-#define     PuertasMaximas              3
+#define     SinColision                     50
+#define     ColisionNoRocas                 51
+#define     RocasMaximas                    40 
+#define     PuertasMaximas                  3
+#define     ColeccionablesMaximos           3
+#define     ColeccionablesMaximosTotales    50
+
+
+
 
 
 
@@ -13,7 +18,9 @@ extern enum{
     sprite_RockLineal,
     sprite_Portal,
     sprite_Puerta,
-    sprite_hole
+    sprite_hole,
+    sprite_luz,
+    sprite_familia
 }ETiposSprite;
 
 extern enum{
@@ -55,6 +62,11 @@ extern enum {
     si,
     no
 }ETipoHayPortal;
+
+extern enum {
+    coleccionable_activo,
+    coleccionable_NOACTIVO
+}ETipoActivacionColeccionable;
 
 extern enum{
     seguir_En_Nivel,

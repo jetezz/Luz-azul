@@ -11,19 +11,18 @@
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
 
 
-
-
-
-
 TGameObject player;
 TGameObject rocas[RocasMaximas];
 TGameObject rocasEspejo[RocasMaximas];
 TGameObject portal[2];
 TGameObject puertas[10];
+TGameObjectCol coleccionables[ColeccionablesMaximos];
+u8 colList[ColeccionablesMaximosTotales];
 
 
 u8 posicion;
-
+u8 coleccionablesLuz;
+u8 coleccionablesFam;
 
 
 
@@ -37,10 +36,13 @@ void game(){
     }
 }
 void initGame(){
+    for(u8 i =0;i<ColeccionablesMaximosTotales;i++){
+        colList[i]=coleccionable_activo;
+    }
     posicion=posicion_Izquieda;
-    initNiveles();
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,&posicion,nivel_1);    
-    initGameobjest(portal,puertas);
+    initNiveles(colList);
+    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_1);    
+    initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,colList);
     dibujarGameObjects();    
 }
 void moverPlayer(){
@@ -71,9 +73,12 @@ void dibujarGameObjects(){
     for(u8 i=0;i<2;i++){
         dibujarGameObject(&portal[i]);
     }
-    for(u8 i=0;i<2;i++){
+    for(u8 i=0;i<PuertasMaximas;i++){
         dibujarGameObject(&puertas[i]);
-    } 
+    }
+     for(u8 i=0;i<ColeccionablesMaximos;i++){
+        dibujarGameObjectCol(&coleccionables[i]);
+    }  
 }
 
 void comprobarMovimiento(){
@@ -87,7 +92,7 @@ void comprobarMovimiento(){
 
 void resetGameobjects(u8 nivel){
     posicion=posicion_Izquieda;
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,&posicion,nivel);    
-    initGameobjest(portal,puertas);
+    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);    
+    //initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam);
     dibujarGameObjects();  
 }

@@ -6,6 +6,8 @@
 #include "sprites/portal.h"
 #include "sprites/puerta.h"
 #include "sprites/hole.h"
+#include "sprites/luz.h"
+#include "sprites/familia.h"
 #include "constantes.h"
 #include "fisicas/fisicas.h"
 
@@ -20,9 +22,13 @@
 #define     retardoMovimiento           0xFF
 
 
-void initGameobjest(TGameObject* portales,TGameObject* puertas){
+void initGameobjest(TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colList){
     P_portal=portales;
     P_puertas=puertas;
+    P_col=colec;
+    P_luz=colLuz;
+    P_fam=colFam;
+    P_colList=colList;
 }
 
 void dibujarGameObject(TGameObject* objeto){
@@ -45,6 +51,16 @@ void dibujarGameObject(TGameObject* objeto){
 
     }     
 }
+void dibujarGameObjectCol(TGameObjectCol* objeto){
+    if(objeto->posx!=0){
+       if(objeto->sprite==sprite_luz){
+            cpct_drawSprite(luz_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);  
+        }else if(objeto->sprite==sprite_familia){
+            cpct_drawSprite(familia_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);  
+        } 
+    }
+}
+
 void limpiarRastro(u8 posx, u8 posy){
     cpct_drawSolidBox(calcularPosicionEnPantalla(posx,posy),0x00,4,16);
 }
@@ -154,7 +170,8 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
             colisionPuerta=comprobarPuertas(nextPosx,nextPosy);
             if(colisionPuerta!=seguir_En_Nivel){
                 return colisionPuerta;
-            }            
+            }
+            comprobarColeccionables(nextPosx,nextPosy);            
             colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);            
             ObjetoColisionado=comprobarRocas(nextPosx,nextPosy,rocasCol);            
             if(colisionPortales==hay_Colision){
@@ -318,10 +335,23 @@ u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* pos
     return no_Hay_Colision;        
 }
 u8 comprobarPuertas(u8 posx, u8 posy){
-    for(u8 i=0;i<3;i++){
+    for(u8 i=0;i<PuertasMaximas;i++){
         if(posx==P_puertas[i].posx && posy==P_puertas[i].posy){
             return P_puertas[i].num;
         }
     }
     return seguir_En_Nivel;
+}
+void comprobarColeccionables(u8 posx, u8 posy){
+     for(u8 i=0;i<ColeccionablesMaximos;i++){
+        if(posx==P_col[i].posx && posy==P_col[i].posy){
+            P_colList[P_col[i].num]=coleccionable_NOACTIVO;
+            if(P_col[i].sprite==sprite_luz){
+                *P_luz++;                                
+            }else{
+                *P_fam++;
+            }
+        }
+    }
+    
 }
