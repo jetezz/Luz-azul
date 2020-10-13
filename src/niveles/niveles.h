@@ -30,7 +30,7 @@ void createPortal(TGameObject* portal,u8 hay);
 void createHoleIzquierda(TGameObject* rocas,u8 posx, u8 posy,u8 sprite, u8 simetria);
 void createHoleDerecha(TGameObject* rocasEspejo,u8 posx, u8 posy,u8 sprite, u8 simetria);
 void createColeccionabeLuz(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id);
-void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id);
+void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 sprite,u8 id);
 
 
 

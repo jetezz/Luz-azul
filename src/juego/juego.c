@@ -1,7 +1,6 @@
 #include "juego.h"
 #include "input/input.h"
 #include "niveles/niveles.h"
-#include "sprites/player.h"
 #include "sprites/sprites.h"
 
 

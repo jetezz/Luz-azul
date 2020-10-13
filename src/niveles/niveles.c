@@ -97,11 +97,11 @@ void createPortal(TGameObject* portal,u8 hay){
     if(hay==si){
         portal[0].posx=7;
         portal[0].posy=4;
-        portal[0].sprite=sprite_Portal;
+        portal[0].sprite=sprite_PuertaPortal_G;
 
         portal[1].posx=9;
         portal[1].posy=4;
-        portal[1].sprite=sprite_Portal;
+        portal[1].sprite=sprite_PuertaPortal_B;
     }
     
 }
@@ -130,12 +130,12 @@ void createColeccionabeLuz(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id)
         coleccionable[contadorColeccionables].sprite=sprite_luz;
     }
 }
-void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id){
+void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 sprite,u8 id){
     if(P_colList2[id]==coleccionable_activo){
         coleccionable[contadorColeccionables].num=id;
         coleccionable[contadorColeccionables].posx=posx;
         coleccionable[contadorColeccionables].posy=posy;
-        coleccionable[contadorColeccionables].sprite=sprite_familia;
+        coleccionable[contadorColeccionables].sprite=sprite;
     }
 }
 
@@ -144,20 +144,41 @@ void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
    
 }
 void crearNivel2(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
-    createPlayer(player,9,1,posicion);
-    createRoca(rocas,rocasEspejo,2,2,mover_Linea,sprite_RockLineal,1,si);
-    createRocaEspejo(rocasEspejo,10,2,mover_1,sprite_Rock,1);
-    createPuerta(puertas,2,7,sprite_Puerta,nivel_2);
+    createPlayer(player,3,4,posicion);
+    createRoca(rocas,rocasEspejo,1,2,sin_Movimiento,sprite_RockInmovil3_G,1,no); 
+    createRoca(rocas,rocasEspejo,2,2,sin_Movimiento,sprite_RockInmovil4_G,1,no);
+    createRoca(rocas,rocasEspejo,1,3,sin_Movimiento,sprite_RockInmovil1_G,1,no);
+    createRoca(rocas,rocasEspejo,6,3,sin_Movimiento,sprite_RockInmovil1_G,1,no);
+    createRoca(rocas,rocasEspejo,1,5,sin_Movimiento,sprite_RockInmovil1_G,1,no);
+    createRoca(rocas,rocasEspejo,6,5,sin_Movimiento,sprite_RockInmovil1_G,1,no);
+    createRoca(rocas,rocasEspejo,7,1,sin_Movimiento,sprite_RockInmovil2_G,1,no);
+    createRoca(rocas,rocasEspejo,7,7,sin_Movimiento,sprite_RockInmovil2_G,1,no);
+    createRoca(rocas,rocasEspejo,2,4,mover_1,sprite_Rock_G,1,no);
+    createRocaEspejo(rocasEspejo,14,2,sin_Movimiento,sprite_RockInmovil3_B,1);
+    createRocaEspejo(rocasEspejo,15,2,sin_Movimiento,sprite_RockInmovil4_B,1);
+    createRocaEspejo(rocasEspejo,15,3,sin_Movimiento,sprite_RockInmovil1_B,1);
+    createRocaEspejo(rocasEspejo,10,3,sin_Movimiento,sprite_RockInmovil1_B,1);
+    createRocaEspejo(rocasEspejo,15,5,sin_Movimiento,sprite_RockInmovil1_B,1);
+    createRocaEspejo(rocasEspejo,10,5,sin_Movimiento,sprite_RockInmovil1_B,1);
+    createRocaEspejo(rocasEspejo,7,1,sin_Movimiento,sprite_RockInmovil2_B,1);
+    createRocaEspejo(rocasEspejo,9,7,sin_Movimiento,sprite_RockInmovil2_B,1);
+    createPuerta(puertas,3,7,sprite_Puerta_G,nivel_2);
+    createPuerta(puertas,13,7,sprite_Puerta_B,nivel_2);
     createPortal(portales,si);
-    createHoleIzquierda(rocas,2,3,sprite_hole,0);
-    createColeccionabeFamilia(col,1,1,1);
+    createColeccionabeLuz(col,15,4,0);
+    createRoca(rocas,rocasEspejo,1,4,sin_Movimiento,sprite_amstrad,1,no);
+    createRoca(rocas,rocasEspejo,1,1,sin_Movimiento,sprite_PrinceofPersia2_G,1,no);
+    createRoca(rocas,rocasEspejo,2,1,sin_Movimiento,sprite_PrinceofPersia1_G,1,no);
+    createRoca(rocas,rocasEspejo,1,6,sin_Movimiento,sprite_PrinceofPersia3,1,no);
+    createRoca(rocas,rocasEspejo,8,4,sin_Movimiento,sprite_PortalMuro,1,no);
+
+
+
+
+
+
     
 }
 void crearNivel3(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
-    createPlayer(player,1,1,posicion);
-    createRoca(rocas,rocasEspejo,2,2,sin_Movimiento,sprite_RockInmovil,1,si);
-    //createRocaEspejo(rocasEspejo,10,2,mover_1,sprite_Rock,1);
-    createPuerta(puertas,2,7,sprite_Puerta,nivel_1);
-    createPortal(portales,si);
-    createHoleIzquierda(rocas,2,3,sprite_hole,0);
+   
 }

@@ -13,14 +13,38 @@
 extern enum{
     sprite_SinDefinir,
     sprite_Player,
-    sprite_Rock,
-    sprite_RockInmovil,
-    sprite_RockLineal,
-    sprite_Portal,
-    sprite_Puerta,
+    sprite_Rock_G,
+    sprite_Rock_B,    
+    sprite_RockInmovil1_G,
+    sprite_RockInmovil1_B,
+    sprite_RockInmovil2_G,
+    sprite_RockInmovil2_B,
+    sprite_RockInmovil3_G,
+    sprite_RockInmovil3_B,
+    sprite_RockInmovil4_G,
+    sprite_RockInmovil4_B,
+    sprite_RockLineal1_G,
+    sprite_RockLineal1_B,
+    sprite_PortalMuro,
+    sprite_PuertaPortal_G,
+    sprite_PuertaPortal_B,
+    sprite_Puerta_G,
+    sprite_Puerta_B,
     sprite_hole,
     sprite_luz,
-    sprite_familia
+    sprite_familia1,
+    sprite_familia2,
+    sprite_familia3,
+    sprite_familia4,
+    sprite_amstrad,
+    sprite_amstradTape,
+    sprite_PrinceofPersia1_G,
+    sprite_PrinceofPersia1_B,
+    sprite_PrinceofPersia2_G,
+    sprite_PrinceofPersia2_B,
+    sprite_PrinceofPersia3 
+       
+    
 }ETiposSprite;
 
 extern enum{
