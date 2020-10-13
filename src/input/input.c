@@ -17,6 +17,12 @@ u8 keyFire(){
         pulsada=1;
     return pulsada; 
 }
+u8 keyR(){
+    u8 pulsada=no;
+    if(cpct_isKeyPressed (Key_R))
+        pulsada=si;
+    return pulsada; 
+}
 
 
 u8 movimientoPlayer(){

@@ -40,9 +40,8 @@
 #include <stdlib.h>
 
 
-//sprites 8x16 pixeles
-#define     anchoSprite                 4
-#define     altoSprite                  16
+
+
 
 #define     retardoMovimiento           0xFF
 
@@ -113,20 +112,38 @@ void dibujarGameObject(TGameObject* objeto){
     }     
 }
 void dibujarGameObjectCol(TGameObjectCol* objeto){
-   if(objeto->sprite==sprite_luz){
-        cpct_drawSprite(LuzAzul_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);  
-    }else if(objeto->sprite==sprite_familia1){
-        cpct_drawSprite(Character_Brother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
-    }else if(objeto->sprite==sprite_familia2){
-        cpct_drawSprite(Character_Sister_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
-    }else if(objeto->sprite==sprite_familia3){
-        cpct_drawSprite(Character_Mother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
-    }else if(objeto->sprite==sprite_familia4){
-        cpct_drawSprite(Character_Father_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
-    }else if(objeto->sprite==sprite_amstradTape){
-        cpct_drawSprite(PrinceOfPersia_Tape_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+    if(objeto->posx!=0){
+        if(objeto->sprite==sprite_luz){
+            cpct_drawSprite(LuzAzul_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);  
+        }else if(objeto->sprite==sprite_familia1){
+            cpct_drawSprite(Character_Brother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_familia2){
+            cpct_drawSprite(Character_Sister_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_familia3){
+            cpct_drawSprite(Character_Mother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_familia4){
+            cpct_drawSprite(Character_Father_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_amstradTape){
+            cpct_drawSprite(PrinceOfPersia_Tape_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }
     }
 }
+void dibujarGameObjectColSprite(u8 sprite,u8 posx, u8 posy){
+    if(sprite==sprite_luz){
+        cpct_drawSprite(LuzAzul_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);  
+    }else if(sprite==sprite_familia1){
+        cpct_drawSprite(Character_Brother_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);
+    }else if(sprite==sprite_familia2){
+        cpct_drawSprite(Character_Sister_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);
+    }else if(sprite==sprite_familia3){
+        cpct_drawSprite(Character_Mother_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);
+    }else if(sprite==sprite_familia4){
+        cpct_drawSprite(Character_Father_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);
+    }else if(sprite==sprite_amstradTape){
+        cpct_drawSprite(PrinceOfPersia_Tape_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);
+    }
+}
+
 
 void limpiarRastro(u8 posx, u8 posy){
     cpct_drawSolidBox(calcularPosicionEnPantalla(posx,posy),0x00,4,16);

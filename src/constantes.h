@@ -5,6 +5,8 @@
 #define     ColeccionablesMaximos           3
 #define     ColeccionablesMaximosTotales    50
 
+#define     anchoSprite                 4
+#define     altoSprite                  16
 
 
 
@@ -94,6 +96,7 @@ extern enum {
 
 extern enum{
     seguir_En_Nivel,
+    nivel_0,
     nivel_1,
     nivel_2    
 }ETipoNivel;

@@ -15,9 +15,11 @@ extern TGameObjectCol coleccionables[ColeccionablesMaximos];
 
 
 
+
 extern u8 posicion;
 extern u8 coleccionablesLuz;
 extern u8 coleccionablesFam;
+extern u8 nivelActual;
 
 
 void game();

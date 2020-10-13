@@ -36,7 +36,7 @@
 $(eval $(call TMX2DATA, SET_FOLDER      , src/mapa      )) 
 #$(eval $(call TMX2DATA, SET_EXTRAPAR    ,           ))	
 # Conversion 
-$(eval $(call TMX2DATA, CONVERT, court.tmx, map )) 
+$(eval $(call TMX2DATA, CONVERT, mapas/mapa1.tmx, map )) 
 
 
 ##

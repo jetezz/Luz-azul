@@ -2,6 +2,7 @@
 #include "input/input.h"
 #include "niveles/niveles.h"
 #include "sprites/sprites.h"
+#include "hud/hud.h"
 
 
 #include <stdio.h>
@@ -22,7 +23,7 @@ u8 colList[ColeccionablesMaximosTotales];
 u8 posicion;
 u8 coleccionablesLuz;
 u8 coleccionablesFam;
-
+u8 nivelActual;
 
 
 
@@ -30,8 +31,12 @@ void game(){
     initGame();       
     while(1){ 
         scanKey();
+        if(keyR()==si){
+            resetGameobjects(nivelActual);
+        }
         comprobarMovimiento();      
-        moverPlayer();       
+        moverPlayer();
+        actualizarHud(coleccionablesLuz,coleccionablesFam);       
     }
 }
 void initGame(){
@@ -39,10 +44,14 @@ void initGame(){
         colList[i]=coleccionable_activo;
     }
     posicion=posicion_Izquieda;
+    coleccionablesLuz=0;
+    coleccionablesFam=0;
+    nivelActual=nivel_0;
     initNiveles(colList);
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_1);    
+    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_0);    
     initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,colList);
-    dibujarGameObjects();    
+    dibujarGameObjects();
+    initHud();    
 }
 void moverPlayer(){
     u8 nivel=seguir_En_Nivel;
@@ -52,7 +61,8 @@ void moverPlayer(){
         nivel=moverGameObject(&player,movimientoGuardado,rocasEspejo,rocas,&posicion);
     }
 
-    if(nivel!=seguir_En_Nivel){       
+    if(nivel!=seguir_En_Nivel){ 
+        nivelActual=nivel;      
         resetGameobjects(nivel);
     }
 }
@@ -62,8 +72,7 @@ void moverPlayer(){
 void dibujarGameObjects(){
     dibujarGameObject(&player);
     for (u8 i =0; i<RocasMaximas;i++){        
-        dibujarGameObject(&rocas[i]);
-        
+        dibujarGameObject(&rocas[i]);        
     }
     for (u8 i =0; i<RocasMaximas;i++){        
         dibujarGameObject(&rocasEspejo[i]);

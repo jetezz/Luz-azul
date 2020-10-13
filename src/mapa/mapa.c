@@ -1,6 +1,6 @@
 #include "mapa.h"
-#include "court.h"
-#include "tiles.h"
+#include "mapa1.h"
+#include "Walls.h"
 
 #define  Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 0, 0)
 

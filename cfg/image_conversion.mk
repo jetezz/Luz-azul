@@ -116,7 +116,10 @@ $(eval $(call IMG2SP, CONVERT         , sprites/PrinceOfPersia_COVER.png , 8,8 ,
 #Tiles
 $(eval $(call IMG2SP, SET_FOLDER      , src/mapa/               ))
 $(eval $(call IMG2SP, SET_IMG_FORMAT  , zgtiles            ))	
-$(eval $(call IMG2SP, CONVERT         , tiles.png , 8, 8, tiles, PALETTE2, tiles))
+$(eval $(call IMG2SP, CONVERT         , mapas/Walls.png , 8, 8, tiles, PALETTE2, tiles))
+
+
+
 
 
 
