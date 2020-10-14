@@ -145,8 +145,8 @@ void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
    //player y portal y puertas
     createPlayer(player,3,4,posicion);
     createPortal(portales,rocas,rocasEspejo,si);
-    createPuerta(puertas,3,7,sprite_Puerta_G,nivel_2);
-    createPuerta(puertas,13,7,sprite_Puerta_B,nivel_2);
+    createPuerta(puertas,3,7,sprite_Puerta_G,nivel_0);
+    createPuerta(puertas,13,7,sprite_Puerta_B,nivel_0);
 
     //rocas móviles (separando id por espacios)
     createRoca(rocas,rocasEspejo,2,4,mover_1,sprite_Rock_G,2,no);

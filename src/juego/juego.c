@@ -33,7 +33,7 @@ void game(){
         scanKey();
         if(keyR()==si){
             resetGameobjects(nivelActual);
-        }
+        }       
         comprobarMovimiento();      
         moverPlayer();
         actualizarHud(coleccionablesLuz,coleccionablesFam);       

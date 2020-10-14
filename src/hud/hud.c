@@ -35,7 +35,22 @@ void initHud(){
     contadorLuz=0;
     contadorFamilia=0;
 }
-void actualizarHud(u8 luz, u8 familia){
+void actualizarHud(u8 luz, u8 familia){    
+    if(luz!=contadorLuz || familia!=contadorFamilia){
+        char text[] = "X";
+        
+        cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 74, 20),0x00,4,16);
+        cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 74, 52),0x00,4,16);
+        cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 74, 84),0x00,4,16);
+        text[0]=luz+'0';
+        cpct_drawStringM0(text,PuntoLuz);
+        text[0]=familia+'0';
+        cpct_drawStringM0(text,PuntoFamilia);
+        cpct_drawStringM0(text,PuntoCartuchos);
+
     
+        contadorLuz=luz;
+        contadorFamilia=familia;
+    }
 }
 
