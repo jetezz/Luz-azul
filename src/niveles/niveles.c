@@ -139,6 +139,15 @@ void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8
         coleccionable[contadorColeccionables].sprite=sprite;
     }
 }
+void createColeccionabeAmstr(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id){
+    if(P_colList2[id]==coleccionable_activo){
+        coleccionable[contadorColeccionables].num=id;
+        coleccionable[contadorColeccionables].posx=posx;
+        coleccionable[contadorColeccionables].posy=posy;
+        coleccionable[contadorColeccionables].sprite=sprite_amstradTape;
+    }
+}
+
 
 
 void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
@@ -150,7 +159,7 @@ void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
 
     //rocas móviles (separando id por espacios)
     createRoca(rocas,rocasEspejo,2,4,mover_1,sprite_Rock_G,2,no);
-    createRocaEspejo(rocasEspejo,14,4,mover_1,sprite_Rock_B,2);
+    createRocaEspejo(rocasEspejo,14,4,sin_Movimiento,sprite_Rock_B,2);
 
     //collecionables
     createColeccionabeLuz(col,15,4,0);

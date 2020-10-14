@@ -23,6 +23,7 @@ u8 colList[ColeccionablesMaximosTotales];
 u8 posicion;
 u8 coleccionablesLuz;
 u8 coleccionablesFam;
+u8 coleccionablesAms;
 u8 nivelActual;
 
 
@@ -33,10 +34,10 @@ void game(){
         scanKey();
         if(keyR()==si){
             resetGameobjects(nivelActual);
-        }       
+        }            
         comprobarMovimiento();      
         moverPlayer();
-        actualizarHud(coleccionablesLuz,coleccionablesFam);       
+        actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms);       
     }
 }
 void initGame(){
@@ -46,12 +47,14 @@ void initGame(){
     posicion=posicion_Izquieda;
     coleccionablesLuz=0;
     coleccionablesFam=0;
+    coleccionablesAms=0;
     nivelActual=nivel_0;
     initNiveles(colList);
     crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_0);    
-    initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,colList);
+    initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList);
     dibujarGameObjects();
-    initHud();    
+    initHud();
+    asd();    
 }
 void moverPlayer(){
     u8 nivel=seguir_En_Nivel;

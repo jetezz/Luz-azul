@@ -29,7 +29,7 @@
 
 ## 16 colours palette
 #PALETTE=0 1 2 3 5 6 9 11 15 18 19 20 21 22 24 26
-PALETTE=0 5 15 1 10 19 3 16 7 4 5 25 17 13 6 26
+PALETTE=0 1 2 5 9 10 11 12 13 14 17 23 26 
 
 ## Default values
 #$(eval $(call IMG2SP, SET_MODE        ,0                  ))  #{ 0, 1, 2 }

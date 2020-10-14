@@ -13,14 +13,16 @@ static TGameObject* P_puertas;
 static TGameObjectCol* P_col;
 static u8* P_luz;
 static u8* P_fam;
+static u8* P_ams;
 static u8* P_colList;
 
 
 
 
 
+
  
-void initGameobjest(TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colList);
+void initGameobjest(TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList);
 void dibujarGameObject(TGameObject* objeto);
 void dibujarGameObjectCol(TGameObjectCol* objeto);
 void dibujarGameObjectColSprite(u8 sprite,u8 posx, u8 posy);

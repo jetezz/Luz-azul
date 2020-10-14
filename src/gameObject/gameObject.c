@@ -46,15 +46,14 @@
 #define     retardoMovimiento           0xFF
 
 
-void initGameobjest(TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colList){
+void initGameobjest(TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList){
     P_portal=portales;
     P_puertas=puertas;
     P_col=colec;
     P_luz=colLuz;
     P_fam=colFam;
-    P_colList=colList;
-    
-    
+    P_ams=colAms;
+    P_colList=colList;   
 }
 
 void dibujarGameObject(TGameObject* objeto){
@@ -433,11 +432,13 @@ void comprobarColeccionables(u8 posx, u8 posy){
         if(posx==P_col[i].posx && posy==P_col[i].posy){
             P_colList[P_col[i].num]=coleccionable_NOACTIVO;
             if(P_col[i].sprite==sprite_luz){
-                *P_luz=*P_luz+1;                
-                P_col[i].posx=0;                                               
+                *P_luz=*P_luz+1;                                                             
+            }else if(P_col[i].sprite==sprite_amstradTape){                
+                *P_ams=*P_ams+1;
             }else{
-                *P_fam++;
+                *P_fam=*P_fam+1;
             }
+            P_col[i].posx=0; 
         }
     }
     
