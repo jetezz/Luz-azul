@@ -7,9 +7,9 @@
 
 void initNiveles(u8* collist){
     
-    array[nivel_0]=crearNivel1;
-    array[nivel_1]=crearNivel2;    
-    array[nivel_2]=crearNivel3;    
+    niveles[nivel_0]=crearNivel1;
+    niveles[nivel_1]=crearNivel2;    
+    niveles[nivel_2]=crearNivel3;    
 
     P_colList2=collist;
     contadorRocas=0;
@@ -22,7 +22,7 @@ void initNiveles(u8* collist){
 void crearNivel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables,u8* posicion,u8 nivel){
     resetLevel(player,rocas,rocasEspejo,puertas,portales,coleccionables);     
     crearMapa(0);
-    array[nivel](player,rocas,rocasEspejo,puertas,portales,coleccionables,posicion);
+    niveles[nivel](player,rocas,rocasEspejo,puertas,portales,coleccionables,posicion);
     
         
 }

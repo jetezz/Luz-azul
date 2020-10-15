@@ -5,7 +5,7 @@
 #define     PuntoLuz   cpctm_screenPtr(CPCT_VMEM_START, 74, 20)
 #define     PuntoFamilia   cpctm_screenPtr(CPCT_VMEM_START, 74, 52)
 #define     PuntoCartuchos   cpctm_screenPtr(CPCT_VMEM_START, 74, 84)
-#define     PuntoEscribir   cpctm_screenPtr(CPCT_VMEM_START, 2, 150)
+
 
 
 u8 contadorLuz;
@@ -21,7 +21,7 @@ void asd(){
     //text[0] = digit + '0';
    
     
-    cpct_drawStringM0("asd asd as asdasd   asd asdasd  ",PuntoEscribir);
+    //cpct_drawStringM0("asd asd as asdasd   asd asdasd  ",PuntoEscribir);
     
     
 }

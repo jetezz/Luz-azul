@@ -5,7 +5,7 @@
 
 
 
-static void (*array[nivelesTorales]) (TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
+static void (*niveles[nivelesTorales]) (TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
 static u8 contadorRocas;
 static u8 contadorRocasEspejo;
 static u8 contadorPuertas;

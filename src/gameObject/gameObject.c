@@ -268,8 +268,8 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
                 }
             }                                                      
             if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision){             
-                moverYdibujar(objeto,nextPosx,nextPosy);                             
-                                               
+                moverYdibujar(objeto,nextPosx,nextPosy);
+                objeto->pasos++;                                              
             }else{ 
                 if(moverRoca==mover_roca)          
                 moverGameObject(&rocasCol[ObjetoColisionado],movimiento,rocasCol,rocasEspejo,posicion);                      

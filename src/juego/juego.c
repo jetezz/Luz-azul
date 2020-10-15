@@ -3,6 +3,7 @@
 #include "niveles/niveles.h"
 #include "sprites/sprites.h"
 #include "hud/hud.h"
+#include "dialogos/dialogos.h"
 
 
 #include <stdio.h>
@@ -25,6 +26,7 @@ u8 coleccionablesLuz;
 u8 coleccionablesFam;
 u8 coleccionablesAms;
 u8 nivelActual;
+u8 pasos;
 
 
 
@@ -37,7 +39,10 @@ void game(){
         }            
         comprobarMovimiento();      
         moverPlayer();
-        actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms);       
+        actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms);
+        if(comprobarPasos()==si){
+            managerDialogo(nivelActual,pasos);
+        }       
     }
 }
 void initGame(){
@@ -49,12 +54,13 @@ void initGame(){
     coleccionablesFam=0;
     coleccionablesAms=0;
     nivelActual=nivel_0;
+    pasos=0;
     initNiveles(colList);
     crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_0);    
     initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList);
     dibujarGameObjects();
     initHud();
-    asd();    
+    initDialogos();        
 }
 void moverPlayer(){
     u8 nivel=seguir_En_Nivel;
@@ -100,9 +106,17 @@ void comprobarMovimiento(){
         movimientoGuardado=movimientoPlayer();
     }
 }
+u8 comprobarPasos(){
+    if(player.pasos!=pasos){
+        pasos=player.pasos;
+        return si;
+    }
+    return no;
+}
 
 void resetGameobjects(u8 nivel){
     posicion=posicion_Izquieda;
+    pasos=0;
     crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);    
     //initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam);
     dibujarGameObjects();  

@@ -21,6 +21,7 @@ extern u8 coleccionablesLuz;
 extern u8 coleccionablesFam;
 extern u8 coleccionablesAms;
 extern u8 nivelActual;
+extern u8 pasos;
 
 
 void game();
@@ -28,5 +29,6 @@ void initGame();
 void moverPlayer();
 void dibujarGameObjects();
 void comprobarMovimiento();
+u8 comprobarPasos();
 
 void resetGameobjects(u8 nivel);
