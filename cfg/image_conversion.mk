@@ -43,6 +43,8 @@ $(eval $(call IMG2SP, SET_PALETTE_FW  , $(PALETTE)         ))
 $(eval $(call IMG2SP, CONVERT         , sprites/Character_Principal.png , 8,8 , Character_Principal, PALETTE, Character_Principal)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move1_G.png , 8,8 , Block_Move1_G, Block_Move1_GPALETTE, Block_Move1_G)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move1_B.png , 8,8 , Block_Move1_B, Block_Move1_BPALETTE, Block_Move1_B)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Move0_B.png , 8,8 , Block_Move0_B, Block_Move0_BPALETTE, Block_Move0_B)) #8x16
+
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static1_G.png , 8,8 , Block_Static1_G, Block_Static1_GPALETTE, Block_Static1_G)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static1_B.png , 8,8 , Block_Static1_B, Block_Static1_BPALETTE, Block_Static1_B)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static2_G.png , 8,8 , Block_Static2_G, Block_Static2_GPALETTE, Block_Static2_G)) #8x16

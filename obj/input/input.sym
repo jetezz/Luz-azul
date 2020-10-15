@@ -10,8 +10,9 @@ Symbol Table
     _cpct_isKeyPressed                                             **** GX
     _cpct_scanKeyboard_f                                           **** GX
   0 _keyFire                                                       0013 GR
+  0 _keyR                                                          0023 GR
   0 _keyScape                                                      0003 GR
-  0 _movimientoPlayer                                              0023 GR
+  0 _movimientoPlayer                                              0033 GR
   0 _scanKey                                                       0000 GR
 
 
@@ -20,7 +21,7 @@ Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size   73   flags    0
+   0 _CODE                                      size   83   flags    0
    1 _DATA                                      size    0   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8

@@ -16,7 +16,9 @@ extern enum{
     sprite_SinDefinir,
     sprite_Player,
     sprite_Rock_G,
-    sprite_Rock_B,    
+    sprite_Rock_B,
+    sprite_Rock_nomove_B,
+
     sprite_RockInmovil1_G,
     sprite_RockInmovil1_B,
     sprite_RockInmovil2_G,
@@ -25,19 +27,25 @@ extern enum{
     sprite_RockInmovil3_B,
     sprite_RockInmovil4_G,
     sprite_RockInmovil4_B,
+
     sprite_RockLineal1_G,
     sprite_RockLineal1_B,
+
     sprite_PortalMuro,
     sprite_PuertaPortal_G,
     sprite_PuertaPortal_B,
+
     sprite_Puerta_G,
     sprite_Puerta_B,
+
     sprite_hole,
     sprite_luz,
+
     sprite_familia1,
     sprite_familia2,
     sprite_familia3,
     sprite_familia4,
+    
     sprite_amstrad,
     sprite_amstradTape,
     sprite_PrinceofPersia1_G,

@@ -2,6 +2,7 @@
 #include "sprites/Character_Principal.h"
 #include "sprites/Block_Move1_G.h"
 #include "sprites/Block_Move1_B.h"
+#include "sprites/Block_Move0_B.h"
 #include "sprites/Block_Static1_G.h"
 #include "sprites/Block_Static1_B.h"
 #include "sprites/Block_Static2_G.h"
@@ -64,6 +65,8 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(Block_Move1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Rock_B){
             cpct_drawSprite(Block_Move1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_Rock_nomove_B){
+            cpct_drawSprite(Block_Move0_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil1_G){
             cpct_drawSprite(Block_Static1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil1_B){
@@ -239,7 +242,8 @@ void taparHole(TGameObject* roca,TGameObject* hole){
 /////////
 
 u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){
-    if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){    
+    if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){
+        cpct_waitVSYNC();    
         movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
         if(movimiento!=mover_SinMovimiento){                  
             u8 nextPosx=objeto->posx;

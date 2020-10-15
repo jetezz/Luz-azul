@@ -22,7 +22,9 @@ void initNiveles(u8* collist);
 void crearNivel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables,u8* posicion,u8 nivel);
 void resetLevel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables);
 
+
 void createPlayer(TGameObject* player,u8 posx, u8 posy,u8* posicion);
+void createMarco(u8 hay);
 void createRoca(TGameObject* rocas,TGameObject* rocasEspejo,u8 posx, u8 posy,u8 mivimiento,u8 sprite, u8 simetria,u8 simetrico);
 void createRocaEspejo(TGameObject* rocasEspejo,u8 posx, u8 posy,u8 mivimiento,u8 sprite, u8 simetria);
 void createPuerta(TGameObject* puertas,u8 posx,u8 posy,u8 sprite,u8 nivel);

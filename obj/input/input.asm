@@ -13,6 +13,7 @@
 	.globl _scanKey
 	.globl _keyScape
 	.globl _keyFire
+	.globl _keyR
 	.globl _movimientoPlayer
 ;--------------------------------------------------------
 ; special function registers
@@ -90,15 +91,34 @@ _keyFire::
 	ld	l, #0x01
 ;src/input/input.c:18: return pulsada; 
 	ret
-;src/input/input.c:22: u8 movimientoPlayer(){
+;src/input/input.c:20: u8 keyR(){
+;	---------------------------------
+; Function keyR
+; ---------------------------------
+_keyR::
+;src/input/input.c:21: u8 pulsada=no;
+	ld	l, #0x01
+;src/input/input.c:22: if(cpct_isKeyPressed (Key_R))
+	push	hl
+	ld	hl, #0x0406
+	call	_cpct_isKeyPressed
+	ld	a, l
+	pop	hl
+	or	a, a
+	ret	Z
+;src/input/input.c:23: pulsada=si;
+	ld	l, #0x00
+;src/input/input.c:24: return pulsada; 
+	ret
+;src/input/input.c:28: u8 movimientoPlayer(){
 ;	---------------------------------
 ; Function movimientoPlayer
 ; ---------------------------------
 _movimientoPlayer::
-;src/input/input.c:23: u8 pulsada=0;
-;src/input/input.c:24: u8 movimiento=mover_SinMovimiento;
+;src/input/input.c:29: u8 pulsada=0;
+;src/input/input.c:30: u8 movimiento=mover_SinMovimiento;
 	ld	hl,#0x0000
-;src/input/input.c:25: if(cpct_isKeyPressed (Key_CursorUp)){
+;src/input/input.c:31: if(cpct_isKeyPressed (Key_CursorUp)){
 	push	hl
 	ld	hl, #0x0100
 	call	_cpct_isKeyPressed
@@ -106,11 +126,11 @@ _movimientoPlayer::
 	pop	hl
 	or	a, a
 	jr	Z,00102$
-;src/input/input.c:26: movimiento=mover_Arriba;
-;src/input/input.c:27: pulsada=1;
+;src/input/input.c:32: movimiento=mover_Arriba;
+;src/input/input.c:33: pulsada=1;
 	ld	hl,#0x0102
 00102$:
-;src/input/input.c:29: if(cpct_isKeyPressed (Key_CursorDown)){
+;src/input/input.c:35: if(cpct_isKeyPressed (Key_CursorDown)){
 	push	hl
 	ld	hl, #0x0400
 	call	_cpct_isKeyPressed
@@ -118,19 +138,19 @@ _movimientoPlayer::
 	pop	hl
 	or	a, a
 	jr	Z,00106$
-;src/input/input.c:30: movimiento=mover_Abajo;
+;src/input/input.c:36: movimiento=mover_Abajo;
 	ld	l, #0x04
-;src/input/input.c:31: if(pulsada==1)
+;src/input/input.c:37: if(pulsada==1)
 	dec	h
 	jr	NZ,00104$
-;src/input/input.c:32: return mover_SinMovimiento;
+;src/input/input.c:38: return mover_SinMovimiento;
 	ld	l, #0x00
 	ret
 00104$:
-;src/input/input.c:33: pulsada=1;
+;src/input/input.c:39: pulsada=1;
 	ld	h, #0x01
 00106$:
-;src/input/input.c:35: if(cpct_isKeyPressed (Key_CursorLeft)){
+;src/input/input.c:41: if(cpct_isKeyPressed (Key_CursorLeft)){
 	push	hl
 	ld	hl, #0x0101
 	call	_cpct_isKeyPressed
@@ -138,19 +158,19 @@ _movimientoPlayer::
 	pop	hl
 	or	a, a
 	jr	Z,00110$
-;src/input/input.c:36: movimiento=mover_Izquierda;
+;src/input/input.c:42: movimiento=mover_Izquierda;
 	ld	l, #0x01
-;src/input/input.c:37: if(pulsada==1)
+;src/input/input.c:43: if(pulsada==1)
 	dec	h
 	jr	NZ,00108$
-;src/input/input.c:38: return mover_SinMovimiento;
+;src/input/input.c:44: return mover_SinMovimiento;
 	ld	l, #0x00
 	ret
 00108$:
-;src/input/input.c:39: pulsada=1;
+;src/input/input.c:45: pulsada=1;
 	ld	h, #0x01
 00110$:
-;src/input/input.c:41: if(cpct_isKeyPressed (Key_CursorRight)){
+;src/input/input.c:47: if(cpct_isKeyPressed (Key_CursorRight)){
 	push	hl
 	ld	hl, #0x0200
 	call	_cpct_isKeyPressed
@@ -158,14 +178,14 @@ _movimientoPlayer::
 	pop	hl
 	or	a, a
 	ret	Z
-;src/input/input.c:42: movimiento=mover_Derecha;
+;src/input/input.c:48: movimiento=mover_Derecha;
 	ld	l, #0x03
-;src/input/input.c:43: if(pulsada==1)
+;src/input/input.c:49: if(pulsada==1)
 	dec	h
 	ret	NZ
-;src/input/input.c:44: return mover_SinMovimiento;         
+;src/input/input.c:50: return mover_SinMovimiento;         
 	ld	l, #0x00
-;src/input/input.c:46: return movimiento;
+;src/input/input.c:52: return movimiento;
 	ret
 	.area _CODE
 	.area _INITIALIZER

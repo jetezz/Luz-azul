@@ -50,9 +50,9 @@ _crearMapa::
 ;src/mapa/mapa.c:9: cpct_etm_setDrawTilemap4x8_ag(map_W, map_H, map_W, tiles_00);
 	ld	hl, #_tiles_00
 	push	hl
-	ld	hl, #0x0012
+	ld	hl, #0x0011
 	push	hl
-	ld	h, #0x16
+	ld	h, #0x12
 	push	hl
 	call	_cpct_etm_setDrawTilemap4x8_ag
 ;src/mapa/mapa.c:10: cpct_etm_drawTilemap4x8_ag(Punto_Inicial_De_Pantalla, map);

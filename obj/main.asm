@@ -25,6 +25,16 @@ _P_portal:
 	.ds 2
 _P_puertas:
 	.ds 2
+_P_col:
+	.ds 2
+_P_luz:
+	.ds 2
+_P_fam:
+	.ds 2
+_P_ams:
+	.ds 2
+_P_colList:
+	.ds 2
 _movimientoGuardado:
 	.ds 1
 ;--------------------------------------------------------
@@ -51,42 +61,42 @@ _movimientoGuardado:
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;src/main.c:11: void main(void) {
+;src/main.c:12: void main(void) {
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;src/main.c:12: cpct_disableFirmware();
+;src/main.c:13: cpct_disableFirmware();
 	call	_cpct_disableFirmware
-;src/main.c:13: cpct_setVideoMode(0);
+;src/main.c:14: cpct_setVideoMode(0);
 	ld	l, #0x00
 	call	_cpct_setVideoMode
-;src/main.c:14: cpct_setPalette(game_palette, 16);   
-	ld	hl, #0x0010
+;src/main.c:15: cpct_setPalette(Block_HolePALETTE, 13);   
+	ld	hl, #0x000d
 	push	hl
-	ld	hl, #_game_palette
+	ld	hl, #_Block_HolePALETTE
 	push	hl
 	call	_cpct_setPalette
-;src/main.c:15: game();
+;src/main.c:16: game();
 	call	_game
 	ret
 _game_palette:
 	.db #0x54	; 84	'T'
-	.db #0x5d	; 93
-	.db #0x4e	; 78	'N'
-	.db #0x44	; 68	'D'
-	.db #0x46	; 70	'F'
-	.db #0x42	; 66	'B'
 	.db #0x5c	; 92
-	.db #0x47	; 71	'G'
-	.db #0x45	; 69	'E'
-	.db #0x58	; 88	'X'
-	.db #0x4d	; 77	'M'
-	.db #0x43	; 67	'C'
+	.db #0x5e	; 94
+	.db #0x5d	; 93
+	.db #0x5f	; 95
 	.db #0x4f	; 79	'O'
+	.db #0x44	; 68	'D'
+	.db #0x55	; 85	'U'
+	.db #0x57	; 87	'W'
+	.db #0x47	; 71	'G'
+	.db #0x5b	; 91
+	.db #0x56	; 86	'V'
 	.db #0x40	; 64
-	.db #0x4c	; 76	'L'
 	.db #0x4b	; 75	'K'
+	.db 0x00
+	.db 0x00
 	.area _CODE
 	.area _INITIALIZER
 	.area _CABS (ABS)

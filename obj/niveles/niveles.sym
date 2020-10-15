@@ -7,16 +7,40 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
+  1 _P_colList2                                                    0068 R
+    ___sdcc_call_hl                                                **** GX
+  1 _contadorColeccionables                                        0067 R
+  1 _contadorPuertas                                               0066 R
+  1 _contadorRocas                                                 0064 R
+  1 _contadorRocasEspejo                                           0065 R
     _crearMapa                                                     **** GX
-  0 _crearNivel                                                    0000 GR
+  0 _crearNivel                                                    0037 GR
+  0 _crearNivel1                                                   06CE GR
+  0 _crearNivel2                                                   0A19 GR
+  0 _crearNivel3                                                   0A1A GR
+  0 _createColeccionabeAmstr                                       0656 GR
+  0 _createColeccionabeFamilia                                     05DC GR
+  0 _createColeccionabeLuz                                         0564 GR
+  0 _createHoleDerecha                                             04D0 GR
+  0 _createHoleIzquierda                                           043C GR
+  0 _createMarco                                                   0165 GR
+  0 _createPlayer                                                  0174 GR
+  0 _createPortal                                                  03E8 GR
+  0 _createPuerta                                                  036F GR
+  0 _createRoca                                                    01B3 GR
+  0 _createRocaEspejo                                              02D9 GR
+  0 _initNiveles                                                   0000 GR
+  1 _niveles                                                       0000 R
+  0 _resetLevel                                                    00BB GR
+
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
 Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size    8   flags    0
-   1 _DATA                                      size    0   flags    0
+   0 _CODE                                      size  A1B   flags    0
+   1 _DATA                                      size   6A   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8
    4 _HOME                                      size    0   flags    0

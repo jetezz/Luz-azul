@@ -7,45 +7,84 @@ Symbol Table
     .__.ABS.                                                    =  0000 G
     .__.CPU.                                                    =  0000 L
     .__.H$L.                                                    =  0000 L
+    _Amstrad_0                                                     **** GX
+    _Block_Hole                                                    **** GX
+    _Block_Move0_B_0                                               **** GX
+    _Block_Move1_B_0                                               **** GX
+    _Block_Move1_G_0                                               **** GX
+    _Block_Move2_B_0                                               **** GX
+    _Block_Move2_G_0                                               **** GX
+    _Block_Static1_B_0                                             **** GX
+    _Block_Static1_G_0                                             **** GX
+    _Block_Static2_B_0                                             **** GX
+    _Block_Static2_G_0                                             **** GX
+    _Block_Static3_B_0                                             **** GX
+    _Block_Static3_G_0                                             **** GX
+    _Block_Static4_B_0                                             **** GX
+    _Block_Static4_G_0                                             **** GX
+    _Character_Brother_0                                           **** GX
+    _Character_Father_0                                            **** GX
+    _Character_Mother_0                                            **** GX
+    _Character_Principal_0                                         **** GX
+    _Character_Sister_0                                            **** GX
+    _Door_B_0                                                      **** GX
+    _Door_G_0                                                      **** GX
+    _LuzAzul_0                                                     **** GX
+  1 _P_ams                                                         000A R
+  1 _P_col                                                         0004 R
+  1 _P_colList                                                     000C R
+  1 _P_fam                                                         0008 R
+  1 _P_luz                                                         0006 R
   1 _P_portal                                                      0000 R
   1 _P_puertas                                                     0002 R
+    _PortalDoor_B_0                                                **** GX
+    _PortalDoor_G_0                                                **** GX
+    _PortalWall_0                                                  **** GX
+    _PrinceOfPersia_COVER_0                                        **** GX
+    _PrinceOfPersia_ENE_B_0                                        **** GX
+    _PrinceOfPersia_ENE_G_0                                        **** GX
+    _PrinceOfPersia_PJ_B_0                                         **** GX
+    _PrinceOfPersia_PJ_G_0                                         **** GX
+    _PrinceOfPersia_Tape_0                                         **** GX
     _calcularMaximosyMinimos                                       **** GX
     _calcularPosicionEnPantalla                                    **** GX
-  0 _cambiarPosicion                                               02FD GR
-  0 _colisionesSiguientePosicion                                   0909 GR
+  0 _cambiarPosicion                                               06BA GR
+  0 _colisionesSiguientePosicion                                   0CD6 GR
+  0 _comprobarColeccionables                                       0F2F GR
     _comprobarColisiones1vs1                                       **** GX
-  0 _comprobarPortales                                             0A0B GR
-  0 _comprobarPuertas                                              0B1C GR
-  0 _comprobarRocas                                                09C2 GR
+  0 _comprobarPortales                                             0DDC GR
+  0 _comprobarPuertas                                              0EE9 GR
+  0 _comprobarRocas                                                0D92 GR
     _cpct_drawSolidBox                                             **** GX
     _cpct_drawSprite                                               **** GX
-  0 _dibujarGameObject                                             0021 GR
-    _hole_0                                                        **** GX
-  0 _initGameobjest                                                0000 GR
-  0 _limpiarRastro                                                 00FE GR
-  0 _mover1casilla                                                 0819 GR
-  0 _moverElEspejo                                                 0185 GR
-  0 _moverGameObject                                               011D GR
-  0 _moverTipoPlayer                                               03C3 GR
-  0 _moverTipoRoca                                                 05B4 GR
-  0 _moverYdibujar                                                 030B GR
-  0 _movimientoLineal                                              085E GR
-    _playerSprite_0                                                **** GX
-    _portalSprite_0                                                **** GX
-    _puertalSprite_0                                               **** GX
-    _rockInmovil_0                                                 **** GX
-    _rockLineal_0                                                  **** GX
-    _rock_0                                                        **** GX
-  0 _taparHole                                                     0346 GR
-
-
+    _cpct_waitVSYNC                                                **** GX
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  0 _dibujarGameObject                                             004A GR
+  0 _dibujarGameObjectCol                                          0328 GR
+  0 _dibujarGameObjectColSprite                                    03EB GR
+  0 _initGameobjest                                                0000 GR
+  0 _limpiarRastro                                                 04B9 GR
+  0 _mover1casilla                                                 0BE6 GR
+  0 _moverElEspejo                                                 0540 GR
+  0 _moverGameObject                                               04D8 GR
+  0 _moverTipoPlayer                                               0779 GR
+  0 _moverTipoRoca                                                 097E GR
+  0 _moverYdibujar                                                 06C8 GR
+  0 _movimientoLineal                                              0C2B GR
+  0 _taparHole                                                     0703 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
 Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size  B61   flags    0
-   1 _DATA                                      size    4   flags    0
+   0 _CODE                                      size  FB7   flags    0
+   1 _DATA                                      size    E   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8
    4 _HOME                                      size    0   flags    0

@@ -1,0 +1,42 @@
+XL2
+H 9 areas 5 global symbols
+M PrinceOfPersia_PJ_B
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 51 flags 0 addr 0
+S _PrinceOfPersia_PJ_BPALETTE Def0000
+S _PrinceOfPersia_PJ_B_0 Def0011
+S _PrinceOfPersia_PJ_B_1 Def0031
+S _PrinceOfPersia_PJ_B Def000D
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 54 44 55 5D 56 46 57 5E 40 5F 4F 5B 4B
+R 00 00 00 00
+T 0D 00
+R 00 00 00 00
+T 0D 00 11 00 31 00
+R 00 00 00 00 00 02 00 00 00 04 00 00
+T 11 00
+R 00 00 00 00
+T 11 00 00 00 FC 00 00 00 FC 00 00 54 D6 00 00 54
+R 00 00 00 00
+T 1F 00 D6 00 00 00 96 28 00 00 96 28 03 43 3C 82
+R 00 00 00 00
+T 2D 00 03 43 3C 82
+R 00 00 00 00
+T 31 00
+R 00 00 00 00
+T 31 00 00 00 14 28 00 00 14 28 00 01 83 83 00 01
+R 00 00 00 00
+T 3F 00 83 83 00 01 03 03 00 01 03 03 00 41 C3 CC
+R 00 00 00 00
+T 4D 00 00 41 C3 CC
+R 00 00 00 00

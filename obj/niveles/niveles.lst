@@ -9,50 +9,1725 @@
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
                              11 	.globl _crearMapa
-                             12 	.globl _crearNivel
-                             13 ;--------------------------------------------------------
-                             14 ; special function registers
-                             15 ;--------------------------------------------------------
-                             16 ;--------------------------------------------------------
-                             17 ; ram data
-                             18 ;--------------------------------------------------------
-                             19 	.area _DATA
-                             20 ;--------------------------------------------------------
-                             21 ; ram data
-                             22 ;--------------------------------------------------------
-                             23 	.area _INITIALIZED
-                             24 ;--------------------------------------------------------
-                             25 ; absolute external ram data
-                             26 ;--------------------------------------------------------
-                             27 	.area _DABS (ABS)
-                             28 ;--------------------------------------------------------
-                             29 ; global & static initialisations
-                             30 ;--------------------------------------------------------
-                             31 	.area _HOME
-                             32 	.area _GSINIT
-                             33 	.area _GSFINAL
-                             34 	.area _GSINIT
-                             35 ;--------------------------------------------------------
-                             36 ; Home
-                             37 ;--------------------------------------------------------
-                             38 	.area _HOME
-                             39 	.area _HOME
-                             40 ;--------------------------------------------------------
-                             41 ; code
-                             42 ;--------------------------------------------------------
-                             43 	.area _CODE
-                             44 ;src/niveles/niveles.c:5: void crearNivel(){
-                             45 ;	---------------------------------
-                             46 ; Function crearNivel
-                             47 ; ---------------------------------
-   0000                      48 _crearNivel::
-                             49 ;src/niveles/niveles.c:6: crearMapa(0);
-   0000 AF            [ 4]   50 	xor	a, a
-   0001 F5            [11]   51 	push	af
-   0002 33            [ 6]   52 	inc	sp
-   0003 CDr00r00      [17]   53 	call	_crearMapa
-   0006 33            [ 6]   54 	inc	sp
-   0007 C9            [10]   55 	ret
-                             56 	.area _CODE
-                             57 	.area _INITIALIZER
-                             58 	.area _CABS (ABS)
+                             12 	.globl _initNiveles
+                             13 	.globl _crearNivel
+                             14 	.globl _resetLevel
+                             15 	.globl _createMarco
+                             16 	.globl _createPlayer
+                             17 	.globl _createRoca
+                             18 	.globl _createRocaEspejo
+                             19 	.globl _createPuerta
+                             20 	.globl _createPortal
+                             21 	.globl _createHoleIzquierda
+                             22 	.globl _createHoleDerecha
+                             23 	.globl _createColeccionabeLuz
+                             24 	.globl _createColeccionabeFamilia
+                             25 	.globl _createColeccionabeAmstr
+                             26 	.globl _crearNivel1
+                             27 	.globl _crearNivel2
+                             28 	.globl _crearNivel3
+                             29 ;--------------------------------------------------------
+                             30 ; special function registers
+                             31 ;--------------------------------------------------------
+                             32 ;--------------------------------------------------------
+                             33 ; ram data
+                             34 ;--------------------------------------------------------
+                             35 	.area _DATA
+   0000                      36 _niveles:
+   0000                      37 	.ds 100
+   0064                      38 _contadorRocas:
+   0064                      39 	.ds 1
+   0065                      40 _contadorRocasEspejo:
+   0065                      41 	.ds 1
+   0066                      42 _contadorPuertas:
+   0066                      43 	.ds 1
+   0067                      44 _contadorColeccionables:
+   0067                      45 	.ds 1
+   0068                      46 _P_colList2:
+   0068                      47 	.ds 2
+                             48 ;--------------------------------------------------------
+                             49 ; ram data
+                             50 ;--------------------------------------------------------
+                             51 	.area _INITIALIZED
+                             52 ;--------------------------------------------------------
+                             53 ; absolute external ram data
+                             54 ;--------------------------------------------------------
+                             55 	.area _DABS (ABS)
+                             56 ;--------------------------------------------------------
+                             57 ; global & static initialisations
+                             58 ;--------------------------------------------------------
+                             59 	.area _HOME
+                             60 	.area _GSINIT
+                             61 	.area _GSFINAL
+                             62 	.area _GSINIT
+                             63 ;--------------------------------------------------------
+                             64 ; Home
+                             65 ;--------------------------------------------------------
+                             66 	.area _HOME
+                             67 	.area _HOME
+                             68 ;--------------------------------------------------------
+                             69 ; code
+                             70 ;--------------------------------------------------------
+                             71 	.area _CODE
+                             72 ;src/niveles/niveles.c:8: void initNiveles(u8* collist){
+                             73 ;	---------------------------------
+                             74 ; Function initNiveles
+                             75 ; ---------------------------------
+   0000                      76 _initNiveles::
+                             77 ;src/niveles/niveles.c:10: niveles[nivel_0]=crearNivel1;
+   0000 21rCEr06      [10]   78 	ld	hl, #_crearNivel1
+   0003 22r02r00      [16]   79 	ld	((_niveles + 0x0002)), hl
+                             80 ;src/niveles/niveles.c:11: niveles[nivel_1]=crearNivel2;    
+   0006 21r19r0A      [10]   81 	ld	hl, #_crearNivel2
+   0009 22r04r00      [16]   82 	ld	((_niveles + 0x0004)), hl
+                             83 ;src/niveles/niveles.c:12: niveles[nivel_2]=crearNivel3;    
+   000C 21r1Ar0A      [10]   84 	ld	hl, #_crearNivel3
+   000F 22r06r00      [16]   85 	ld	((_niveles + 0x0006)), hl
+                             86 ;src/niveles/niveles.c:14: P_colList2=collist;
+   0012 21 02 00      [10]   87 	ld	hl, #2+0
+   0015 39            [11]   88 	add	hl, sp
+   0016 7E            [ 7]   89 	ld	a, (hl)
+   0017 32r68r00      [13]   90 	ld	(#_P_colList2 + 0),a
+   001A 21 03 00      [10]   91 	ld	hl, #2+1
+   001D 39            [11]   92 	add	hl, sp
+   001E 7E            [ 7]   93 	ld	a, (hl)
+   001F 32r69r00      [13]   94 	ld	(#_P_colList2 + 1),a
+                             95 ;src/niveles/niveles.c:15: contadorRocas=0;
+   0022 21r64r00      [10]   96 	ld	hl,#_contadorRocas + 0
+   0025 36 00         [10]   97 	ld	(hl), #0x00
+                             98 ;src/niveles/niveles.c:16: contadorRocasEspejo=0;
+   0027 21r65r00      [10]   99 	ld	hl,#_contadorRocasEspejo + 0
+   002A 36 00         [10]  100 	ld	(hl), #0x00
+                            101 ;src/niveles/niveles.c:17: contadorPuertas=0;
+   002C 21r66r00      [10]  102 	ld	hl,#_contadorPuertas + 0
+   002F 36 00         [10]  103 	ld	(hl), #0x00
+                            104 ;src/niveles/niveles.c:18: contadorColeccionables=0;
+   0031 21r67r00      [10]  105 	ld	hl,#_contadorColeccionables + 0
+   0034 36 00         [10]  106 	ld	(hl), #0x00
+   0036 C9            [10]  107 	ret
+                            108 ;src/niveles/niveles.c:22: void crearNivel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables,u8* posicion,u8 nivel){
+                            109 ;	---------------------------------
+                            110 ; Function crearNivel
+                            111 ; ---------------------------------
+   0037                     112 _crearNivel::
+   0037 DD E5         [15]  113 	push	ix
+   0039 DD 21 00 00   [14]  114 	ld	ix,#0
+   003D DD 39         [15]  115 	add	ix,sp
+                            116 ;src/niveles/niveles.c:23: resetLevel(player,rocas,rocasEspejo,puertas,portales,coleccionables);    
+   003F DD 6E 0E      [19]  117 	ld	l,14 (ix)
+   0042 DD 66 0F      [19]  118 	ld	h,15 (ix)
+   0045 E5            [11]  119 	push	hl
+   0046 DD 6E 0C      [19]  120 	ld	l,12 (ix)
+   0049 DD 66 0D      [19]  121 	ld	h,13 (ix)
+   004C E5            [11]  122 	push	hl
+   004D DD 6E 0A      [19]  123 	ld	l,10 (ix)
+   0050 DD 66 0B      [19]  124 	ld	h,11 (ix)
+   0053 E5            [11]  125 	push	hl
+   0054 DD 6E 08      [19]  126 	ld	l,8 (ix)
+   0057 DD 66 09      [19]  127 	ld	h,9 (ix)
+   005A E5            [11]  128 	push	hl
+   005B DD 6E 06      [19]  129 	ld	l,6 (ix)
+   005E DD 66 07      [19]  130 	ld	h,7 (ix)
+   0061 E5            [11]  131 	push	hl
+   0062 DD 6E 04      [19]  132 	ld	l,4 (ix)
+   0065 DD 66 05      [19]  133 	ld	h,5 (ix)
+   0068 E5            [11]  134 	push	hl
+   0069 CDrBBr00      [17]  135 	call	_resetLevel
+   006C 21 0C 00      [10]  136 	ld	hl, #12
+   006F 39            [11]  137 	add	hl, sp
+   0070 F9            [ 6]  138 	ld	sp, hl
+                            139 ;src/niveles/niveles.c:24: niveles[nivel](player,rocas,rocasEspejo,puertas,portales,coleccionables,posicion);
+   0071 01r00r00      [10]  140 	ld	bc, #_niveles+0
+   0074 DD 6E 12      [19]  141 	ld	l, 18 (ix)
+   0077 26 00         [ 7]  142 	ld	h, #0x00
+   0079 29            [11]  143 	add	hl, hl
+   007A 09            [11]  144 	add	hl, bc
+   007B 4E            [ 7]  145 	ld	c, (hl)
+   007C 23            [ 6]  146 	inc	hl
+   007D 66            [ 7]  147 	ld	h, (hl)
+   007E DD 5E 10      [19]  148 	ld	e,16 (ix)
+   0081 DD 56 11      [19]  149 	ld	d,17 (ix)
+   0084 D5            [11]  150 	push	de
+   0085 DD 5E 0E      [19]  151 	ld	e,14 (ix)
+   0088 DD 56 0F      [19]  152 	ld	d,15 (ix)
+   008B D5            [11]  153 	push	de
+   008C DD 5E 0C      [19]  154 	ld	e,12 (ix)
+   008F DD 56 0D      [19]  155 	ld	d,13 (ix)
+   0092 D5            [11]  156 	push	de
+   0093 DD 5E 0A      [19]  157 	ld	e,10 (ix)
+   0096 DD 56 0B      [19]  158 	ld	d,11 (ix)
+   0099 D5            [11]  159 	push	de
+   009A DD 5E 08      [19]  160 	ld	e,8 (ix)
+   009D DD 56 09      [19]  161 	ld	d,9 (ix)
+   00A0 D5            [11]  162 	push	de
+   00A1 DD 5E 06      [19]  163 	ld	e,6 (ix)
+   00A4 DD 56 07      [19]  164 	ld	d,7 (ix)
+   00A7 D5            [11]  165 	push	de
+   00A8 DD 5E 04      [19]  166 	ld	e,4 (ix)
+   00AB DD 56 05      [19]  167 	ld	d,5 (ix)
+   00AE D5            [11]  168 	push	de
+   00AF 69            [ 4]  169 	ld	l, c
+   00B0 CDr00r00      [17]  170 	call	___sdcc_call_hl
+   00B3 21 0E 00      [10]  171 	ld	hl, #14
+   00B6 39            [11]  172 	add	hl, sp
+   00B7 F9            [ 6]  173 	ld	sp, hl
+   00B8 DD E1         [14]  174 	pop	ix
+   00BA C9            [10]  175 	ret
+                            176 ;src/niveles/niveles.c:28: void resetLevel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables){
+                            177 ;	---------------------------------
+                            178 ; Function resetLevel
+                            179 ; ---------------------------------
+   00BB                     180 _resetLevel::
+   00BB DD E5         [15]  181 	push	ix
+   00BD DD 21 00 00   [14]  182 	ld	ix,#0
+   00C1 DD 39         [15]  183 	add	ix,sp
+                            184 ;src/niveles/niveles.c:29: player->posx=0;
+   00C3 DD 4E 04      [19]  185 	ld	c,4 (ix)
+   00C6 DD 46 05      [19]  186 	ld	b,5 (ix)
+   00C9 03            [ 6]  187 	inc	bc
+   00CA AF            [ 4]  188 	xor	a, a
+   00CB 02            [ 7]  189 	ld	(bc), a
+                            190 ;src/niveles/niveles.c:30: for(u8 i =0;i<RocasMaximas;i++){
+   00CC 0E 00         [ 7]  191 	ld	c, #0x00
+   00CE                     192 00106$:
+   00CE 79            [ 4]  193 	ld	a, c
+   00CF D6 28         [ 7]  194 	sub	a, #0x28
+   00D1 30 16         [12]  195 	jr	NC,00101$
+                            196 ;src/niveles/niveles.c:31: rocas[i].posx=0; 
+   00D3 06 00         [ 7]  197 	ld	b,#0x00
+   00D5 69            [ 4]  198 	ld	l, c
+   00D6 60            [ 4]  199 	ld	h, b
+   00D7 29            [11]  200 	add	hl, hl
+   00D8 09            [11]  201 	add	hl, bc
+   00D9 29            [11]  202 	add	hl, hl
+   00DA 09            [11]  203 	add	hl, bc
+   00DB EB            [ 4]  204 	ex	de,hl
+   00DC DD 6E 06      [19]  205 	ld	l,6 (ix)
+   00DF DD 66 07      [19]  206 	ld	h,7 (ix)
+   00E2 19            [11]  207 	add	hl, de
+   00E3 23            [ 6]  208 	inc	hl
+   00E4 36 00         [10]  209 	ld	(hl), #0x00
+                            210 ;src/niveles/niveles.c:30: for(u8 i =0;i<RocasMaximas;i++){
+   00E6 0C            [ 4]  211 	inc	c
+   00E7 18 E5         [12]  212 	jr	00106$
+   00E9                     213 00101$:
+                            214 ;src/niveles/niveles.c:33: for(u8 i =0;i<RocasMaximas;i++){
+   00E9 0E 00         [ 7]  215 	ld	c, #0x00
+   00EB                     216 00109$:
+   00EB 79            [ 4]  217 	ld	a, c
+   00EC D6 28         [ 7]  218 	sub	a, #0x28
+   00EE 30 16         [12]  219 	jr	NC,00102$
+                            220 ;src/niveles/niveles.c:34: rocasEspejo[i].posx=0; 
+   00F0 06 00         [ 7]  221 	ld	b,#0x00
+   00F2 69            [ 4]  222 	ld	l, c
+   00F3 60            [ 4]  223 	ld	h, b
+   00F4 29            [11]  224 	add	hl, hl
+   00F5 09            [11]  225 	add	hl, bc
+   00F6 29            [11]  226 	add	hl, hl
+   00F7 09            [11]  227 	add	hl, bc
+   00F8 EB            [ 4]  228 	ex	de,hl
+   00F9 DD 6E 08      [19]  229 	ld	l,8 (ix)
+   00FC DD 66 09      [19]  230 	ld	h,9 (ix)
+   00FF 19            [11]  231 	add	hl, de
+   0100 23            [ 6]  232 	inc	hl
+   0101 36 00         [10]  233 	ld	(hl), #0x00
+                            234 ;src/niveles/niveles.c:33: for(u8 i =0;i<RocasMaximas;i++){
+   0103 0C            [ 4]  235 	inc	c
+   0104 18 E5         [12]  236 	jr	00109$
+   0106                     237 00102$:
+                            238 ;src/niveles/niveles.c:36: for(u8 i =0;i<PuertasMaximas;i++){
+   0106 0E 00         [ 7]  239 	ld	c, #0x00
+   0108                     240 00112$:
+   0108 79            [ 4]  241 	ld	a, c
+   0109 D6 03         [ 7]  242 	sub	a, #0x03
+   010B 30 16         [12]  243 	jr	NC,00103$
+                            244 ;src/niveles/niveles.c:37: puertas[i].posx=0; 
+   010D 06 00         [ 7]  245 	ld	b,#0x00
+   010F 69            [ 4]  246 	ld	l, c
+   0110 60            [ 4]  247 	ld	h, b
+   0111 29            [11]  248 	add	hl, hl
+   0112 09            [11]  249 	add	hl, bc
+   0113 29            [11]  250 	add	hl, hl
+   0114 09            [11]  251 	add	hl, bc
+   0115 EB            [ 4]  252 	ex	de,hl
+   0116 DD 6E 0A      [19]  253 	ld	l,10 (ix)
+   0119 DD 66 0B      [19]  254 	ld	h,11 (ix)
+   011C 19            [11]  255 	add	hl, de
+   011D 23            [ 6]  256 	inc	hl
+   011E 36 00         [10]  257 	ld	(hl), #0x00
+                            258 ;src/niveles/niveles.c:36: for(u8 i =0;i<PuertasMaximas;i++){
+   0120 0C            [ 4]  259 	inc	c
+   0121 18 E5         [12]  260 	jr	00112$
+   0123                     261 00103$:
+                            262 ;src/niveles/niveles.c:39: portales[0].posx=0;
+   0123 DD 4E 0C      [19]  263 	ld	c,12 (ix)
+   0126 DD 46 0D      [19]  264 	ld	b,13 (ix)
+   0129 59            [ 4]  265 	ld	e, c
+   012A 50            [ 4]  266 	ld	d, b
+   012B 13            [ 6]  267 	inc	de
+   012C AF            [ 4]  268 	xor	a, a
+   012D 12            [ 7]  269 	ld	(de), a
+                            270 ;src/niveles/niveles.c:40: portales[1].posx=0;
+   012E 21 08 00      [10]  271 	ld	hl, #0x0008
+   0131 09            [11]  272 	add	hl, bc
+   0132 36 00         [10]  273 	ld	(hl), #0x00
+                            274 ;src/niveles/niveles.c:42: for(u8 i =0;i<ColeccionablesMaximos;i++){
+   0134 0E 00         [ 7]  275 	ld	c, #0x00
+   0136                     276 00115$:
+   0136 79            [ 4]  277 	ld	a, c
+   0137 D6 03         [ 7]  278 	sub	a, #0x03
+   0139 30 13         [12]  279 	jr	NC,00104$
+                            280 ;src/niveles/niveles.c:43: coleccionables[i].posx=0; 
+   013B 69            [ 4]  281 	ld	l, c
+   013C 26 00         [ 7]  282 	ld	h, #0x00
+   013E 29            [11]  283 	add	hl, hl
+   013F 29            [11]  284 	add	hl, hl
+   0140 EB            [ 4]  285 	ex	de,hl
+   0141 DD 6E 0E      [19]  286 	ld	l,14 (ix)
+   0144 DD 66 0F      [19]  287 	ld	h,15 (ix)
+   0147 19            [11]  288 	add	hl, de
+   0148 23            [ 6]  289 	inc	hl
+   0149 36 00         [10]  290 	ld	(hl), #0x00
+                            291 ;src/niveles/niveles.c:42: for(u8 i =0;i<ColeccionablesMaximos;i++){
+   014B 0C            [ 4]  292 	inc	c
+   014C 18 E8         [12]  293 	jr	00115$
+   014E                     294 00104$:
+                            295 ;src/niveles/niveles.c:46: contadorRocas=0;
+   014E 21r64r00      [10]  296 	ld	hl,#_contadorRocas + 0
+   0151 36 00         [10]  297 	ld	(hl), #0x00
+                            298 ;src/niveles/niveles.c:47: contadorRocasEspejo=0;
+   0153 21r65r00      [10]  299 	ld	hl,#_contadorRocasEspejo + 0
+   0156 36 00         [10]  300 	ld	(hl), #0x00
+                            301 ;src/niveles/niveles.c:48: contadorPuertas=0;
+   0158 21r66r00      [10]  302 	ld	hl,#_contadorPuertas + 0
+   015B 36 00         [10]  303 	ld	(hl), #0x00
+                            304 ;src/niveles/niveles.c:49: contadorColeccionables=0;
+   015D 21r67r00      [10]  305 	ld	hl,#_contadorColeccionables + 0
+   0160 36 00         [10]  306 	ld	(hl), #0x00
+   0162 DD E1         [14]  307 	pop	ix
+   0164 C9            [10]  308 	ret
+                            309 ;src/niveles/niveles.c:52: void createMarco(u8 hay){
+                            310 ;	---------------------------------
+                            311 ; Function createMarco
+                            312 ; ---------------------------------
+   0165                     313 _createMarco::
+                            314 ;src/niveles/niveles.c:53: if (hay==si){
+   0165 21 02 00      [10]  315 	ld	hl, #2+0
+   0168 39            [11]  316 	add	hl, sp
+   0169 7E            [ 7]  317 	ld	a, (hl)
+   016A B7            [ 4]  318 	or	a, a
+   016B C0            [11]  319 	ret	NZ
+                            320 ;src/niveles/niveles.c:54: crearMapa(0);  
+   016C AF            [ 4]  321 	xor	a, a
+   016D F5            [11]  322 	push	af
+   016E 33            [ 6]  323 	inc	sp
+   016F CDr00r00      [17]  324 	call	_crearMapa
+   0172 33            [ 6]  325 	inc	sp
+   0173 C9            [10]  326 	ret
+                            327 ;src/niveles/niveles.c:59: void createPlayer(TGameObject* player,u8 posx, u8 posy,u8* posicion){
+                            328 ;	---------------------------------
+                            329 ; Function createPlayer
+                            330 ; ---------------------------------
+   0174                     331 _createPlayer::
+                            332 ;src/niveles/niveles.c:61: *posicion=posicion_Izquieda;
+   0174 21 06 00      [10]  333 	ld	hl, #6
+   0177 39            [11]  334 	add	hl, sp
+   0178 4E            [ 7]  335 	ld	c, (hl)
+   0179 23            [ 6]  336 	inc	hl
+   017A 46            [ 7]  337 	ld	b, (hl)
+                            338 ;src/niveles/niveles.c:60: if(posx<9){
+   017B 21 04 00      [10]  339 	ld	hl, #4+0
+   017E 39            [11]  340 	add	hl, sp
+   017F 7E            [ 7]  341 	ld	a, (hl)
+   0180 D6 09         [ 7]  342 	sub	a, #0x09
+   0182 30 04         [12]  343 	jr	NC,00102$
+                            344 ;src/niveles/niveles.c:61: *posicion=posicion_Izquieda;
+   0184 AF            [ 4]  345 	xor	a, a
+   0185 02            [ 7]  346 	ld	(bc), a
+   0186 18 03         [12]  347 	jr	00103$
+   0188                     348 00102$:
+                            349 ;src/niveles/niveles.c:63: *posicion=posicion_Derecha;        
+   0188 3E 01         [ 7]  350 	ld	a, #0x01
+   018A 02            [ 7]  351 	ld	(bc), a
+   018B                     352 00103$:
+                            353 ;src/niveles/niveles.c:65: player->num=-1;
+   018B D1            [10]  354 	pop	de
+   018C C1            [10]  355 	pop	bc
+   018D C5            [11]  356 	push	bc
+   018E D5            [11]  357 	push	de
+   018F 3E FF         [ 7]  358 	ld	a, #0xff
+   0191 02            [ 7]  359 	ld	(bc), a
+                            360 ;src/niveles/niveles.c:66: player->posx=posx;
+   0192 59            [ 4]  361 	ld	e, c
+   0193 50            [ 4]  362 	ld	d, b
+   0194 13            [ 6]  363 	inc	de
+   0195 21 04 00      [10]  364 	ld	hl, #4+0
+   0198 39            [11]  365 	add	hl, sp
+   0199 7E            [ 7]  366 	ld	a, (hl)
+   019A 12            [ 7]  367 	ld	(de), a
+                            368 ;src/niveles/niveles.c:67: player->posy=posy;   
+   019B 59            [ 4]  369 	ld	e, c
+   019C 50            [ 4]  370 	ld	d, b
+   019D 13            [ 6]  371 	inc	de
+   019E 13            [ 6]  372 	inc	de
+   019F 21 05 00      [10]  373 	ld	hl, #5+0
+   01A2 39            [11]  374 	add	hl, sp
+   01A3 7E            [ 7]  375 	ld	a, (hl)
+   01A4 12            [ 7]  376 	ld	(de), a
+                            377 ;src/niveles/niveles.c:68: player->sprite=sprite_Player;
+   01A5 69            [ 4]  378 	ld	l, c
+   01A6 60            [ 4]  379 	ld	h, b
+   01A7 23            [ 6]  380 	inc	hl
+   01A8 23            [ 6]  381 	inc	hl
+   01A9 23            [ 6]  382 	inc	hl
+   01AA 36 01         [10]  383 	ld	(hl), #0x01
+                            384 ;src/niveles/niveles.c:69: player->movimiento=mover_1;
+   01AC 21 04 00      [10]  385 	ld	hl, #0x0004
+   01AF 09            [11]  386 	add	hl, bc
+   01B0 36 01         [10]  387 	ld	(hl), #0x01
+   01B2 C9            [10]  388 	ret
+                            389 ;src/niveles/niveles.c:71: void createRoca(TGameObject* rocas,TGameObject* rocasEspejo,u8 posx, u8 posy,u8 mivimiento,u8 sprite, u8 simetria,u8 simetrico){
+                            390 ;	---------------------------------
+                            391 ; Function createRoca
+                            392 ; ---------------------------------
+   01B3                     393 _createRoca::
+   01B3 DD E5         [15]  394 	push	ix
+   01B5 DD 21 00 00   [14]  395 	ld	ix,#0
+   01B9 DD 39         [15]  396 	add	ix,sp
+                            397 ;src/niveles/niveles.c:72: rocas[contadorRocas].num=simetria;
+   01BB ED 4Br64r00   [20]  398 	ld	bc, (_contadorRocas)
+   01BF 06 00         [ 7]  399 	ld	b, #0x00
+   01C1 69            [ 4]  400 	ld	l, c
+   01C2 60            [ 4]  401 	ld	h, b
+   01C3 29            [11]  402 	add	hl, hl
+   01C4 09            [11]  403 	add	hl, bc
+   01C5 29            [11]  404 	add	hl, hl
+   01C6 09            [11]  405 	add	hl, bc
+   01C7 4D            [ 4]  406 	ld	c, l
+   01C8 44            [ 4]  407 	ld	b, h
+   01C9 DD 6E 04      [19]  408 	ld	l,4 (ix)
+   01CC DD 66 05      [19]  409 	ld	h,5 (ix)
+   01CF 09            [11]  410 	add	hl, bc
+   01D0 DD 7E 0C      [19]  411 	ld	a, 12 (ix)
+   01D3 77            [ 7]  412 	ld	(hl), a
+                            413 ;src/niveles/niveles.c:73: rocas[contadorRocas].posx=posx;
+   01D4 ED 4Br64r00   [20]  414 	ld	bc, (_contadorRocas)
+   01D8 06 00         [ 7]  415 	ld	b, #0x00
+   01DA 69            [ 4]  416 	ld	l, c
+   01DB 60            [ 4]  417 	ld	h, b
+   01DC 29            [11]  418 	add	hl, hl
+   01DD 09            [11]  419 	add	hl, bc
+   01DE 29            [11]  420 	add	hl, hl
+   01DF 09            [11]  421 	add	hl, bc
+   01E0 4D            [ 4]  422 	ld	c, l
+   01E1 44            [ 4]  423 	ld	b, h
+   01E2 DD 6E 04      [19]  424 	ld	l,4 (ix)
+   01E5 DD 66 05      [19]  425 	ld	h,5 (ix)
+   01E8 09            [11]  426 	add	hl, bc
+   01E9 23            [ 6]  427 	inc	hl
+   01EA DD 7E 08      [19]  428 	ld	a, 8 (ix)
+   01ED 77            [ 7]  429 	ld	(hl), a
+                            430 ;src/niveles/niveles.c:74: rocas[contadorRocas].posy=posy;
+   01EE ED 4Br64r00   [20]  431 	ld	bc, (_contadorRocas)
+   01F2 06 00         [ 7]  432 	ld	b, #0x00
+   01F4 69            [ 4]  433 	ld	l, c
+   01F5 60            [ 4]  434 	ld	h, b
+   01F6 29            [11]  435 	add	hl, hl
+   01F7 09            [11]  436 	add	hl, bc
+   01F8 29            [11]  437 	add	hl, hl
+   01F9 09            [11]  438 	add	hl, bc
+   01FA 4D            [ 4]  439 	ld	c, l
+   01FB 44            [ 4]  440 	ld	b, h
+   01FC DD 6E 04      [19]  441 	ld	l,4 (ix)
+   01FF DD 66 05      [19]  442 	ld	h,5 (ix)
+   0202 09            [11]  443 	add	hl, bc
+   0203 23            [ 6]  444 	inc	hl
+   0204 23            [ 6]  445 	inc	hl
+   0205 DD 7E 09      [19]  446 	ld	a, 9 (ix)
+   0208 77            [ 7]  447 	ld	(hl), a
+                            448 ;src/niveles/niveles.c:75: rocas[contadorRocas].sprite=sprite;
+   0209 ED 4Br64r00   [20]  449 	ld	bc, (_contadorRocas)
+   020D 06 00         [ 7]  450 	ld	b, #0x00
+   020F 69            [ 4]  451 	ld	l, c
+   0210 60            [ 4]  452 	ld	h, b
+   0211 29            [11]  453 	add	hl, hl
+   0212 09            [11]  454 	add	hl, bc
+   0213 29            [11]  455 	add	hl, hl
+   0214 09            [11]  456 	add	hl, bc
+   0215 4D            [ 4]  457 	ld	c, l
+   0216 44            [ 4]  458 	ld	b, h
+   0217 DD 6E 04      [19]  459 	ld	l,4 (ix)
+   021A DD 66 05      [19]  460 	ld	h,5 (ix)
+   021D 09            [11]  461 	add	hl, bc
+   021E 23            [ 6]  462 	inc	hl
+   021F 23            [ 6]  463 	inc	hl
+   0220 23            [ 6]  464 	inc	hl
+   0221 DD 7E 0B      [19]  465 	ld	a, 11 (ix)
+   0224 77            [ 7]  466 	ld	(hl), a
+                            467 ;src/niveles/niveles.c:76: rocas[contadorRocas].movimiento=mivimiento;
+   0225 ED 4Br64r00   [20]  468 	ld	bc, (_contadorRocas)
+   0229 06 00         [ 7]  469 	ld	b, #0x00
+   022B 69            [ 4]  470 	ld	l, c
+   022C 60            [ 4]  471 	ld	h, b
+   022D 29            [11]  472 	add	hl, hl
+   022E 09            [11]  473 	add	hl, bc
+   022F 29            [11]  474 	add	hl, hl
+   0230 09            [11]  475 	add	hl, bc
+   0231 4D            [ 4]  476 	ld	c, l
+   0232 44            [ 4]  477 	ld	b, h
+   0233 DD 6E 04      [19]  478 	ld	l,4 (ix)
+   0236 DD 66 05      [19]  479 	ld	h,5 (ix)
+   0239 09            [11]  480 	add	hl, bc
+   023A 01 04 00      [10]  481 	ld	bc, #0x0004
+   023D 09            [11]  482 	add	hl, bc
+   023E DD 7E 0A      [19]  483 	ld	a, 10 (ix)
+   0241 77            [ 7]  484 	ld	(hl), a
+                            485 ;src/niveles/niveles.c:77: contadorRocas++;
+   0242 21r64r00      [10]  486 	ld	hl, #_contadorRocas+0
+   0245 34            [11]  487 	inc	(hl)
+                            488 ;src/niveles/niveles.c:78: if(simetrico==si){
+   0246 DD 7E 0D      [19]  489 	ld	a, 13 (ix)
+   0249 B7            [ 4]  490 	or	a, a
+   024A C2rD6r02      [10]  491 	jp	NZ, 00103$
+                            492 ;src/niveles/niveles.c:79: rocasEspejo[contadorRocas].num=simetria;
+   024D ED 4Br64r00   [20]  493 	ld	bc, (_contadorRocas)
+   0251 06 00         [ 7]  494 	ld	b, #0x00
+   0253 69            [ 4]  495 	ld	l, c
+   0254 60            [ 4]  496 	ld	h, b
+   0255 29            [11]  497 	add	hl, hl
+   0256 09            [11]  498 	add	hl, bc
+   0257 29            [11]  499 	add	hl, hl
+   0258 09            [11]  500 	add	hl, bc
+   0259 4D            [ 4]  501 	ld	c, l
+   025A 44            [ 4]  502 	ld	b, h
+   025B DD 6E 06      [19]  503 	ld	l,6 (ix)
+   025E DD 66 07      [19]  504 	ld	h,7 (ix)
+   0261 09            [11]  505 	add	hl, bc
+   0262 DD 7E 0C      [19]  506 	ld	a, 12 (ix)
+   0265 77            [ 7]  507 	ld	(hl), a
+                            508 ;src/niveles/niveles.c:80: rocasEspejo[contadorRocas].posx=16-posx;
+   0266 ED 4Br64r00   [20]  509 	ld	bc, (_contadorRocas)
+   026A 06 00         [ 7]  510 	ld	b, #0x00
+   026C 69            [ 4]  511 	ld	l, c
+   026D 60            [ 4]  512 	ld	h, b
+   026E 29            [11]  513 	add	hl, hl
+   026F 09            [11]  514 	add	hl, bc
+   0270 29            [11]  515 	add	hl, hl
+   0271 09            [11]  516 	add	hl, bc
+   0272 4D            [ 4]  517 	ld	c, l
+   0273 44            [ 4]  518 	ld	b, h
+   0274 DD 6E 06      [19]  519 	ld	l,6 (ix)
+   0277 DD 66 07      [19]  520 	ld	h,7 (ix)
+   027A 09            [11]  521 	add	hl, bc
+   027B 23            [ 6]  522 	inc	hl
+   027C 3E 10         [ 7]  523 	ld	a, #0x10
+   027E DD 96 08      [19]  524 	sub	a, 8 (ix)
+   0281 77            [ 7]  525 	ld	(hl), a
+                            526 ;src/niveles/niveles.c:81: rocasEspejo[contadorRocas].posy=posy;
+   0282 ED 4Br64r00   [20]  527 	ld	bc, (_contadorRocas)
+   0286 06 00         [ 7]  528 	ld	b, #0x00
+   0288 69            [ 4]  529 	ld	l, c
+   0289 60            [ 4]  530 	ld	h, b
+   028A 29            [11]  531 	add	hl, hl
+   028B 09            [11]  532 	add	hl, bc
+   028C 29            [11]  533 	add	hl, hl
+   028D 09            [11]  534 	add	hl, bc
+   028E 4D            [ 4]  535 	ld	c, l
+   028F 44            [ 4]  536 	ld	b, h
+   0290 DD 6E 06      [19]  537 	ld	l,6 (ix)
+   0293 DD 66 07      [19]  538 	ld	h,7 (ix)
+   0296 09            [11]  539 	add	hl, bc
+   0297 23            [ 6]  540 	inc	hl
+   0298 23            [ 6]  541 	inc	hl
+   0299 DD 7E 09      [19]  542 	ld	a, 9 (ix)
+   029C 77            [ 7]  543 	ld	(hl), a
+                            544 ;src/niveles/niveles.c:82: rocasEspejo[contadorRocas].sprite=sprite;
+   029D ED 4Br64r00   [20]  545 	ld	bc, (_contadorRocas)
+   02A1 06 00         [ 7]  546 	ld	b, #0x00
+   02A3 69            [ 4]  547 	ld	l, c
+   02A4 60            [ 4]  548 	ld	h, b
+   02A5 29            [11]  549 	add	hl, hl
+   02A6 09            [11]  550 	add	hl, bc
+   02A7 29            [11]  551 	add	hl, hl
+   02A8 09            [11]  552 	add	hl, bc
+   02A9 4D            [ 4]  553 	ld	c, l
+   02AA 44            [ 4]  554 	ld	b, h
+   02AB DD 6E 06      [19]  555 	ld	l,6 (ix)
+   02AE DD 66 07      [19]  556 	ld	h,7 (ix)
+   02B1 09            [11]  557 	add	hl, bc
+   02B2 23            [ 6]  558 	inc	hl
+   02B3 23            [ 6]  559 	inc	hl
+   02B4 23            [ 6]  560 	inc	hl
+   02B5 DD 7E 0B      [19]  561 	ld	a, 11 (ix)
+   02B8 77            [ 7]  562 	ld	(hl), a
+                            563 ;src/niveles/niveles.c:83: rocasEspejo[contadorRocas].movimiento=mivimiento;
+   02B9 ED 4Br64r00   [20]  564 	ld	bc, (_contadorRocas)
+   02BD 06 00         [ 7]  565 	ld	b, #0x00
+   02BF 69            [ 4]  566 	ld	l, c
+   02C0 60            [ 4]  567 	ld	h, b
+   02C1 29            [11]  568 	add	hl, hl
+   02C2 09            [11]  569 	add	hl, bc
+   02C3 29            [11]  570 	add	hl, hl
+   02C4 09            [11]  571 	add	hl, bc
+   02C5 4D            [ 4]  572 	ld	c, l
+   02C6 44            [ 4]  573 	ld	b, h
+   02C7 DD 6E 06      [19]  574 	ld	l,6 (ix)
+   02CA DD 66 07      [19]  575 	ld	h,7 (ix)
+   02CD 09            [11]  576 	add	hl, bc
+   02CE 01 04 00      [10]  577 	ld	bc, #0x0004
+   02D1 09            [11]  578 	add	hl, bc
+   02D2 DD 7E 0A      [19]  579 	ld	a, 10 (ix)
+   02D5 77            [ 7]  580 	ld	(hl), a
+   02D6                     581 00103$:
+   02D6 DD E1         [14]  582 	pop	ix
+   02D8 C9            [10]  583 	ret
+                            584 ;src/niveles/niveles.c:86: void createRocaEspejo(TGameObject* rocasEspejo,u8 posx, u8 posy,u8 mivimiento,u8 sprite, u8 simetria){
+                            585 ;	---------------------------------
+                            586 ; Function createRocaEspejo
+                            587 ; ---------------------------------
+   02D9                     588 _createRocaEspejo::
+   02D9 DD E5         [15]  589 	push	ix
+   02DB DD 21 00 00   [14]  590 	ld	ix,#0
+   02DF DD 39         [15]  591 	add	ix,sp
+                            592 ;src/niveles/niveles.c:87: rocasEspejo[contadorRocasEspejo].num=simetria;
+   02E1 ED 4Br65r00   [20]  593 	ld	bc, (_contadorRocasEspejo)
+   02E5 06 00         [ 7]  594 	ld	b, #0x00
+   02E7 69            [ 4]  595 	ld	l, c
+   02E8 60            [ 4]  596 	ld	h, b
+   02E9 29            [11]  597 	add	hl, hl
+   02EA 09            [11]  598 	add	hl, bc
+   02EB 29            [11]  599 	add	hl, hl
+   02EC 09            [11]  600 	add	hl, bc
+   02ED 4D            [ 4]  601 	ld	c, l
+   02EE 44            [ 4]  602 	ld	b, h
+   02EF DD 6E 04      [19]  603 	ld	l,4 (ix)
+   02F2 DD 66 05      [19]  604 	ld	h,5 (ix)
+   02F5 09            [11]  605 	add	hl, bc
+   02F6 DD 7E 0A      [19]  606 	ld	a, 10 (ix)
+   02F9 77            [ 7]  607 	ld	(hl), a
+                            608 ;src/niveles/niveles.c:88: rocasEspejo[contadorRocasEspejo].posx=posx;
+   02FA ED 4Br65r00   [20]  609 	ld	bc, (_contadorRocasEspejo)
+   02FE 06 00         [ 7]  610 	ld	b, #0x00
+   0300 69            [ 4]  611 	ld	l, c
+   0301 60            [ 4]  612 	ld	h, b
+   0302 29            [11]  613 	add	hl, hl
+   0303 09            [11]  614 	add	hl, bc
+   0304 29            [11]  615 	add	hl, hl
+   0305 09            [11]  616 	add	hl, bc
+   0306 4D            [ 4]  617 	ld	c, l
+   0307 44            [ 4]  618 	ld	b, h
+   0308 DD 6E 04      [19]  619 	ld	l,4 (ix)
+   030B DD 66 05      [19]  620 	ld	h,5 (ix)
+   030E 09            [11]  621 	add	hl, bc
+   030F 23            [ 6]  622 	inc	hl
+   0310 DD 7E 06      [19]  623 	ld	a, 6 (ix)
+   0313 77            [ 7]  624 	ld	(hl), a
+                            625 ;src/niveles/niveles.c:89: rocasEspejo[contadorRocasEspejo].posy=posy;
+   0314 ED 4Br65r00   [20]  626 	ld	bc, (_contadorRocasEspejo)
+   0318 06 00         [ 7]  627 	ld	b, #0x00
+   031A 69            [ 4]  628 	ld	l, c
+   031B 60            [ 4]  629 	ld	h, b
+   031C 29            [11]  630 	add	hl, hl
+   031D 09            [11]  631 	add	hl, bc
+   031E 29            [11]  632 	add	hl, hl
+   031F 09            [11]  633 	add	hl, bc
+   0320 4D            [ 4]  634 	ld	c, l
+   0321 44            [ 4]  635 	ld	b, h
+   0322 DD 6E 04      [19]  636 	ld	l,4 (ix)
+   0325 DD 66 05      [19]  637 	ld	h,5 (ix)
+   0328 09            [11]  638 	add	hl, bc
+   0329 23            [ 6]  639 	inc	hl
+   032A 23            [ 6]  640 	inc	hl
+   032B DD 7E 07      [19]  641 	ld	a, 7 (ix)
+   032E 77            [ 7]  642 	ld	(hl), a
+                            643 ;src/niveles/niveles.c:90: rocasEspejo[contadorRocasEspejo].sprite=sprite;
+   032F ED 4Br65r00   [20]  644 	ld	bc, (_contadorRocasEspejo)
+   0333 06 00         [ 7]  645 	ld	b, #0x00
+   0335 69            [ 4]  646 	ld	l, c
+   0336 60            [ 4]  647 	ld	h, b
+   0337 29            [11]  648 	add	hl, hl
+   0338 09            [11]  649 	add	hl, bc
+   0339 29            [11]  650 	add	hl, hl
+   033A 09            [11]  651 	add	hl, bc
+   033B 4D            [ 4]  652 	ld	c, l
+   033C 44            [ 4]  653 	ld	b, h
+   033D DD 6E 04      [19]  654 	ld	l,4 (ix)
+   0340 DD 66 05      [19]  655 	ld	h,5 (ix)
+   0343 09            [11]  656 	add	hl, bc
+   0344 23            [ 6]  657 	inc	hl
+   0345 23            [ 6]  658 	inc	hl
+   0346 23            [ 6]  659 	inc	hl
+   0347 DD 7E 09      [19]  660 	ld	a, 9 (ix)
+   034A 77            [ 7]  661 	ld	(hl), a
+                            662 ;src/niveles/niveles.c:91: rocasEspejo[contadorRocasEspejo].movimiento=mivimiento;
+   034B ED 4Br65r00   [20]  663 	ld	bc, (_contadorRocasEspejo)
+   034F 06 00         [ 7]  664 	ld	b, #0x00
+   0351 69            [ 4]  665 	ld	l, c
+   0352 60            [ 4]  666 	ld	h, b
+   0353 29            [11]  667 	add	hl, hl
+   0354 09            [11]  668 	add	hl, bc
+   0355 29            [11]  669 	add	hl, hl
+   0356 09            [11]  670 	add	hl, bc
+   0357 4D            [ 4]  671 	ld	c, l
+   0358 44            [ 4]  672 	ld	b, h
+   0359 DD 6E 04      [19]  673 	ld	l,4 (ix)
+   035C DD 66 05      [19]  674 	ld	h,5 (ix)
+   035F 09            [11]  675 	add	hl, bc
+   0360 01 04 00      [10]  676 	ld	bc, #0x0004
+   0363 09            [11]  677 	add	hl, bc
+   0364 DD 7E 08      [19]  678 	ld	a, 8 (ix)
+   0367 77            [ 7]  679 	ld	(hl), a
+                            680 ;src/niveles/niveles.c:92: contadorRocasEspejo++;
+   0368 21r65r00      [10]  681 	ld	hl, #_contadorRocasEspejo+0
+   036B 34            [11]  682 	inc	(hl)
+   036C DD E1         [14]  683 	pop	ix
+   036E C9            [10]  684 	ret
+                            685 ;src/niveles/niveles.c:94: void createPuerta(TGameObject* puertas,u8 posx,u8 posy,u8 sprite,u8 nivel){
+                            686 ;	---------------------------------
+                            687 ; Function createPuerta
+                            688 ; ---------------------------------
+   036F                     689 _createPuerta::
+   036F DD E5         [15]  690 	push	ix
+   0371 DD 21 00 00   [14]  691 	ld	ix,#0
+   0375 DD 39         [15]  692 	add	ix,sp
+                            693 ;src/niveles/niveles.c:95: puertas[contadorPuertas].num=nivel;
+   0377 ED 4Br66r00   [20]  694 	ld	bc, (_contadorPuertas)
+   037B 06 00         [ 7]  695 	ld	b, #0x00
+   037D 69            [ 4]  696 	ld	l, c
+   037E 60            [ 4]  697 	ld	h, b
+   037F 29            [11]  698 	add	hl, hl
+   0380 09            [11]  699 	add	hl, bc
+   0381 29            [11]  700 	add	hl, hl
+   0382 09            [11]  701 	add	hl, bc
+   0383 4D            [ 4]  702 	ld	c, l
+   0384 44            [ 4]  703 	ld	b, h
+   0385 DD 6E 04      [19]  704 	ld	l,4 (ix)
+   0388 DD 66 05      [19]  705 	ld	h,5 (ix)
+   038B 09            [11]  706 	add	hl, bc
+   038C DD 7E 09      [19]  707 	ld	a, 9 (ix)
+   038F 77            [ 7]  708 	ld	(hl), a
+                            709 ;src/niveles/niveles.c:96: puertas[contadorPuertas].posx=posx;
+   0390 ED 4Br66r00   [20]  710 	ld	bc, (_contadorPuertas)
+   0394 06 00         [ 7]  711 	ld	b, #0x00
+   0396 69            [ 4]  712 	ld	l, c
+   0397 60            [ 4]  713 	ld	h, b
+   0398 29            [11]  714 	add	hl, hl
+   0399 09            [11]  715 	add	hl, bc
+   039A 29            [11]  716 	add	hl, hl
+   039B 09            [11]  717 	add	hl, bc
+   039C 4D            [ 4]  718 	ld	c, l
+   039D 44            [ 4]  719 	ld	b, h
+   039E DD 6E 04      [19]  720 	ld	l,4 (ix)
+   03A1 DD 66 05      [19]  721 	ld	h,5 (ix)
+   03A4 09            [11]  722 	add	hl, bc
+   03A5 23            [ 6]  723 	inc	hl
+   03A6 DD 7E 06      [19]  724 	ld	a, 6 (ix)
+   03A9 77            [ 7]  725 	ld	(hl), a
+                            726 ;src/niveles/niveles.c:97: puertas[contadorPuertas].posy=posy;
+   03AA ED 4Br66r00   [20]  727 	ld	bc, (_contadorPuertas)
+   03AE 06 00         [ 7]  728 	ld	b, #0x00
+   03B0 69            [ 4]  729 	ld	l, c
+   03B1 60            [ 4]  730 	ld	h, b
+   03B2 29            [11]  731 	add	hl, hl
+   03B3 09            [11]  732 	add	hl, bc
+   03B4 29            [11]  733 	add	hl, hl
+   03B5 09            [11]  734 	add	hl, bc
+   03B6 4D            [ 4]  735 	ld	c, l
+   03B7 44            [ 4]  736 	ld	b, h
+   03B8 DD 6E 04      [19]  737 	ld	l,4 (ix)
+   03BB DD 66 05      [19]  738 	ld	h,5 (ix)
+   03BE 09            [11]  739 	add	hl, bc
+   03BF 23            [ 6]  740 	inc	hl
+   03C0 23            [ 6]  741 	inc	hl
+   03C1 DD 7E 07      [19]  742 	ld	a, 7 (ix)
+   03C4 77            [ 7]  743 	ld	(hl), a
+                            744 ;src/niveles/niveles.c:98: puertas[contadorPuertas].sprite=sprite;
+   03C5 ED 4Br66r00   [20]  745 	ld	bc, (_contadorPuertas)
+   03C9 06 00         [ 7]  746 	ld	b, #0x00
+   03CB 69            [ 4]  747 	ld	l, c
+   03CC 60            [ 4]  748 	ld	h, b
+   03CD 29            [11]  749 	add	hl, hl
+   03CE 09            [11]  750 	add	hl, bc
+   03CF 29            [11]  751 	add	hl, hl
+   03D0 09            [11]  752 	add	hl, bc
+   03D1 4D            [ 4]  753 	ld	c, l
+   03D2 44            [ 4]  754 	ld	b, h
+   03D3 DD 6E 04      [19]  755 	ld	l,4 (ix)
+   03D6 DD 66 05      [19]  756 	ld	h,5 (ix)
+   03D9 09            [11]  757 	add	hl, bc
+   03DA 23            [ 6]  758 	inc	hl
+   03DB 23            [ 6]  759 	inc	hl
+   03DC 23            [ 6]  760 	inc	hl
+   03DD DD 7E 08      [19]  761 	ld	a, 8 (ix)
+   03E0 77            [ 7]  762 	ld	(hl), a
+                            763 ;src/niveles/niveles.c:99: contadorPuertas++;
+   03E1 21r66r00      [10]  764 	ld	hl, #_contadorPuertas+0
+   03E4 34            [11]  765 	inc	(hl)
+   03E5 DD E1         [14]  766 	pop	ix
+   03E7 C9            [10]  767 	ret
+                            768 ;src/niveles/niveles.c:101: void createPortal(TGameObject* portal,TGameObject* roca,TGameObject* rocasEspejo,u8 hay){
+                            769 ;	---------------------------------
+                            770 ; Function createPortal
+                            771 ; ---------------------------------
+   03E8                     772 _createPortal::
+                            773 ;src/niveles/niveles.c:102: if(hay==si){
+   03E8 21 08 00      [10]  774 	ld	hl, #8+0
+   03EB 39            [11]  775 	add	hl, sp
+   03EC 7E            [ 7]  776 	ld	a, (hl)
+   03ED B7            [ 4]  777 	or	a, a
+   03EE C0            [11]  778 	ret	NZ
+                            779 ;src/niveles/niveles.c:103: portal[0].posx=7;
+   03EF D1            [10]  780 	pop	de
+   03F0 C1            [10]  781 	pop	bc
+   03F1 C5            [11]  782 	push	bc
+   03F2 D5            [11]  783 	push	de
+   03F3 69            [ 4]  784 	ld	l, c
+   03F4 60            [ 4]  785 	ld	h, b
+   03F5 23            [ 6]  786 	inc	hl
+   03F6 36 07         [10]  787 	ld	(hl), #0x07
+                            788 ;src/niveles/niveles.c:104: portal[0].posy=4;
+   03F8 69            [ 4]  789 	ld	l, c
+   03F9 60            [ 4]  790 	ld	h, b
+   03FA 23            [ 6]  791 	inc	hl
+   03FB 23            [ 6]  792 	inc	hl
+   03FC 36 04         [10]  793 	ld	(hl), #0x04
+                            794 ;src/niveles/niveles.c:105: portal[0].sprite=sprite_PuertaPortal_G;
+   03FE 69            [ 4]  795 	ld	l, c
+   03FF 60            [ 4]  796 	ld	h, b
+   0400 23            [ 6]  797 	inc	hl
+   0401 23            [ 6]  798 	inc	hl
+   0402 23            [ 6]  799 	inc	hl
+   0403 36 10         [10]  800 	ld	(hl), #0x10
+                            801 ;src/niveles/niveles.c:107: portal[1].posx=9;
+   0405 21 08 00      [10]  802 	ld	hl, #0x0008
+   0408 09            [11]  803 	add	hl, bc
+   0409 36 09         [10]  804 	ld	(hl), #0x09
+                            805 ;src/niveles/niveles.c:108: portal[1].posy=4;
+   040B 21 09 00      [10]  806 	ld	hl, #0x0009
+   040E 09            [11]  807 	add	hl, bc
+   040F 36 04         [10]  808 	ld	(hl), #0x04
+                            809 ;src/niveles/niveles.c:109: portal[1].sprite=sprite_PuertaPortal_B;
+   0411 21 0A 00      [10]  810 	ld	hl, #0x000a
+   0414 09            [11]  811 	add	hl, bc
+   0415 36 11         [10]  812 	ld	(hl), #0x11
+                            813 ;src/niveles/niveles.c:110: createRoca(roca,rocasEspejo,8,4,sin_Movimiento,sprite_PortalMuro,1,no);
+   0417 21 01 01      [10]  814 	ld	hl, #0x0101
+   041A E5            [11]  815 	push	hl
+   041B 21 00 0F      [10]  816 	ld	hl, #0x0f00
+   041E E5            [11]  817 	push	hl
+   041F 21 08 04      [10]  818 	ld	hl, #0x0408
+   0422 E5            [11]  819 	push	hl
+   0423 21 0C 00      [10]  820 	ld	hl, #12
+   0426 39            [11]  821 	add	hl, sp
+   0427 4E            [ 7]  822 	ld	c, (hl)
+   0428 23            [ 6]  823 	inc	hl
+   0429 46            [ 7]  824 	ld	b, (hl)
+   042A C5            [11]  825 	push	bc
+   042B 21 0C 00      [10]  826 	ld	hl, #12
+   042E 39            [11]  827 	add	hl, sp
+   042F 4E            [ 7]  828 	ld	c, (hl)
+   0430 23            [ 6]  829 	inc	hl
+   0431 46            [ 7]  830 	ld	b, (hl)
+   0432 C5            [11]  831 	push	bc
+   0433 CDrB3r01      [17]  832 	call	_createRoca
+   0436 21 0A 00      [10]  833 	ld	hl, #10
+   0439 39            [11]  834 	add	hl, sp
+   043A F9            [ 6]  835 	ld	sp, hl
+   043B C9            [10]  836 	ret
+                            837 ;src/niveles/niveles.c:115: void createHoleIzquierda(TGameObject* rocas,u8 posx, u8 posy,u8 sprite, u8 simetria){
+                            838 ;	---------------------------------
+                            839 ; Function createHoleIzquierda
+                            840 ; ---------------------------------
+   043C                     841 _createHoleIzquierda::
+   043C DD E5         [15]  842 	push	ix
+   043E DD 21 00 00   [14]  843 	ld	ix,#0
+   0442 DD 39         [15]  844 	add	ix,sp
+                            845 ;src/niveles/niveles.c:116: rocas[contadorRocas].num=simetria;
+   0444 ED 4Br64r00   [20]  846 	ld	bc, (_contadorRocas)
+   0448 06 00         [ 7]  847 	ld	b, #0x00
+   044A 69            [ 4]  848 	ld	l, c
+   044B 60            [ 4]  849 	ld	h, b
+   044C 29            [11]  850 	add	hl, hl
+   044D 09            [11]  851 	add	hl, bc
+   044E 29            [11]  852 	add	hl, hl
+   044F 09            [11]  853 	add	hl, bc
+   0450 4D            [ 4]  854 	ld	c, l
+   0451 44            [ 4]  855 	ld	b, h
+   0452 DD 6E 04      [19]  856 	ld	l,4 (ix)
+   0455 DD 66 05      [19]  857 	ld	h,5 (ix)
+   0458 09            [11]  858 	add	hl, bc
+   0459 DD 7E 09      [19]  859 	ld	a, 9 (ix)
+   045C 77            [ 7]  860 	ld	(hl), a
+                            861 ;src/niveles/niveles.c:117: rocas[contadorRocas].posx=posx;
+   045D ED 4Br64r00   [20]  862 	ld	bc, (_contadorRocas)
+   0461 06 00         [ 7]  863 	ld	b, #0x00
+   0463 69            [ 4]  864 	ld	l, c
+   0464 60            [ 4]  865 	ld	h, b
+   0465 29            [11]  866 	add	hl, hl
+   0466 09            [11]  867 	add	hl, bc
+   0467 29            [11]  868 	add	hl, hl
+   0468 09            [11]  869 	add	hl, bc
+   0469 4D            [ 4]  870 	ld	c, l
+   046A 44            [ 4]  871 	ld	b, h
+   046B DD 6E 04      [19]  872 	ld	l,4 (ix)
+   046E DD 66 05      [19]  873 	ld	h,5 (ix)
+   0471 09            [11]  874 	add	hl, bc
+   0472 23            [ 6]  875 	inc	hl
+   0473 DD 7E 06      [19]  876 	ld	a, 6 (ix)
+   0476 77            [ 7]  877 	ld	(hl), a
+                            878 ;src/niveles/niveles.c:118: rocas[contadorRocas].posy=posy;
+   0477 ED 4Br64r00   [20]  879 	ld	bc, (_contadorRocas)
+   047B 06 00         [ 7]  880 	ld	b, #0x00
+   047D 69            [ 4]  881 	ld	l, c
+   047E 60            [ 4]  882 	ld	h, b
+   047F 29            [11]  883 	add	hl, hl
+   0480 09            [11]  884 	add	hl, bc
+   0481 29            [11]  885 	add	hl, hl
+   0482 09            [11]  886 	add	hl, bc
+   0483 4D            [ 4]  887 	ld	c, l
+   0484 44            [ 4]  888 	ld	b, h
+   0485 DD 6E 04      [19]  889 	ld	l,4 (ix)
+   0488 DD 66 05      [19]  890 	ld	h,5 (ix)
+   048B 09            [11]  891 	add	hl, bc
+   048C 23            [ 6]  892 	inc	hl
+   048D 23            [ 6]  893 	inc	hl
+   048E DD 7E 07      [19]  894 	ld	a, 7 (ix)
+   0491 77            [ 7]  895 	ld	(hl), a
+                            896 ;src/niveles/niveles.c:119: rocas[contadorRocas].sprite=sprite;
+   0492 ED 4Br64r00   [20]  897 	ld	bc, (_contadorRocas)
+   0496 06 00         [ 7]  898 	ld	b, #0x00
+   0498 69            [ 4]  899 	ld	l, c
+   0499 60            [ 4]  900 	ld	h, b
+   049A 29            [11]  901 	add	hl, hl
+   049B 09            [11]  902 	add	hl, bc
+   049C 29            [11]  903 	add	hl, hl
+   049D 09            [11]  904 	add	hl, bc
+   049E 4D            [ 4]  905 	ld	c, l
+   049F 44            [ 4]  906 	ld	b, h
+   04A0 DD 6E 04      [19]  907 	ld	l,4 (ix)
+   04A3 DD 66 05      [19]  908 	ld	h,5 (ix)
+   04A6 09            [11]  909 	add	hl, bc
+   04A7 23            [ 6]  910 	inc	hl
+   04A8 23            [ 6]  911 	inc	hl
+   04A9 23            [ 6]  912 	inc	hl
+   04AA DD 7E 08      [19]  913 	ld	a, 8 (ix)
+   04AD 77            [ 7]  914 	ld	(hl), a
+                            915 ;src/niveles/niveles.c:120: rocas[contadorRocas].movimiento=sin_Movimiento;
+   04AE ED 4Br64r00   [20]  916 	ld	bc, (_contadorRocas)
+   04B2 06 00         [ 7]  917 	ld	b, #0x00
+   04B4 69            [ 4]  918 	ld	l, c
+   04B5 60            [ 4]  919 	ld	h, b
+   04B6 29            [11]  920 	add	hl, hl
+   04B7 09            [11]  921 	add	hl, bc
+   04B8 29            [11]  922 	add	hl, hl
+   04B9 09            [11]  923 	add	hl, bc
+   04BA 4D            [ 4]  924 	ld	c, l
+   04BB 44            [ 4]  925 	ld	b, h
+   04BC DD 6E 04      [19]  926 	ld	l,4 (ix)
+   04BF DD 66 05      [19]  927 	ld	h,5 (ix)
+   04C2 09            [11]  928 	add	hl, bc
+   04C3 01 04 00      [10]  929 	ld	bc, #0x0004
+   04C6 09            [11]  930 	add	hl, bc
+   04C7 36 00         [10]  931 	ld	(hl), #0x00
+                            932 ;src/niveles/niveles.c:121: contadorRocas++;
+   04C9 21r64r00      [10]  933 	ld	hl, #_contadorRocas+0
+   04CC 34            [11]  934 	inc	(hl)
+   04CD DD E1         [14]  935 	pop	ix
+   04CF C9            [10]  936 	ret
+                            937 ;src/niveles/niveles.c:123: void createHoleDerecha(TGameObject* rocasEspejo,u8 posx, u8 posy,u8 sprite, u8 simetria){
+                            938 ;	---------------------------------
+                            939 ; Function createHoleDerecha
+                            940 ; ---------------------------------
+   04D0                     941 _createHoleDerecha::
+   04D0 DD E5         [15]  942 	push	ix
+   04D2 DD 21 00 00   [14]  943 	ld	ix,#0
+   04D6 DD 39         [15]  944 	add	ix,sp
+                            945 ;src/niveles/niveles.c:124: rocasEspejo[contadorRocasEspejo].num=simetria;
+   04D8 ED 4Br65r00   [20]  946 	ld	bc, (_contadorRocasEspejo)
+   04DC 06 00         [ 7]  947 	ld	b, #0x00
+   04DE 69            [ 4]  948 	ld	l, c
+   04DF 60            [ 4]  949 	ld	h, b
+   04E0 29            [11]  950 	add	hl, hl
+   04E1 09            [11]  951 	add	hl, bc
+   04E2 29            [11]  952 	add	hl, hl
+   04E3 09            [11]  953 	add	hl, bc
+   04E4 4D            [ 4]  954 	ld	c, l
+   04E5 44            [ 4]  955 	ld	b, h
+   04E6 DD 6E 04      [19]  956 	ld	l,4 (ix)
+   04E9 DD 66 05      [19]  957 	ld	h,5 (ix)
+   04EC 09            [11]  958 	add	hl, bc
+   04ED DD 7E 09      [19]  959 	ld	a, 9 (ix)
+   04F0 77            [ 7]  960 	ld	(hl), a
+                            961 ;src/niveles/niveles.c:125: rocasEspejo[contadorRocasEspejo].posx=posx;
+   04F1 ED 4Br65r00   [20]  962 	ld	bc, (_contadorRocasEspejo)
+   04F5 06 00         [ 7]  963 	ld	b, #0x00
+   04F7 69            [ 4]  964 	ld	l, c
+   04F8 60            [ 4]  965 	ld	h, b
+   04F9 29            [11]  966 	add	hl, hl
+   04FA 09            [11]  967 	add	hl, bc
+   04FB 29            [11]  968 	add	hl, hl
+   04FC 09            [11]  969 	add	hl, bc
+   04FD 4D            [ 4]  970 	ld	c, l
+   04FE 44            [ 4]  971 	ld	b, h
+   04FF DD 6E 04      [19]  972 	ld	l,4 (ix)
+   0502 DD 66 05      [19]  973 	ld	h,5 (ix)
+   0505 09            [11]  974 	add	hl, bc
+   0506 23            [ 6]  975 	inc	hl
+   0507 DD 7E 06      [19]  976 	ld	a, 6 (ix)
+   050A 77            [ 7]  977 	ld	(hl), a
+                            978 ;src/niveles/niveles.c:126: rocasEspejo[contadorRocasEspejo].posy=posy;
+   050B ED 4Br65r00   [20]  979 	ld	bc, (_contadorRocasEspejo)
+   050F 06 00         [ 7]  980 	ld	b, #0x00
+   0511 69            [ 4]  981 	ld	l, c
+   0512 60            [ 4]  982 	ld	h, b
+   0513 29            [11]  983 	add	hl, hl
+   0514 09            [11]  984 	add	hl, bc
+   0515 29            [11]  985 	add	hl, hl
+   0516 09            [11]  986 	add	hl, bc
+   0517 4D            [ 4]  987 	ld	c, l
+   0518 44            [ 4]  988 	ld	b, h
+   0519 DD 6E 04      [19]  989 	ld	l,4 (ix)
+   051C DD 66 05      [19]  990 	ld	h,5 (ix)
+   051F 09            [11]  991 	add	hl, bc
+   0520 23            [ 6]  992 	inc	hl
+   0521 23            [ 6]  993 	inc	hl
+   0522 DD 7E 07      [19]  994 	ld	a, 7 (ix)
+   0525 77            [ 7]  995 	ld	(hl), a
+                            996 ;src/niveles/niveles.c:127: rocasEspejo[contadorRocasEspejo].sprite=sprite;
+   0526 ED 4Br65r00   [20]  997 	ld	bc, (_contadorRocasEspejo)
+   052A 06 00         [ 7]  998 	ld	b, #0x00
+   052C 69            [ 4]  999 	ld	l, c
+   052D 60            [ 4] 1000 	ld	h, b
+   052E 29            [11] 1001 	add	hl, hl
+   052F 09            [11] 1002 	add	hl, bc
+   0530 29            [11] 1003 	add	hl, hl
+   0531 09            [11] 1004 	add	hl, bc
+   0532 4D            [ 4] 1005 	ld	c, l
+   0533 44            [ 4] 1006 	ld	b, h
+   0534 DD 6E 04      [19] 1007 	ld	l,4 (ix)
+   0537 DD 66 05      [19] 1008 	ld	h,5 (ix)
+   053A 09            [11] 1009 	add	hl, bc
+   053B 23            [ 6] 1010 	inc	hl
+   053C 23            [ 6] 1011 	inc	hl
+   053D 23            [ 6] 1012 	inc	hl
+   053E DD 7E 08      [19] 1013 	ld	a, 8 (ix)
+   0541 77            [ 7] 1014 	ld	(hl), a
+                           1015 ;src/niveles/niveles.c:128: rocasEspejo[contadorRocasEspejo].movimiento=sin_Movimiento;
+   0542 ED 4Br65r00   [20] 1016 	ld	bc, (_contadorRocasEspejo)
+   0546 06 00         [ 7] 1017 	ld	b, #0x00
+   0548 69            [ 4] 1018 	ld	l, c
+   0549 60            [ 4] 1019 	ld	h, b
+   054A 29            [11] 1020 	add	hl, hl
+   054B 09            [11] 1021 	add	hl, bc
+   054C 29            [11] 1022 	add	hl, hl
+   054D 09            [11] 1023 	add	hl, bc
+   054E 4D            [ 4] 1024 	ld	c, l
+   054F 44            [ 4] 1025 	ld	b, h
+   0550 DD 6E 04      [19] 1026 	ld	l,4 (ix)
+   0553 DD 66 05      [19] 1027 	ld	h,5 (ix)
+   0556 09            [11] 1028 	add	hl, bc
+   0557 01 04 00      [10] 1029 	ld	bc, #0x0004
+   055A 09            [11] 1030 	add	hl, bc
+   055B 36 00         [10] 1031 	ld	(hl), #0x00
+                           1032 ;src/niveles/niveles.c:129: contadorRocasEspejo++;
+   055D 21r65r00      [10] 1033 	ld	hl, #_contadorRocasEspejo+0
+   0560 34            [11] 1034 	inc	(hl)
+   0561 DD E1         [14] 1035 	pop	ix
+   0563 C9            [10] 1036 	ret
+                           1037 ;src/niveles/niveles.c:131: void createColeccionabeLuz(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id){
+                           1038 ;	---------------------------------
+                           1039 ; Function createColeccionabeLuz
+                           1040 ; ---------------------------------
+   0564                    1041 _createColeccionabeLuz::
+   0564 DD E5         [15] 1042 	push	ix
+   0566 DD 21 00 00   [14] 1043 	ld	ix,#0
+   056A DD 39         [15] 1044 	add	ix,sp
+                           1045 ;src/niveles/niveles.c:132: if(P_colList2[id]==coleccionable_activo){
+   056C FD 21r68r00   [14] 1046 	ld	iy, #_P_colList2
+   0570 FD 7E 00      [19] 1047 	ld	a, 0 (iy)
+   0573 DD 86 08      [19] 1048 	add	a, 8 (ix)
+   0576 4F            [ 4] 1049 	ld	c, a
+   0577 FD 7E 01      [19] 1050 	ld	a, 1 (iy)
+   057A CE 00         [ 7] 1051 	adc	a, #0x00
+   057C 47            [ 4] 1052 	ld	b, a
+   057D 0A            [ 7] 1053 	ld	a, (bc)
+   057E B7            [ 4] 1054 	or	a, a
+   057F 20 58         [12] 1055 	jr	NZ,00103$
+                           1056 ;src/niveles/niveles.c:133: coleccionable[contadorColeccionables].num=id;
+   0581 FD 21r67r00   [14] 1057 	ld	iy, #_contadorColeccionables
+   0585 FD 6E 00      [19] 1058 	ld	l, 0 (iy)
+   0588 26 00         [ 7] 1059 	ld	h, #0x00
+   058A 29            [11] 1060 	add	hl, hl
+   058B 29            [11] 1061 	add	hl, hl
+   058C 4D            [ 4] 1062 	ld	c, l
+   058D 44            [ 4] 1063 	ld	b, h
+   058E DD 6E 04      [19] 1064 	ld	l,4 (ix)
+   0591 DD 66 05      [19] 1065 	ld	h,5 (ix)
+   0594 09            [11] 1066 	add	hl, bc
+   0595 DD 7E 08      [19] 1067 	ld	a, 8 (ix)
+   0598 77            [ 7] 1068 	ld	(hl), a
+                           1069 ;src/niveles/niveles.c:134: coleccionable[contadorColeccionables].posx=posx;
+   0599 FD 6E 00      [19] 1070 	ld	l, 0 (iy)
+   059C 26 00         [ 7] 1071 	ld	h, #0x00
+   059E 29            [11] 1072 	add	hl, hl
+   059F 29            [11] 1073 	add	hl, hl
+   05A0 4D            [ 4] 1074 	ld	c, l
+   05A1 44            [ 4] 1075 	ld	b, h
+   05A2 DD 6E 04      [19] 1076 	ld	l,4 (ix)
+   05A5 DD 66 05      [19] 1077 	ld	h,5 (ix)
+   05A8 09            [11] 1078 	add	hl, bc
+   05A9 23            [ 6] 1079 	inc	hl
+   05AA DD 7E 06      [19] 1080 	ld	a, 6 (ix)
+   05AD 77            [ 7] 1081 	ld	(hl), a
+                           1082 ;src/niveles/niveles.c:135: coleccionable[contadorColeccionables].posy=posy;
+   05AE FD 6E 00      [19] 1083 	ld	l, 0 (iy)
+   05B1 26 00         [ 7] 1084 	ld	h, #0x00
+   05B3 29            [11] 1085 	add	hl, hl
+   05B4 29            [11] 1086 	add	hl, hl
+   05B5 4D            [ 4] 1087 	ld	c, l
+   05B6 44            [ 4] 1088 	ld	b, h
+   05B7 DD 6E 04      [19] 1089 	ld	l,4 (ix)
+   05BA DD 66 05      [19] 1090 	ld	h,5 (ix)
+   05BD 09            [11] 1091 	add	hl, bc
+   05BE 23            [ 6] 1092 	inc	hl
+   05BF 23            [ 6] 1093 	inc	hl
+   05C0 DD 7E 07      [19] 1094 	ld	a, 7 (ix)
+   05C3 77            [ 7] 1095 	ld	(hl), a
+                           1096 ;src/niveles/niveles.c:136: coleccionable[contadorColeccionables].sprite=sprite_luz;
+   05C4 FD 6E 00      [19] 1097 	ld	l, 0 (iy)
+   05C7 26 00         [ 7] 1098 	ld	h, #0x00
+   05C9 29            [11] 1099 	add	hl, hl
+   05CA 29            [11] 1100 	add	hl, hl
+   05CB 4D            [ 4] 1101 	ld	c, l
+   05CC 44            [ 4] 1102 	ld	b, h
+   05CD DD 6E 04      [19] 1103 	ld	l,4 (ix)
+   05D0 DD 66 05      [19] 1104 	ld	h,5 (ix)
+   05D3 09            [11] 1105 	add	hl, bc
+   05D4 23            [ 6] 1106 	inc	hl
+   05D5 23            [ 6] 1107 	inc	hl
+   05D6 23            [ 6] 1108 	inc	hl
+   05D7 36 15         [10] 1109 	ld	(hl), #0x15
+   05D9                    1110 00103$:
+   05D9 DD E1         [14] 1111 	pop	ix
+   05DB C9            [10] 1112 	ret
+                           1113 ;src/niveles/niveles.c:139: void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 sprite,u8 id){
+                           1114 ;	---------------------------------
+                           1115 ; Function createColeccionabeFamilia
+                           1116 ; ---------------------------------
+   05DC                    1117 _createColeccionabeFamilia::
+   05DC DD E5         [15] 1118 	push	ix
+   05DE DD 21 00 00   [14] 1119 	ld	ix,#0
+   05E2 DD 39         [15] 1120 	add	ix,sp
+                           1121 ;src/niveles/niveles.c:140: if(P_colList2[id]==coleccionable_activo){
+   05E4 FD 21r68r00   [14] 1122 	ld	iy, #_P_colList2
+   05E8 FD 7E 00      [19] 1123 	ld	a, 0 (iy)
+   05EB DD 86 09      [19] 1124 	add	a, 9 (ix)
+   05EE 4F            [ 4] 1125 	ld	c, a
+   05EF FD 7E 01      [19] 1126 	ld	a, 1 (iy)
+   05F2 CE 00         [ 7] 1127 	adc	a, #0x00
+   05F4 47            [ 4] 1128 	ld	b, a
+   05F5 0A            [ 7] 1129 	ld	a, (bc)
+   05F6 B7            [ 4] 1130 	or	a, a
+   05F7 20 5A         [12] 1131 	jr	NZ,00103$
+                           1132 ;src/niveles/niveles.c:141: coleccionable[contadorColeccionables].num=id;
+   05F9 FD 21r67r00   [14] 1133 	ld	iy, #_contadorColeccionables
+   05FD FD 6E 00      [19] 1134 	ld	l, 0 (iy)
+   0600 26 00         [ 7] 1135 	ld	h, #0x00
+   0602 29            [11] 1136 	add	hl, hl
+   0603 29            [11] 1137 	add	hl, hl
+   0604 4D            [ 4] 1138 	ld	c, l
+   0605 44            [ 4] 1139 	ld	b, h
+   0606 DD 6E 04      [19] 1140 	ld	l,4 (ix)
+   0609 DD 66 05      [19] 1141 	ld	h,5 (ix)
+   060C 09            [11] 1142 	add	hl, bc
+   060D DD 7E 09      [19] 1143 	ld	a, 9 (ix)
+   0610 77            [ 7] 1144 	ld	(hl), a
+                           1145 ;src/niveles/niveles.c:142: coleccionable[contadorColeccionables].posx=posx;
+   0611 FD 6E 00      [19] 1146 	ld	l, 0 (iy)
+   0614 26 00         [ 7] 1147 	ld	h, #0x00
+   0616 29            [11] 1148 	add	hl, hl
+   0617 29            [11] 1149 	add	hl, hl
+   0618 4D            [ 4] 1150 	ld	c, l
+   0619 44            [ 4] 1151 	ld	b, h
+   061A DD 6E 04      [19] 1152 	ld	l,4 (ix)
+   061D DD 66 05      [19] 1153 	ld	h,5 (ix)
+   0620 09            [11] 1154 	add	hl, bc
+   0621 23            [ 6] 1155 	inc	hl
+   0622 DD 7E 06      [19] 1156 	ld	a, 6 (ix)
+   0625 77            [ 7] 1157 	ld	(hl), a
+                           1158 ;src/niveles/niveles.c:143: coleccionable[contadorColeccionables].posy=posy;
+   0626 FD 6E 00      [19] 1159 	ld	l, 0 (iy)
+   0629 26 00         [ 7] 1160 	ld	h, #0x00
+   062B 29            [11] 1161 	add	hl, hl
+   062C 29            [11] 1162 	add	hl, hl
+   062D 4D            [ 4] 1163 	ld	c, l
+   062E 44            [ 4] 1164 	ld	b, h
+   062F DD 6E 04      [19] 1165 	ld	l,4 (ix)
+   0632 DD 66 05      [19] 1166 	ld	h,5 (ix)
+   0635 09            [11] 1167 	add	hl, bc
+   0636 23            [ 6] 1168 	inc	hl
+   0637 23            [ 6] 1169 	inc	hl
+   0638 DD 7E 07      [19] 1170 	ld	a, 7 (ix)
+   063B 77            [ 7] 1171 	ld	(hl), a
+                           1172 ;src/niveles/niveles.c:144: coleccionable[contadorColeccionables].sprite=sprite;
+   063C FD 6E 00      [19] 1173 	ld	l, 0 (iy)
+   063F 26 00         [ 7] 1174 	ld	h, #0x00
+   0641 29            [11] 1175 	add	hl, hl
+   0642 29            [11] 1176 	add	hl, hl
+   0643 4D            [ 4] 1177 	ld	c, l
+   0644 44            [ 4] 1178 	ld	b, h
+   0645 DD 6E 04      [19] 1179 	ld	l,4 (ix)
+   0648 DD 66 05      [19] 1180 	ld	h,5 (ix)
+   064B 09            [11] 1181 	add	hl, bc
+   064C 23            [ 6] 1182 	inc	hl
+   064D 23            [ 6] 1183 	inc	hl
+   064E 23            [ 6] 1184 	inc	hl
+   064F DD 7E 08      [19] 1185 	ld	a, 8 (ix)
+   0652 77            [ 7] 1186 	ld	(hl), a
+   0653                    1187 00103$:
+   0653 DD E1         [14] 1188 	pop	ix
+   0655 C9            [10] 1189 	ret
+                           1190 ;src/niveles/niveles.c:147: void createColeccionabeAmstr(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id){
+                           1191 ;	---------------------------------
+                           1192 ; Function createColeccionabeAmstr
+                           1193 ; ---------------------------------
+   0656                    1194 _createColeccionabeAmstr::
+   0656 DD E5         [15] 1195 	push	ix
+   0658 DD 21 00 00   [14] 1196 	ld	ix,#0
+   065C DD 39         [15] 1197 	add	ix,sp
+                           1198 ;src/niveles/niveles.c:148: if(P_colList2[id]==coleccionable_activo){
+   065E FD 21r68r00   [14] 1199 	ld	iy, #_P_colList2
+   0662 FD 7E 00      [19] 1200 	ld	a, 0 (iy)
+   0665 DD 86 08      [19] 1201 	add	a, 8 (ix)
+   0668 4F            [ 4] 1202 	ld	c, a
+   0669 FD 7E 01      [19] 1203 	ld	a, 1 (iy)
+   066C CE 00         [ 7] 1204 	adc	a, #0x00
+   066E 47            [ 4] 1205 	ld	b, a
+   066F 0A            [ 7] 1206 	ld	a, (bc)
+   0670 B7            [ 4] 1207 	or	a, a
+   0671 20 58         [12] 1208 	jr	NZ,00103$
+                           1209 ;src/niveles/niveles.c:149: coleccionable[contadorColeccionables].num=id;
+   0673 FD 21r67r00   [14] 1210 	ld	iy, #_contadorColeccionables
+   0677 FD 6E 00      [19] 1211 	ld	l, 0 (iy)
+   067A 26 00         [ 7] 1212 	ld	h, #0x00
+   067C 29            [11] 1213 	add	hl, hl
+   067D 29            [11] 1214 	add	hl, hl
+   067E 4D            [ 4] 1215 	ld	c, l
+   067F 44            [ 4] 1216 	ld	b, h
+   0680 DD 6E 04      [19] 1217 	ld	l,4 (ix)
+   0683 DD 66 05      [19] 1218 	ld	h,5 (ix)
+   0686 09            [11] 1219 	add	hl, bc
+   0687 DD 7E 08      [19] 1220 	ld	a, 8 (ix)
+   068A 77            [ 7] 1221 	ld	(hl), a
+                           1222 ;src/niveles/niveles.c:150: coleccionable[contadorColeccionables].posx=posx;
+   068B FD 6E 00      [19] 1223 	ld	l, 0 (iy)
+   068E 26 00         [ 7] 1224 	ld	h, #0x00
+   0690 29            [11] 1225 	add	hl, hl
+   0691 29            [11] 1226 	add	hl, hl
+   0692 4D            [ 4] 1227 	ld	c, l
+   0693 44            [ 4] 1228 	ld	b, h
+   0694 DD 6E 04      [19] 1229 	ld	l,4 (ix)
+   0697 DD 66 05      [19] 1230 	ld	h,5 (ix)
+   069A 09            [11] 1231 	add	hl, bc
+   069B 23            [ 6] 1232 	inc	hl
+   069C DD 7E 06      [19] 1233 	ld	a, 6 (ix)
+   069F 77            [ 7] 1234 	ld	(hl), a
+                           1235 ;src/niveles/niveles.c:151: coleccionable[contadorColeccionables].posy=posy;
+   06A0 FD 6E 00      [19] 1236 	ld	l, 0 (iy)
+   06A3 26 00         [ 7] 1237 	ld	h, #0x00
+   06A5 29            [11] 1238 	add	hl, hl
+   06A6 29            [11] 1239 	add	hl, hl
+   06A7 4D            [ 4] 1240 	ld	c, l
+   06A8 44            [ 4] 1241 	ld	b, h
+   06A9 DD 6E 04      [19] 1242 	ld	l,4 (ix)
+   06AC DD 66 05      [19] 1243 	ld	h,5 (ix)
+   06AF 09            [11] 1244 	add	hl, bc
+   06B0 23            [ 6] 1245 	inc	hl
+   06B1 23            [ 6] 1246 	inc	hl
+   06B2 DD 7E 07      [19] 1247 	ld	a, 7 (ix)
+   06B5 77            [ 7] 1248 	ld	(hl), a
+                           1249 ;src/niveles/niveles.c:152: coleccionable[contadorColeccionables].sprite=sprite_amstradTape;
+   06B6 FD 6E 00      [19] 1250 	ld	l, 0 (iy)
+   06B9 26 00         [ 7] 1251 	ld	h, #0x00
+   06BB 29            [11] 1252 	add	hl, hl
+   06BC 29            [11] 1253 	add	hl, hl
+   06BD 4D            [ 4] 1254 	ld	c, l
+   06BE 44            [ 4] 1255 	ld	b, h
+   06BF DD 6E 04      [19] 1256 	ld	l,4 (ix)
+   06C2 DD 66 05      [19] 1257 	ld	h,5 (ix)
+   06C5 09            [11] 1258 	add	hl, bc
+   06C6 23            [ 6] 1259 	inc	hl
+   06C7 23            [ 6] 1260 	inc	hl
+   06C8 23            [ 6] 1261 	inc	hl
+   06C9 36 1B         [10] 1262 	ld	(hl), #0x1b
+   06CB                    1263 00103$:
+   06CB DD E1         [14] 1264 	pop	ix
+   06CD C9            [10] 1265 	ret
+                           1266 ;src/niveles/niveles.c:158: void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
+                           1267 ;	---------------------------------
+                           1268 ; Function crearNivel1
+                           1269 ; ---------------------------------
+   06CE                    1270 _crearNivel1::
+   06CE DD E5         [15] 1271 	push	ix
+   06D0 DD 21 00 00   [14] 1272 	ld	ix,#0
+   06D4 DD 39         [15] 1273 	add	ix,sp
+                           1274 ;src/niveles/niveles.c:160: createPlayer(player,3,4,posicion);
+   06D6 DD 6E 10      [19] 1275 	ld	l,16 (ix)
+   06D9 DD 66 11      [19] 1276 	ld	h,17 (ix)
+   06DC E5            [11] 1277 	push	hl
+   06DD 21 03 04      [10] 1278 	ld	hl, #0x0403
+   06E0 E5            [11] 1279 	push	hl
+   06E1 DD 6E 04      [19] 1280 	ld	l,4 (ix)
+   06E4 DD 66 05      [19] 1281 	ld	h,5 (ix)
+   06E7 E5            [11] 1282 	push	hl
+   06E8 CDr74r01      [17] 1283 	call	_createPlayer
+   06EB 21 06 00      [10] 1284 	ld	hl, #6
+   06EE 39            [11] 1285 	add	hl, sp
+   06EF F9            [ 6] 1286 	ld	sp, hl
+                           1287 ;src/niveles/niveles.c:161: createMarco(si);
+   06F0 AF            [ 4] 1288 	xor	a, a
+   06F1 F5            [11] 1289 	push	af
+   06F2 33            [ 6] 1290 	inc	sp
+   06F3 CDr65r01      [17] 1291 	call	_createMarco
+   06F6 33            [ 6] 1292 	inc	sp
+                           1293 ;src/niveles/niveles.c:162: createPortal(portales,rocas,rocasEspejo,si);
+   06F7 AF            [ 4] 1294 	xor	a, a
+   06F8 F5            [11] 1295 	push	af
+   06F9 33            [ 6] 1296 	inc	sp
+   06FA DD 6E 08      [19] 1297 	ld	l,8 (ix)
+   06FD DD 66 09      [19] 1298 	ld	h,9 (ix)
+   0700 E5            [11] 1299 	push	hl
+   0701 DD 6E 06      [19] 1300 	ld	l,6 (ix)
+   0704 DD 66 07      [19] 1301 	ld	h,7 (ix)
+   0707 E5            [11] 1302 	push	hl
+   0708 DD 6E 0C      [19] 1303 	ld	l,12 (ix)
+   070B DD 66 0D      [19] 1304 	ld	h,13 (ix)
+   070E E5            [11] 1305 	push	hl
+   070F CDrE8r03      [17] 1306 	call	_createPortal
+   0712 21 07 00      [10] 1307 	ld	hl, #7
+   0715 39            [11] 1308 	add	hl, sp
+   0716 F9            [ 6] 1309 	ld	sp, hl
+                           1310 ;src/niveles/niveles.c:163: createPuerta(puertas,3,7,sprite_Puerta_G,nivel_0);
+   0717 21 12 01      [10] 1311 	ld	hl, #0x0112
+   071A E5            [11] 1312 	push	hl
+   071B 21 03 07      [10] 1313 	ld	hl, #0x0703
+   071E E5            [11] 1314 	push	hl
+   071F DD 6E 0A      [19] 1315 	ld	l,10 (ix)
+   0722 DD 66 0B      [19] 1316 	ld	h,11 (ix)
+   0725 E5            [11] 1317 	push	hl
+   0726 CDr6Fr03      [17] 1318 	call	_createPuerta
+   0729 21 06 00      [10] 1319 	ld	hl, #6
+   072C 39            [11] 1320 	add	hl, sp
+   072D F9            [ 6] 1321 	ld	sp, hl
+                           1322 ;src/niveles/niveles.c:164: createPuerta(puertas,13,7,sprite_Puerta_B,nivel_0);
+   072E 21 13 01      [10] 1323 	ld	hl, #0x0113
+   0731 E5            [11] 1324 	push	hl
+   0732 21 0D 07      [10] 1325 	ld	hl, #0x070d
+   0735 E5            [11] 1326 	push	hl
+   0736 DD 6E 0A      [19] 1327 	ld	l,10 (ix)
+   0739 DD 66 0B      [19] 1328 	ld	h,11 (ix)
+   073C E5            [11] 1329 	push	hl
+   073D CDr6Fr03      [17] 1330 	call	_createPuerta
+   0740 21 06 00      [10] 1331 	ld	hl, #6
+   0743 39            [11] 1332 	add	hl, sp
+   0744 F9            [ 6] 1333 	ld	sp, hl
+                           1334 ;src/niveles/niveles.c:167: createRoca(rocas,rocasEspejo,2,4,mover_1,sprite_Rock_G,2,no);
+   0745 21 02 01      [10] 1335 	ld	hl, #0x0102
+   0748 E5            [11] 1336 	push	hl
+   0749 21 01 02      [10] 1337 	ld	hl, #0x0201
+   074C E5            [11] 1338 	push	hl
+   074D 21 02 04      [10] 1339 	ld	hl, #0x0402
+   0750 E5            [11] 1340 	push	hl
+   0751 DD 6E 08      [19] 1341 	ld	l,8 (ix)
+   0754 DD 66 09      [19] 1342 	ld	h,9 (ix)
+   0757 E5            [11] 1343 	push	hl
+   0758 DD 6E 06      [19] 1344 	ld	l,6 (ix)
+   075B DD 66 07      [19] 1345 	ld	h,7 (ix)
+   075E E5            [11] 1346 	push	hl
+   075F CDrB3r01      [17] 1347 	call	_createRoca
+   0762 21 0A 00      [10] 1348 	ld	hl, #10
+   0765 39            [11] 1349 	add	hl, sp
+   0766 F9            [ 6] 1350 	ld	sp, hl
+                           1351 ;src/niveles/niveles.c:168: createRocaEspejo(rocasEspejo,14,4,sin_Movimiento,sprite_Rock_nomove_B,2);
+   0767 21 04 02      [10] 1352 	ld	hl, #0x0204
+   076A E5            [11] 1353 	push	hl
+   076B 26 00         [ 7] 1354 	ld	h, #0x00
+   076D E5            [11] 1355 	push	hl
+   076E 3E 0E         [ 7] 1356 	ld	a, #0x0e
+   0770 F5            [11] 1357 	push	af
+   0771 33            [ 6] 1358 	inc	sp
+   0772 DD 6E 08      [19] 1359 	ld	l,8 (ix)
+   0775 DD 66 09      [19] 1360 	ld	h,9 (ix)
+   0778 E5            [11] 1361 	push	hl
+   0779 CDrD9r02      [17] 1362 	call	_createRocaEspejo
+   077C 21 07 00      [10] 1363 	ld	hl, #7
+   077F 39            [11] 1364 	add	hl, sp
+   0780 F9            [ 6] 1365 	ld	sp, hl
+                           1366 ;src/niveles/niveles.c:171: createColeccionabeLuz(col,15,4,0);
+   0781 21 04 00      [10] 1367 	ld	hl, #0x0004
+   0784 E5            [11] 1368 	push	hl
+   0785 3E 0F         [ 7] 1369 	ld	a, #0x0f
+   0787 F5            [11] 1370 	push	af
+   0788 33            [ 6] 1371 	inc	sp
+   0789 DD 6E 0E      [19] 1372 	ld	l,14 (ix)
+   078C DD 66 0F      [19] 1373 	ld	h,15 (ix)
+   078F E5            [11] 1374 	push	hl
+   0790 CDr64r05      [17] 1375 	call	_createColeccionabeLuz
+   0793 F1            [10] 1376 	pop	af
+                           1377 ;src/niveles/niveles.c:174: createRoca(rocas,rocasEspejo,1,2,sin_Movimiento,sprite_RockInmovil3_G,1,no);
+   0794 33            [ 6] 1378 	inc	sp
+   0795 21 01 01      [10] 1379 	ld	hl,#0x0101
+   0798 E3            [19] 1380 	ex	(sp),hl
+   0799 21 00 09      [10] 1381 	ld	hl, #0x0900
+   079C E5            [11] 1382 	push	hl
+   079D 21 01 02      [10] 1383 	ld	hl, #0x0201
+   07A0 E5            [11] 1384 	push	hl
+   07A1 DD 6E 08      [19] 1385 	ld	l,8 (ix)
+   07A4 DD 66 09      [19] 1386 	ld	h,9 (ix)
+   07A7 E5            [11] 1387 	push	hl
+   07A8 DD 6E 06      [19] 1388 	ld	l,6 (ix)
+   07AB DD 66 07      [19] 1389 	ld	h,7 (ix)
+   07AE E5            [11] 1390 	push	hl
+   07AF CDrB3r01      [17] 1391 	call	_createRoca
+   07B2 21 0A 00      [10] 1392 	ld	hl, #10
+   07B5 39            [11] 1393 	add	hl, sp
+   07B6 F9            [ 6] 1394 	ld	sp, hl
+                           1395 ;src/niveles/niveles.c:175: createRoca(rocas,rocasEspejo,2,2,sin_Movimiento,sprite_RockInmovil4_G,1,no);
+   07B7 21 01 01      [10] 1396 	ld	hl, #0x0101
+   07BA E5            [11] 1397 	push	hl
+   07BB 21 00 0B      [10] 1398 	ld	hl, #0x0b00
+   07BE E5            [11] 1399 	push	hl
+   07BF 21 02 02      [10] 1400 	ld	hl, #0x0202
+   07C2 E5            [11] 1401 	push	hl
+   07C3 DD 6E 08      [19] 1402 	ld	l,8 (ix)
+   07C6 DD 66 09      [19] 1403 	ld	h,9 (ix)
+   07C9 E5            [11] 1404 	push	hl
+   07CA DD 6E 06      [19] 1405 	ld	l,6 (ix)
+   07CD DD 66 07      [19] 1406 	ld	h,7 (ix)
+   07D0 E5            [11] 1407 	push	hl
+   07D1 CDrB3r01      [17] 1408 	call	_createRoca
+   07D4 21 0A 00      [10] 1409 	ld	hl, #10
+   07D7 39            [11] 1410 	add	hl, sp
+   07D8 F9            [ 6] 1411 	ld	sp, hl
+                           1412 ;src/niveles/niveles.c:176: createRoca(rocas,rocasEspejo,1,3,sin_Movimiento,sprite_RockInmovil1_G,1,no);
+   07D9 21 01 01      [10] 1413 	ld	hl, #0x0101
+   07DC E5            [11] 1414 	push	hl
+   07DD 21 00 05      [10] 1415 	ld	hl, #0x0500
+   07E0 E5            [11] 1416 	push	hl
+   07E1 21 01 03      [10] 1417 	ld	hl, #0x0301
+   07E4 E5            [11] 1418 	push	hl
+   07E5 DD 6E 08      [19] 1419 	ld	l,8 (ix)
+   07E8 DD 66 09      [19] 1420 	ld	h,9 (ix)
+   07EB E5            [11] 1421 	push	hl
+   07EC DD 6E 06      [19] 1422 	ld	l,6 (ix)
+   07EF DD 66 07      [19] 1423 	ld	h,7 (ix)
+   07F2 E5            [11] 1424 	push	hl
+   07F3 CDrB3r01      [17] 1425 	call	_createRoca
+   07F6 21 0A 00      [10] 1426 	ld	hl, #10
+   07F9 39            [11] 1427 	add	hl, sp
+   07FA F9            [ 6] 1428 	ld	sp, hl
+                           1429 ;src/niveles/niveles.c:177: createRoca(rocas,rocasEspejo,6,3,sin_Movimiento,sprite_RockInmovil1_G,1,no);
+   07FB 21 01 01      [10] 1430 	ld	hl, #0x0101
+   07FE E5            [11] 1431 	push	hl
+   07FF 21 00 05      [10] 1432 	ld	hl, #0x0500
+   0802 E5            [11] 1433 	push	hl
+   0803 21 06 03      [10] 1434 	ld	hl, #0x0306
+   0806 E5            [11] 1435 	push	hl
+   0807 DD 6E 08      [19] 1436 	ld	l,8 (ix)
+   080A DD 66 09      [19] 1437 	ld	h,9 (ix)
+   080D E5            [11] 1438 	push	hl
+   080E DD 6E 06      [19] 1439 	ld	l,6 (ix)
+   0811 DD 66 07      [19] 1440 	ld	h,7 (ix)
+   0814 E5            [11] 1441 	push	hl
+   0815 CDrB3r01      [17] 1442 	call	_createRoca
+   0818 21 0A 00      [10] 1443 	ld	hl, #10
+   081B 39            [11] 1444 	add	hl, sp
+   081C F9            [ 6] 1445 	ld	sp, hl
+                           1446 ;src/niveles/niveles.c:178: createRoca(rocas,rocasEspejo,1,5,sin_Movimiento,sprite_RockInmovil1_G,1,no);
+   081D 21 01 01      [10] 1447 	ld	hl, #0x0101
+   0820 E5            [11] 1448 	push	hl
+   0821 21 00 05      [10] 1449 	ld	hl, #0x0500
+   0824 E5            [11] 1450 	push	hl
+   0825 2E 01         [ 7] 1451 	ld	l, #0x01
+   0827 E5            [11] 1452 	push	hl
+   0828 DD 6E 08      [19] 1453 	ld	l,8 (ix)
+   082B DD 66 09      [19] 1454 	ld	h,9 (ix)
+   082E E5            [11] 1455 	push	hl
+   082F DD 6E 06      [19] 1456 	ld	l,6 (ix)
+   0832 DD 66 07      [19] 1457 	ld	h,7 (ix)
+   0835 E5            [11] 1458 	push	hl
+   0836 CDrB3r01      [17] 1459 	call	_createRoca
+   0839 21 0A 00      [10] 1460 	ld	hl, #10
+   083C 39            [11] 1461 	add	hl, sp
+   083D F9            [ 6] 1462 	ld	sp, hl
+                           1463 ;src/niveles/niveles.c:179: createRoca(rocas,rocasEspejo,6,5,sin_Movimiento,sprite_RockInmovil1_G,1,no);
+   083E 21 01 01      [10] 1464 	ld	hl, #0x0101
+   0841 E5            [11] 1465 	push	hl
+   0842 21 00 05      [10] 1466 	ld	hl, #0x0500
+   0845 E5            [11] 1467 	push	hl
+   0846 2E 06         [ 7] 1468 	ld	l, #0x06
+   0848 E5            [11] 1469 	push	hl
+   0849 DD 6E 08      [19] 1470 	ld	l,8 (ix)
+   084C DD 66 09      [19] 1471 	ld	h,9 (ix)
+   084F E5            [11] 1472 	push	hl
+   0850 DD 6E 06      [19] 1473 	ld	l,6 (ix)
+   0853 DD 66 07      [19] 1474 	ld	h,7 (ix)
+   0856 E5            [11] 1475 	push	hl
+   0857 CDrB3r01      [17] 1476 	call	_createRoca
+   085A 21 0A 00      [10] 1477 	ld	hl, #10
+   085D 39            [11] 1478 	add	hl, sp
+   085E F9            [ 6] 1479 	ld	sp, hl
+                           1480 ;src/niveles/niveles.c:180: createRoca(rocas,rocasEspejo,7,1,sin_Movimiento,sprite_RockInmovil2_G,1,no);
+   085F 21 01 01      [10] 1481 	ld	hl, #0x0101
+   0862 E5            [11] 1482 	push	hl
+   0863 21 00 07      [10] 1483 	ld	hl, #0x0700
+   0866 E5            [11] 1484 	push	hl
+   0867 21 07 01      [10] 1485 	ld	hl, #0x0107
+   086A E5            [11] 1486 	push	hl
+   086B DD 6E 08      [19] 1487 	ld	l,8 (ix)
+   086E DD 66 09      [19] 1488 	ld	h,9 (ix)
+   0871 E5            [11] 1489 	push	hl
+   0872 DD 6E 06      [19] 1490 	ld	l,6 (ix)
+   0875 DD 66 07      [19] 1491 	ld	h,7 (ix)
+   0878 E5            [11] 1492 	push	hl
+   0879 CDrB3r01      [17] 1493 	call	_createRoca
+   087C 21 0A 00      [10] 1494 	ld	hl, #10
+   087F 39            [11] 1495 	add	hl, sp
+   0880 F9            [ 6] 1496 	ld	sp, hl
+                           1497 ;src/niveles/niveles.c:181: createRoca(rocas,rocasEspejo,7,7,sin_Movimiento,sprite_RockInmovil2_G,1,no);
+   0881 21 01 01      [10] 1498 	ld	hl, #0x0101
+   0884 E5            [11] 1499 	push	hl
+   0885 21 00 07      [10] 1500 	ld	hl, #0x0700
+   0888 E5            [11] 1501 	push	hl
+   0889 2E 07         [ 7] 1502 	ld	l, #0x07
+   088B E5            [11] 1503 	push	hl
+   088C DD 6E 08      [19] 1504 	ld	l,8 (ix)
+   088F DD 66 09      [19] 1505 	ld	h,9 (ix)
+   0892 E5            [11] 1506 	push	hl
+   0893 DD 6E 06      [19] 1507 	ld	l,6 (ix)
+   0896 DD 66 07      [19] 1508 	ld	h,7 (ix)
+   0899 E5            [11] 1509 	push	hl
+   089A CDrB3r01      [17] 1510 	call	_createRoca
+   089D 21 0A 00      [10] 1511 	ld	hl, #10
+   08A0 39            [11] 1512 	add	hl, sp
+   08A1 F9            [ 6] 1513 	ld	sp, hl
+                           1514 ;src/niveles/niveles.c:182: createRoca(rocas,rocasEspejo,1,4,sin_Movimiento,sprite_amstrad,1,no);
+   08A2 21 01 01      [10] 1515 	ld	hl, #0x0101
+   08A5 E5            [11] 1516 	push	hl
+   08A6 21 00 1A      [10] 1517 	ld	hl, #0x1a00
+   08A9 E5            [11] 1518 	push	hl
+   08AA 21 01 04      [10] 1519 	ld	hl, #0x0401
+   08AD E5            [11] 1520 	push	hl
+   08AE DD 6E 08      [19] 1521 	ld	l,8 (ix)
+   08B1 DD 66 09      [19] 1522 	ld	h,9 (ix)
+   08B4 E5            [11] 1523 	push	hl
+   08B5 DD 6E 06      [19] 1524 	ld	l,6 (ix)
+   08B8 DD 66 07      [19] 1525 	ld	h,7 (ix)
+   08BB E5            [11] 1526 	push	hl
+   08BC CDrB3r01      [17] 1527 	call	_createRoca
+   08BF 21 0A 00      [10] 1528 	ld	hl, #10
+   08C2 39            [11] 1529 	add	hl, sp
+   08C3 F9            [ 6] 1530 	ld	sp, hl
+                           1531 ;src/niveles/niveles.c:183: createRoca(rocas,rocasEspejo,1,1,sin_Movimiento,sprite_PrinceofPersia2_G,1,no);
+   08C4 21 01 01      [10] 1532 	ld	hl, #0x0101
+   08C7 E5            [11] 1533 	push	hl
+   08C8 21 00 1E      [10] 1534 	ld	hl, #0x1e00
+   08CB E5            [11] 1535 	push	hl
+   08CC 21 01 01      [10] 1536 	ld	hl, #0x0101
+   08CF E5            [11] 1537 	push	hl
+   08D0 DD 6E 08      [19] 1538 	ld	l,8 (ix)
+   08D3 DD 66 09      [19] 1539 	ld	h,9 (ix)
+   08D6 E5            [11] 1540 	push	hl
+   08D7 DD 6E 06      [19] 1541 	ld	l,6 (ix)
+   08DA DD 66 07      [19] 1542 	ld	h,7 (ix)
+   08DD E5            [11] 1543 	push	hl
+   08DE CDrB3r01      [17] 1544 	call	_createRoca
+   08E1 21 0A 00      [10] 1545 	ld	hl, #10
+   08E4 39            [11] 1546 	add	hl, sp
+   08E5 F9            [ 6] 1547 	ld	sp, hl
+                           1548 ;src/niveles/niveles.c:184: createRoca(rocas,rocasEspejo,2,1,sin_Movimiento,sprite_PrinceofPersia1_G,1,no);
+   08E6 21 01 01      [10] 1549 	ld	hl, #0x0101
+   08E9 E5            [11] 1550 	push	hl
+   08EA 21 00 1C      [10] 1551 	ld	hl, #0x1c00
+   08ED E5            [11] 1552 	push	hl
+   08EE 21 02 01      [10] 1553 	ld	hl, #0x0102
+   08F1 E5            [11] 1554 	push	hl
+   08F2 DD 6E 08      [19] 1555 	ld	l,8 (ix)
+   08F5 DD 66 09      [19] 1556 	ld	h,9 (ix)
+   08F8 E5            [11] 1557 	push	hl
+   08F9 DD 6E 06      [19] 1558 	ld	l,6 (ix)
+   08FC DD 66 07      [19] 1559 	ld	h,7 (ix)
+   08FF E5            [11] 1560 	push	hl
+   0900 CDrB3r01      [17] 1561 	call	_createRoca
+   0903 21 0A 00      [10] 1562 	ld	hl, #10
+   0906 39            [11] 1563 	add	hl, sp
+   0907 F9            [ 6] 1564 	ld	sp, hl
+                           1565 ;src/niveles/niveles.c:188: createRocaEspejo(rocasEspejo,14,2,sin_Movimiento,sprite_RockInmovil3_B,1);
+   0908 21 0A 01      [10] 1566 	ld	hl, #0x010a
+   090B E5            [11] 1567 	push	hl
+   090C 21 02 00      [10] 1568 	ld	hl, #0x0002
+   090F E5            [11] 1569 	push	hl
+   0910 3E 0E         [ 7] 1570 	ld	a, #0x0e
+   0912 F5            [11] 1571 	push	af
+   0913 33            [ 6] 1572 	inc	sp
+   0914 DD 6E 08      [19] 1573 	ld	l,8 (ix)
+   0917 DD 66 09      [19] 1574 	ld	h,9 (ix)
+   091A E5            [11] 1575 	push	hl
+   091B CDrD9r02      [17] 1576 	call	_createRocaEspejo
+   091E 21 07 00      [10] 1577 	ld	hl, #7
+   0921 39            [11] 1578 	add	hl, sp
+   0922 F9            [ 6] 1579 	ld	sp, hl
+                           1580 ;src/niveles/niveles.c:189: createRocaEspejo(rocasEspejo,15,2,sin_Movimiento,sprite_RockInmovil4_B,1);
+   0923 21 0C 01      [10] 1581 	ld	hl, #0x010c
+   0926 E5            [11] 1582 	push	hl
+   0927 21 02 00      [10] 1583 	ld	hl, #0x0002
+   092A E5            [11] 1584 	push	hl
+   092B 3E 0F         [ 7] 1585 	ld	a, #0x0f
+   092D F5            [11] 1586 	push	af
+   092E 33            [ 6] 1587 	inc	sp
+   092F DD 6E 08      [19] 1588 	ld	l,8 (ix)
+   0932 DD 66 09      [19] 1589 	ld	h,9 (ix)
+   0935 E5            [11] 1590 	push	hl
+   0936 CDrD9r02      [17] 1591 	call	_createRocaEspejo
+   0939 21 07 00      [10] 1592 	ld	hl, #7
+   093C 39            [11] 1593 	add	hl, sp
+   093D F9            [ 6] 1594 	ld	sp, hl
+                           1595 ;src/niveles/niveles.c:190: createRocaEspejo(rocasEspejo,15,3,sin_Movimiento,sprite_RockInmovil1_B,1);
+   093E 21 06 01      [10] 1596 	ld	hl, #0x0106
+   0941 E5            [11] 1597 	push	hl
+   0942 21 03 00      [10] 1598 	ld	hl, #0x0003
+   0945 E5            [11] 1599 	push	hl
+   0946 3E 0F         [ 7] 1600 	ld	a, #0x0f
+   0948 F5            [11] 1601 	push	af
+   0949 33            [ 6] 1602 	inc	sp
+   094A DD 6E 08      [19] 1603 	ld	l,8 (ix)
+   094D DD 66 09      [19] 1604 	ld	h,9 (ix)
+   0950 E5            [11] 1605 	push	hl
+   0951 CDrD9r02      [17] 1606 	call	_createRocaEspejo
+   0954 21 07 00      [10] 1607 	ld	hl, #7
+   0957 39            [11] 1608 	add	hl, sp
+   0958 F9            [ 6] 1609 	ld	sp, hl
+                           1610 ;src/niveles/niveles.c:191: createRocaEspejo(rocasEspejo,10,3,sin_Movimiento,sprite_RockInmovil1_B,1);
+   0959 21 06 01      [10] 1611 	ld	hl, #0x0106
+   095C E5            [11] 1612 	push	hl
+   095D 21 03 00      [10] 1613 	ld	hl, #0x0003
+   0960 E5            [11] 1614 	push	hl
+   0961 3E 0A         [ 7] 1615 	ld	a, #0x0a
+   0963 F5            [11] 1616 	push	af
+   0964 33            [ 6] 1617 	inc	sp
+   0965 DD 6E 08      [19] 1618 	ld	l,8 (ix)
+   0968 DD 66 09      [19] 1619 	ld	h,9 (ix)
+   096B E5            [11] 1620 	push	hl
+   096C CDrD9r02      [17] 1621 	call	_createRocaEspejo
+   096F 21 07 00      [10] 1622 	ld	hl, #7
+   0972 39            [11] 1623 	add	hl, sp
+   0973 F9            [ 6] 1624 	ld	sp, hl
+                           1625 ;src/niveles/niveles.c:192: createRocaEspejo(rocasEspejo,15,5,sin_Movimiento,sprite_RockInmovil1_B,1);
+   0974 21 06 01      [10] 1626 	ld	hl, #0x0106
+   0977 E5            [11] 1627 	push	hl
+   0978 21 05 00      [10] 1628 	ld	hl, #0x0005
+   097B E5            [11] 1629 	push	hl
+   097C 3E 0F         [ 7] 1630 	ld	a, #0x0f
+   097E F5            [11] 1631 	push	af
+   097F 33            [ 6] 1632 	inc	sp
+   0980 DD 6E 08      [19] 1633 	ld	l,8 (ix)
+   0983 DD 66 09      [19] 1634 	ld	h,9 (ix)
+   0986 E5            [11] 1635 	push	hl
+   0987 CDrD9r02      [17] 1636 	call	_createRocaEspejo
+   098A 21 07 00      [10] 1637 	ld	hl, #7
+   098D 39            [11] 1638 	add	hl, sp
+   098E F9            [ 6] 1639 	ld	sp, hl
+                           1640 ;src/niveles/niveles.c:193: createRocaEspejo(rocasEspejo,10,5,sin_Movimiento,sprite_RockInmovil1_B,1);
+   098F 21 06 01      [10] 1641 	ld	hl, #0x0106
+   0992 E5            [11] 1642 	push	hl
+   0993 21 05 00      [10] 1643 	ld	hl, #0x0005
+   0996 E5            [11] 1644 	push	hl
+   0997 3E 0A         [ 7] 1645 	ld	a, #0x0a
+   0999 F5            [11] 1646 	push	af
+   099A 33            [ 6] 1647 	inc	sp
+   099B DD 6E 08      [19] 1648 	ld	l,8 (ix)
+   099E DD 66 09      [19] 1649 	ld	h,9 (ix)
+   09A1 E5            [11] 1650 	push	hl
+   09A2 CDrD9r02      [17] 1651 	call	_createRocaEspejo
+   09A5 21 07 00      [10] 1652 	ld	hl, #7
+   09A8 39            [11] 1653 	add	hl, sp
+   09A9 F9            [ 6] 1654 	ld	sp, hl
+                           1655 ;src/niveles/niveles.c:194: createRocaEspejo(rocasEspejo,9,1,sin_Movimiento,sprite_RockInmovil2_B,1);
+   09AA 21 08 01      [10] 1656 	ld	hl, #0x0108
+   09AD E5            [11] 1657 	push	hl
+   09AE 21 01 00      [10] 1658 	ld	hl, #0x0001
+   09B1 E5            [11] 1659 	push	hl
+   09B2 3E 09         [ 7] 1660 	ld	a, #0x09
+   09B4 F5            [11] 1661 	push	af
+   09B5 33            [ 6] 1662 	inc	sp
+   09B6 DD 6E 08      [19] 1663 	ld	l,8 (ix)
+   09B9 DD 66 09      [19] 1664 	ld	h,9 (ix)
+   09BC E5            [11] 1665 	push	hl
+   09BD CDrD9r02      [17] 1666 	call	_createRocaEspejo
+   09C0 21 07 00      [10] 1667 	ld	hl, #7
+   09C3 39            [11] 1668 	add	hl, sp
+   09C4 F9            [ 6] 1669 	ld	sp, hl
+                           1670 ;src/niveles/niveles.c:195: createRocaEspejo(rocasEspejo,9,7,sin_Movimiento,sprite_RockInmovil2_B,1);
+   09C5 21 08 01      [10] 1671 	ld	hl, #0x0108
+   09C8 E5            [11] 1672 	push	hl
+   09C9 21 07 00      [10] 1673 	ld	hl, #0x0007
+   09CC E5            [11] 1674 	push	hl
+   09CD 3E 09         [ 7] 1675 	ld	a, #0x09
+   09CF F5            [11] 1676 	push	af
+   09D0 33            [ 6] 1677 	inc	sp
+   09D1 DD 6E 08      [19] 1678 	ld	l,8 (ix)
+   09D4 DD 66 09      [19] 1679 	ld	h,9 (ix)
+   09D7 E5            [11] 1680 	push	hl
+   09D8 CDrD9r02      [17] 1681 	call	_createRocaEspejo
+   09DB 21 07 00      [10] 1682 	ld	hl, #7
+   09DE 39            [11] 1683 	add	hl, sp
+   09DF F9            [ 6] 1684 	ld	sp, hl
+                           1685 ;src/niveles/niveles.c:196: createRocaEspejo(rocasEspejo,14,1,sin_Movimiento,sprite_PrinceofPersia1_B,1);
+   09E0 21 1D 01      [10] 1686 	ld	hl, #0x011d
+   09E3 E5            [11] 1687 	push	hl
+   09E4 21 01 00      [10] 1688 	ld	hl, #0x0001
+   09E7 E5            [11] 1689 	push	hl
+   09E8 3E 0E         [ 7] 1690 	ld	a, #0x0e
+   09EA F5            [11] 1691 	push	af
+   09EB 33            [ 6] 1692 	inc	sp
+   09EC DD 6E 08      [19] 1693 	ld	l,8 (ix)
+   09EF DD 66 09      [19] 1694 	ld	h,9 (ix)
+   09F2 E5            [11] 1695 	push	hl
+   09F3 CDrD9r02      [17] 1696 	call	_createRocaEspejo
+   09F6 21 07 00      [10] 1697 	ld	hl, #7
+   09F9 39            [11] 1698 	add	hl, sp
+   09FA F9            [ 6] 1699 	ld	sp, hl
+                           1700 ;src/niveles/niveles.c:197: createRocaEspejo(rocasEspejo,15,1,sin_Movimiento,sprite_PrinceofPersia2_B,1);
+   09FB 21 1F 01      [10] 1701 	ld	hl, #0x011f
+   09FE E5            [11] 1702 	push	hl
+   09FF 21 01 00      [10] 1703 	ld	hl, #0x0001
+   0A02 E5            [11] 1704 	push	hl
+   0A03 3E 0F         [ 7] 1705 	ld	a, #0x0f
+   0A05 F5            [11] 1706 	push	af
+   0A06 33            [ 6] 1707 	inc	sp
+   0A07 DD 6E 08      [19] 1708 	ld	l,8 (ix)
+   0A0A DD 66 09      [19] 1709 	ld	h,9 (ix)
+   0A0D E5            [11] 1710 	push	hl
+   0A0E CDrD9r02      [17] 1711 	call	_createRocaEspejo
+   0A11 21 07 00      [10] 1712 	ld	hl, #7
+   0A14 39            [11] 1713 	add	hl, sp
+   0A15 F9            [ 6] 1714 	ld	sp, hl
+   0A16 DD E1         [14] 1715 	pop	ix
+   0A18 C9            [10] 1716 	ret
+                           1717 ;src/niveles/niveles.c:199: void crearNivel2(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
+                           1718 ;	---------------------------------
+                           1719 ; Function crearNivel2
+                           1720 ; ---------------------------------
+   0A19                    1721 _crearNivel2::
+                           1722 ;src/niveles/niveles.c:202: }
+   0A19 C9            [10] 1723 	ret
+                           1724 ;src/niveles/niveles.c:203: void crearNivel3(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
+                           1725 ;	---------------------------------
+                           1726 ; Function crearNivel3
+                           1727 ; ---------------------------------
+   0A1A                    1728 _crearNivel3::
+                           1729 ;src/niveles/niveles.c:205: }
+   0A1A C9            [10] 1730 	ret
+                           1731 	.area _CODE
+                           1732 	.area _INITIALIZER
+                           1733 	.area _CABS (ABS)

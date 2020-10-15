@@ -13,160 +13,180 @@
                              13 	.globl _scanKey
                              14 	.globl _keyScape
                              15 	.globl _keyFire
-                             16 	.globl _movimientoPlayer
-                             17 ;--------------------------------------------------------
-                             18 ; special function registers
-                             19 ;--------------------------------------------------------
+                             16 	.globl _keyR
+                             17 	.globl _movimientoPlayer
+                             18 ;--------------------------------------------------------
+                             19 ; special function registers
                              20 ;--------------------------------------------------------
-                             21 ; ram data
-                             22 ;--------------------------------------------------------
-                             23 	.area _DATA
-                             24 ;--------------------------------------------------------
-                             25 ; ram data
-                             26 ;--------------------------------------------------------
-                             27 	.area _INITIALIZED
-                             28 ;--------------------------------------------------------
-                             29 ; absolute external ram data
-                             30 ;--------------------------------------------------------
-                             31 	.area _DABS (ABS)
-                             32 ;--------------------------------------------------------
-                             33 ; global & static initialisations
-                             34 ;--------------------------------------------------------
-                             35 	.area _HOME
-                             36 	.area _GSINIT
-                             37 	.area _GSFINAL
-                             38 	.area _GSINIT
-                             39 ;--------------------------------------------------------
-                             40 ; Home
-                             41 ;--------------------------------------------------------
-                             42 	.area _HOME
+                             21 ;--------------------------------------------------------
+                             22 ; ram data
+                             23 ;--------------------------------------------------------
+                             24 	.area _DATA
+                             25 ;--------------------------------------------------------
+                             26 ; ram data
+                             27 ;--------------------------------------------------------
+                             28 	.area _INITIALIZED
+                             29 ;--------------------------------------------------------
+                             30 ; absolute external ram data
+                             31 ;--------------------------------------------------------
+                             32 	.area _DABS (ABS)
+                             33 ;--------------------------------------------------------
+                             34 ; global & static initialisations
+                             35 ;--------------------------------------------------------
+                             36 	.area _HOME
+                             37 	.area _GSINIT
+                             38 	.area _GSFINAL
+                             39 	.area _GSINIT
+                             40 ;--------------------------------------------------------
+                             41 ; Home
+                             42 ;--------------------------------------------------------
                              43 	.area _HOME
-                             44 ;--------------------------------------------------------
-                             45 ; code
-                             46 ;--------------------------------------------------------
-                             47 	.area _CODE
-                             48 ;src/input/input.c:4: void scanKey(){
-                             49 ;	---------------------------------
-                             50 ; Function scanKey
-                             51 ; ---------------------------------
-   0000                      52 _scanKey::
-                             53 ;src/input/input.c:5: cpct_scanKeyboard_f();
-   0000 C3r00r00      [10]   54 	jp  _cpct_scanKeyboard_f
-                             55 ;src/input/input.c:8: u8 keyScape(){
-                             56 ;	---------------------------------
-                             57 ; Function keyScape
-                             58 ; ---------------------------------
-   0003                      59 _keyScape::
-                             60 ;src/input/input.c:9: u8 pulsada=0;
-   0003 2E 00         [ 7]   61 	ld	l, #0x00
-                             62 ;src/input/input.c:10: if(cpct_isKeyPressed (Key_Esc))
-   0005 E5            [11]   63 	push	hl
-   0006 21 08 04      [10]   64 	ld	hl, #0x0408
-   0009 CDr00r00      [17]   65 	call	_cpct_isKeyPressed
-   000C 7D            [ 4]   66 	ld	a, l
-   000D E1            [10]   67 	pop	hl
-   000E B7            [ 4]   68 	or	a, a
-   000F C8            [11]   69 	ret	Z
-                             70 ;src/input/input.c:11: pulsada=1;
-   0010 2E 01         [ 7]   71 	ld	l, #0x01
-                             72 ;src/input/input.c:12: return pulsada;    
-   0012 C9            [10]   73 	ret
-                             74 ;src/input/input.c:14: u8 keyFire(){
-                             75 ;	---------------------------------
-                             76 ; Function keyFire
-                             77 ; ---------------------------------
-   0013                      78 _keyFire::
-                             79 ;src/input/input.c:15: u8 pulsada=0;
-   0013 2E 00         [ 7]   80 	ld	l, #0x00
-                             81 ;src/input/input.c:16: if(cpct_isKeyPressed (Key_Space))
-   0015 E5            [11]   82 	push	hl
-   0016 21 05 80      [10]   83 	ld	hl, #0x8005
-   0019 CDr00r00      [17]   84 	call	_cpct_isKeyPressed
-   001C 7D            [ 4]   85 	ld	a, l
-   001D E1            [10]   86 	pop	hl
-   001E B7            [ 4]   87 	or	a, a
-   001F C8            [11]   88 	ret	Z
-                             89 ;src/input/input.c:17: pulsada=1;
-   0020 2E 01         [ 7]   90 	ld	l, #0x01
-                             91 ;src/input/input.c:18: return pulsada; 
-   0022 C9            [10]   92 	ret
-                             93 ;src/input/input.c:22: u8 movimientoPlayer(){
-                             94 ;	---------------------------------
-                             95 ; Function movimientoPlayer
-                             96 ; ---------------------------------
-   0023                      97 _movimientoPlayer::
-                             98 ;src/input/input.c:23: u8 pulsada=0;
-                             99 ;src/input/input.c:24: u8 movimiento=mover_SinMovimiento;
-   0023 21 00 00      [10]  100 	ld	hl,#0x0000
-                            101 ;src/input/input.c:25: if(cpct_isKeyPressed (Key_CursorUp)){
-   0026 E5            [11]  102 	push	hl
-   0027 21 00 01      [10]  103 	ld	hl, #0x0100
-   002A CDr00r00      [17]  104 	call	_cpct_isKeyPressed
-   002D 7D            [ 4]  105 	ld	a, l
-   002E E1            [10]  106 	pop	hl
-   002F B7            [ 4]  107 	or	a, a
-   0030 28 03         [12]  108 	jr	Z,00102$
-                            109 ;src/input/input.c:26: movimiento=mover_Arriba;
-                            110 ;src/input/input.c:27: pulsada=1;
-   0032 21 02 01      [10]  111 	ld	hl,#0x0102
-   0035                     112 00102$:
-                            113 ;src/input/input.c:29: if(cpct_isKeyPressed (Key_CursorDown)){
-   0035 E5            [11]  114 	push	hl
-   0036 21 00 04      [10]  115 	ld	hl, #0x0400
-   0039 CDr00r00      [17]  116 	call	_cpct_isKeyPressed
-   003C 7D            [ 4]  117 	ld	a, l
-   003D E1            [10]  118 	pop	hl
-   003E B7            [ 4]  119 	or	a, a
-   003F 28 0A         [12]  120 	jr	Z,00106$
-                            121 ;src/input/input.c:30: movimiento=mover_Abajo;
-   0041 2E 04         [ 7]  122 	ld	l, #0x04
-                            123 ;src/input/input.c:31: if(pulsada==1)
-   0043 25            [ 4]  124 	dec	h
-   0044 20 03         [12]  125 	jr	NZ,00104$
-                            126 ;src/input/input.c:32: return mover_SinMovimiento;
-   0046 2E 00         [ 7]  127 	ld	l, #0x00
-   0048 C9            [10]  128 	ret
-   0049                     129 00104$:
+                             44 	.area _HOME
+                             45 ;--------------------------------------------------------
+                             46 ; code
+                             47 ;--------------------------------------------------------
+                             48 	.area _CODE
+                             49 ;src/input/input.c:4: void scanKey(){
+                             50 ;	---------------------------------
+                             51 ; Function scanKey
+                             52 ; ---------------------------------
+   0000                      53 _scanKey::
+                             54 ;src/input/input.c:5: cpct_scanKeyboard_f();
+   0000 C3r00r00      [10]   55 	jp  _cpct_scanKeyboard_f
+                             56 ;src/input/input.c:8: u8 keyScape(){
+                             57 ;	---------------------------------
+                             58 ; Function keyScape
+                             59 ; ---------------------------------
+   0003                      60 _keyScape::
+                             61 ;src/input/input.c:9: u8 pulsada=0;
+   0003 2E 00         [ 7]   62 	ld	l, #0x00
+                             63 ;src/input/input.c:10: if(cpct_isKeyPressed (Key_Esc))
+   0005 E5            [11]   64 	push	hl
+   0006 21 08 04      [10]   65 	ld	hl, #0x0408
+   0009 CDr00r00      [17]   66 	call	_cpct_isKeyPressed
+   000C 7D            [ 4]   67 	ld	a, l
+   000D E1            [10]   68 	pop	hl
+   000E B7            [ 4]   69 	or	a, a
+   000F C8            [11]   70 	ret	Z
+                             71 ;src/input/input.c:11: pulsada=1;
+   0010 2E 01         [ 7]   72 	ld	l, #0x01
+                             73 ;src/input/input.c:12: return pulsada;    
+   0012 C9            [10]   74 	ret
+                             75 ;src/input/input.c:14: u8 keyFire(){
+                             76 ;	---------------------------------
+                             77 ; Function keyFire
+                             78 ; ---------------------------------
+   0013                      79 _keyFire::
+                             80 ;src/input/input.c:15: u8 pulsada=0;
+   0013 2E 00         [ 7]   81 	ld	l, #0x00
+                             82 ;src/input/input.c:16: if(cpct_isKeyPressed (Key_Space))
+   0015 E5            [11]   83 	push	hl
+   0016 21 05 80      [10]   84 	ld	hl, #0x8005
+   0019 CDr00r00      [17]   85 	call	_cpct_isKeyPressed
+   001C 7D            [ 4]   86 	ld	a, l
+   001D E1            [10]   87 	pop	hl
+   001E B7            [ 4]   88 	or	a, a
+   001F C8            [11]   89 	ret	Z
+                             90 ;src/input/input.c:17: pulsada=1;
+   0020 2E 01         [ 7]   91 	ld	l, #0x01
+                             92 ;src/input/input.c:18: return pulsada; 
+   0022 C9            [10]   93 	ret
+                             94 ;src/input/input.c:20: u8 keyR(){
+                             95 ;	---------------------------------
+                             96 ; Function keyR
+                             97 ; ---------------------------------
+   0023                      98 _keyR::
+                             99 ;src/input/input.c:21: u8 pulsada=no;
+   0023 2E 01         [ 7]  100 	ld	l, #0x01
+                            101 ;src/input/input.c:22: if(cpct_isKeyPressed (Key_R))
+   0025 E5            [11]  102 	push	hl
+   0026 21 06 04      [10]  103 	ld	hl, #0x0406
+   0029 CDr00r00      [17]  104 	call	_cpct_isKeyPressed
+   002C 7D            [ 4]  105 	ld	a, l
+   002D E1            [10]  106 	pop	hl
+   002E B7            [ 4]  107 	or	a, a
+   002F C8            [11]  108 	ret	Z
+                            109 ;src/input/input.c:23: pulsada=si;
+   0030 2E 00         [ 7]  110 	ld	l, #0x00
+                            111 ;src/input/input.c:24: return pulsada; 
+   0032 C9            [10]  112 	ret
+                            113 ;src/input/input.c:28: u8 movimientoPlayer(){
+                            114 ;	---------------------------------
+                            115 ; Function movimientoPlayer
+                            116 ; ---------------------------------
+   0033                     117 _movimientoPlayer::
+                            118 ;src/input/input.c:29: u8 pulsada=0;
+                            119 ;src/input/input.c:30: u8 movimiento=mover_SinMovimiento;
+   0033 21 00 00      [10]  120 	ld	hl,#0x0000
+                            121 ;src/input/input.c:31: if(cpct_isKeyPressed (Key_CursorUp)){
+   0036 E5            [11]  122 	push	hl
+   0037 21 00 01      [10]  123 	ld	hl, #0x0100
+   003A CDr00r00      [17]  124 	call	_cpct_isKeyPressed
+   003D 7D            [ 4]  125 	ld	a, l
+   003E E1            [10]  126 	pop	hl
+   003F B7            [ 4]  127 	or	a, a
+   0040 28 03         [12]  128 	jr	Z,00102$
+                            129 ;src/input/input.c:32: movimiento=mover_Arriba;
                             130 ;src/input/input.c:33: pulsada=1;
-   0049 26 01         [ 7]  131 	ld	h, #0x01
-   004B                     132 00106$:
-                            133 ;src/input/input.c:35: if(cpct_isKeyPressed (Key_CursorLeft)){
-   004B E5            [11]  134 	push	hl
-   004C 21 01 01      [10]  135 	ld	hl, #0x0101
-   004F CDr00r00      [17]  136 	call	_cpct_isKeyPressed
-   0052 7D            [ 4]  137 	ld	a, l
-   0053 E1            [10]  138 	pop	hl
-   0054 B7            [ 4]  139 	or	a, a
-   0055 28 0A         [12]  140 	jr	Z,00110$
-                            141 ;src/input/input.c:36: movimiento=mover_Izquierda;
-   0057 2E 01         [ 7]  142 	ld	l, #0x01
+   0042 21 02 01      [10]  131 	ld	hl,#0x0102
+   0045                     132 00102$:
+                            133 ;src/input/input.c:35: if(cpct_isKeyPressed (Key_CursorDown)){
+   0045 E5            [11]  134 	push	hl
+   0046 21 00 04      [10]  135 	ld	hl, #0x0400
+   0049 CDr00r00      [17]  136 	call	_cpct_isKeyPressed
+   004C 7D            [ 4]  137 	ld	a, l
+   004D E1            [10]  138 	pop	hl
+   004E B7            [ 4]  139 	or	a, a
+   004F 28 0A         [12]  140 	jr	Z,00106$
+                            141 ;src/input/input.c:36: movimiento=mover_Abajo;
+   0051 2E 04         [ 7]  142 	ld	l, #0x04
                             143 ;src/input/input.c:37: if(pulsada==1)
-   0059 25            [ 4]  144 	dec	h
-   005A 20 03         [12]  145 	jr	NZ,00108$
+   0053 25            [ 4]  144 	dec	h
+   0054 20 03         [12]  145 	jr	NZ,00104$
                             146 ;src/input/input.c:38: return mover_SinMovimiento;
-   005C 2E 00         [ 7]  147 	ld	l, #0x00
-   005E C9            [10]  148 	ret
-   005F                     149 00108$:
+   0056 2E 00         [ 7]  147 	ld	l, #0x00
+   0058 C9            [10]  148 	ret
+   0059                     149 00104$:
                             150 ;src/input/input.c:39: pulsada=1;
-   005F 26 01         [ 7]  151 	ld	h, #0x01
-   0061                     152 00110$:
-                            153 ;src/input/input.c:41: if(cpct_isKeyPressed (Key_CursorRight)){
-   0061 E5            [11]  154 	push	hl
-   0062 21 00 02      [10]  155 	ld	hl, #0x0200
-   0065 CDr00r00      [17]  156 	call	_cpct_isKeyPressed
-   0068 7D            [ 4]  157 	ld	a, l
-   0069 E1            [10]  158 	pop	hl
-   006A B7            [ 4]  159 	or	a, a
-   006B C8            [11]  160 	ret	Z
-                            161 ;src/input/input.c:42: movimiento=mover_Derecha;
-   006C 2E 03         [ 7]  162 	ld	l, #0x03
+   0059 26 01         [ 7]  151 	ld	h, #0x01
+   005B                     152 00106$:
+                            153 ;src/input/input.c:41: if(cpct_isKeyPressed (Key_CursorLeft)){
+   005B E5            [11]  154 	push	hl
+   005C 21 01 01      [10]  155 	ld	hl, #0x0101
+   005F CDr00r00      [17]  156 	call	_cpct_isKeyPressed
+   0062 7D            [ 4]  157 	ld	a, l
+   0063 E1            [10]  158 	pop	hl
+   0064 B7            [ 4]  159 	or	a, a
+   0065 28 0A         [12]  160 	jr	Z,00110$
+                            161 ;src/input/input.c:42: movimiento=mover_Izquierda;
+   0067 2E 01         [ 7]  162 	ld	l, #0x01
                             163 ;src/input/input.c:43: if(pulsada==1)
-   006E 25            [ 4]  164 	dec	h
-   006F C0            [11]  165 	ret	NZ
-                            166 ;src/input/input.c:44: return mover_SinMovimiento;         
-   0070 2E 00         [ 7]  167 	ld	l, #0x00
-                            168 ;src/input/input.c:46: return movimiento;
-   0072 C9            [10]  169 	ret
-                            170 	.area _CODE
-                            171 	.area _INITIALIZER
-                            172 	.area _CABS (ABS)
+   0069 25            [ 4]  164 	dec	h
+   006A 20 03         [12]  165 	jr	NZ,00108$
+                            166 ;src/input/input.c:44: return mover_SinMovimiento;
+   006C 2E 00         [ 7]  167 	ld	l, #0x00
+   006E C9            [10]  168 	ret
+   006F                     169 00108$:
+                            170 ;src/input/input.c:45: pulsada=1;
+   006F 26 01         [ 7]  171 	ld	h, #0x01
+   0071                     172 00110$:
+                            173 ;src/input/input.c:47: if(cpct_isKeyPressed (Key_CursorRight)){
+   0071 E5            [11]  174 	push	hl
+   0072 21 00 02      [10]  175 	ld	hl, #0x0200
+   0075 CDr00r00      [17]  176 	call	_cpct_isKeyPressed
+   0078 7D            [ 4]  177 	ld	a, l
+   0079 E1            [10]  178 	pop	hl
+   007A B7            [ 4]  179 	or	a, a
+   007B C8            [11]  180 	ret	Z
+                            181 ;src/input/input.c:48: movimiento=mover_Derecha;
+   007C 2E 03         [ 7]  182 	ld	l, #0x03
+                            183 ;src/input/input.c:49: if(pulsada==1)
+   007E 25            [ 4]  184 	dec	h
+   007F C0            [11]  185 	ret	NZ
+                            186 ;src/input/input.c:50: return mover_SinMovimiento;         
+   0080 2E 00         [ 7]  187 	ld	l, #0x00
+                            188 ;src/input/input.c:52: return movimiento;
+   0082 C9            [10]  189 	ret
+                            190 	.area _CODE
+                            191 	.area _INITIALIZER
+                            192 	.area _CABS (ABS)

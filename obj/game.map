@@ -7,7 +7,7 @@ Area                                    Addr        Size        Decimal Bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00000000  .__.ABS.                           cpct_easytilemaps
+     00000000  .__.ABS.                           cpct_strings
      00000000  l__CABS                         
      00000000  l__DABS                         
      00000000  l__GSFINAL                      
@@ -17,267 +17,433 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000000  l__INITIALIZER                  
      00000000  s__CABS                         
      00000000  s__DABS                         
-     0000023D  l__DATA                         
-     000021A5  l__CODE                         
+     00000540  l__DATA                         
+     000036EC  l__CODE                         
      00004000  s__CODE                         
-     000061A5  s__DATA                         
-     000063E2  s__GSFINAL                      
-     000063E2  s__GSINIT                       
-     000063E2  s__HOME                         
-     000063E2  s__INITIALIZED                  
-     000063E2  s__INITIALIZER                  
+     000076EC  s__DATA                         
+     00007C2C  s__GSFINAL                      
+     00007C2C  s__GSINIT                       
+     00007C2C  s__HOME                         
+     00007C2C  s__INITIALIZED                  
+     00007C2C  s__INITIALIZER                  
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000021A5 =        8613. bytes (REL,CON)
+_CODE                               00004000    000036EC =       14060. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00004000  _map                               court
-     0000418C  _PALETTE2                          tiles
-     0000419C  _tiles                             tiles
-     0000424C  _tiles_00                          tiles
-     0000426C  _tiles_01                          tiles
-     0000428C  _tiles_02                          tiles
-     000042AC  _tiles_03                          tiles
-     000042CC  _tiles_04                          tiles
-     000042EC  _tiles_05                          tiles
-     0000430C  _tiles_06                          tiles
-     0000432C  _tiles_07                          tiles
-     0000434C  _tiles_08                          tiles
-     0000436C  _tiles_09                          tiles
-     0000438C  _tiles_10                          tiles
-     000043AC  _tiles_11                          tiles
-     000043CC  _tiles_12                          tiles
-     000043EC  _tiles_13                          tiles
-     0000440C  _tiles_14                          tiles
-     0000442C  _tiles_15                          tiles
-     0000444C  _tiles_16                          tiles
-     0000446C  _tiles_17                          tiles
-     0000448C  _tiles_18                          tiles
-     000044AC  _tiles_19                          tiles
-     000044CC  _tiles_20                          tiles
-     000044EC  _tiles_21                          tiles
-     0000450C  _tiles_22                          tiles
-     0000452C  _tiles_23                          tiles
-     0000454C  _tiles_24                          tiles
-     0000456C  _tiles_25                          tiles
-     0000458C  _tiles_26                          tiles
-     000045AC  _tiles_27                          tiles
-     000045CC  _tiles_28                          tiles
-     000045EC  _tiles_29                          tiles
-     0000460C  _tiles_30                          tiles
-     0000462C  _tiles_31                          tiles
-     0000464C  _tiles_32                          tiles
-     0000466C  _tiles_33                          tiles
-     0000468C  _tiles_34                          tiles
-     000046AC  _tiles_35                          tiles
-     000046CC  _tiles_36                          tiles
-     000046EC  _tiles_37                          tiles
-     0000470C  _tiles_38                          tiles
-     0000472C  _tiles_39                          tiles
-     0000474C  _tiles_40                          tiles
-     0000476C  _tiles_41                          tiles
-     0000478C  _tiles_42                          tiles
-     000047AC  _tiles_43                          tiles
-     000047CC  _tiles_44                          tiles
-     000047EC  _tiles_45                          tiles
-     0000480C  _tiles_46                          tiles
+     00004000  _map                               mapa1
+     00004132  _PALETTE2                          Walls
+     0000413F  _tiles                             Walls
+     000041AB  _tiles_00                          Walls
+     000041CB  _tiles_01                          Walls
+     000041EB  _tiles_02                          Walls
+     0000420B  _tiles_03                          Walls
+     0000422B  _tiles_04                          Walls
+     0000424B  _tiles_05                          Walls
+     0000426B  _tiles_06                          Walls
+     0000428B  _tiles_07                          Walls
+     000042AB  _tiles_08                          Walls
+     000042CB  _tiles_09                          Walls
+     000042EB  _tiles_10                          Walls
+     0000430B  _tiles_11                          Walls
+     0000432B  _tiles_12                          Walls
+     0000434B  _tiles_13                          Walls
+     0000436B  _tiles_14                          Walls
+     0000438B  _tiles_15                          Walls
+     000043AB  _tiles_16                          Walls
+     000043CB  _tiles_17                          Walls
+     000043EB  _tiles_18                          Walls
+     0000440B  _tiles_19                          Walls
+     0000442B  _tiles_20                          Walls
+     0000444B  _tiles_21                          Walls
+     0000446B  _tiles_22                          Walls
+     0000448B  _tiles_23                          Walls
+     000044AB  _tiles_24                          Walls
+     000044CB  _tiles_25                          Walls
+     000044EB  _tiles_26                          Walls
+     0000450B  _tiles_27                          Walls
+     0000452B  _tiles_28                          Walls
+     0000454B  _tiles_29                          Walls
+     0000456B  _tiles_30                          Walls
+     0000458B  _tiles_31                          Walls
+     000045AB  _tiles_32                          Walls
+     000045CB  _tiles_33                          Walls
+     000045EB  _tiles_34                          Walls
+     0000460B  _tiles_35                          Walls
+     0000462B  _tiles_36                          Walls
+     0000464B  _tiles_37                          Walls
+     0000466B  _tiles_38                          Walls
+     0000468B  _tiles_39                          Walls
+     000046AB  _tiles_40                          Walls
+     000046CB  _tiles_41                          Walls
+     000046EB  _tiles_42                          Walls
+     0000470B  _tiles_43                          Walls
+     0000472B  _tiles_44                          Walls
+     0000474B  _tiles_45                          Walls
+     0000476B  _tiles_46                          Walls
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000021A5 =        8613. bytes (REL,CON)
+_CODE                               00004000    000036EC =       14060. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     0000482C  _tiles_47                          tiles
-     0000484C  _tiles_48                          tiles
-     0000486C  _tiles_49                          tiles
-     0000488C  _tiles_50                          tiles
-     000048AC  _tiles_51                          tiles
-     000048CC  _tiles_52                          tiles
-     000048EC  _tiles_53                          tiles
-     0000490C  _tiles_54                          tiles
-     0000492C  _tiles_55                          tiles
-     0000494C  _tiles_56                          tiles
-     0000496C  _tiles_57                          tiles
-     0000498C  _tiles_58                          tiles
-     000049AC  _tiles_59                          tiles
-     000049CC  _tiles_60                          tiles
-     000049EC  _tiles_61                          tiles
-     00004A0C  _tiles_62                          tiles
-     00004A2C  _tiles_63                          tiles
-     00004A4C  _tiles_64                          tiles
-     00004A6C  _tiles_65                          tiles
-     00004A8C  _tiles_66                          tiles
-     00004AAC  _tiles_67                          tiles
-     00004ACC  _tiles_68                          tiles
-     00004AEC  _tiles_69                          tiles
-     00004B0C  _tiles_70                          tiles
-     00004B2C  _tiles_71                          tiles
-     00004B4C  _tiles_72                          tiles
-     00004B6C  _tiles_73                          tiles
-     00004B8C  _tiles_74                          tiles
-     00004BAC  _tiles_75                          tiles
-     00004BCC  _tiles_76                          tiles
-     00004BEC  _tiles_77                          tiles
-     00004C0C  _tiles_78                          tiles
-     00004C2C  _tiles_79                          tiles
-     00004C4C  _tiles_80                          tiles
-     00004C6C  _tiles_81                          tiles
-     00004C8C  _tiles_82                          tiles
-     00004CAC  _tiles_83                          tiles
-     00004CCC  _tiles_84                          tiles
-     00004CEC  _tiles_85                          tiles
-     00004D0C  _tiles_86                          tiles
-     00004D2C  _tiles_87                          tiles
-     00004D4C  _holePALETTE                       hole
-     00004D5C  _hole                              hole
-     00004D60  _hole_0                            hole
-     00004D80  _hole_1                            hole
-     00004DA0  _puertaPALETTE                     puerta
-     00004DB0  _puertaSprite                      puerta
-     00004DB4  _puertalSprite_0                   puerta
-     00004DD4  _puertalSprite_1                   puerta
-     00004DF4  _portalPALETTE                     portal
-     00004E04  _portalSprite                      portal
+     0000478B  _tiles_47                          Walls
+     000047AB  _tiles_48                          Walls
+     000047CB  _tiles_49                          Walls
+     000047EB  _tiles_50                          Walls
+     0000480B  _tiles_51                          Walls
+     0000482B  _tiles_52                          Walls
+     0000484B  _tiles_53                          Walls
+     0000486B  _PrinceOfPersia_COVERPALETTE       PrinceOfPersia_COVER
+     00004878  _PrinceOfPersia_COVER              PrinceOfPersia_COVER
+     0000487C  _PrinceOfPersia_COVER_0            PrinceOfPersia_COVER
+     0000489C  _PrinceOfPersia_COVER_1            PrinceOfPersia_COVER
+     000048BC  _PrinceOfPersia_ENE_BPALETTE       PrinceOfPersia_ENE_B
+     000048C9  _PrinceOfPersia_ENE_B              PrinceOfPersia_ENE_B
+     000048CD  _PrinceOfPersia_ENE_B_0            PrinceOfPersia_ENE_B
+     000048ED  _PrinceOfPersia_ENE_B_1            PrinceOfPersia_ENE_B
+     0000490D  _PrinceOfPersia_ENE_GPALETTE       PrinceOfPersia_ENE_G
+     0000491A  _PrinceOfPersia_ENE_G              PrinceOfPersia_ENE_G
+     0000491E  _PrinceOfPersia_ENE_G_0            PrinceOfPersia_ENE_G
+     0000493E  _PrinceOfPersia_ENE_G_1            PrinceOfPersia_ENE_G
+     0000495E  _PrinceOfPersia_PJ_BPALETTE        PrinceOfPersia_PJ_B
+     0000496B  _PrinceOfPersia_PJ_B               PrinceOfPersia_PJ_B
+     0000496F  _PrinceOfPersia_PJ_B_0             PrinceOfPersia_PJ_B
+     0000498F  _PrinceOfPersia_PJ_B_1             PrinceOfPersia_PJ_B
+     000049AF  _PrinceOfPersia_PJ_GPALETTE        PrinceOfPersia_PJ_G
+     000049BC  _PrinceOfPersia_PJ_G               PrinceOfPersia_PJ_G
+     000049C0  _PrinceOfPersia_PJ_G_0             PrinceOfPersia_PJ_G
+     000049E0  _PrinceOfPersia_PJ_G_1             PrinceOfPersia_PJ_G
+     00004A00  _PrinceOfPersia_TapePALETTE        PrinceOfPersia_Tape
+     00004A0D  _PrinceOfPersia_Tape               PrinceOfPersia_Tape
+     00004A11  _PrinceOfPersia_Tape_0             PrinceOfPersia_Tape
+     00004A31  _PrinceOfPersia_Tape_1             PrinceOfPersia_Tape
+     00004A51  _AmstradPALETTE                    Amstrad
+     00004A5E  _Amstrad                           Amstrad
+     00004A62  _Amstrad_0                         Amstrad
+     00004A82  _Amstrad_1                         Amstrad
+     00004AA2  _Character_FatherPALETTE           Character_Father
+     00004AAF  _Character_Father                  Character_Father
+     00004AB3  _Character_Father_0                Character_Father
+     00004AD3  _Character_Father_1                Character_Father
+     00004AF3  _Character_MotherPALETTE           Character_Mother
+     00004B00  _Character_Mother                  Character_Mother
+     00004B04  _Character_Mother_0                Character_Mother
+     00004B24  _Character_Mother_1                Character_Mother
+     00004B44  _Character_SisterPALETTE           Character_Sister
+     00004B51  _Character_Sister                  Character_Sister
+     00004B55  _Character_Sister_0                Character_Sister
+     00004B75  _Character_Sister_1                Character_Sister
+     00004B95  _Character_BrotherPALETTE          Character_Brother
+     00004BA2  _Character_Brother                 Character_Brother
+     00004BA6  _Character_Brother_0               Character_Brother
+     00004BBE  _Character_Brother_1               Character_Brother
 ASxxxx Linker V03.00 + NoICE + sdld,  page 4.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000021A5 =        8613. bytes (REL,CON)
+_CODE                               00004000    000036EC =       14060. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00004E08  _portalSprite_0                    portal
-     00004E28  _portalSprite_1                    portal
-     00004E48  _rockLinealPALETTE                 rockLineal
-     00004E58  _rockLineal                        rockLineal
-     00004E5C  _rockLineal_0                      rockLineal
-     00004E7C  _rockLineal_1                      rockLineal
-     00004E9C  _rockInmovilPALETTE                rockInmovil
-     00004EAC  _rockInmovil                       rockInmovil
-     00004EB0  _rockInmovil_0                     rockInmovil
-     00004ED0  _rockInmovil_1                     rockInmovil
-     00004EF0  _rockPALETTE                       rock
-     00004F00  _rock                              rock
-     00004F04  _rock_0                            rock
-     00004F24  _rock_1                            rock
-     00004F44  _PALETTE                           player
-     00004F54  _playerSprite                      player
-     00004F58  _playerSprite_0                    player
-     00004F78  _playerSprite_1                    player
-     00004F98  _main                              main
-     00004FAF  _game_palette                      main
-     00004FBF  _initGameobjest                    gameObject
-     00004FE0  _dibujarGameObject                 gameObject
-     000050BD  _limpiarRastro                     gameObject
-     000050DC  _moverGameObject                   gameObject
-     00005144  _moverElEspejo                     gameObject
-     000052BC  _cambiarPosicion                   gameObject
-     000052CA  _moverYdibujar                     gameObject
-     00005305  _taparHole                         gameObject
-     00005382  _moverTipoPlayer                   gameObject
-     00005573  _moverTipoRoca                     gameObject
-     000057D8  _mover1casilla                     gameObject
-     0000581D  _movimientoLineal                  gameObject
-     000058C8  _colisionesSiguientePosicion       gameObject
-     00005981  _comprobarRocas                    gameObject
-     000059CA  _comprobarPortales                 gameObject
-     00005ADB  _comprobarPuertas                  gameObject
-     00005B20  _crearMapa                         mapa
-     00005B3A  _game                              juego
-     00005B48  _initGame                          juego
-     00005B72  _moverPlayer                       juego
-     00005BC0  _createPlayer                      juego
-     00005BDA  _createRocas                       juego
-     00005C0D  _createRocasEspejo                 juego
-     00005C40  _createPortal                      juego
-     00005C5F  _createPuerta                      juego
-     00005C74  _createHole                        juego
-     00005C8E  _dibujarGameObjects                juego
-     00005D05  _comprobarMovimiento               juego
-     00005D21  _resetGameobjects                  juego
-     00005D4B  _crearNivel                        niveles
-     00005D53  _scanKey                           input
+     00004BD6  _LuzAzulPALETTE                    LuzAzul
+     00004BE3  _LuzAzul                           LuzAzul
+     00004BE7  _LuzAzul_0                         LuzAzul
+     00004C07  _LuzAzul_1                         LuzAzul
+     00004C27  _Block_HolePALETTE                 Block_Hole
+     00004C34  _Block_Hole                        Block_Hole
+     00004C38  _Block_Hole_0                      Block_Hole
+     00004C58  _Block_Hole_1                      Block_Hole
+     00004C78  _Door_BPALETTE                     Door_B
+     00004C85  _Door_B                            Door_B
+     00004C89  _Door_B_0                          Door_B
+     00004CA9  _Door_B_1                          Door_B
+     00004CC9  _Door_GPALETTE                     Door_G
+     00004CD6  _Door_G                            Door_G
+     00004CDA  _Door_G_0                          Door_G
+     00004CFA  _Door_G_1                          Door_G
+     00004D1A  _PortalDoor_BPALETTE               PortalDoor_B
+     00004D27  _PortalDoor_B                      PortalDoor_B
+     00004D2B  _PortalDoor_B_0                    PortalDoor_B
+     00004D4B  _PortalDoor_B_1                    PortalDoor_B
+     00004D6B  _PortalDoor_GPALETTE               PortalDoor_G
+     00004D78  _PortalDoor_G                      PortalDoor_G
+     00004D7C  _PortalDoor_G_0                    PortalDoor_G
+     00004D9C  _PortalDoor_G_1                    PortalDoor_G
+     00004DBC  _PortalWallPALETTE                 PortalWall
+     00004DC9  _PortalWall                        PortalWall
+     00004DCD  _PortalWall_0                      PortalWall
+     00004DED  _PortalWall_1                      PortalWall
+     00004E0D  _Block_Move2_BPALETTE              Block_Move2_B
+     00004E1A  _Block_Move2_B                     Block_Move2_B
+     00004E1E  _Block_Move2_B_0                   Block_Move2_B
+     00004E3E  _Block_Move2_B_1                   Block_Move2_B
+     00004E5E  _Block_Move2_GPALETTE              Block_Move2_G
+     00004E6B  _Block_Move2_G                     Block_Move2_G
+     00004E6F  _Block_Move2_G_0                   Block_Move2_G
+     00004E8F  _Block_Move2_G_1                   Block_Move2_G
+     00004EAF  _Block_Static4_BPALETTE            Block_Static4_B
+     00004EBC  _Block_Static4_B                   Block_Static4_B
+     00004EC0  _Block_Static4_B_0                 Block_Static4_B
+     00004EE0  _Block_Static4_B_1                 Block_Static4_B
+     00004F00  _Block_Static4_GPALETTE            Block_Static4_G
+     00004F0D  _Block_Static4_G                   Block_Static4_G
+     00004F11  _Block_Static4_G_0                 Block_Static4_G
+     00004F31  _Block_Static4_G_1                 Block_Static4_G
+     00004F51  _Block_Static3_BPALETTE            Block_Static3_B
+     00004F5E  _Block_Static3_B                   Block_Static3_B
+     00004F62  _Block_Static3_B_0                 Block_Static3_B
+     00004F82  _Block_Static3_B_1                 Block_Static3_B
+     00004FA2  _Block_Static3_GPALETTE            Block_Static3_G
+     00004FAF  _Block_Static3_G                   Block_Static3_G
+     00004FB3  _Block_Static3_G_0                 Block_Static3_G
 ASxxxx Linker V03.00 + NoICE + sdld,  page 5.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_CODE                               00004000    000021A5 =        8613. bytes (REL,CON)
+_CODE                               00004000    000036EC =       14060. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     00005D56  _keyScape                          input
-     00005D66  _keyFire                           input
-     00005D76  _movimientoPlayer                  input
-     00005DC6  _calcularPosicionEnPantalla        fisicas
-     00005E0C  _calcularMaximosyMinimos           fisicas
-     00005EA5  _comprobarColisiones1vs1           fisicas
-     00005ECB  _cpct_isKeyPressed                 cpct_keyboard
-     00005ECB  cpct_isKeyPressed_asm              cpct_keyboard
-     00005ED7  _cpct_scanKeyboard_f               cpct_keyboard
-     00005ED7  cpct_scanKeyboard_f_asm            cpct_keyboard
-     00005F41  _cpct_setPalette                   cpct_video
-     00005F58  _cpct_drawSprite                   cpct_sprites
-     00005FFD  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
-     00006007  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
-     0000601D  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
-     00006088  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
-     0000608E  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
-     00006093  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
-     00006096  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
-     000060A2  _cpct_keyboardStatusBuffer         cpct_keyboard
-     000060AC  _cpct_setVideoMode                 cpct_video
-     000060BA  _cpct_disableFirmware              cpct_firmware
-     000060BA  _cpct_removeInterruptHandler       cpct_firmware
-     000060BA  cpct_disableFirmware_asm           cpct_firmware
-     000060BA  cpct_removeInterruptHandler_asm    cpct_firmware
-     000060CA  _cpct_drawSolidBox                 cpct_sprites
-     00006174  _cpct_mode_rom_status              cpct_firmware
-     00006175  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
+     00004FD3  _Block_Static3_G_1                 Block_Static3_G
+     00004FF3  _Block_Static2_BPALETTE            Block_Static2_B
+     00005000  _Block_Static2_B                   Block_Static2_B
+     00005004  _Block_Static2_B_0                 Block_Static2_B
+     00005024  _Block_Static2_B_1                 Block_Static2_B
+     00005044  _Block_Static2_GPALETTE            Block_Static2_G
+     00005051  _Block_Static2_G                   Block_Static2_G
+     00005055  _Block_Static2_G_0                 Block_Static2_G
+     00005075  _Block_Static2_G_1                 Block_Static2_G
+     00005095  _Block_Static1_BPALETTE            Block_Static1_B
+     000050A2  _Block_Static1_B                   Block_Static1_B
+     000050A6  _Block_Static1_B_0                 Block_Static1_B
+     000050C6  _Block_Static1_B_1                 Block_Static1_B
+     000050E6  _Block_Static1_GPALETTE            Block_Static1_G
+     000050F3  _Block_Static1_G                   Block_Static1_G
+     000050F7  _Block_Static1_G_0                 Block_Static1_G
+     00005117  _Block_Static1_G_1                 Block_Static1_G
+     00005137  _Block_Move0_BPALETTE              Block_Move0_B
+     00005144  _Block_Move0_B                     Block_Move0_B
+     00005148  _Block_Move0_B_0                   Block_Move0_B
+     00005168  _Block_Move0_B_1                   Block_Move0_B
+     00005188  _Block_Move1_BPALETTE              Block_Move1_B
+     00005195  _Block_Move1_B                     Block_Move1_B
+     00005199  _Block_Move1_B_0                   Block_Move1_B
+     000051B9  _Block_Move1_B_1                   Block_Move1_B
+     000051D9  _Block_Move1_GPALETTE              Block_Move1_G
+     000051E6  _Block_Move1_G                     Block_Move1_G
+     000051EA  _Block_Move1_G_0                   Block_Move1_G
+     0000520A  _Block_Move1_G_1                   Block_Move1_G
+     0000522A  _PALETTE                           Character_Principal
+     00005237  _Character_Principal               Character_Principal
+     0000523B  _Character_Principal_0             Character_Principal
+     0000525B  _Character_Principal_1             Character_Principal
+     0000527B  _main                              main
+     00005292  _game_palette                      main
+     000052A2  _initGameobjest                    gameObject
+     000052EC  _dibujarGameObject                 gameObject
+     000055CA  _dibujarGameObjectCol              gameObject
+     0000568D  _dibujarGameObjectColSprite        gameObject
+     0000575B  _limpiarRastro                     gameObject
+     0000577A  _moverGameObject                   gameObject
+     000057E2  _moverElEspejo                     gameObject
+     0000595C  _cambiarPosicion                   gameObject
+     0000596A  _moverYdibujar                     gameObject
+     000059A5  _taparHole                         gameObject
+     00005A1B  _moverTipoPlayer                   gameObject
+     00005C20  _moverTipoRoca                     gameObject
+     00005E88  _mover1casilla                     gameObject
+     00005ECD  _movimientoLineal                  gameObject
+     00005F78  _colisionesSiguientePosicion       gameObject
+     00006034  _comprobarRocas                    gameObject
 ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-_DATA                               000061A5    0000023D =         573. bytes (REL,CON)
+_CODE                               00004000    000036EC =       14060. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-     000061B3  _player                            juego
-     000061B9  _rocas                             juego
-     000062A9  _rocasEspejo                       juego
-     00006399  _portal                            juego
-     000063A5  _puertas                           juego
-     000063E1  _posicion                          juego
+     0000607E  _comprobarPortales                 gameObject
+     0000618B  _comprobarPuertas                  gameObject
+     000061D1  _comprobarColeccionables           gameObject
+     00006259  _crearMapa                         mapa
+     00006273  _game                              juego
+     000062BF  _initGame                          juego
+     0000634B  _moverPlayer                       juego
+     000063A3  _dibujarGameObjects                juego
+     00006438  _comprobarMovimiento               juego
+     00006454  _comprobarPasos                    juego
+     0000646B  _resetGameobjects                  juego
+     000064B0  _initNiveles                       niveles
+     000064E7  _crearNivel                        niveles
+     0000656B  _resetLevel                        niveles
+     00006615  _createMarco                       niveles
+     00006624  _createPlayer                      niveles
+     00006663  _createRoca                        niveles
+     00006789  _createRocaEspejo                  niveles
+     0000681F  _createPuerta                      niveles
+     00006898  _createPortal                      niveles
+     000068EC  _createHoleIzquierda               niveles
+     00006980  _createHoleDerecha                 niveles
+     00006A14  _createColeccionabeLuz             niveles
+     00006A8C  _createColeccionabeFamilia         niveles
+     00006B06  _createColeccionabeAmstr           niveles
+     00006B7E  _crearNivel1                       niveles
+     00006EC9  _crearNivel2                       niveles
+     00006ECA  _crearNivel3                       niveles
+     00006ECB  _scanKey                           input
+     00006ECE  _keyScape                          input
+     00006EDE  _keyFire                           input
+     00006EEE  _keyR                              input
+     00006EFE  _movimientoPlayer                  input
+     00006F4E  _initDialogos                      dialogos
+     00006F62  _managerDialogo                    dialogos
+     00006FAD  _anadirDialogo                     dialogos
+     00006FEF  _dialogosNivel0                    dialogos
+     00007008  _dialogo0                          dialogos
+     00007024  _dialogo1                          dialogos
+     00007041  _asd                               hud
+     00007042  _initHud                           hud
+     000070BF  _actualizarHud                     hud
+     000071D9  _calcularPosicionEnPantalla        fisicas
+     0000721F  _calcularMaximosyMinimos           fisicas
+     000072B8  _comprobarColisiones1vs1           fisicas
+     000072DE  _cpct_isKeyPressed                 cpct_keyboard
+     000072DE  cpct_isKeyPressed_asm              cpct_keyboard
+     000072EA  _cpct_scanKeyboard_f               cpct_keyboard
+     000072EA  cpct_scanKeyboard_f_asm            cpct_keyboard
+     00007354  _cpct_setPalette                   cpct_video
+     0000736B  _cpct_drawStringM0                 cpct_strings
 ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00004000    000036EC =       14060. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000073A5  cpct_drawCharM0_inner_asm          cpct_strings
+     00007405  dc_2pxtableM0                      cpct_strings
+     00007409  _cpct_drawSprite                   cpct_sprites
+     000074AE  __moduchar                         
+     000074BA  __moduint                          
+     000074C5  _cpct_etm_drawTilemap4x8_ag        cpct_easytilemaps
+     000074CF  cpct_etm_dtm4x8_ag_c_widthHeight   cpct_easytilemaps
+     000074E5  cpct_etm_dtm4x8_ag_c_tilesetPtr    cpct_easytilemaps
+     00007550  cpct_etm_dtm4x8_ag_c_restoreI      cpct_easytilemaps
+     00007556  cpct_etm_dtm4x8_ag_c_incrementHL   cpct_easytilemaps
+     0000755B  cpct_etm_dtm4x8_ag_c_restoreWidt   cpct_easytilemaps
+     0000755E  cpct_etm_dtm4x8_ag_c_updateWidth   cpct_easytilemaps
+     0000756A  __divuint                          
+     00007572  __divuchar                         
+     00007579  __divu8                            
+     0000757C  __divu16                           
+     000075AB  _cpct_keyboardStatusBuffer         cpct_keyboard
+     000075B5  ___sdcc_call_hl                    
+     000075B6  _cpct_waitVSYNC                    cpct_video
+     000075B6  cpct_waitVSYNC_asm                 cpct_video
+     000075BE  _cpct_setVideoMode                 cpct_video
+     000075CC  _cpct_disableFirmware              cpct_firmware
+     000075CC  _cpct_removeInterruptHandler       cpct_firmware
+     000075CC  cpct_disableFirmware_asm           cpct_firmware
+     000075CC  cpct_removeInterruptHandler_asm    cpct_firmware
+     000075DC  _cpct_drawSolidBox                 cpct_sprites
+     00007686  _cpct_mode_rom_status              cpct_firmware
+     00007687  _cpct_setDrawCharM0                cpct_strings
+     000076AC  _cpct_etm_setDrawTilemap4x8_ag     cpct_easytilemaps
+     000076DC  dc_mode0_ct                        cpct_strings
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_DATA                               000076EC    00000540 =        1344. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
+     000077E6  _player                            juego
+     000077ED  _rocas                             juego
+     00007905  _rocasEspejo                       juego
+     00007A1D  _portal                            juego
+     00007A2B  _puertas                           juego
+     00007A71  _coleccionables                    juego
+     00007A7D  _colList                           juego
+     00007AAF  _posicion                          juego
+     00007AB0  _coleccionablesLuz                 juego
+     00007AB1  _coleccionablesFam                 juego
+     00007AB2  _coleccionablesAms                 juego
+     00007AB3  _nivelActual                       juego
+     00007AB4  _pasos                             juego
+     00007B83  _dialogosTotales                   dialogos
+     00007C19  _contadorDialogos                  dialogos
+     00007C28  _contadorLuz                       hud
+     00007C29  _contadorFamilia                   hud
+     00007C2A  _contadorAmstr                     hud
+     00007C2B  _contadorPasos                     hud
+
+ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
 
 Files Linked                              [ module(s) ]
 
-obj/mapa/court.rel                        [ court ]
-obj/mapa/tiles.rel                        [ tiles ]
-obj/sprites/hole.rel                      [ hole ]
-obj/sprites/puerta.rel                    [ puerta ]
-obj/sprites/portal.rel                    [ portal ]
-obj/sprites/rockLineal.rel                [ rockLineal ]
-obj/sprites/rockInmovil.rel               [ rockInmovil ]
-obj/sprites/rock.rel                      [ rock ]
-obj/sprites/player.rel                    [ player ]
+obj/mapa/mapa1.rel                        [ mapa1 ]
+obj/mapa/Walls.rel                        [ Walls ]
+obj/sprites/PrinceOfPersia_COVER.rel      [ PrinceOfPersia_COVER ]
+obj/sprites/PrinceOfPersia_ENE_B.rel      [ PrinceOfPersia_ENE_B ]
+obj/sprites/PrinceOfPersia_ENE_G.rel      [ PrinceOfPersia_ENE_G ]
+obj/sprites/PrinceOfPersia_PJ_B.rel       [ PrinceOfPersia_PJ_B ]
+obj/sprites/PrinceOfPersia_PJ_G.rel       [ PrinceOfPersia_PJ_G ]
+obj/sprites/PrinceOfPersia_Tape.rel       [ PrinceOfPersia_Tape ]
+obj/sprites/Amstrad.rel                   [ Amstrad ]
+obj/sprites/Character_Father.rel          [ Character_Father ]
+obj/sprites/Character_Mother.rel          [ Character_Mother ]
+obj/sprites/Character_Sister.rel          [ Character_Sister ]
+obj/sprites/Character_Brother.rel         [ Character_Brother ]
+obj/sprites/LuzAzul.rel                   [ LuzAzul ]
+obj/sprites/Block_Hole.rel                [ Block_Hole ]
+obj/sprites/Door_B.rel                    [ Door_B ]
+obj/sprites/Door_G.rel                    [ Door_G ]
+obj/sprites/PortalDoor_B.rel              [ PortalDoor_B ]
+obj/sprites/PortalDoor_G.rel              [ PortalDoor_G ]
+obj/sprites/PortalWall.rel                [ PortalWall ]
+obj/sprites/Block_Move2_B.rel             [ Block_Move2_B ]
+obj/sprites/Block_Move2_G.rel             [ Block_Move2_G ]
+obj/sprites/Block_Static4_B.rel           [ Block_Static4_B ]
+obj/sprites/Block_Static4_G.rel           [ Block_Static4_G ]
+obj/sprites/Block_Static3_B.rel           [ Block_Static3_B ]
+obj/sprites/Block_Static3_G.rel           [ Block_Static3_G ]
+obj/sprites/Block_Static2_B.rel           [ Block_Static2_B ]
+obj/sprites/Block_Static2_G.rel           [ Block_Static2_G ]
+obj/sprites/Block_Static1_B.rel           [ Block_Static1_B ]
+obj/sprites/Block_Static1_G.rel           [ Block_Static1_G ]
+obj/sprites/Block_Move0_B.rel             [ Block_Move0_B ]
+obj/sprites/Block_Move1_B.rel             [ Block_Move1_B ]
+obj/sprites/Block_Move1_G.rel             [ Block_Move1_G ]
+obj/sprites/Character_Principal.rel       [ Character_Principal ]
 obj/constantes.rel                        [ constantes ]
 obj/main.rel                              [ main ]
+obj/tGameobject.rel                       [ tGameobject ]
+obj/tGameObjectCol.rel                    [ tGameObjectCol ]
 obj/gameObject/gameObject.rel             [ gameObject ]
 obj/mapa/mapa.rel                         [ mapa ]
 obj/juego/juego.rel                       [ juego ]
 obj/niveles/niveles.rel                   [ niveles ]
 obj/input/input.rel                       [ input ]
+obj/dialogos/dialogos.rel                 [ dialogos ]
+obj/hud/hud.rel                           [ hud ]
 obj/fisicas/fisicas.rel                   [ fisicas ]
 
 
@@ -290,11 +456,23 @@ Libraries Linked                          [ object file ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_setPalette_cbindings.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawStringM0_cbindings.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_drawCharM0_inner.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_drawSprite_cbindings.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ modunsigned.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_etm_drawTilemap4x8_ag_cbind ]
+/home/jesus/Escritorio/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ divunsigned.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ keyboard.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/tools/sdcc-3.6.8-r9946/bin/../share/sdcc/lib/z80/z80.lib
+                                          [ __sdcc_call_hl.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_waitVSYNC.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_setVideoMode_cbindings.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
@@ -304,9 +482,13 @@ Libraries Linked                          [ object file ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpc_mode_rom_status.rel ]
 /home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_setDrawCharM0_cbindings.rel ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
                                           [ cpct_etm_setDrawTilemap4x8_ag_cb ]
+/home/jesus/Escritorio/cpctelera/cpctelera/cpctelera.lib
+                                          [ cpct_dc_mode0_ct.rel ]
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
 
 User Base Address Definitions
 

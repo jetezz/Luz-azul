@@ -21,72 +21,82 @@
                              21 ; ram data
                              22 ;--------------------------------------------------------
                              23 	.area _DATA
-   61A5                      24 _P_portal:
-   61A5                      25 	.ds 2
-   61A7                      26 _P_puertas:
-   61A7                      27 	.ds 2
-   61A9                      28 _movimientoGuardado:
-   61A9                      29 	.ds 1
-                             30 ;--------------------------------------------------------
-                             31 ; ram data
-                             32 ;--------------------------------------------------------
-                             33 	.area _INITIALIZED
-                             34 ;--------------------------------------------------------
-                             35 ; absolute external ram data
-                             36 ;--------------------------------------------------------
-                             37 	.area _DABS (ABS)
-                             38 ;--------------------------------------------------------
-                             39 ; global & static initialisations
+   76EC                      24 _P_portal:
+   76EC                      25 	.ds 2
+   76EE                      26 _P_puertas:
+   76EE                      27 	.ds 2
+   76F0                      28 _P_col:
+   76F0                      29 	.ds 2
+   76F2                      30 _P_luz:
+   76F2                      31 	.ds 2
+   76F4                      32 _P_fam:
+   76F4                      33 	.ds 2
+   76F6                      34 _P_ams:
+   76F6                      35 	.ds 2
+   76F8                      36 _P_colList:
+   76F8                      37 	.ds 2
+   76FA                      38 _movimientoGuardado:
+   76FA                      39 	.ds 1
                              40 ;--------------------------------------------------------
-                             41 	.area _HOME
-                             42 	.area _GSINIT
-                             43 	.area _GSFINAL
-                             44 	.area _GSINIT
-                             45 ;--------------------------------------------------------
-                             46 ; Home
-                             47 ;--------------------------------------------------------
-                             48 	.area _HOME
-                             49 	.area _HOME
+                             41 ; ram data
+                             42 ;--------------------------------------------------------
+                             43 	.area _INITIALIZED
+                             44 ;--------------------------------------------------------
+                             45 ; absolute external ram data
+                             46 ;--------------------------------------------------------
+                             47 	.area _DABS (ABS)
+                             48 ;--------------------------------------------------------
+                             49 ; global & static initialisations
                              50 ;--------------------------------------------------------
-                             51 ; code
-                             52 ;--------------------------------------------------------
-                             53 	.area _CODE
-                             54 ;src/main.c:11: void main(void) {
-                             55 ;	---------------------------------
-                             56 ; Function main
-                             57 ; ---------------------------------
-   4F98                      58 _main::
-                             59 ;src/main.c:12: cpct_disableFirmware();
-   4F98 CD BA 60      [17]   60 	call	_cpct_disableFirmware
-                             61 ;src/main.c:13: cpct_setVideoMode(0);
-   4F9B 2E 00         [ 7]   62 	ld	l, #0x00
-   4F9D CD AC 60      [17]   63 	call	_cpct_setVideoMode
-                             64 ;src/main.c:14: cpct_setPalette(game_palette, 16);   
-   4FA0 21 10 00      [10]   65 	ld	hl, #0x0010
-   4FA3 E5            [11]   66 	push	hl
-   4FA4 21 AF 4F      [10]   67 	ld	hl, #_game_palette
-   4FA7 E5            [11]   68 	push	hl
-   4FA8 CD 41 5F      [17]   69 	call	_cpct_setPalette
-                             70 ;src/main.c:15: game();
-   4FAB CD 3A 5B      [17]   71 	call	_game
-   4FAE C9            [10]   72 	ret
-   4FAF                      73 _game_palette:
-   4FAF 54                   74 	.db #0x54	; 84	'T'
-   4FB0 5D                   75 	.db #0x5d	; 93
-   4FB1 4E                   76 	.db #0x4e	; 78	'N'
-   4FB2 44                   77 	.db #0x44	; 68	'D'
-   4FB3 46                   78 	.db #0x46	; 70	'F'
-   4FB4 42                   79 	.db #0x42	; 66	'B'
-   4FB5 5C                   80 	.db #0x5c	; 92
-   4FB6 47                   81 	.db #0x47	; 71	'G'
-   4FB7 45                   82 	.db #0x45	; 69	'E'
-   4FB8 58                   83 	.db #0x58	; 88	'X'
-   4FB9 4D                   84 	.db #0x4d	; 77	'M'
-   4FBA 43                   85 	.db #0x43	; 67	'C'
-   4FBB 4F                   86 	.db #0x4f	; 79	'O'
-   4FBC 40                   87 	.db #0x40	; 64
-   4FBD 4C                   88 	.db #0x4c	; 76	'L'
-   4FBE 4B                   89 	.db #0x4b	; 75	'K'
-                             90 	.area _CODE
-                             91 	.area _INITIALIZER
-                             92 	.area _CABS (ABS)
+                             51 	.area _HOME
+                             52 	.area _GSINIT
+                             53 	.area _GSFINAL
+                             54 	.area _GSINIT
+                             55 ;--------------------------------------------------------
+                             56 ; Home
+                             57 ;--------------------------------------------------------
+                             58 	.area _HOME
+                             59 	.area _HOME
+                             60 ;--------------------------------------------------------
+                             61 ; code
+                             62 ;--------------------------------------------------------
+                             63 	.area _CODE
+                             64 ;src/main.c:12: void main(void) {
+                             65 ;	---------------------------------
+                             66 ; Function main
+                             67 ; ---------------------------------
+   527B                      68 _main::
+                             69 ;src/main.c:13: cpct_disableFirmware();
+   527B CD CC 75      [17]   70 	call	_cpct_disableFirmware
+                             71 ;src/main.c:14: cpct_setVideoMode(0);
+   527E 2E 00         [ 7]   72 	ld	l, #0x00
+   5280 CD BE 75      [17]   73 	call	_cpct_setVideoMode
+                             74 ;src/main.c:15: cpct_setPalette(Block_HolePALETTE, 13);   
+   5283 21 0D 00      [10]   75 	ld	hl, #0x000d
+   5286 E5            [11]   76 	push	hl
+   5287 21 27 4C      [10]   77 	ld	hl, #_Block_HolePALETTE
+   528A E5            [11]   78 	push	hl
+   528B CD 54 73      [17]   79 	call	_cpct_setPalette
+                             80 ;src/main.c:16: game();
+   528E CD 73 62      [17]   81 	call	_game
+   5291 C9            [10]   82 	ret
+   5292                      83 _game_palette:
+   5292 54                   84 	.db #0x54	; 84	'T'
+   5293 5C                   85 	.db #0x5c	; 92
+   5294 5E                   86 	.db #0x5e	; 94
+   5295 5D                   87 	.db #0x5d	; 93
+   5296 5F                   88 	.db #0x5f	; 95
+   5297 4F                   89 	.db #0x4f	; 79	'O'
+   5298 44                   90 	.db #0x44	; 68	'D'
+   5299 55                   91 	.db #0x55	; 85	'U'
+   529A 57                   92 	.db #0x57	; 87	'W'
+   529B 47                   93 	.db #0x47	; 71	'G'
+   529C 5B                   94 	.db #0x5b	; 91
+   529D 56                   95 	.db #0x56	; 86	'V'
+   529E 40                   96 	.db #0x40	; 64
+   529F 4B                   97 	.db #0x4b	; 75	'K'
+   52A0 00                   98 	.db 0x00
+   52A1 00                   99 	.db 0x00
+                            100 	.area _CODE
+                            101 	.area _INITIALIZER
+                            102 	.area _CABS (ABS)

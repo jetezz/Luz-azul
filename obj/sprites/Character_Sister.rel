@@ -1,0 +1,42 @@
+XL2
+H 9 areas 5 global symbols
+M Character_Sister
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 51 flags 0 addr 0
+S _Character_Sister Def000D
+S _Character_SisterPALETTE Def0000
+S _Character_Sister_0 Def0011
+S _Character_Sister_1 Def0031
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 54 44 55 5D 56 46 57 5E 40 5F 4F 5B 4B
+R 00 00 00 00
+T 0D 00
+R 00 00 00 00
+T 0D 00 11 00 31 00
+R 00 00 00 00 00 02 00 00 00 04 00 00
+T 11 00
+R 00 00 00 00
+T 11 00 00 FC FC 00 00 FC FC 00 54 B9 1B 00 54 B9
+R 00 00 00 00
+T 1F 00 1B 00 54 AD 5E 00 54 AD 5E 00 FC FC FC 00
+R 00 00 00 00
+T 2D 00 FC FC FC 00
+R 00 00 00 00
+T 31 00
+R 00 00 00 00
+T 31 00 54 5E FC A8 54 5E FC A8 A8 AD FC 1E A8 AD
+R 00 00 00 00
+T 3F 00 FC 1E 00 A8 A8 22 00 A8 A8 22 00 02 03 00
+R 00 00 00 00
+T 4D 00 00 02 03 00
+R 00 00 00 00

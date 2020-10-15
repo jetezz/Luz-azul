@@ -1,0 +1,38 @@
+XL2
+H 9 areas 5 global symbols
+M Character_Brother
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 41 flags 0 addr 0
+S _Character_Brother Def000D
+S _Character_BrotherPALETTE Def0000
+S _Character_Brother_0 Def0011
+S _Character_Brother_1 Def0029
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 54 44 55 5D 56 46 57 5E 40 5F 4F 5B 4B
+R 00 00 00 00
+T 0D 00
+R 00 00 00 00
+T 0D 00 11 00 29 00
+R 00 00 00 00 00 02 00 00 00 04 00 00
+T 11 00
+R 00 00 00 00
+T 11 00 F0 78 00 F0 78 00 B1 1B 00 B1 1B 00 A5 5A
+R 00 00 00 00
+T 1F 00 00 A5 5A 00 04 C0 05 04 C0 05
+R 00 00 00 00
+T 29 00
+R 00 00 00 00
+T 29 00 48 C0 1B 48 C0 1B 4A C0 11 4A C0 11 85 80
+R 00 00 00 00
+T 37 00 00 85 80 00 A8 FC 00 A8 FC 00
+R 00 00 00 00

@@ -32,17 +32,18 @@ u8 pasos;
 
 void game(){
     initGame();       
-    while(1){ 
+    while(1){          
         scanKey();
         if(keyR()==si){
             resetGameobjects(nivelActual);
         }            
         comprobarMovimiento();      
         moverPlayer();
-        actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms);
+        actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
         if(comprobarPasos()==si){
             managerDialogo(nivelActual,pasos);
-        }       
+        }
+             
     }
 }
 void initGame(){
@@ -116,8 +117,8 @@ u8 comprobarPasos(){
 
 void resetGameobjects(u8 nivel){
     posicion=posicion_Izquieda;
-    pasos=0;
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);    
-    //initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam);
-    dibujarGameObjects();  
+    player.pasos=0;
+    pasos=0;    
+    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);        
+    dibujarGameObjects();     
 }

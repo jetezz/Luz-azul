@@ -5,12 +5,17 @@
 #define     PuntoLuz   cpctm_screenPtr(CPCT_VMEM_START, 74, 20)
 #define     PuntoFamilia   cpctm_screenPtr(CPCT_VMEM_START, 74, 52)
 #define     PuntoCartuchos   cpctm_screenPtr(CPCT_VMEM_START, 74, 84)
+#define     PuntoPasos   cpctm_screenPtr(CPCT_VMEM_START, 72, 116)
+#define     PuntoPasos2   cpctm_screenPtr(CPCT_VMEM_START, 76, 116)
+
+
 
 
 
 u8 contadorLuz;
 u8 contadorFamilia;
 u8 contadorAmstr;
+u8 contadorPasos;
 
 
 void asd(){
@@ -27,6 +32,7 @@ void asd(){
 }
 void initHud(){
     char text[] = "0";
+    
     cpct_setDrawCharM0(3, 0);
     
     dibujarGameObjectColSprite(sprite_luz,17,1);
@@ -36,13 +42,19 @@ void initHud(){
     cpct_drawStringM0(text,PuntoLuz);
     cpct_drawStringM0(text,PuntoFamilia);
     cpct_drawStringM0(text,PuntoCartuchos);
+    //cpct_drawStringM0(text2,PuntoPasos);
 
     contadorLuz=0;
     contadorFamilia=0;
     contadorAmstr=0;
+    contadorPasos=0;
+
 }
-void actualizarHud(u8 luz, u8 familia,u8 amstr){
-    char text[1] = "X";
+void actualizarHud(u8 luz, u8 familia,u8 amstr,u8 pasos){
+    char text[1] = "X";    
+    int decimas=0;
+    int unidades=0;
+
     if(luz!=contadorLuz){
         cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 74, 20),0x00,4,16);
         text[0]=luz+'0';
@@ -60,6 +72,16 @@ void actualizarHud(u8 luz, u8 familia,u8 amstr){
         text[0]=amstr+'0';
         cpct_drawStringM0(text,PuntoCartuchos);
         contadorAmstr=amstr;
+    }
+    if(pasos!=contadorPasos){
+        cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 72, 116),0x00,4,16);
+        decimas=pasos/10;
+        unidades=pasos%10;       
+        text[0]=decimas+'0';
+        cpct_drawStringM0(text,PuntoPasos);
+        text[0]=unidades +'0';
+        cpct_drawStringM0(text,PuntoPasos2);       
+        contadorPasos=pasos;
     }    
     
 }

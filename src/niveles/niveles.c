@@ -20,8 +20,7 @@ void initNiveles(u8* collist){
 }
 
 void crearNivel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables,u8* posicion,u8 nivel){
-    resetLevel(player,rocas,rocasEspejo,puertas,portales,coleccionables);     
-    crearMapa(0);
+    resetLevel(player,rocas,rocasEspejo,puertas,portales,coleccionables);    
     niveles[nivel](player,rocas,rocasEspejo,puertas,portales,coleccionables,posicion);
     
         
@@ -50,6 +49,12 @@ void resetLevel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,
     contadorColeccionables=0;
 }
 
+void createMarco(u8 hay){
+    if (hay==si){
+      crearMapa(0);  
+    }
+    
+}
 
 void createPlayer(TGameObject* player,u8 posx, u8 posy,u8* posicion){
     if(posx<9){
@@ -151,15 +156,16 @@ void createColeccionabeAmstr(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 i
 
 
 void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
-   //player y portal y puertas
+   //player  portal puertas y marco
     createPlayer(player,3,4,posicion);
+    createMarco(si);
     createPortal(portales,rocas,rocasEspejo,si);
     createPuerta(puertas,3,7,sprite_Puerta_G,nivel_0);
     createPuerta(puertas,13,7,sprite_Puerta_B,nivel_0);
 
     //rocas móviles (separando id por espacios)
     createRoca(rocas,rocasEspejo,2,4,mover_1,sprite_Rock_G,2,no);
-    createRocaEspejo(rocasEspejo,14,4,sin_Movimiento,sprite_Rock_B,2);
+    createRocaEspejo(rocasEspejo,14,4,sin_Movimiento,sprite_Rock_nomove_B,2);
 
     //collecionables
     createColeccionabeLuz(col,15,4,0);
