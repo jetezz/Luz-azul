@@ -276,7 +276,7 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
             if(colisionPuerta!=seguir_En_Nivel){
                 return colisionPuerta;
             }
-            comprobarColeccionables(nextPosx,nextPosy);            
+            comprobarColeccionables(nextPosx,nextPosy,sprite_Player);            
             colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);            
             ObjetoColisionado=comprobarRocas(nextPosx,nextPosy,rocasCol);            
             if(colisionPortales==hay_Colision){
@@ -390,6 +390,7 @@ u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento
     u8 ObjetoColisionado=SinColision;
     u8 colisionPortales=no_Hay_Colision;    
     u8 colisionPuerta=seguir_En_Nivel;
+    u8 colisionColeccionable=SinColision;
    
     mover1casilla(&nextPosx,&nextPosy,movimiento);
     ObjetoColisionado=comprobarRocas(nextPosx,nextPosy,rocasCol);
@@ -398,10 +399,10 @@ u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento
     }
     colisionPuerta=comprobarPuertas(nextPosx,nextPosy);                      
     colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);                 
-    
+    colisionColeccionable=comprobarColeccionables(nextPosx,nextPosy,sprite_Rock_B);
     
 
-    if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision){        
+    if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision && colisionColeccionable==no_Hay_Colision ){        
         return SinColision;
     }
     return ColisionNoRocas;
@@ -450,19 +451,23 @@ u8 comprobarPuertas(u8 posx, u8 posy){
     }
     return seguir_En_Nivel;
 }
-void comprobarColeccionables(u8 posx, u8 posy){
+u8 comprobarColeccionables(u8 posx, u8 posy ,u8 sprite){
      for(u8 i=0;i<ColeccionablesMaximos;i++){
         if(posx==P_col[i].posx && posy==P_col[i].posy){
-            P_colList[P_col[i].num]=coleccionable_NOACTIVO;
-            if(P_col[i].sprite==sprite_luz){
-                *P_luz=*P_luz+1;                                                             
-            }else if(P_col[i].sprite==sprite_amstradTape){                
-                *P_ams=*P_ams+1;
-            }else{
-                *P_fam=*P_fam+1;
+            if(sprite==sprite_Player){
+                P_colList[P_col[i].num]=coleccionable_NOACTIVO;
+                if(P_col[i].sprite==sprite_luz){
+                    *P_luz=*P_luz+1;                                                             
+                }else if(P_col[i].sprite==sprite_amstradTape){                
+                    *P_ams=*P_ams+1;
+                }else{
+                    *P_fam=*P_fam+1;
+                }
+                P_col[i].posx=0;
             }
-            P_col[i].posx=0; 
+            return hay_Colision; 
         }
     }
+    return no_Hay_Colision;
     
 }
