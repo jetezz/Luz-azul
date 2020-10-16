@@ -5,6 +5,8 @@
 #include "hud/hud.h"
 #include "dialogos/dialogos.h"
 
+#include "molusk.h"
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,10 +33,17 @@ u8 pasos;
 
 
 void game(){
-    initGame();       
-    while(1){          
+    initGame();
+    cpct_akp_musicInit(molusk);    // Initialize the music
+    cpct_akp_SFXInit(molusk);      // Initialize instruments to be used for SFX (Same as music song)
+           
+    while(1){
+        cpct_waitVSYNC();        
+        cpct_akp_musicPlay();
+                 
+
         scanKey();
-        if(keyR()==si){
+        if(keyR()==si){            
             resetGameobjects(nivelActual);
         }            
         comprobarMovimiento();      
@@ -116,6 +125,7 @@ u8 comprobarPasos(){
 }
 
 void resetGameobjects(u8 nivel){
+    cpct_akp_stop();
     posicion=posicion_Izquieda;
     player.pasos=0;
     pasos=0;    

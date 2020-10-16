@@ -39,6 +39,8 @@
 
 
 
+
+
 #include "constantes.h"
 #include "fisicas/fisicas.h"
 
@@ -49,7 +51,7 @@
 
 
 
-#define     retardoMovimiento           0xFF
+#define     retardoMovimiento           0x0D
 
 
 void initGameobjest(TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList){
@@ -257,8 +259,7 @@ void taparHole(TGameObject* roca,TGameObject* hole){
 /////////
 
 u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion){
-    if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){
-        cpct_waitVSYNC();    
+    if(objeto->cronoMovimiento==0 || objeto->sprite!=sprite_Player){           
         movimiento=calcularMaximosyMinimos(movimiento,objeto->posx,objeto->posy,*posicion);            
         if(movimiento!=mover_SinMovimiento){                  
             u8 nextPosx=objeto->posx;
@@ -283,12 +284,15 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
                 if(ObjetoColisionado!=SinColision){
                     moverRoca=no_mover_roca;
                 }else{
-                    cambiarPosicion(posicion);
+                    cambiarPosicion(posicion);                                   
                 }
             }                                                      
             if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision){             
                 moverYdibujar(objeto,nextPosx,nextPosy);
-                objeto->pasos++;                                              
+                objeto->pasos++;                           
+                cpct_akp_SFXPlay(1,15,80,0,0,AY_CHANNEL_A);
+                cpct_akp_SFXPlay(1,15,50,0,0,AY_CHANNEL_A);                                                 
+
             }else{ 
                 if(moverRoca==mover_roca)          
                 moverGameObject(&rocasCol[ObjetoColisionado],movimiento,rocasCol,rocasEspejo,posicion);                      
