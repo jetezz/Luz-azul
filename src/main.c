@@ -12,7 +12,7 @@ const u8 game_palette[16] =     { 0x54  ,0x5C,0x5E ,0x5D ,0x5F       ,0x4f      
 void main(void) {
    cpct_disableFirmware();
    cpct_setVideoMode(0);
-   cpct_setPalette(Block_HolePALETTE, 13);   
+   cpct_setPalette(Block_HolePALETTE, 16);   
    game();
 
  

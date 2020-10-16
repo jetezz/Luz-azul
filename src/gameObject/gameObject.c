@@ -11,11 +11,15 @@
 #include "sprites/Block_Static3_B.h"
 #include "sprites/Block_Static4_G.h"
 #include "sprites/Block_Static4_B.h"
+#include "sprites/Block_Static5_G.h"
+#include "sprites/Block_Static5_B.h"
 #include "sprites/Block_Move2_G.h"
 #include "sprites/Block_Move2_B.h"
 #include "sprites/PortalWall.h"
 #include "sprites/PortalDoor_G.h"
 #include "sprites/PortalDoor_B.h"
+#include "sprites/Wall_Dust_B.h"
+#include "sprites/Wall_Solid1.h"
 #include "sprites/Door_G.h"
 #include "sprites/Door_B.h"
 #include "sprites/Block_Hole.h"
@@ -24,6 +28,7 @@
 #include "sprites/Character_Sister.h"
 #include "sprites/Character_Mother.h"
 #include "sprites/Character_Father.h"
+#include "sprites/Enemy_01.h"
 #include "sprites/Amstrad.h"
 #include "sprites/PrinceOfPersia_Tape.h"
 #include "sprites/PrinceOfPersia_PJ_G.h"
@@ -83,6 +88,10 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(Block_Static4_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil4_B){
             cpct_drawSprite(Block_Static4_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil5_G){
+            cpct_drawSprite(Block_Static5_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil5_B){
+            cpct_drawSprite(Block_Static5_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockLineal1_G){
             cpct_drawSprite(Block_Move2_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockLineal1_B){
@@ -91,6 +100,10 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(PortalWall_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PuertaPortal_G){
             cpct_drawSprite(PortalDoor_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_Muro_Solid1){
+            cpct_drawSprite(Wall_Solid1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_Muro_Polvo1){
+            cpct_drawSprite(Wall_Dust_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PuertaPortal_B){
             cpct_drawSprite(PortalDoor_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Puerta_G){
@@ -98,7 +111,7 @@ void dibujarGameObject(TGameObject* objeto){
         }else if(objeto->sprite==sprite_Puerta_B){
             cpct_drawSprite(Door_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_hole){
-            cpct_drawSprite(Block_Hole, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Hole_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_amstrad){
             cpct_drawSprite(Amstrad_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PrinceofPersia1_G){
@@ -111,6 +124,8 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(PrinceOfPersia_ENE_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PrinceofPersia3){
             cpct_drawSprite(PrinceOfPersia_COVER_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_enemigo1){
+            cpct_drawSprite(Enemy_01_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }
 
     }     

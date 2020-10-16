@@ -54,10 +54,10 @@ void initGame(){
     coleccionablesLuz=0;
     coleccionablesFam=0;
     coleccionablesAms=0;
-    nivelActual=nivel_0;
+    nivelActual=nivel_01;
     pasos=0;
     initNiveles(colList);
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_0);    
+    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_01);    
     initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList);
     dibujarGameObjects();
     initHud();

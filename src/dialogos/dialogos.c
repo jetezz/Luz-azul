@@ -30,8 +30,8 @@ void anadirDialogo(u8 id, u8 nivel,u8 pasos){
     contadorDialogos++;
 }
 void dialogosNivel0(){
-    anadirDialogo(0,nivel_0,5);
-    anadirDialogo(1,nivel_0,10);
+    anadirDialogo(0,nivel_01,5);
+    anadirDialogo(1,nivel_01,10);
 
 }
 void dialogo0(){

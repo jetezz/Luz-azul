@@ -33,7 +33,7 @@ void asd(){
 void initHud(){
     char text[] = "0";
     
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(1, 0);
     
     dibujarGameObjectColSprite(sprite_luz,17,1);
     dibujarGameObjectColSprite(sprite_familia2,17,3);
