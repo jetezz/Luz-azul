@@ -1,7 +1,7 @@
 #include <cpctelera.h>
 #include "tGameobject.h"
 #include "tGameObjectCol.h"
-#define nivelesTorales      50
+#include "constantes.h"
 
 
 

@@ -1,4 +1,5 @@
 #include "gameObject.h"
+#include "enemigos/enemigos.h"
 #include "sprites/Character_Principal.h"
 #include "sprites/Block_Move1_G.h"
 #include "sprites/Block_Move1_B.h"
@@ -268,6 +269,7 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
             u8 colisionPortales=no_Hay_Colision;
             u8 moverRoca=mover_roca;
             u8 colisionPuerta=seguir_En_Nivel;
+            u8 colisionEnemigo=no_Hay_Colision;
             u8 numMovimientos=1;
             
             mover1casilla(&nextPosx,&nextPosy,movimiento);            
@@ -286,8 +288,9 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
                 }else{
                     cambiarPosicion(posicion);                                   
                 }
-            }                                                      
-            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision){             
+            } 
+            colisionEnemigo=comprobarEnemigos(nextPosx,nextPosy,*posicion);
+            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionEnemigo==no_Hay_Colision){             
                 moverYdibujar(objeto,nextPosx,nextPosy);
                 objeto->pasos++;                           
                 cpct_akp_SFXPlay(1,15,80,0,0,AY_CHANNEL_A);
@@ -390,7 +393,8 @@ u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento
     u8 ObjetoColisionado=SinColision;
     u8 colisionPortales=no_Hay_Colision;    
     u8 colisionPuerta=seguir_En_Nivel;
-    u8 colisionColeccionable=SinColision;
+    u8 colisionColeccionable=no_Hay_Colision;
+    u8 colisionEnemigos=no_Hay_Colision;
    
     mover1casilla(&nextPosx,&nextPosy,movimiento);
     ObjetoColisionado=comprobarRocas(nextPosx,nextPosy,rocasCol);
@@ -400,9 +404,10 @@ u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento
     colisionPuerta=comprobarPuertas(nextPosx,nextPosy);                      
     colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);                 
     colisionColeccionable=comprobarColeccionables(nextPosx,nextPosy,sprite_Rock_B);
+    colisionEnemigos=comprobarEnemigos(nextPosx,nextPosy,*posicion);
     
 
-    if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision && colisionColeccionable==no_Hay_Colision ){        
+    if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision && colisionColeccionable==no_Hay_Colision && colisionEnemigos==no_Hay_Colision){        
         return SinColision;
     }
     return ColisionNoRocas;
@@ -470,4 +475,20 @@ u8 comprobarColeccionables(u8 posx, u8 posy ,u8 sprite){
     }
     return no_Hay_Colision;
     
+}
+u8 comprobarEnemigos(u8 posx,u8 posy ,u8 posicion){
+    if(posicion==posicion_Izquieda){
+        for(u8 i=0;i<enemigosMaximos;i++){
+            if(enemigosIzquierda[i].posx==posx && enemigosIzquierda[i].posy==posy){
+                return hay_Colision;
+            }
+        }
+    }else{
+        for(u8 i=0;i<enemigosMaximos;i++){
+            if(enemigosDerecha[i].posx==posx && enemigosDerecha[i].posy==posy){
+                return hay_Colision;
+            }
+        }
+    }
+    return no_Hay_Colision;
 }

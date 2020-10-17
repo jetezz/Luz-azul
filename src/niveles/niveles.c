@@ -173,7 +173,7 @@ void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
 
     //rocas móviles (separando id por espacios)
     createRoca(rocas,rocasEspejo,2,4,mover_1,sprite_Rock_G,2,no);
-    createRocaEspejo(rocasEspejo,14,4,sin_Movimiento,sprite_Rock_nomove_B,2);
+    createRocaEspejo(rocasEspejo,13,4,sin_Movimiento,sprite_Rock_nomove_B,2);
 
     //collecionables
     createColeccionabeLuz(col,15,4,0);

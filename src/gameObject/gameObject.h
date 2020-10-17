@@ -53,6 +53,7 @@ u8 comprobarRocas(u8 posx,u8 posy,TGameObject* rocas);
 u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* posicion);
 u8 comprobarPuertas(u8 posx, u8 posy);
 u8 comprobarColeccionables(u8 posx, u8 posy,u8 sprite);
+u8 comprobarEnemigos(u8 posx,u8 posy,u8 posicion);
 
 
 

@@ -4,6 +4,7 @@
 #include "sprites/sprites.h"
 #include "hud/hud.h"
 #include "dialogos/dialogos.h"
+#include "enemigos/enemigos.h"
 
 #include "molusk.h"
 
@@ -12,6 +13,7 @@
 #include <stdlib.h>
 
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
+#define     frecuenciaMaxIA     20
 
 
 TGameObject player;
@@ -29,6 +31,7 @@ u8 coleccionablesFam;
 u8 coleccionablesAms;
 u8 nivelActual;
 u8 pasos;
+u8 frecuenciaIA;
 
 
 
@@ -40,6 +43,7 @@ void game(){
     while(1){
         cpct_waitVSYNC();        
         cpct_akp_musicPlay();
+        frecuenciaIA--;
                  
 
         scanKey();
@@ -51,6 +55,12 @@ void game(){
         actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
         if(comprobarPasos()==si){
             managerDialogo(nivelActual,pasos);
+        }       
+        if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
+            resetGameobjects(nivelActual);
+        }
+        if(frecuenciaIA==0){
+            frecuenciaIA=frecuenciaMaxIA;
         }
              
     }
@@ -65,12 +75,16 @@ void initGame(){
     coleccionablesAms=0;
     nivelActual=nivel_01;
     pasos=0;
+    frecuenciaIA=frecuenciaMaxIA;
     initNiveles(colList);
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_01);    
     initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList);
-    dibujarGameObjects();
     initHud();
-    initDialogos();        
+    initDialogos();
+    initEnemigos();
+    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_01);
+    crearEnemigos(nivelActual);    
+    dibujarGameObjects();
+    
 }
 void moverPlayer(){
     u8 nivel=seguir_En_Nivel;
@@ -129,6 +143,7 @@ void resetGameobjects(u8 nivel){
     posicion=posicion_Izquieda;
     player.pasos=0;
     pasos=0;    
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);        
+    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);
+    crearEnemigos(nivelActual);        
     dibujarGameObjects();     
 }

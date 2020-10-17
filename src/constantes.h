@@ -1,3 +1,8 @@
+#pragma once
+#ifndef DECLARACIONCONSTANTES
+#define DECLARACIONCONSTANTES
+
+
 #define     SinColision                     50
 #define     ColisionNoRocas                 51
 #define     RocasMaximas                    40 
@@ -9,6 +14,8 @@
 #define     altoSprite                  16
 
 
+#define nivelesTorales      50
+#define enemigosMaximos     5
 
 
 
@@ -52,6 +59,7 @@ extern enum{
     sprite_familia4,
 
     sprite_enemigo1,
+    sprite_enemigo2,
     
     sprite_amstrad,
     sprite_amstradTape,
@@ -109,6 +117,11 @@ extern enum {
     coleccionable_NOACTIVO
 }ETipoActivacionColeccionable;
 
+extern enum {
+    no_pasa_nada,
+    player_muere
+}ETipoAccionesEnemigo;
+
 extern enum{
     seguir_En_Nivel,    
     nivel_01,
@@ -119,3 +132,4 @@ extern enum{
 }ETipoNivel;
 
 
+#endif // DECLARACIONCONSTANTES

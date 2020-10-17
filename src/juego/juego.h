@@ -22,6 +22,7 @@ extern u8 coleccionablesFam;
 extern u8 coleccionablesAms;
 extern u8 nivelActual;
 extern u8 pasos;
+extern u8 frecuenciaIA;
 
 
 void game();
