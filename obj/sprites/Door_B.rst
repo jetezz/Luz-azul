@@ -44,88 +44,90 @@
                              44 ;--------------------------------------------------------
                              45 	.area _CODE
                              46 	.area _CODE
-   4C78                      47 _Door_BPALETTE:
-   4C78 54                   48 	.db #0x54	; 84	'T'
-   4C79 44                   49 	.db #0x44	; 68	'D'
-   4C7A 55                   50 	.db #0x55	; 85	'U'
-   4C7B 5D                   51 	.db #0x5d	; 93
-   4C7C 56                   52 	.db #0x56	; 86	'V'
-   4C7D 46                   53 	.db #0x46	; 70	'F'
-   4C7E 57                   54 	.db #0x57	; 87	'W'
-   4C7F 5E                   55 	.db #0x5e	; 94
-   4C80 40                   56 	.db #0x40	; 64
-   4C81 5F                   57 	.db #0x5f	; 95
-   4C82 4F                   58 	.db #0x4f	; 79	'O'
-   4C83 5B                   59 	.db #0x5b	; 91
-   4C84 4B                   60 	.db #0x4b	; 75	'K'
-   4C85                      61 _Door_B:
-   4C85 89 4C                62 	.dw _Door_B_0
-   4C87 A9 4C                63 	.dw _Door_B_1
-   4C89                      64 _Door_B_0:
-   4C89 00                   65 	.db #0x00	; 0
-   4C8A CC                   66 	.db #0xcc	; 204
-   4C8B CC                   67 	.db #0xcc	; 204
-   4C8C 00                   68 	.db #0x00	; 0
-   4C8D 00                   69 	.db #0x00	; 0
-   4C8E CC                   70 	.db #0xcc	; 204
-   4C8F CC                   71 	.db #0xcc	; 204
-   4C90 00                   72 	.db #0x00	; 0
-   4C91 44                   73 	.db #0x44	; 68	'D'
-   4C92 00                   74 	.db #0x00	; 0
-   4C93 00                   75 	.db #0x00	; 0
-   4C94 88                   76 	.db #0x88	; 136
-   4C95 44                   77 	.db #0x44	; 68	'D'
-   4C96 00                   78 	.db #0x00	; 0
-   4C97 00                   79 	.db #0x00	; 0
-   4C98 88                   80 	.db #0x88	; 136
-   4C99 88                   81 	.db #0x88	; 136
-   4C9A CC                   82 	.db #0xcc	; 204
-   4C9B CC                   83 	.db #0xcc	; 204
-   4C9C 44                   84 	.db #0x44	; 68	'D'
-   4C9D 88                   85 	.db #0x88	; 136
-   4C9E CC                   86 	.db #0xcc	; 204
-   4C9F CC                   87 	.db #0xcc	; 204
-   4CA0 44                   88 	.db #0x44	; 68	'D'
-   4CA1 88                   89 	.db #0x88	; 136
-   4CA2 88                   90 	.db #0x88	; 136
-   4CA3 44                   91 	.db #0x44	; 68	'D'
-   4CA4 44                   92 	.db #0x44	; 68	'D'
-   4CA5 88                   93 	.db #0x88	; 136
-   4CA6 88                   94 	.db #0x88	; 136
-   4CA7 44                   95 	.db #0x44	; 68	'D'
-   4CA8 44                   96 	.db #0x44	; 68	'D'
-   4CA9                      97 _Door_B_1:
-   4CA9 88                   98 	.db #0x88	; 136
-   4CAA 88                   99 	.db #0x88	; 136
-   4CAB 44                  100 	.db #0x44	; 68	'D'
-   4CAC 44                  101 	.db #0x44	; 68	'D'
-   4CAD 88                  102 	.db #0x88	; 136
-   4CAE 88                  103 	.db #0x88	; 136
-   4CAF 44                  104 	.db #0x44	; 68	'D'
-   4CB0 44                  105 	.db #0x44	; 68	'D'
-   4CB1 88                  106 	.db #0x88	; 136
-   4CB2 CC                  107 	.db #0xcc	; 204
-   4CB3 88                  108 	.db #0x88	; 136
-   4CB4 44                  109 	.db #0x44	; 68	'D'
-   4CB5 88                  110 	.db #0x88	; 136
-   4CB6 CC                  111 	.db #0xcc	; 204
-   4CB7 88                  112 	.db #0x88	; 136
-   4CB8 44                  113 	.db #0x44	; 68	'D'
-   4CB9 88                  114 	.db #0x88	; 136
-   4CBA CC                  115 	.db #0xcc	; 204
-   4CBB CC                  116 	.db #0xcc	; 204
-   4CBC 44                  117 	.db #0x44	; 68	'D'
-   4CBD 88                  118 	.db #0x88	; 136
-   4CBE CC                  119 	.db #0xcc	; 204
-   4CBF CC                  120 	.db #0xcc	; 204
-   4CC0 44                  121 	.db #0x44	; 68	'D'
-   4CC1 CC                  122 	.db #0xcc	; 204
-   4CC2 0F                  123 	.db #0x0f	; 15
-   4CC3 0F                  124 	.db #0x0f	; 15
-   4CC4 CC                  125 	.db #0xcc	; 204
-   4CC5 CC                  126 	.db #0xcc	; 204
-   4CC6 0F                  127 	.db #0x0f	; 15
-   4CC7 0F                  128 	.db #0x0f	; 15
-   4CC8 CC                  129 	.db #0xcc	; 204
-                            130 	.area _INITIALIZER
-                            131 	.area _CABS (ABS)
+   4ED9                      47 _Door_BPALETTE:
+   4ED9 54                   48 	.db #0x54	; 84	'T'
+   4EDA 5B                   49 	.db #0x5b	; 91
+   4EDB 4F                   50 	.db #0x4f	; 79	'O'
+   4EDC 5D                   51 	.db #0x5d	; 93
+   4EDD 44                   52 	.db #0x44	; 68	'D'
+   4EDE 5F                   53 	.db #0x5f	; 95
+   4EDF 4B                   54 	.db #0x4b	; 75	'K'
+   4EE0 55                   55 	.db #0x55	; 85	'U'
+   4EE1 56                   56 	.db #0x56	; 86	'V'
+   4EE2 40                   57 	.db #0x40	; 64
+   4EE3 5C                   58 	.db #0x5c	; 92
+   4EE4 46                   59 	.db #0x46	; 70	'F'
+   4EE5 5B                   60 	.db #0x5b	; 91
+   4EE6 5B                   61 	.db #0x5b	; 91
+   4EE7 5E                   62 	.db #0x5e	; 94
+   4EE8                      63 _Door_B:
+   4EE8 EC 4E                64 	.dw _Door_B_0
+   4EEA 0C 4F                65 	.dw _Door_B_1
+   4EEC                      66 _Door_B_0:
+   4EEC 00                   67 	.db #0x00	; 0
+   4EED CC                   68 	.db #0xcc	; 204
+   4EEE CC                   69 	.db #0xcc	; 204
+   4EEF 00                   70 	.db #0x00	; 0
+   4EF0 00                   71 	.db #0x00	; 0
+   4EF1 CC                   72 	.db #0xcc	; 204
+   4EF2 CC                   73 	.db #0xcc	; 204
+   4EF3 00                   74 	.db #0x00	; 0
+   4EF4 44                   75 	.db #0x44	; 68	'D'
+   4EF5 00                   76 	.db #0x00	; 0
+   4EF6 00                   77 	.db #0x00	; 0
+   4EF7 88                   78 	.db #0x88	; 136
+   4EF8 44                   79 	.db #0x44	; 68	'D'
+   4EF9 00                   80 	.db #0x00	; 0
+   4EFA 00                   81 	.db #0x00	; 0
+   4EFB 88                   82 	.db #0x88	; 136
+   4EFC 88                   83 	.db #0x88	; 136
+   4EFD CC                   84 	.db #0xcc	; 204
+   4EFE CC                   85 	.db #0xcc	; 204
+   4EFF 44                   86 	.db #0x44	; 68	'D'
+   4F00 88                   87 	.db #0x88	; 136
+   4F01 CC                   88 	.db #0xcc	; 204
+   4F02 CC                   89 	.db #0xcc	; 204
+   4F03 44                   90 	.db #0x44	; 68	'D'
+   4F04 88                   91 	.db #0x88	; 136
+   4F05 88                   92 	.db #0x88	; 136
+   4F06 44                   93 	.db #0x44	; 68	'D'
+   4F07 44                   94 	.db #0x44	; 68	'D'
+   4F08 88                   95 	.db #0x88	; 136
+   4F09 88                   96 	.db #0x88	; 136
+   4F0A 44                   97 	.db #0x44	; 68	'D'
+   4F0B 44                   98 	.db #0x44	; 68	'D'
+   4F0C                      99 _Door_B_1:
+   4F0C 88                  100 	.db #0x88	; 136
+   4F0D 88                  101 	.db #0x88	; 136
+   4F0E 44                  102 	.db #0x44	; 68	'D'
+   4F0F 44                  103 	.db #0x44	; 68	'D'
+   4F10 88                  104 	.db #0x88	; 136
+   4F11 88                  105 	.db #0x88	; 136
+   4F12 44                  106 	.db #0x44	; 68	'D'
+   4F13 44                  107 	.db #0x44	; 68	'D'
+   4F14 88                  108 	.db #0x88	; 136
+   4F15 CC                  109 	.db #0xcc	; 204
+   4F16 88                  110 	.db #0x88	; 136
+   4F17 44                  111 	.db #0x44	; 68	'D'
+   4F18 88                  112 	.db #0x88	; 136
+   4F19 CC                  113 	.db #0xcc	; 204
+   4F1A 88                  114 	.db #0x88	; 136
+   4F1B 44                  115 	.db #0x44	; 68	'D'
+   4F1C 88                  116 	.db #0x88	; 136
+   4F1D CC                  117 	.db #0xcc	; 204
+   4F1E CC                  118 	.db #0xcc	; 204
+   4F1F 44                  119 	.db #0x44	; 68	'D'
+   4F20 88                  120 	.db #0x88	; 136
+   4F21 CC                  121 	.db #0xcc	; 204
+   4F22 CC                  122 	.db #0xcc	; 204
+   4F23 44                  123 	.db #0x44	; 68	'D'
+   4F24 CC                  124 	.db #0xcc	; 204
+   4F25 0C                  125 	.db #0x0c	; 12
+   4F26 0C                  126 	.db #0x0c	; 12
+   4F27 CC                  127 	.db #0xcc	; 204
+   4F28 CC                  128 	.db #0xcc	; 204
+   4F29 0C                  129 	.db #0x0c	; 12
+   4F2A 0C                  130 	.db #0x0c	; 12
+   4F2B CC                  131 	.db #0xcc	; 204
+                            132 	.area _INITIALIZER
+                            133 	.area _CABS (ABS)

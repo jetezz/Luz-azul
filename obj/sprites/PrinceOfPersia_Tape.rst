@@ -44,88 +44,90 @@
                              44 ;--------------------------------------------------------
                              45 	.area _CODE
                              46 	.area _CODE
-   4A00                      47 _PrinceOfPersia_TapePALETTE:
-   4A00 54                   48 	.db #0x54	; 84	'T'
-   4A01 44                   49 	.db #0x44	; 68	'D'
-   4A02 55                   50 	.db #0x55	; 85	'U'
-   4A03 5D                   51 	.db #0x5d	; 93
-   4A04 56                   52 	.db #0x56	; 86	'V'
-   4A05 46                   53 	.db #0x46	; 70	'F'
-   4A06 57                   54 	.db #0x57	; 87	'W'
-   4A07 5E                   55 	.db #0x5e	; 94
-   4A08 40                   56 	.db #0x40	; 64
-   4A09 5F                   57 	.db #0x5f	; 95
-   4A0A 4F                   58 	.db #0x4f	; 79	'O'
-   4A0B 5B                   59 	.db #0x5b	; 91
-   4A0C 4B                   60 	.db #0x4b	; 75	'K'
-   4A0D                      61 _PrinceOfPersia_Tape:
-   4A0D 11 4A                62 	.dw _PrinceOfPersia_Tape_0
-   4A0F 31 4A                63 	.dw _PrinceOfPersia_Tape_1
-   4A11                      64 _PrinceOfPersia_Tape_0:
-   4A11 14                   65 	.db #0x14	; 20
-   4A12 0C                   66 	.db #0x0c	; 12
-   4A13 0C                   67 	.db #0x0c	; 12
-   4A14 08                   68 	.db #0x08	; 8
-   4A15 14                   69 	.db #0x14	; 20
-   4A16 0C                   70 	.db #0x0c	; 12
-   4A17 0C                   71 	.db #0x0c	; 12
-   4A18 08                   72 	.db #0x08	; 8
-   4A19 28                   73 	.db #0x28	; 40
-   4A1A 04                   74 	.db #0x04	; 4
-   4A1B 08                   75 	.db #0x08	; 8
-   4A1C 04                   76 	.db #0x04	; 4
-   4A1D 28                   77 	.db #0x28	; 40
-   4A1E 04                   78 	.db #0x04	; 4
-   4A1F 08                   79 	.db #0x08	; 8
-   4A20 04                   80 	.db #0x04	; 4
-   4A21 08                   81 	.db #0x08	; 8
-   4A22 02                   82 	.db #0x02	; 2
-   4A23 01                   83 	.db #0x01	; 1
-   4A24 04                   84 	.db #0x04	; 4
-   4A25 08                   85 	.db #0x08	; 8
-   4A26 02                   86 	.db #0x02	; 2
-   4A27 01                   87 	.db #0x01	; 1
-   4A28 04                   88 	.db #0x04	; 4
-   4A29 09                   89 	.db #0x09	; 9
-   4A2A 01                   90 	.db #0x01	; 1
-   4A2B 02                   91 	.db #0x02	; 2
-   4A2C 06                   92 	.db #0x06	; 6
-   4A2D 09                   93 	.db #0x09	; 9
-   4A2E 01                   94 	.db #0x01	; 1
-   4A2F 02                   95 	.db #0x02	; 2
-   4A30 06                   96 	.db #0x06	; 6
-   4A31                      97 _PrinceOfPersia_Tape_1:
-   4A31 08                   98 	.db #0x08	; 8
-   4A32 02                   99 	.db #0x02	; 2
-   4A33 01                  100 	.db #0x01	; 1
-   4A34 04                  101 	.db #0x04	; 4
-   4A35 08                  102 	.db #0x08	; 8
-   4A36 02                  103 	.db #0x02	; 2
-   4A37 01                  104 	.db #0x01	; 1
-   4A38 04                  105 	.db #0x04	; 4
-   4A39 08                  106 	.db #0x08	; 8
-   4A3A 00                  107 	.db #0x00	; 0
-   4A3B 00                  108 	.db #0x00	; 0
-   4A3C 04                  109 	.db #0x04	; 4
-   4A3D 08                  110 	.db #0x08	; 8
-   4A3E 00                  111 	.db #0x00	; 0
-   4A3F 00                  112 	.db #0x00	; 0
-   4A40 04                  113 	.db #0x04	; 4
-   4A41 0C                  114 	.db #0x0c	; 12
-   4A42 04                  115 	.db #0x04	; 4
-   4A43 08                  116 	.db #0x08	; 8
-   4A44 0C                  117 	.db #0x0c	; 12
-   4A45 0C                  118 	.db #0x0c	; 12
-   4A46 04                  119 	.db #0x04	; 4
-   4A47 08                  120 	.db #0x08	; 8
-   4A48 0C                  121 	.db #0x0c	; 12
-   4A49 80                  122 	.db #0x80	; 128
-   4A4A C0                  123 	.db #0xc0	; 192
-   4A4B C0                  124 	.db #0xc0	; 192
-   4A4C 40                  125 	.db #0x40	; 64
-   4A4D 80                  126 	.db #0x80	; 128
-   4A4E C0                  127 	.db #0xc0	; 192
-   4A4F C0                  128 	.db #0xc0	; 192
-   4A50 40                  129 	.db #0x40	; 64
-                            130 	.area _INITIALIZER
-                            131 	.area _CABS (ABS)
+   4A0C                      47 _PrinceOfPersia_TapePALETTE:
+   4A0C 54                   48 	.db #0x54	; 84	'T'
+   4A0D 5B                   49 	.db #0x5b	; 91
+   4A0E 4F                   50 	.db #0x4f	; 79	'O'
+   4A0F 5D                   51 	.db #0x5d	; 93
+   4A10 44                   52 	.db #0x44	; 68	'D'
+   4A11 5F                   53 	.db #0x5f	; 95
+   4A12 4B                   54 	.db #0x4b	; 75	'K'
+   4A13 55                   55 	.db #0x55	; 85	'U'
+   4A14 56                   56 	.db #0x56	; 86	'V'
+   4A15 40                   57 	.db #0x40	; 64
+   4A16 5C                   58 	.db #0x5c	; 92
+   4A17 46                   59 	.db #0x46	; 70	'F'
+   4A18 5B                   60 	.db #0x5b	; 91
+   4A19 5B                   61 	.db #0x5b	; 91
+   4A1A 5E                   62 	.db #0x5e	; 94
+   4A1B                      63 _PrinceOfPersia_Tape:
+   4A1B 1F 4A                64 	.dw _PrinceOfPersia_Tape_0
+   4A1D 3F 4A                65 	.dw _PrinceOfPersia_Tape_1
+   4A1F                      66 _PrinceOfPersia_Tape_0:
+   4A1F 45                   67 	.db #0x45	; 69	'E'
+   4A20 FC                   68 	.db #0xfc	; 252
+   4A21 FC                   69 	.db #0xfc	; 252
+   4A22 A8                   70 	.db #0xa8	; 168
+   4A23 45                   71 	.db #0x45	; 69	'E'
+   4A24 FC                   72 	.db #0xfc	; 252
+   4A25 FC                   73 	.db #0xfc	; 252
+   4A26 A8                   74 	.db #0xa8	; 168
+   4A27 8A                   75 	.db #0x8a	; 138
+   4A28 54                   76 	.db #0x54	; 84	'T'
+   4A29 A8                   77 	.db #0xa8	; 168
+   4A2A 54                   78 	.db #0x54	; 84	'T'
+   4A2B 8A                   79 	.db #0x8a	; 138
+   4A2C 54                   80 	.db #0x54	; 84	'T'
+   4A2D A8                   81 	.db #0xa8	; 168
+   4A2E 54                   82 	.db #0x54	; 84	'T'
+   4A2F A8                   83 	.db #0xa8	; 168
+   4A30 82                   84 	.db #0x82	; 130
+   4A31 41                   85 	.db #0x41	; 65	'A'
+   4A32 54                   86 	.db #0x54	; 84	'T'
+   4A33 A8                   87 	.db #0xa8	; 168
+   4A34 82                   88 	.db #0x82	; 130
+   4A35 41                   89 	.db #0x41	; 65	'A'
+   4A36 54                   90 	.db #0x54	; 84	'T'
+   4A37 E9                   91 	.db #0xe9	; 233
+   4A38 41                   92 	.db #0x41	; 65	'A'
+   4A39 82                   93 	.db #0x82	; 130
+   4A3A D6                   94 	.db #0xd6	; 214
+   4A3B E9                   95 	.db #0xe9	; 233
+   4A3C 41                   96 	.db #0x41	; 65	'A'
+   4A3D 82                   97 	.db #0x82	; 130
+   4A3E D6                   98 	.db #0xd6	; 214
+   4A3F                      99 _PrinceOfPersia_Tape_1:
+   4A3F A8                  100 	.db #0xa8	; 168
+   4A40 82                  101 	.db #0x82	; 130
+   4A41 41                  102 	.db #0x41	; 65	'A'
+   4A42 54                  103 	.db #0x54	; 84	'T'
+   4A43 A8                  104 	.db #0xa8	; 168
+   4A44 82                  105 	.db #0x82	; 130
+   4A45 41                  106 	.db #0x41	; 65	'A'
+   4A46 54                  107 	.db #0x54	; 84	'T'
+   4A47 A8                  108 	.db #0xa8	; 168
+   4A48 00                  109 	.db #0x00	; 0
+   4A49 00                  110 	.db #0x00	; 0
+   4A4A 54                  111 	.db #0x54	; 84	'T'
+   4A4B A8                  112 	.db #0xa8	; 168
+   4A4C 00                  113 	.db #0x00	; 0
+   4A4D 00                  114 	.db #0x00	; 0
+   4A4E 54                  115 	.db #0x54	; 84	'T'
+   4A4F FC                  116 	.db #0xfc	; 252
+   4A50 54                  117 	.db #0x54	; 84	'T'
+   4A51 A8                  118 	.db #0xa8	; 168
+   4A52 FC                  119 	.db #0xfc	; 252
+   4A53 FC                  120 	.db #0xfc	; 252
+   4A54 54                  121 	.db #0x54	; 84	'T'
+   4A55 A8                  122 	.db #0xa8	; 168
+   4A56 FC                  123 	.db #0xfc	; 252
+   4A57 20                  124 	.db #0x20	; 32
+   4A58 30                  125 	.db #0x30	; 48	'0'
+   4A59 30                  126 	.db #0x30	; 48	'0'
+   4A5A 10                  127 	.db #0x10	; 16
+   4A5B 20                  128 	.db #0x20	; 32
+   4A5C 30                  129 	.db #0x30	; 48	'0'
+   4A5D 30                  130 	.db #0x30	; 48	'0'
+   4A5E 10                  131 	.db #0x10	; 16
+                            132 	.area _INITIALIZER
+                            133 	.area _CABS (ABS)

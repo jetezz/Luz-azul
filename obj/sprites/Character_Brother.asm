@@ -46,70 +46,72 @@
 	.area _CODE
 _Character_BrotherPALETTE:
 	.db #0x54	; 84	'T'
-	.db #0x44	; 68	'D'
-	.db #0x55	; 85	'U'
-	.db #0x5d	; 93
-	.db #0x56	; 86	'V'
-	.db #0x46	; 70	'F'
-	.db #0x57	; 87	'W'
-	.db #0x5e	; 94
-	.db #0x40	; 64
-	.db #0x5f	; 95
-	.db #0x4f	; 79	'O'
 	.db #0x5b	; 91
+	.db #0x4f	; 79	'O'
+	.db #0x5d	; 93
+	.db #0x44	; 68	'D'
+	.db #0x5f	; 95
 	.db #0x4b	; 75	'K'
+	.db #0x55	; 85	'U'
+	.db #0x56	; 86	'V'
+	.db #0x40	; 64
+	.db #0x5c	; 92
+	.db #0x46	; 70	'F'
+	.db #0x5b	; 91
+	.db #0x5b	; 91
+	.db #0x5e	; 94
 _Character_Brother:
 	.dw _Character_Brother_0
 	.dw _Character_Brother_1
 _Character_Brother_0:
-	.db #0xf0	; 240
-	.db #0x78	; 120	'x'
+	.db #0xcf	; 207
+	.db #0xc5	; 197
 	.db #0x00	; 0
-	.db #0xf0	; 240
-	.db #0x78	; 120	'x'
+	.db #0xcf	; 207
+	.db #0xc5	; 197
 	.db #0x00	; 0
-	.db #0xb1	; 177
-	.db #0x1b	; 27
+	.db #0x9e	; 158
+	.db #0x1c	; 28
 	.db #0x00	; 0
-	.db #0xb1	; 177
-	.db #0x1b	; 27
+	.db #0x9e	; 158
+	.db #0x1c	; 28
 	.db #0x00	; 0
-	.db #0xa5	; 165
-	.db #0x5a	; 90	'Z'
+	.db #0x8e	; 142
+	.db #0x4d	; 77	'M'
 	.db #0x00	; 0
-	.db #0xa5	; 165
-	.db #0x5a	; 90	'Z'
+	.db #0x8e	; 142
+	.db #0x4d	; 77	'M'
 	.db #0x00	; 0
+	.db #0x54	; 84	'T'
+	.db #0x30	; 48	'0'
 	.db #0x04	; 4
-	.db #0xc0	; 192
-	.db #0x05	; 5
+	.db #0x54	; 84	'T'
+	.db #0x30	; 48	'0'
 	.db #0x04	; 4
-	.db #0xc0	; 192
-	.db #0x05	; 5
 _Character_Brother_1:
-	.db #0x48	; 72	'H'
-	.db #0xc0	; 192
-	.db #0x1b	; 27
-	.db #0x48	; 72	'H'
-	.db #0xc0	; 192
-	.db #0x1b	; 27
-	.db #0x4a	; 74	'J'
-	.db #0xc0	; 192
-	.db #0x11	; 17
-	.db #0x4a	; 74	'J'
-	.db #0xc0	; 192
-	.db #0x11	; 17
-	.db #0x85	; 133
-	.db #0x80	; 128
+	.db #0xb8	; 184
+	.db #0x30	; 48	'0'
+	.db #0x1c	; 28
+	.db #0xb8	; 184
+	.db #0x30	; 48	'0'
+	.db #0x1c	; 28
+	.db #0x18	; 24
+	.db #0x30	; 48	'0'
+	.db #0x14	; 20
+	.db #0x18	; 24
+	.db #0x30	; 48	'0'
+	.db #0x14	; 20
+	.db #0x24	; 36
+	.db #0x20	; 32
 	.db #0x00	; 0
-	.db #0x85	; 133
-	.db #0x80	; 128
+	.db #0x24	; 36
+	.db #0x20	; 32
 	.db #0x00	; 0
-	.db #0xa8	; 168
-	.db #0xfc	; 252
+	.db #0x2a	; 42
+	.db #0x3f	; 63
 	.db #0x00	; 0
-	.db #0xa8	; 168
-	.db #0xfc	; 252
+	.db #0x2a	; 42
+	.db #0x3f	; 63
 	.db #0x00	; 0
 	.area _INITIALIZER
 	.area _CABS (ABS)

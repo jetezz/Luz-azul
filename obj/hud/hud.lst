@@ -99,28 +99,28 @@
    0014 13            [ 6]   99 	inc	de
    0015 AF            [ 4]  100 	xor	a, a
    0016 12            [ 7]  101 	ld	(de), a
-                            102 ;src/hud/hud.c:36: cpct_setDrawCharM0(3, 0);
+                            102 ;src/hud/hud.c:36: cpct_setDrawCharM0(1, 0);
    0017 C5            [11]  103 	push	bc
-   0018 21 03 00      [10]  104 	ld	hl, #0x0003
+   0018 21 01 00      [10]  104 	ld	hl, #0x0001
    001B E5            [11]  105 	push	hl
    001C CDr00r00      [17]  106 	call	_cpct_setDrawCharM0
    001F 21 11 01      [10]  107 	ld	hl, #0x0111
    0022 E5            [11]  108 	push	hl
-   0023 3E 15         [ 7]  109 	ld	a, #0x15
+   0023 3E 25         [ 7]  109 	ld	a, #0x25
    0025 F5            [11]  110 	push	af
    0026 33            [ 6]  111 	inc	sp
    0027 CDr00r00      [17]  112 	call	_dibujarGameObjectColSprite
    002A 33            [ 6]  113 	inc	sp
    002B 21 11 03      [10]  114 	ld	hl,#0x0311
    002E E3            [19]  115 	ex	(sp),hl
-   002F 3E 17         [ 7]  116 	ld	a, #0x17
+   002F 3E 27         [ 7]  116 	ld	a, #0x27
    0031 F5            [11]  117 	push	af
    0032 33            [ 6]  118 	inc	sp
    0033 CDr00r00      [17]  119 	call	_dibujarGameObjectColSprite
    0036 33            [ 6]  120 	inc	sp
    0037 21 11 05      [10]  121 	ld	hl,#0x0511
    003A E3            [19]  122 	ex	(sp),hl
-   003B 3E 1B         [ 7]  123 	ld	a, #0x1b
+   003B 3E 2F         [ 7]  123 	ld	a, #0x2f
    003D F5            [11]  124 	push	af
    003E 33            [ 6]  125 	inc	sp
    003F CDr00r00      [17]  126 	call	_dibujarGameObjectColSprite

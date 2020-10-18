@@ -44,88 +44,90 @@
                              44 ;--------------------------------------------------------
                              45 	.area _CODE
                              46 	.area _CODE
-   4EAF                      47 _Block_Static4_BPALETTE:
-   4EAF 54                   48 	.db #0x54	; 84	'T'
-   4EB0 44                   49 	.db #0x44	; 68	'D'
-   4EB1 55                   50 	.db #0x55	; 85	'U'
-   4EB2 5D                   51 	.db #0x5d	; 93
-   4EB3 56                   52 	.db #0x56	; 86	'V'
-   4EB4 46                   53 	.db #0x46	; 70	'F'
-   4EB5 57                   54 	.db #0x57	; 87	'W'
-   4EB6 5E                   55 	.db #0x5e	; 94
-   4EB7 40                   56 	.db #0x40	; 64
-   4EB8 5F                   57 	.db #0x5f	; 95
-   4EB9 4F                   58 	.db #0x4f	; 79	'O'
-   4EBA 5B                   59 	.db #0x5b	; 91
-   4EBB 4B                   60 	.db #0x4b	; 75	'K'
-   4EBC                      61 _Block_Static4_B:
-   4EBC C0 4E                62 	.dw _Block_Static4_B_0
-   4EBE E0 4E                63 	.dw _Block_Static4_B_1
-   4EC0                      64 _Block_Static4_B_0:
-   4EC0 30                   65 	.db #0x30	; 48	'0'
-   4EC1 30                   66 	.db #0x30	; 48	'0'
-   4EC2 12                   67 	.db #0x12	; 18
-   4EC3 30                   68 	.db #0x30	; 48	'0'
-   4EC4 30                   69 	.db #0x30	; 48	'0'
-   4EC5 30                   70 	.db #0x30	; 48	'0'
-   4EC6 12                   71 	.db #0x12	; 18
-   4EC7 30                   72 	.db #0x30	; 48	'0'
-   4EC8 03                   73 	.db #0x03	; 3
-   4EC9 03                   74 	.db #0x03	; 3
-   4ECA 03                   75 	.db #0x03	; 3
-   4ECB 03                   76 	.db #0x03	; 3
-   4ECC 03                   77 	.db #0x03	; 3
-   4ECD 03                   78 	.db #0x03	; 3
-   4ECE 03                   79 	.db #0x03	; 3
-   4ECF 03                   80 	.db #0x03	; 3
-   4ED0 03                   81 	.db #0x03	; 3
-   4ED1 03                   82 	.db #0x03	; 3
-   4ED2 03                   83 	.db #0x03	; 3
-   4ED3 03                   84 	.db #0x03	; 3
-   4ED4 03                   85 	.db #0x03	; 3
-   4ED5 03                   86 	.db #0x03	; 3
-   4ED6 03                   87 	.db #0x03	; 3
-   4ED7 03                   88 	.db #0x03	; 3
-   4ED8 03                   89 	.db #0x03	; 3
-   4ED9 03                   90 	.db #0x03	; 3
-   4EDA 03                   91 	.db #0x03	; 3
-   4EDB 03                   92 	.db #0x03	; 3
-   4EDC 03                   93 	.db #0x03	; 3
-   4EDD 03                   94 	.db #0x03	; 3
-   4EDE 03                   95 	.db #0x03	; 3
-   4EDF 03                   96 	.db #0x03	; 3
-   4EE0                      97 _Block_Static4_B_1:
-   4EE0 CC                   98 	.db #0xcc	; 204
-   4EE1 CC                   99 	.db #0xcc	; 204
-   4EE2 CC                  100 	.db #0xcc	; 204
-   4EE3 CC                  101 	.db #0xcc	; 204
-   4EE4 CC                  102 	.db #0xcc	; 204
-   4EE5 CC                  103 	.db #0xcc	; 204
-   4EE6 CC                  104 	.db #0xcc	; 204
-   4EE7 CC                  105 	.db #0xcc	; 204
-   4EE8 00                  106 	.db #0x00	; 0
-   4EE9 00                  107 	.db #0x00	; 0
-   4EEA 00                  108 	.db #0x00	; 0
-   4EEB 00                  109 	.db #0x00	; 0
-   4EEC 00                  110 	.db #0x00	; 0
-   4EED 00                  111 	.db #0x00	; 0
-   4EEE 00                  112 	.db #0x00	; 0
-   4EEF 00                  113 	.db #0x00	; 0
-   4EF0 CC                  114 	.db #0xcc	; 204
-   4EF1 CC                  115 	.db #0xcc	; 204
-   4EF2 CC                  116 	.db #0xcc	; 204
-   4EF3 CC                  117 	.db #0xcc	; 204
-   4EF4 CC                  118 	.db #0xcc	; 204
-   4EF5 CC                  119 	.db #0xcc	; 204
-   4EF6 CC                  120 	.db #0xcc	; 204
-   4EF7 CC                  121 	.db #0xcc	; 204
-   4EF8 00                  122 	.db #0x00	; 0
-   4EF9 00                  123 	.db #0x00	; 0
-   4EFA 41                  124 	.db #0x41	; 65	'A'
-   4EFB C6                  125 	.db #0xc6	; 198
-   4EFC 00                  126 	.db #0x00	; 0
-   4EFD 00                  127 	.db #0x00	; 0
-   4EFE 41                  128 	.db #0x41	; 65	'A'
-   4EFF C6                  129 	.db #0xc6	; 198
-                            130 	.area _INITIALIZER
-                            131 	.area _CABS (ABS)
+   5502                      47 _Block_Static4_BPALETTE:
+   5502 54                   48 	.db #0x54	; 84	'T'
+   5503 5B                   49 	.db #0x5b	; 91
+   5504 4F                   50 	.db #0x4f	; 79	'O'
+   5505 5D                   51 	.db #0x5d	; 93
+   5506 44                   52 	.db #0x44	; 68	'D'
+   5507 5F                   53 	.db #0x5f	; 95
+   5508 4B                   54 	.db #0x4b	; 75	'K'
+   5509 55                   55 	.db #0x55	; 85	'U'
+   550A 56                   56 	.db #0x56	; 86	'V'
+   550B 40                   57 	.db #0x40	; 64
+   550C 5C                   58 	.db #0x5c	; 92
+   550D 46                   59 	.db #0x46	; 70	'F'
+   550E 5B                   60 	.db #0x5b	; 91
+   550F 5B                   61 	.db #0x5b	; 91
+   5510 5E                   62 	.db #0x5e	; 94
+   5511                      63 _Block_Static4_B:
+   5511 15 55                64 	.dw _Block_Static4_B_0
+   5513 35 55                65 	.dw _Block_Static4_B_1
+   5515                      66 _Block_Static4_B_0:
+   5515 03                   67 	.db #0x03	; 3
+   5516 03                   68 	.db #0x03	; 3
+   5517 83                   69 	.db #0x83	; 131
+   5518 03                   70 	.db #0x03	; 3
+   5519 03                   71 	.db #0x03	; 3
+   551A 03                   72 	.db #0x03	; 3
+   551B 83                   73 	.db #0x83	; 131
+   551C 03                   74 	.db #0x03	; 3
+   551D C3                   75 	.db #0xc3	; 195
+   551E C3                   76 	.db #0xc3	; 195
+   551F C3                   77 	.db #0xc3	; 195
+   5520 C3                   78 	.db #0xc3	; 195
+   5521 C3                   79 	.db #0xc3	; 195
+   5522 C3                   80 	.db #0xc3	; 195
+   5523 C3                   81 	.db #0xc3	; 195
+   5524 C3                   82 	.db #0xc3	; 195
+   5525 C3                   83 	.db #0xc3	; 195
+   5526 C3                   84 	.db #0xc3	; 195
+   5527 C3                   85 	.db #0xc3	; 195
+   5528 C3                   86 	.db #0xc3	; 195
+   5529 C3                   87 	.db #0xc3	; 195
+   552A C3                   88 	.db #0xc3	; 195
+   552B C3                   89 	.db #0xc3	; 195
+   552C C3                   90 	.db #0xc3	; 195
+   552D C3                   91 	.db #0xc3	; 195
+   552E C3                   92 	.db #0xc3	; 195
+   552F C3                   93 	.db #0xc3	; 195
+   5530 C3                   94 	.db #0xc3	; 195
+   5531 C3                   95 	.db #0xc3	; 195
+   5532 C3                   96 	.db #0xc3	; 195
+   5533 C3                   97 	.db #0xc3	; 195
+   5534 C3                   98 	.db #0xc3	; 195
+   5535                      99 _Block_Static4_B_1:
+   5535 CC                  100 	.db #0xcc	; 204
+   5536 CC                  101 	.db #0xcc	; 204
+   5537 CC                  102 	.db #0xcc	; 204
+   5538 CC                  103 	.db #0xcc	; 204
+   5539 CC                  104 	.db #0xcc	; 204
+   553A CC                  105 	.db #0xcc	; 204
+   553B CC                  106 	.db #0xcc	; 204
+   553C CC                  107 	.db #0xcc	; 204
+   553D 00                  108 	.db #0x00	; 0
+   553E 00                  109 	.db #0x00	; 0
+   553F 00                  110 	.db #0x00	; 0
+   5540 00                  111 	.db #0x00	; 0
+   5541 00                  112 	.db #0x00	; 0
+   5542 00                  113 	.db #0x00	; 0
+   5543 00                  114 	.db #0x00	; 0
+   5544 00                  115 	.db #0x00	; 0
+   5545 CC                  116 	.db #0xcc	; 204
+   5546 CC                  117 	.db #0xcc	; 204
+   5547 CC                  118 	.db #0xcc	; 204
+   5548 CC                  119 	.db #0xcc	; 204
+   5549 CC                  120 	.db #0xcc	; 204
+   554A CC                  121 	.db #0xcc	; 204
+   554B CC                  122 	.db #0xcc	; 204
+   554C CC                  123 	.db #0xcc	; 204
+   554D 00                  124 	.db #0x00	; 0
+   554E 00                  125 	.db #0x00	; 0
+   554F 50                  126 	.db #0x50	; 80	'P'
+   5550 E4                  127 	.db #0xe4	; 228
+   5551 00                  128 	.db #0x00	; 0
+   5552 00                  129 	.db #0x00	; 0
+   5553 50                  130 	.db #0x50	; 80	'P'
+   5554 E4                  131 	.db #0xe4	; 228
+                            132 	.area _INITIALIZER
+                            133 	.area _CABS (ABS)

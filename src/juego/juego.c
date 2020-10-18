@@ -52,13 +52,13 @@ void game(){
         }            
         comprobarMovimiento();      
         moverPlayer();
-        actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
+        //actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
         if(comprobarPasos()==si){
-            managerDialogo(nivelActual,pasos);
+            //managerDialogo(nivelActual,pasos);
         }       
-        if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
-            resetGameobjects(nivelActual);
-        }
+        //if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
+        //    resetGameobjects(nivelActual);
+        //}
         if(frecuenciaIA==0){
             frecuenciaIA=frecuenciaMaxIA;
         }

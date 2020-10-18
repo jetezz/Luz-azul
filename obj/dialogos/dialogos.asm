@@ -185,14 +185,14 @@ _anadirDialogo::
 ; Function dialogosNivel0
 ; ---------------------------------
 _dialogosNivel0::
-;src/dialogos/dialogos.c:33: anadirDialogo(0,nivel_0,5);
+;src/dialogos/dialogos.c:33: anadirDialogo(0,nivel_01,5);
 	ld	hl, #0x0501
 	push	hl
 	xor	a, a
 	push	af
 	inc	sp
 	call	_anadirDialogo
-;src/dialogos/dialogos.c:34: anadirDialogo(1,nivel_0,10);
+;src/dialogos/dialogos.c:34: anadirDialogo(1,nivel_01,10);
 	inc	sp
 	ld	hl,#0x0a01
 	ex	(sp),hl

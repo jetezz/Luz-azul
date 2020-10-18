@@ -99,28 +99,28 @@ _initHud::
 	inc	de
 	xor	a, a
 	ld	(de), a
-;src/hud/hud.c:36: cpct_setDrawCharM0(3, 0);
+;src/hud/hud.c:36: cpct_setDrawCharM0(1, 0);
 	push	bc
-	ld	hl, #0x0003
+	ld	hl, #0x0001
 	push	hl
 	call	_cpct_setDrawCharM0
 	ld	hl, #0x0111
 	push	hl
-	ld	a, #0x15
+	ld	a, #0x25
 	push	af
 	inc	sp
 	call	_dibujarGameObjectColSprite
 	inc	sp
 	ld	hl,#0x0311
 	ex	(sp),hl
-	ld	a, #0x17
+	ld	a, #0x27
 	push	af
 	inc	sp
 	call	_dibujarGameObjectColSprite
 	inc	sp
 	ld	hl,#0x0511
 	ex	(sp),hl
-	ld	a, #0x1b
+	ld	a, #0x2f
 	push	af
 	inc	sp
 	call	_dibujarGameObjectColSprite

@@ -44,88 +44,90 @@
                              44 ;--------------------------------------------------------
                              45 	.area _CODE
                              46 	.area _CODE
-   486B                      47 _PrinceOfPersia_COVERPALETTE:
-   486B 54                   48 	.db #0x54	; 84	'T'
-   486C 44                   49 	.db #0x44	; 68	'D'
-   486D 55                   50 	.db #0x55	; 85	'U'
-   486E 5D                   51 	.db #0x5d	; 93
-   486F 56                   52 	.db #0x56	; 86	'V'
-   4870 46                   53 	.db #0x46	; 70	'F'
-   4871 57                   54 	.db #0x57	; 87	'W'
-   4872 5E                   55 	.db #0x5e	; 94
-   4873 40                   56 	.db #0x40	; 64
-   4874 5F                   57 	.db #0x5f	; 95
-   4875 4F                   58 	.db #0x4f	; 79	'O'
-   4876 5B                   59 	.db #0x5b	; 91
-   4877 4B                   60 	.db #0x4b	; 75	'K'
-   4878                      61 _PrinceOfPersia_COVER:
-   4878 7C 48                62 	.dw _PrinceOfPersia_COVER_0
-   487A 9C 48                63 	.dw _PrinceOfPersia_COVER_1
-   487C                      64 _PrinceOfPersia_COVER_0:
-   487C FC                   65 	.db #0xfc	; 252
-   487D FC                   66 	.db #0xfc	; 252
-   487E FC                   67 	.db #0xfc	; 252
-   487F FC                   68 	.db #0xfc	; 252
-   4880 FC                   69 	.db #0xfc	; 252
-   4881 FC                   70 	.db #0xfc	; 252
-   4882 FC                   71 	.db #0xfc	; 252
-   4883 FC                   72 	.db #0xfc	; 252
-   4884 FC                   73 	.db #0xfc	; 252
-   4885 FC                   74 	.db #0xfc	; 252
-   4886 FC                   75 	.db #0xfc	; 252
-   4887 FC                   76 	.db #0xfc	; 252
-   4888 FC                   77 	.db #0xfc	; 252
-   4889 FC                   78 	.db #0xfc	; 252
-   488A FC                   79 	.db #0xfc	; 252
-   488B FC                   80 	.db #0xfc	; 252
-   488C FC                   81 	.db #0xfc	; 252
-   488D FC                   82 	.db #0xfc	; 252
-   488E FC                   83 	.db #0xfc	; 252
-   488F FC                   84 	.db #0xfc	; 252
-   4890 FC                   85 	.db #0xfc	; 252
-   4891 FC                   86 	.db #0xfc	; 252
-   4892 FC                   87 	.db #0xfc	; 252
-   4893 FC                   88 	.db #0xfc	; 252
-   4894 FC                   89 	.db #0xfc	; 252
-   4895 FC                   90 	.db #0xfc	; 252
-   4896 FC                   91 	.db #0xfc	; 252
-   4897 FC                   92 	.db #0xfc	; 252
-   4898 FC                   93 	.db #0xfc	; 252
-   4899 FC                   94 	.db #0xfc	; 252
-   489A FC                   95 	.db #0xfc	; 252
-   489B FC                   96 	.db #0xfc	; 252
-   489C                      97 _PrinceOfPersia_COVER_1:
-   489C FC                   98 	.db #0xfc	; 252
-   489D FC                   99 	.db #0xfc	; 252
-   489E FC                  100 	.db #0xfc	; 252
-   489F FC                  101 	.db #0xfc	; 252
-   48A0 FC                  102 	.db #0xfc	; 252
-   48A1 FC                  103 	.db #0xfc	; 252
-   48A2 FC                  104 	.db #0xfc	; 252
-   48A3 FC                  105 	.db #0xfc	; 252
-   48A4 FC                  106 	.db #0xfc	; 252
-   48A5 FC                  107 	.db #0xfc	; 252
-   48A6 FC                  108 	.db #0xfc	; 252
-   48A7 FC                  109 	.db #0xfc	; 252
-   48A8 FC                  110 	.db #0xfc	; 252
-   48A9 FC                  111 	.db #0xfc	; 252
-   48AA FC                  112 	.db #0xfc	; 252
-   48AB FC                  113 	.db #0xfc	; 252
-   48AC FC                  114 	.db #0xfc	; 252
-   48AD FC                  115 	.db #0xfc	; 252
-   48AE FC                  116 	.db #0xfc	; 252
-   48AF FC                  117 	.db #0xfc	; 252
-   48B0 FC                  118 	.db #0xfc	; 252
-   48B1 FC                  119 	.db #0xfc	; 252
-   48B2 FC                  120 	.db #0xfc	; 252
-   48B3 FC                  121 	.db #0xfc	; 252
-   48B4 FC                  122 	.db #0xfc	; 252
-   48B5 FC                  123 	.db #0xfc	; 252
-   48B6 FC                  124 	.db #0xfc	; 252
-   48B7 FC                  125 	.db #0xfc	; 252
-   48B8 FC                  126 	.db #0xfc	; 252
-   48B9 FC                  127 	.db #0xfc	; 252
-   48BA FC                  128 	.db #0xfc	; 252
-   48BB FC                  129 	.db #0xfc	; 252
-                            130 	.area _INITIALIZER
-                            131 	.area _CABS (ABS)
+   486D                      47 _PrinceOfPersia_COVERPALETTE:
+   486D 54                   48 	.db #0x54	; 84	'T'
+   486E 5B                   49 	.db #0x5b	; 91
+   486F 4F                   50 	.db #0x4f	; 79	'O'
+   4870 5D                   51 	.db #0x5d	; 93
+   4871 44                   52 	.db #0x44	; 68	'D'
+   4872 5F                   53 	.db #0x5f	; 95
+   4873 4B                   54 	.db #0x4b	; 75	'K'
+   4874 55                   55 	.db #0x55	; 85	'U'
+   4875 56                   56 	.db #0x56	; 86	'V'
+   4876 40                   57 	.db #0x40	; 64
+   4877 5C                   58 	.db #0x5c	; 92
+   4878 46                   59 	.db #0x46	; 70	'F'
+   4879 5B                   60 	.db #0x5b	; 91
+   487A 5B                   61 	.db #0x5b	; 91
+   487B 5E                   62 	.db #0x5e	; 94
+   487C                      63 _PrinceOfPersia_COVER:
+   487C 80 48                64 	.dw _PrinceOfPersia_COVER_0
+   487E A0 48                65 	.dw _PrinceOfPersia_COVER_1
+   4880                      66 _PrinceOfPersia_COVER_0:
+   4880 2F                   67 	.db #0x2f	; 47
+   4881 0F                   68 	.db #0x0f	; 15
+   4882 0F                   69 	.db #0x0f	; 15
+   4883 1F                   70 	.db #0x1f	; 31
+   4884 2F                   71 	.db #0x2f	; 47
+   4885 0F                   72 	.db #0x0f	; 15
+   4886 0F                   73 	.db #0x0f	; 15
+   4887 1F                   74 	.db #0x1f	; 31
+   4888 1F                   75 	.db #0x1f	; 31
+   4889 3F                   76 	.db #0x3f	; 63
+   488A 3F                   77 	.db #0x3f	; 63
+   488B 2F                   78 	.db #0x2f	; 47
+   488C 1F                   79 	.db #0x1f	; 31
+   488D 3F                   80 	.db #0x3f	; 63
+   488E 3F                   81 	.db #0x3f	; 63
+   488F 2F                   82 	.db #0x2f	; 47
+   4890 1F                   83 	.db #0x1f	; 31
+   4891 1F                   84 	.db #0x1f	; 31
+   4892 0F                   85 	.db #0x0f	; 15
+   4893 2F                   86 	.db #0x2f	; 47
+   4894 1F                   87 	.db #0x1f	; 31
+   4895 1F                   88 	.db #0x1f	; 31
+   4896 0F                   89 	.db #0x0f	; 15
+   4897 2F                   90 	.db #0x2f	; 47
+   4898 1F                   91 	.db #0x1f	; 31
+   4899 0F                   92 	.db #0x0f	; 15
+   489A 1F                   93 	.db #0x1f	; 31
+   489B 2F                   94 	.db #0x2f	; 47
+   489C 1F                   95 	.db #0x1f	; 31
+   489D 0F                   96 	.db #0x0f	; 15
+   489E 1F                   97 	.db #0x1f	; 31
+   489F 2F                   98 	.db #0x2f	; 47
+   48A0                      99 _PrinceOfPersia_COVER_1:
+   48A0 1F                  100 	.db #0x1f	; 31
+   48A1 1F                  101 	.db #0x1f	; 31
+   48A2 0F                  102 	.db #0x0f	; 15
+   48A3 2F                  103 	.db #0x2f	; 47
+   48A4 1F                  104 	.db #0x1f	; 31
+   48A5 1F                  105 	.db #0x1f	; 31
+   48A6 0F                  106 	.db #0x0f	; 15
+   48A7 2F                  107 	.db #0x2f	; 47
+   48A8 1F                  108 	.db #0x1f	; 31
+   48A9 0F                  109 	.db #0x0f	; 15
+   48AA 0F                  110 	.db #0x0f	; 15
+   48AB 2F                  111 	.db #0x2f	; 47
+   48AC 1F                  112 	.db #0x1f	; 31
+   48AD 0F                  113 	.db #0x0f	; 15
+   48AE 0F                  114 	.db #0x0f	; 15
+   48AF 2F                  115 	.db #0x2f	; 47
+   48B0 1F                  116 	.db #0x1f	; 31
+   48B1 3F                  117 	.db #0x3f	; 63
+   48B2 3F                  118 	.db #0x3f	; 63
+   48B3 2F                  119 	.db #0x2f	; 47
+   48B4 1F                  120 	.db #0x1f	; 31
+   48B5 3F                  121 	.db #0x3f	; 63
+   48B6 3F                  122 	.db #0x3f	; 63
+   48B7 2F                  123 	.db #0x2f	; 47
+   48B8 2F                  124 	.db #0x2f	; 47
+   48B9 0F                  125 	.db #0x0f	; 15
+   48BA 0F                  126 	.db #0x0f	; 15
+   48BB 1F                  127 	.db #0x1f	; 31
+   48BC 2F                  128 	.db #0x2f	; 47
+   48BD 0F                  129 	.db #0x0f	; 15
+   48BE 0F                  130 	.db #0x0f	; 15
+   48BF 1F                  131 	.db #0x1f	; 31
+                            132 	.area _INITIALIZER
+                            133 	.area _CABS (ABS)

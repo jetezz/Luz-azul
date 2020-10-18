@@ -6,7 +6,7 @@
 #define     SinColision                     50
 #define     ColisionNoRocas                 51
 #define     RocasMaximas                    40 
-#define     PuertasMaximas                  3
+#define     PuertasMaximas                  6
 #define     ColeccionablesMaximos           3
 #define     ColeccionablesMaximosTotales    50
 
@@ -140,7 +140,13 @@ extern enum{
     nivel_01_01,
     nivel_TRAP_01,
     nivel_02,
-    nivel_03
+    nivel_03,
+    nivel_04,
+    nivel_04_01,
+    nivel_05,
+    nivel_06,
+    nivel_07
+
      
 }ETipoNivel;
 

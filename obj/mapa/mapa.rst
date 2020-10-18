@@ -46,22 +46,22 @@
                              46 ;	---------------------------------
                              47 ; Function crearMapa
                              48 ; ---------------------------------
-   6259                      49 _crearMapa::
+   6BC9                      49 _crearMapa::
                              50 ;src/mapa/mapa.c:9: cpct_etm_setDrawTilemap4x8_ag(map_W, map_H, map_W, tiles_00);
-   6259 21 AB 41      [10]   51 	ld	hl, #_tiles_00
-   625C E5            [11]   52 	push	hl
-   625D 21 11 00      [10]   53 	ld	hl, #0x0011
-   6260 E5            [11]   54 	push	hl
-   6261 26 12         [ 7]   55 	ld	h, #0x12
-   6263 E5            [11]   56 	push	hl
-   6264 CD AC 76      [17]   57 	call	_cpct_etm_setDrawTilemap4x8_ag
+   6BC9 21 AD 41      [10]   51 	ld	hl, #_tiles_00
+   6BCC E5            [11]   52 	push	hl
+   6BCD 21 11 00      [10]   53 	ld	hl, #0x0011
+   6BD0 E5            [11]   54 	push	hl
+   6BD1 26 12         [ 7]   55 	ld	h, #0x12
+   6BD3 E5            [11]   56 	push	hl
+   6BD4 CD C6 AA      [17]   57 	call	_cpct_etm_setDrawTilemap4x8_ag
                              58 ;src/mapa/mapa.c:10: cpct_etm_drawTilemap4x8_ag(Punto_Inicial_De_Pantalla, map);
-   6267 21 00 40      [10]   59 	ld	hl, #_map
-   626A E5            [11]   60 	push	hl
-   626B 21 00 C0      [10]   61 	ld	hl, #0xc000
-   626E E5            [11]   62 	push	hl
-   626F CD C5 74      [17]   63 	call	_cpct_etm_drawTilemap4x8_ag
-   6272 C9            [10]   64 	ret
+   6BD7 21 00 40      [10]   59 	ld	hl, #_map
+   6BDA E5            [11]   60 	push	hl
+   6BDB 21 00 C0      [10]   61 	ld	hl, #0xc000
+   6BDE E5            [11]   62 	push	hl
+   6BDF CD D3 A8      [17]   63 	call	_cpct_etm_drawTilemap4x8_ag
+   6BE2 C9            [10]   64 	ret
                              65 	.area _CODE
                              66 	.area _INITIALIZER
                              67 	.area _CABS (ABS)

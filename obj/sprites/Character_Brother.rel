@@ -3,11 +3,11 @@ H 9 areas 5 global symbols
 M Character_Brother
 O -mz80
 S .__.ABS. Def0000
-A _CODE size 41 flags 0 addr 0
-S _Character_Brother Def000D
+A _CODE size 43 flags 0 addr 0
+S _Character_Brother Def000F
 S _Character_BrotherPALETTE Def0000
-S _Character_Brother_0 Def0011
-S _Character_Brother_1 Def0029
+S _Character_Brother_0 Def0013
+S _Character_Brother_1 Def002B
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
@@ -18,21 +18,23 @@ A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
 T 00 00
 R 00 00 00 00
-T 00 00 54 44 55 5D 56 46 57 5E 40 5F 4F 5B 4B
+T 00 00 54 5B 4F 5D 44 5F 4B 55 56 40 5C 46 5B 5B
 R 00 00 00 00
-T 0D 00
+T 0E 00 5E
 R 00 00 00 00
-T 0D 00 11 00 29 00
+T 0F 00
+R 00 00 00 00
+T 0F 00 13 00 2B 00
 R 00 00 00 00 00 02 00 00 00 04 00 00
-T 11 00
+T 13 00
 R 00 00 00 00
-T 11 00 F0 78 00 F0 78 00 B1 1B 00 B1 1B 00 A5 5A
+T 13 00 CF C5 00 CF C5 00 9E 1C 00 9E 1C 00 8E 4D
 R 00 00 00 00
-T 1F 00 00 A5 5A 00 04 C0 05 04 C0 05
+T 21 00 00 8E 4D 00 54 30 04 54 30 04
 R 00 00 00 00
-T 29 00
+T 2B 00
 R 00 00 00 00
-T 29 00 48 C0 1B 48 C0 1B 4A C0 11 4A C0 11 85 80
+T 2B 00 B8 30 1C B8 30 1C 18 30 14 18 30 14 24 20
 R 00 00 00 00
-T 37 00 00 85 80 00 A8 FC 00 A8 FC 00
+T 39 00 00 24 20 00 2A 3F 00 2A 3F 00
 R 00 00 00 00

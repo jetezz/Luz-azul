@@ -8,9 +8,9 @@
                               8 ;--------------------------------------------------------
                               9 ; Public variables in this module
                              10 ;--------------------------------------------------------
-                             11 	.globl _managerDialogo
-                             12 	.globl _initDialogos
-                             13 	.globl _actualizarHud
+                             11 	.globl _crearEnemigos
+                             12 	.globl _initEnemigos
+                             13 	.globl _initDialogos
                              14 	.globl _initHud
                              15 	.globl _crearNivel
                              16 	.globl _initNiveles
@@ -21,536 +21,560 @@
                              21 	.globl _dibujarGameObjectCol
                              22 	.globl _dibujarGameObject
                              23 	.globl _initGameobjest
-                             24 	.globl _pasos
-                             25 	.globl _nivelActual
-                             26 	.globl _coleccionablesAms
-                             27 	.globl _coleccionablesFam
-                             28 	.globl _coleccionablesLuz
-                             29 	.globl _posicion
-                             30 	.globl _colList
-                             31 	.globl _coleccionables
-                             32 	.globl _puertas
-                             33 	.globl _portal
-                             34 	.globl _rocasEspejo
-                             35 	.globl _rocas
-                             36 	.globl _player
-                             37 	.globl _game
-                             38 	.globl _initGame
-                             39 	.globl _moverPlayer
-                             40 	.globl _dibujarGameObjects
-                             41 	.globl _comprobarMovimiento
-                             42 	.globl _comprobarPasos
-                             43 	.globl _resetGameobjects
-                             44 ;--------------------------------------------------------
-                             45 ; special function registers
-                             46 ;--------------------------------------------------------
-                             47 ;--------------------------------------------------------
-                             48 ; ram data
-                             49 ;--------------------------------------------------------
-                             50 	.area _DATA
-   0000                      51 _P_portal:
-   0000                      52 	.ds 2
-   0002                      53 _P_puertas:
-   0002                      54 	.ds 2
-   0004                      55 _P_col:
-   0004                      56 	.ds 2
-   0006                      57 _P_luz:
-   0006                      58 	.ds 2
-   0008                      59 _P_fam:
-   0008                      60 	.ds 2
-   000A                      61 _P_ams:
-   000A                      62 	.ds 2
-   000C                      63 _P_colList:
-   000C                      64 	.ds 2
-   000E                      65 _movimientoGuardado:
-   000E                      66 	.ds 1
-   000F                      67 _niveles:
-   000F                      68 	.ds 100
-   0073                      69 _contadorRocas:
-   0073                      70 	.ds 1
-   0074                      71 _contadorRocasEspejo:
-   0074                      72 	.ds 1
-   0075                      73 _contadorPuertas:
-   0075                      74 	.ds 1
-   0076                      75 _contadorColeccionables:
-   0076                      76 	.ds 1
-   0077                      77 _P_colList2:
-   0077                      78 	.ds 2
-   0079                      79 _dialogos:
-   0079                      80 	.ds 100
-   00DD                      81 _player::
-   00DD                      82 	.ds 7
-   00E4                      83 _rocas::
-   00E4                      84 	.ds 280
-   01FC                      85 _rocasEspejo::
-   01FC                      86 	.ds 280
-   0314                      87 _portal::
-   0314                      88 	.ds 14
-   0322                      89 _puertas::
-   0322                      90 	.ds 70
-   0368                      91 _coleccionables::
-   0368                      92 	.ds 12
-   0374                      93 _colList::
-   0374                      94 	.ds 50
-   03A6                      95 _posicion::
-   03A6                      96 	.ds 1
-   03A7                      97 _coleccionablesLuz::
-   03A7                      98 	.ds 1
-   03A8                      99 _coleccionablesFam::
-   03A8                     100 	.ds 1
-   03A9                     101 _coleccionablesAms::
-   03A9                     102 	.ds 1
-   03AA                     103 _nivelActual::
-   03AA                     104 	.ds 1
-   03AB                     105 _pasos::
-   03AB                     106 	.ds 1
-                            107 ;--------------------------------------------------------
-                            108 ; ram data
-                            109 ;--------------------------------------------------------
-                            110 	.area _INITIALIZED
-                            111 ;--------------------------------------------------------
-                            112 ; absolute external ram data
-                            113 ;--------------------------------------------------------
-                            114 	.area _DABS (ABS)
-                            115 ;--------------------------------------------------------
-                            116 ; global & static initialisations
+                             24 	.globl _cpct_akp_SFXInit
+                             25 	.globl _cpct_akp_stop
+                             26 	.globl _cpct_akp_musicPlay
+                             27 	.globl _cpct_akp_musicInit
+                             28 	.globl _cpct_waitVSYNC
+                             29 	.globl _frecuenciaIA
+                             30 	.globl _pasos
+                             31 	.globl _nivelActual
+                             32 	.globl _coleccionablesAms
+                             33 	.globl _coleccionablesFam
+                             34 	.globl _coleccionablesLuz
+                             35 	.globl _posicion
+                             36 	.globl _colList
+                             37 	.globl _coleccionables
+                             38 	.globl _puertas
+                             39 	.globl _portal
+                             40 	.globl _rocasEspejo
+                             41 	.globl _rocas
+                             42 	.globl _player
+                             43 	.globl _game
+                             44 	.globl _initGame
+                             45 	.globl _moverPlayer
+                             46 	.globl _dibujarGameObjects
+                             47 	.globl _comprobarMovimiento
+                             48 	.globl _comprobarPasos
+                             49 	.globl _resetGameobjects
+                             50 ;--------------------------------------------------------
+                             51 ; special function registers
+                             52 ;--------------------------------------------------------
+                             53 ;--------------------------------------------------------
+                             54 ; ram data
+                             55 ;--------------------------------------------------------
+                             56 	.area _DATA
+   0000                      57 _P_portal:
+   0000                      58 	.ds 2
+   0002                      59 _P_puertas:
+   0002                      60 	.ds 2
+   0004                      61 _P_col:
+   0004                      62 	.ds 2
+   0006                      63 _P_luz:
+   0006                      64 	.ds 2
+   0008                      65 _P_fam:
+   0008                      66 	.ds 2
+   000A                      67 _P_ams:
+   000A                      68 	.ds 2
+   000C                      69 _P_colList:
+   000C                      70 	.ds 2
+   000E                      71 _movimientoGuardado:
+   000E                      72 	.ds 1
+   000F                      73 _niveles:
+   000F                      74 	.ds 100
+   0073                      75 _contadorRocas:
+   0073                      76 	.ds 1
+   0074                      77 _contadorRocasEspejo:
+   0074                      78 	.ds 1
+   0075                      79 _contadorPuertas:
+   0075                      80 	.ds 1
+   0076                      81 _contadorColeccionables:
+   0076                      82 	.ds 1
+   0077                      83 _P_colList2:
+   0077                      84 	.ds 2
+   0079                      85 _dialogos:
+   0079                      86 	.ds 100
+   00DD                      87 _creadorDeEnemigos:
+   00DD                      88 	.ds 100
+   0141                      89 _player::
+   0141                      90 	.ds 7
+   0148                      91 _rocas::
+   0148                      92 	.ds 280
+   0260                      93 _rocasEspejo::
+   0260                      94 	.ds 280
+   0378                      95 _portal::
+   0378                      96 	.ds 14
+   0386                      97 _puertas::
+   0386                      98 	.ds 70
+   03CC                      99 _coleccionables::
+   03CC                     100 	.ds 12
+   03D8                     101 _colList::
+   03D8                     102 	.ds 50
+   040A                     103 _posicion::
+   040A                     104 	.ds 1
+   040B                     105 _coleccionablesLuz::
+   040B                     106 	.ds 1
+   040C                     107 _coleccionablesFam::
+   040C                     108 	.ds 1
+   040D                     109 _coleccionablesAms::
+   040D                     110 	.ds 1
+   040E                     111 _nivelActual::
+   040E                     112 	.ds 1
+   040F                     113 _pasos::
+   040F                     114 	.ds 1
+   0410                     115 _frecuenciaIA::
+   0410                     116 	.ds 1
                             117 ;--------------------------------------------------------
-                            118 	.area _HOME
-                            119 	.area _GSINIT
-                            120 	.area _GSFINAL
-                            121 	.area _GSINIT
-                            122 ;--------------------------------------------------------
-                            123 ; Home
-                            124 ;--------------------------------------------------------
-                            125 	.area _HOME
-                            126 	.area _HOME
+                            118 ; ram data
+                            119 ;--------------------------------------------------------
+                            120 	.area _INITIALIZED
+                            121 ;--------------------------------------------------------
+                            122 ; absolute external ram data
+                            123 ;--------------------------------------------------------
+                            124 	.area _DABS (ABS)
+                            125 ;--------------------------------------------------------
+                            126 ; global & static initialisations
                             127 ;--------------------------------------------------------
-                            128 ; code
-                            129 ;--------------------------------------------------------
-                            130 	.area _CODE
-                            131 ;src/juego/juego.c:33: void game(){
-                            132 ;	---------------------------------
-                            133 ; Function game
-                            134 ; ---------------------------------
-   0000                     135 _game::
-                            136 ;src/juego/juego.c:34: initGame();       
-   0000 CDr4Cr00      [17]  137 	call	_initGame
-                            138 ;src/juego/juego.c:35: while(1){          
-   0003                     139 00106$:
-                            140 ;src/juego/juego.c:36: scanKey();
-   0003 CDr00r00      [17]  141 	call	_scanKey
-                            142 ;src/juego/juego.c:37: if(keyR()==si){
-   0006 CDr00r00      [17]  143 	call	_keyR
-   0009 7D            [ 4]  144 	ld	a, l
-   000A B7            [ 4]  145 	or	a, a
-   000B 20 09         [12]  146 	jr	NZ,00102$
-                            147 ;src/juego/juego.c:38: resetGameobjects(nivelActual);
-   000D 3ArAAr03      [13]  148 	ld	a, (_nivelActual)
-   0010 F5            [11]  149 	push	af
-   0011 33            [ 6]  150 	inc	sp
-   0012 CDrF8r01      [17]  151 	call	_resetGameobjects
-   0015 33            [ 6]  152 	inc	sp
-   0016                     153 00102$:
-                            154 ;src/juego/juego.c:40: comprobarMovimiento();      
-   0016 CDrC5r01      [17]  155 	call	_comprobarMovimiento
-                            156 ;src/juego/juego.c:41: moverPlayer();
-   0019 CDrD8r00      [17]  157 	call	_moverPlayer
-                            158 ;src/juego/juego.c:42: actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
-   001C 3ArABr03      [13]  159 	ld	a, (_pasos)
-   001F F5            [11]  160 	push	af
-   0020 33            [ 6]  161 	inc	sp
-   0021 3ArA9r03      [13]  162 	ld	a, (_coleccionablesAms)
-   0024 F5            [11]  163 	push	af
-   0025 33            [ 6]  164 	inc	sp
-   0026 3ArA8r03      [13]  165 	ld	a, (_coleccionablesFam)
-   0029 F5            [11]  166 	push	af
-   002A 33            [ 6]  167 	inc	sp
-   002B 3ArA7r03      [13]  168 	ld	a, (_coleccionablesLuz)
-   002E F5            [11]  169 	push	af
-   002F 33            [ 6]  170 	inc	sp
-   0030 CDr00r00      [17]  171 	call	_actualizarHud
-   0033 F1            [10]  172 	pop	af
-   0034 F1            [10]  173 	pop	af
-                            174 ;src/juego/juego.c:43: if(comprobarPasos()==si){
-   0035 CDrE1r01      [17]  175 	call	_comprobarPasos
-   0038 7D            [ 4]  176 	ld	a, l
-   0039 B7            [ 4]  177 	or	a, a
-   003A 20 C7         [12]  178 	jr	NZ,00106$
-                            179 ;src/juego/juego.c:44: managerDialogo(nivelActual,pasos);
-   003C 3ArABr03      [13]  180 	ld	a, (_pasos)
-   003F F5            [11]  181 	push	af
-   0040 33            [ 6]  182 	inc	sp
-   0041 3ArAAr03      [13]  183 	ld	a, (_nivelActual)
-   0044 F5            [11]  184 	push	af
-   0045 33            [ 6]  185 	inc	sp
-   0046 CDr00r00      [17]  186 	call	_managerDialogo
-   0049 F1            [10]  187 	pop	af
-   004A 18 B7         [12]  188 	jr	00106$
-                            189 ;src/juego/juego.c:49: void initGame(){
-                            190 ;	---------------------------------
-                            191 ; Function initGame
-                            192 ; ---------------------------------
-   004C                     193 _initGame::
-                            194 ;src/juego/juego.c:50: for(u8 i =0;i<ColeccionablesMaximosTotales;i++){
-   004C 0E 00         [ 7]  195 	ld	c, #0x00
-   004E                     196 00103$:
-   004E 79            [ 4]  197 	ld	a, c
-   004F D6 32         [ 7]  198 	sub	a, #0x32
-   0051 30 0B         [12]  199 	jr	NC,00101$
-                            200 ;src/juego/juego.c:51: colList[i]=coleccionable_activo;
-   0053 21r74r03      [10]  201 	ld	hl, #_colList
-   0056 06 00         [ 7]  202 	ld	b, #0x00
-   0058 09            [11]  203 	add	hl, bc
-   0059 36 00         [10]  204 	ld	(hl), #0x00
-                            205 ;src/juego/juego.c:50: for(u8 i =0;i<ColeccionablesMaximosTotales;i++){
-   005B 0C            [ 4]  206 	inc	c
-   005C 18 F0         [12]  207 	jr	00103$
-   005E                     208 00101$:
-                            209 ;src/juego/juego.c:53: posicion=posicion_Izquieda;
-   005E 21rA6r03      [10]  210 	ld	hl,#_posicion + 0
-   0061 36 00         [10]  211 	ld	(hl), #0x00
-                            212 ;src/juego/juego.c:54: coleccionablesLuz=0;
-   0063 21rA7r03      [10]  213 	ld	hl,#_coleccionablesLuz + 0
-   0066 36 00         [10]  214 	ld	(hl), #0x00
-                            215 ;src/juego/juego.c:55: coleccionablesFam=0;
-   0068 21rA8r03      [10]  216 	ld	hl,#_coleccionablesFam + 0
-   006B 36 00         [10]  217 	ld	(hl), #0x00
-                            218 ;src/juego/juego.c:56: coleccionablesAms=0;
-   006D 21rA9r03      [10]  219 	ld	hl,#_coleccionablesAms + 0
-   0070 36 00         [10]  220 	ld	(hl), #0x00
-                            221 ;src/juego/juego.c:57: nivelActual=nivel_0;
-   0072 21rAAr03      [10]  222 	ld	hl,#_nivelActual + 0
-   0075 36 01         [10]  223 	ld	(hl), #0x01
-                            224 ;src/juego/juego.c:58: pasos=0;
-   0077 21rABr03      [10]  225 	ld	hl,#_pasos + 0
-   007A 36 00         [10]  226 	ld	(hl), #0x00
-                            227 ;src/juego/juego.c:59: initNiveles(colList);
-   007C 21r74r03      [10]  228 	ld	hl, #_colList
-   007F E5            [11]  229 	push	hl
-   0080 CDr00r00      [17]  230 	call	_initNiveles
-                            231 ;src/juego/juego.c:60: crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_0);    
-   0083 26 01         [ 7]  232 	ld	h,#0x01
-   0085 E3            [19]  233 	ex	(sp),hl
-   0086 33            [ 6]  234 	inc	sp
-   0087 21rA6r03      [10]  235 	ld	hl, #_posicion
-   008A E5            [11]  236 	push	hl
-   008B 21r68r03      [10]  237 	ld	hl, #_coleccionables
-   008E E5            [11]  238 	push	hl
-   008F 21r14r03      [10]  239 	ld	hl, #_portal
-   0092 E5            [11]  240 	push	hl
-   0093 21r22r03      [10]  241 	ld	hl, #_puertas
-   0096 E5            [11]  242 	push	hl
-   0097 21rFCr01      [10]  243 	ld	hl, #_rocasEspejo
-   009A E5            [11]  244 	push	hl
-   009B 21rE4r00      [10]  245 	ld	hl, #_rocas
-   009E E5            [11]  246 	push	hl
-   009F 21rDDr00      [10]  247 	ld	hl, #_player
-   00A2 E5            [11]  248 	push	hl
-   00A3 CDr00r00      [17]  249 	call	_crearNivel
-   00A6 21 0F 00      [10]  250 	ld	hl, #15
-   00A9 39            [11]  251 	add	hl, sp
-   00AA F9            [ 6]  252 	ld	sp, hl
-                            253 ;src/juego/juego.c:61: initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList);
-   00AB 21r74r03      [10]  254 	ld	hl, #_colList
-   00AE E5            [11]  255 	push	hl
-   00AF 21rA9r03      [10]  256 	ld	hl, #_coleccionablesAms
-   00B2 E5            [11]  257 	push	hl
-   00B3 21rA8r03      [10]  258 	ld	hl, #_coleccionablesFam
-   00B6 E5            [11]  259 	push	hl
-   00B7 21rA7r03      [10]  260 	ld	hl, #_coleccionablesLuz
-   00BA E5            [11]  261 	push	hl
-   00BB 21r68r03      [10]  262 	ld	hl, #_coleccionables
-   00BE E5            [11]  263 	push	hl
-   00BF 21r22r03      [10]  264 	ld	hl, #_puertas
-   00C2 E5            [11]  265 	push	hl
-   00C3 21r14r03      [10]  266 	ld	hl, #_portal
-   00C6 E5            [11]  267 	push	hl
-   00C7 CDr00r00      [17]  268 	call	_initGameobjest
-   00CA 21 0E 00      [10]  269 	ld	hl, #14
-   00CD 39            [11]  270 	add	hl, sp
-   00CE F9            [ 6]  271 	ld	sp, hl
-                            272 ;src/juego/juego.c:62: dibujarGameObjects();
-   00CF CDr30r01      [17]  273 	call	_dibujarGameObjects
-                            274 ;src/juego/juego.c:63: initHud();
-   00D2 CDr00r00      [17]  275 	call	_initHud
-                            276 ;src/juego/juego.c:64: initDialogos();        
-   00D5 C3r00r00      [10]  277 	jp  _initDialogos
-                            278 ;src/juego/juego.c:66: void moverPlayer(){
-                            279 ;	---------------------------------
-                            280 ; Function moverPlayer
-                            281 ; ---------------------------------
-   00D8                     282 _moverPlayer::
-                            283 ;src/juego/juego.c:68: if(posicion==posicion_Izquieda){
-   00D8 3ArA6r03      [13]  284 	ld	a,(#_posicion + 0)
-   00DB B7            [ 4]  285 	or	a, a
-   00DC 20 23         [12]  286 	jr	NZ,00102$
-                            287 ;src/juego/juego.c:69: nivel=moverGameObject(&player,movimientoGuardado,rocas,rocasEspejo,&posicion);
-   00DE 21rA6r03      [10]  288 	ld	hl, #_posicion
-   00E1 E5            [11]  289 	push	hl
-   00E2 21rFCr01      [10]  290 	ld	hl, #_rocasEspejo
-   00E5 E5            [11]  291 	push	hl
-   00E6 21rE4r00      [10]  292 	ld	hl, #_rocas
-   00E9 E5            [11]  293 	push	hl
-   00EA 3Ar0Er00      [13]  294 	ld	a, (_movimientoGuardado)
-   00ED F5            [11]  295 	push	af
-   00EE 33            [ 6]  296 	inc	sp
-   00EF 21rDDr00      [10]  297 	ld	hl, #_player
-   00F2 E5            [11]  298 	push	hl
-   00F3 CDr00r00      [17]  299 	call	_moverGameObject
-   00F6 FD 21 09 00   [14]  300 	ld	iy, #9
-   00FA FD 39         [15]  301 	add	iy, sp
-   00FC FD F9         [10]  302 	ld	sp, iy
-   00FE 45            [ 4]  303 	ld	b, l
-   00FF 18 21         [12]  304 	jr	00103$
-   0101                     305 00102$:
-                            306 ;src/juego/juego.c:71: nivel=moverGameObject(&player,movimientoGuardado,rocasEspejo,rocas,&posicion);
-   0101 21rA6r03      [10]  307 	ld	hl, #_posicion
-   0104 E5            [11]  308 	push	hl
-   0105 21rE4r00      [10]  309 	ld	hl, #_rocas
-   0108 E5            [11]  310 	push	hl
-   0109 21rFCr01      [10]  311 	ld	hl, #_rocasEspejo
-   010C E5            [11]  312 	push	hl
-   010D 3Ar0Er00      [13]  313 	ld	a, (_movimientoGuardado)
-   0110 F5            [11]  314 	push	af
-   0111 33            [ 6]  315 	inc	sp
-   0112 21rDDr00      [10]  316 	ld	hl, #_player
-   0115 E5            [11]  317 	push	hl
-   0116 CDr00r00      [17]  318 	call	_moverGameObject
-   0119 FD 21 09 00   [14]  319 	ld	iy, #9
-   011D FD 39         [15]  320 	add	iy, sp
-   011F FD F9         [10]  321 	ld	sp, iy
-   0121 45            [ 4]  322 	ld	b, l
-   0122                     323 00103$:
-                            324 ;src/juego/juego.c:74: if(nivel!=seguir_En_Nivel){ 
-   0122 78            [ 4]  325 	ld	a, b
-   0123 B7            [ 4]  326 	or	a, a
-   0124 C8            [11]  327 	ret	Z
-                            328 ;src/juego/juego.c:75: nivelActual=nivel;      
-   0125 21rAAr03      [10]  329 	ld	hl,#_nivelActual + 0
-   0128 70            [ 7]  330 	ld	(hl), b
-                            331 ;src/juego/juego.c:76: resetGameobjects(nivel);
-   0129 C5            [11]  332 	push	bc
-   012A 33            [ 6]  333 	inc	sp
-   012B CDrF8r01      [17]  334 	call	_resetGameobjects
-   012E 33            [ 6]  335 	inc	sp
-   012F C9            [10]  336 	ret
-                            337 ;src/juego/juego.c:82: void dibujarGameObjects(){
-                            338 ;	---------------------------------
-                            339 ; Function dibujarGameObjects
-                            340 ; ---------------------------------
-   0130                     341 _dibujarGameObjects::
-                            342 ;src/juego/juego.c:83: dibujarGameObject(&player);
-   0130 21rDDr00      [10]  343 	ld	hl, #_player
-   0133 E5            [11]  344 	push	hl
-   0134 CDr00r00      [17]  345 	call	_dibujarGameObject
-   0137 F1            [10]  346 	pop	af
-                            347 ;src/juego/juego.c:84: for (u8 i =0; i<RocasMaximas;i++){        
-   0138 0E 00         [ 7]  348 	ld	c, #0x00
-   013A                     349 00107$:
-   013A 79            [ 4]  350 	ld	a, c
-   013B D6 28         [ 7]  351 	sub	a, #0x28
-   013D 30 16         [12]  352 	jr	NC,00101$
-                            353 ;src/juego/juego.c:85: dibujarGameObject(&rocas[i]);        
-   013F 06 00         [ 7]  354 	ld	b,#0x00
-   0141 69            [ 4]  355 	ld	l, c
-   0142 60            [ 4]  356 	ld	h, b
-   0143 29            [11]  357 	add	hl, hl
-   0144 09            [11]  358 	add	hl, bc
-   0145 29            [11]  359 	add	hl, hl
-   0146 09            [11]  360 	add	hl, bc
-   0147 11rE4r00      [10]  361 	ld	de, #_rocas
-   014A 19            [11]  362 	add	hl, de
-   014B C5            [11]  363 	push	bc
-   014C E5            [11]  364 	push	hl
-   014D CDr00r00      [17]  365 	call	_dibujarGameObject
-   0150 F1            [10]  366 	pop	af
-   0151 C1            [10]  367 	pop	bc
-                            368 ;src/juego/juego.c:84: for (u8 i =0; i<RocasMaximas;i++){        
-   0152 0C            [ 4]  369 	inc	c
-   0153 18 E5         [12]  370 	jr	00107$
-   0155                     371 00101$:
-                            372 ;src/juego/juego.c:87: for (u8 i =0; i<RocasMaximas;i++){        
-   0155 0E 00         [ 7]  373 	ld	c, #0x00
-   0157                     374 00110$:
-   0157 79            [ 4]  375 	ld	a, c
-   0158 D6 28         [ 7]  376 	sub	a, #0x28
-   015A 30 16         [12]  377 	jr	NC,00102$
-                            378 ;src/juego/juego.c:88: dibujarGameObject(&rocasEspejo[i]);
-   015C 06 00         [ 7]  379 	ld	b,#0x00
-   015E 69            [ 4]  380 	ld	l, c
-   015F 60            [ 4]  381 	ld	h, b
-   0160 29            [11]  382 	add	hl, hl
-   0161 09            [11]  383 	add	hl, bc
-   0162 29            [11]  384 	add	hl, hl
-   0163 09            [11]  385 	add	hl, bc
-   0164 11rFCr01      [10]  386 	ld	de, #_rocasEspejo
-   0167 19            [11]  387 	add	hl, de
-   0168 C5            [11]  388 	push	bc
-   0169 E5            [11]  389 	push	hl
-   016A CDr00r00      [17]  390 	call	_dibujarGameObject
-   016D F1            [10]  391 	pop	af
-   016E C1            [10]  392 	pop	bc
-                            393 ;src/juego/juego.c:87: for (u8 i =0; i<RocasMaximas;i++){        
-   016F 0C            [ 4]  394 	inc	c
-   0170 18 E5         [12]  395 	jr	00110$
-   0172                     396 00102$:
-                            397 ;src/juego/juego.c:91: for(u8 i=0;i<2;i++){
-   0172 0E 00         [ 7]  398 	ld	c, #0x00
-   0174                     399 00113$:
-   0174 79            [ 4]  400 	ld	a, c
-   0175 D6 02         [ 7]  401 	sub	a, #0x02
-   0177 30 16         [12]  402 	jr	NC,00103$
-                            403 ;src/juego/juego.c:92: dibujarGameObject(&portal[i]);
-   0179 06 00         [ 7]  404 	ld	b,#0x00
-   017B 69            [ 4]  405 	ld	l, c
-   017C 60            [ 4]  406 	ld	h, b
-   017D 29            [11]  407 	add	hl, hl
-   017E 09            [11]  408 	add	hl, bc
-   017F 29            [11]  409 	add	hl, hl
-   0180 09            [11]  410 	add	hl, bc
-   0181 11r14r03      [10]  411 	ld	de, #_portal
-   0184 19            [11]  412 	add	hl, de
-   0185 C5            [11]  413 	push	bc
-   0186 E5            [11]  414 	push	hl
-   0187 CDr00r00      [17]  415 	call	_dibujarGameObject
-   018A F1            [10]  416 	pop	af
-   018B C1            [10]  417 	pop	bc
-                            418 ;src/juego/juego.c:91: for(u8 i=0;i<2;i++){
-   018C 0C            [ 4]  419 	inc	c
-   018D 18 E5         [12]  420 	jr	00113$
-   018F                     421 00103$:
-                            422 ;src/juego/juego.c:94: for(u8 i=0;i<PuertasMaximas;i++){
-   018F 0E 00         [ 7]  423 	ld	c, #0x00
-   0191                     424 00116$:
-   0191 79            [ 4]  425 	ld	a, c
-   0192 D6 03         [ 7]  426 	sub	a, #0x03
-   0194 30 16         [12]  427 	jr	NC,00104$
-                            428 ;src/juego/juego.c:95: dibujarGameObject(&puertas[i]);
-   0196 06 00         [ 7]  429 	ld	b,#0x00
-   0198 69            [ 4]  430 	ld	l, c
-   0199 60            [ 4]  431 	ld	h, b
-   019A 29            [11]  432 	add	hl, hl
-   019B 09            [11]  433 	add	hl, bc
-   019C 29            [11]  434 	add	hl, hl
-   019D 09            [11]  435 	add	hl, bc
-   019E 11r22r03      [10]  436 	ld	de, #_puertas
-   01A1 19            [11]  437 	add	hl, de
-   01A2 C5            [11]  438 	push	bc
-   01A3 E5            [11]  439 	push	hl
-   01A4 CDr00r00      [17]  440 	call	_dibujarGameObject
-   01A7 F1            [10]  441 	pop	af
-   01A8 C1            [10]  442 	pop	bc
-                            443 ;src/juego/juego.c:94: for(u8 i=0;i<PuertasMaximas;i++){
-   01A9 0C            [ 4]  444 	inc	c
-   01AA 18 E5         [12]  445 	jr	00116$
-   01AC                     446 00104$:
-                            447 ;src/juego/juego.c:97: for(u8 i=0;i<ColeccionablesMaximos;i++){
-   01AC 0E 00         [ 7]  448 	ld	c, #0x00
-   01AE                     449 00119$:
-   01AE 79            [ 4]  450 	ld	a, c
-   01AF D6 03         [ 7]  451 	sub	a, #0x03
-   01B1 D0            [11]  452 	ret	NC
-                            453 ;src/juego/juego.c:98: dibujarGameObjectCol(&coleccionables[i]);
-   01B2 69            [ 4]  454 	ld	l, c
-   01B3 26 00         [ 7]  455 	ld	h, #0x00
-   01B5 29            [11]  456 	add	hl, hl
-   01B6 29            [11]  457 	add	hl, hl
-   01B7 11r68r03      [10]  458 	ld	de, #_coleccionables
-   01BA 19            [11]  459 	add	hl, de
-   01BB C5            [11]  460 	push	bc
-   01BC E5            [11]  461 	push	hl
-   01BD CDr00r00      [17]  462 	call	_dibujarGameObjectCol
-   01C0 F1            [10]  463 	pop	af
-   01C1 C1            [10]  464 	pop	bc
-                            465 ;src/juego/juego.c:97: for(u8 i=0;i<ColeccionablesMaximos;i++){
-   01C2 0C            [ 4]  466 	inc	c
-   01C3 18 E9         [12]  467 	jr	00119$
-                            468 ;src/juego/juego.c:102: void comprobarMovimiento(){
-                            469 ;	---------------------------------
-                            470 ; Function comprobarMovimiento
-                            471 ; ---------------------------------
-   01C5                     472 _comprobarMovimiento::
-                            473 ;src/juego/juego.c:103: if(player.cronoMovimiento==0){
-   01C5 3ArE2r00      [13]  474 	ld	a, (#(_player + 0x0005) + 0)
-   01C8 B7            [ 4]  475 	or	a, a
-   01C9 20 05         [12]  476 	jr	NZ,00102$
-                            477 ;src/juego/juego.c:104: movimientoGuardado=mover_SinMovimiento;
-   01CB 21r0Er00      [10]  478 	ld	hl,#_movimientoGuardado + 0
-   01CE 36 00         [10]  479 	ld	(hl), #0x00
-   01D0                     480 00102$:
-                            481 ;src/juego/juego.c:106: if(movimientoPlayer()!=mover_SinMovimiento){
-   01D0 CDr00r00      [17]  482 	call	_movimientoPlayer
-   01D3 7D            [ 4]  483 	ld	a, l
-   01D4 B7            [ 4]  484 	or	a, a
-   01D5 C8            [11]  485 	ret	Z
-                            486 ;src/juego/juego.c:107: movimientoGuardado=movimientoPlayer();
-   01D6 CDr00r00      [17]  487 	call	_movimientoPlayer
-   01D9 FD 21r0Er00   [14]  488 	ld	iy, #_movimientoGuardado
-   01DD FD 75 00      [19]  489 	ld	0 (iy), l
-   01E0 C9            [10]  490 	ret
-                            491 ;src/juego/juego.c:110: u8 comprobarPasos(){
-                            492 ;	---------------------------------
-                            493 ; Function comprobarPasos
-                            494 ; ---------------------------------
-   01E1                     495 _comprobarPasos::
-                            496 ;src/juego/juego.c:111: if(player.pasos!=pasos){
-   01E1 21rE3r00      [10]  497 	ld	hl, #(_player + 0x0006) + 0
-   01E4 4E            [ 7]  498 	ld	c, (hl)
-   01E5 FD 21rABr03   [14]  499 	ld	iy, #_pasos
-   01E9 FD 7E 00      [19]  500 	ld	a, 0 (iy)
-   01EC 91            [ 4]  501 	sub	a, c
-   01ED 28 06         [12]  502 	jr	Z,00102$
-                            503 ;src/juego/juego.c:112: pasos=player.pasos;
-   01EF FD 71 00      [19]  504 	ld	0 (iy), c
-                            505 ;src/juego/juego.c:113: return si;
-   01F2 2E 00         [ 7]  506 	ld	l, #0x00
-   01F4 C9            [10]  507 	ret
-   01F5                     508 00102$:
-                            509 ;src/juego/juego.c:115: return no;
-   01F5 2E 01         [ 7]  510 	ld	l, #0x01
-   01F7 C9            [10]  511 	ret
-                            512 ;src/juego/juego.c:118: void resetGameobjects(u8 nivel){
-                            513 ;	---------------------------------
-                            514 ; Function resetGameobjects
-                            515 ; ---------------------------------
-   01F8                     516 _resetGameobjects::
-   01F8 DD E5         [15]  517 	push	ix
-   01FA DD 21 00 00   [14]  518 	ld	ix,#0
-   01FE DD 39         [15]  519 	add	ix,sp
-                            520 ;src/juego/juego.c:119: posicion=posicion_Izquieda;
-   0200 21rA6r03      [10]  521 	ld	hl,#_posicion + 0
-   0203 36 00         [10]  522 	ld	(hl), #0x00
-                            523 ;src/juego/juego.c:120: player.pasos=0;
-   0205 21rE3r00      [10]  524 	ld	hl, #(_player + 0x0006)
-   0208 36 00         [10]  525 	ld	(hl), #0x00
-                            526 ;src/juego/juego.c:121: pasos=0;    
-   020A 21rABr03      [10]  527 	ld	hl,#_pasos + 0
-   020D 36 00         [10]  528 	ld	(hl), #0x00
-                            529 ;src/juego/juego.c:122: crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);        
-   020F DD 7E 04      [19]  530 	ld	a, 4 (ix)
-   0212 F5            [11]  531 	push	af
-   0213 33            [ 6]  532 	inc	sp
-   0214 21rA6r03      [10]  533 	ld	hl, #_posicion
-   0217 E5            [11]  534 	push	hl
-   0218 21r68r03      [10]  535 	ld	hl, #_coleccionables
-   021B E5            [11]  536 	push	hl
-   021C 21r14r03      [10]  537 	ld	hl, #_portal
-   021F E5            [11]  538 	push	hl
-   0220 21r22r03      [10]  539 	ld	hl, #_puertas
-   0223 E5            [11]  540 	push	hl
-   0224 21rFCr01      [10]  541 	ld	hl, #_rocasEspejo
-   0227 E5            [11]  542 	push	hl
-   0228 21rE4r00      [10]  543 	ld	hl, #_rocas
-   022B E5            [11]  544 	push	hl
-   022C 21rDDr00      [10]  545 	ld	hl, #_player
-   022F E5            [11]  546 	push	hl
-   0230 CDr00r00      [17]  547 	call	_crearNivel
-   0233 21 0F 00      [10]  548 	ld	hl, #15
-   0236 39            [11]  549 	add	hl, sp
-   0237 F9            [ 6]  550 	ld	sp, hl
-                            551 ;src/juego/juego.c:123: dibujarGameObjects();     
-   0238 DD E1         [14]  552 	pop	ix
-   023A C3r30r01      [10]  553 	jp	_dibujarGameObjects
-                            554 	.area _CODE
-                            555 	.area _INITIALIZER
-                            556 	.area _CABS (ABS)
+                            128 	.area _HOME
+                            129 	.area _GSINIT
+                            130 	.area _GSFINAL
+                            131 	.area _GSINIT
+                            132 ;--------------------------------------------------------
+                            133 ; Home
+                            134 ;--------------------------------------------------------
+                            135 	.area _HOME
+                            136 	.area _HOME
+                            137 ;--------------------------------------------------------
+                            138 ; code
+                            139 ;--------------------------------------------------------
+                            140 	.area _CODE
+                            141 ;src/juego/juego.c:38: void game(){
+                            142 ;	---------------------------------
+                            143 ; Function game
+                            144 ; ---------------------------------
+   0000                     145 _game::
+                            146 ;src/juego/juego.c:39: initGame();
+   0000 CDr48r00      [17]  147 	call	_initGame
+                            148 ;src/juego/juego.c:40: cpct_akp_musicInit(molusk);    // Initialize the music
+   0003 21r00r00      [10]  149 	ld	hl, #_molusk
+   0006 E5            [11]  150 	push	hl
+   0007 CDr00r00      [17]  151 	call	_cpct_akp_musicInit
+                            152 ;src/juego/juego.c:41: cpct_akp_SFXInit(molusk);      // Initialize instruments to be used for SFX (Same as music song)
+   000A 21r00r00      [10]  153 	ld	hl, #_molusk
+   000D E3            [19]  154 	ex	(sp),hl
+   000E CDr00r00      [17]  155 	call	_cpct_akp_SFXInit
+   0011 F1            [10]  156 	pop	af
+                            157 ;src/juego/juego.c:43: while(1){
+   0012                     158 00108$:
+                            159 ;src/juego/juego.c:44: cpct_waitVSYNC();        
+   0012 CDr00r00      [17]  160 	call	_cpct_waitVSYNC
+                            161 ;src/juego/juego.c:45: cpct_akp_musicPlay();
+   0015 CDr00r00      [17]  162 	call	_cpct_akp_musicPlay
+                            163 ;src/juego/juego.c:46: frecuenciaIA--;
+   0018 21r10r04      [10]  164 	ld	hl, #_frecuenciaIA+0
+   001B 35            [11]  165 	dec	(hl)
+                            166 ;src/juego/juego.c:49: scanKey();
+   001C CDr00r00      [17]  167 	call	_scanKey
+                            168 ;src/juego/juego.c:50: if(keyR()==si){            
+   001F CDr00r00      [17]  169 	call	_keyR
+   0022 7D            [ 4]  170 	ld	a, l
+   0023 B7            [ 4]  171 	or	a, a
+   0024 20 09         [12]  172 	jr	NZ,00102$
+                            173 ;src/juego/juego.c:51: resetGameobjects(nivelActual);
+   0026 3Ar0Er04      [13]  174 	ld	a, (_nivelActual)
+   0029 F5            [11]  175 	push	af
+   002A 33            [ 6]  176 	inc	sp
+   002B CDr02r02      [17]  177 	call	_resetGameobjects
+   002E 33            [ 6]  178 	inc	sp
+   002F                     179 00102$:
+                            180 ;src/juego/juego.c:53: comprobarMovimiento();      
+   002F CDrCFr01      [17]  181 	call	_comprobarMovimiento
+                            182 ;src/juego/juego.c:54: moverPlayer();
+   0032 CDrE2r00      [17]  183 	call	_moverPlayer
+                            184 ;src/juego/juego.c:56: if(comprobarPasos()==si){
+   0035 CDrEBr01      [17]  185 	call	_comprobarPasos
+                            186 ;src/juego/juego.c:62: if(frecuenciaIA==0){
+   0038 FD 21r10r04   [14]  187 	ld	iy, #_frecuenciaIA
+   003C FD 7E 00      [19]  188 	ld	a, 0 (iy)
+   003F B7            [ 4]  189 	or	a, a
+   0040 20 D0         [12]  190 	jr	NZ,00108$
+                            191 ;src/juego/juego.c:63: frecuenciaIA=frecuenciaMaxIA;
+   0042 FD 36 00 14   [19]  192 	ld	0 (iy), #0x14
+   0046 18 CA         [12]  193 	jr	00108$
+                            194 ;src/juego/juego.c:68: void initGame(){
+                            195 ;	---------------------------------
+                            196 ; Function initGame
+                            197 ; ---------------------------------
+   0048                     198 _initGame::
+                            199 ;src/juego/juego.c:69: for(u8 i =0;i<ColeccionablesMaximosTotales;i++){
+   0048 01rD8r03      [10]  200 	ld	bc, #_colList+0
+   004B 1E 00         [ 7]  201 	ld	e, #0x00
+   004D                     202 00103$:
+   004D 7B            [ 4]  203 	ld	a, e
+   004E D6 32         [ 7]  204 	sub	a, #0x32
+   0050 30 09         [12]  205 	jr	NC,00101$
+                            206 ;src/juego/juego.c:70: colList[i]=coleccionable_activo;
+   0052 6B            [ 4]  207 	ld	l,e
+   0053 26 00         [ 7]  208 	ld	h,#0x00
+   0055 09            [11]  209 	add	hl, bc
+   0056 36 00         [10]  210 	ld	(hl), #0x00
+                            211 ;src/juego/juego.c:69: for(u8 i =0;i<ColeccionablesMaximosTotales;i++){
+   0058 1C            [ 4]  212 	inc	e
+   0059 18 F2         [12]  213 	jr	00103$
+   005B                     214 00101$:
+                            215 ;src/juego/juego.c:72: posicion=posicion_Izquieda;
+   005B 21r0Ar04      [10]  216 	ld	hl,#_posicion + 0
+   005E 36 00         [10]  217 	ld	(hl), #0x00
+                            218 ;src/juego/juego.c:73: coleccionablesLuz=0;
+   0060 21r0Br04      [10]  219 	ld	hl,#_coleccionablesLuz + 0
+   0063 36 00         [10]  220 	ld	(hl), #0x00
+                            221 ;src/juego/juego.c:74: coleccionablesFam=0;
+   0065 21r0Cr04      [10]  222 	ld	hl,#_coleccionablesFam + 0
+   0068 36 00         [10]  223 	ld	(hl), #0x00
+                            224 ;src/juego/juego.c:75: coleccionablesAms=0;
+   006A 21r0Dr04      [10]  225 	ld	hl,#_coleccionablesAms + 0
+   006D 36 00         [10]  226 	ld	(hl), #0x00
+                            227 ;src/juego/juego.c:76: nivelActual=nivel_01;
+   006F 21r0Er04      [10]  228 	ld	hl,#_nivelActual + 0
+   0072 36 01         [10]  229 	ld	(hl), #0x01
+                            230 ;src/juego/juego.c:77: pasos=0;
+   0074 21r0Fr04      [10]  231 	ld	hl,#_pasos + 0
+   0077 36 00         [10]  232 	ld	(hl), #0x00
+                            233 ;src/juego/juego.c:78: frecuenciaIA=frecuenciaMaxIA;
+   0079 21r10r04      [10]  234 	ld	hl,#_frecuenciaIA + 0
+   007C 36 14         [10]  235 	ld	(hl), #0x14
+                            236 ;src/juego/juego.c:79: initNiveles(colList);
+   007E 59            [ 4]  237 	ld	e, c
+   007F 50            [ 4]  238 	ld	d, b
+   0080 C5            [11]  239 	push	bc
+   0081 D5            [11]  240 	push	de
+   0082 CDr00r00      [17]  241 	call	_initNiveles
+   0085 21r0Dr04      [10]  242 	ld	hl, #_coleccionablesAms
+   0088 E3            [19]  243 	ex	(sp),hl
+   0089 21r0Cr04      [10]  244 	ld	hl, #_coleccionablesFam
+   008C E5            [11]  245 	push	hl
+   008D 21r0Br04      [10]  246 	ld	hl, #_coleccionablesLuz
+   0090 E5            [11]  247 	push	hl
+   0091 21rCCr03      [10]  248 	ld	hl, #_coleccionables
+   0094 E5            [11]  249 	push	hl
+   0095 21r86r03      [10]  250 	ld	hl, #_puertas
+   0098 E5            [11]  251 	push	hl
+   0099 21r78r03      [10]  252 	ld	hl, #_portal
+   009C E5            [11]  253 	push	hl
+   009D CDr00r00      [17]  254 	call	_initGameobjest
+   00A0 21 0E 00      [10]  255 	ld	hl, #14
+   00A3 39            [11]  256 	add	hl, sp
+   00A4 F9            [ 6]  257 	ld	sp, hl
+                            258 ;src/juego/juego.c:81: initHud();
+   00A5 CDr00r00      [17]  259 	call	_initHud
+                            260 ;src/juego/juego.c:82: initDialogos();
+   00A8 CDr00r00      [17]  261 	call	_initDialogos
+                            262 ;src/juego/juego.c:83: initEnemigos();
+   00AB CDr00r00      [17]  263 	call	_initEnemigos
+                            264 ;src/juego/juego.c:84: crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_01);
+   00AE 3E 01         [ 7]  265 	ld	a, #0x01
+   00B0 F5            [11]  266 	push	af
+   00B1 33            [ 6]  267 	inc	sp
+   00B2 21r0Ar04      [10]  268 	ld	hl, #_posicion
+   00B5 E5            [11]  269 	push	hl
+   00B6 21rCCr03      [10]  270 	ld	hl, #_coleccionables
+   00B9 E5            [11]  271 	push	hl
+   00BA 21r78r03      [10]  272 	ld	hl, #_portal
+   00BD E5            [11]  273 	push	hl
+   00BE 21r86r03      [10]  274 	ld	hl, #_puertas
+   00C1 E5            [11]  275 	push	hl
+   00C2 21r60r02      [10]  276 	ld	hl, #_rocasEspejo
+   00C5 E5            [11]  277 	push	hl
+   00C6 21r48r01      [10]  278 	ld	hl, #_rocas
+   00C9 E5            [11]  279 	push	hl
+   00CA 21r41r01      [10]  280 	ld	hl, #_player
+   00CD E5            [11]  281 	push	hl
+   00CE CDr00r00      [17]  282 	call	_crearNivel
+   00D1 21 0F 00      [10]  283 	ld	hl, #15
+   00D4 39            [11]  284 	add	hl, sp
+   00D5 F9            [ 6]  285 	ld	sp, hl
+                            286 ;src/juego/juego.c:85: crearEnemigos(nivelActual);    
+   00D6 3Ar0Er04      [13]  287 	ld	a, (_nivelActual)
+   00D9 F5            [11]  288 	push	af
+   00DA 33            [ 6]  289 	inc	sp
+   00DB CDr00r00      [17]  290 	call	_crearEnemigos
+   00DE 33            [ 6]  291 	inc	sp
+                            292 ;src/juego/juego.c:86: dibujarGameObjects();
+   00DF C3r3Ar01      [10]  293 	jp  _dibujarGameObjects
+                            294 ;src/juego/juego.c:89: void moverPlayer(){
+                            295 ;	---------------------------------
+                            296 ; Function moverPlayer
+                            297 ; ---------------------------------
+   00E2                     298 _moverPlayer::
+                            299 ;src/juego/juego.c:91: if(posicion==posicion_Izquieda){
+   00E2 3Ar0Ar04      [13]  300 	ld	a,(#_posicion + 0)
+   00E5 B7            [ 4]  301 	or	a, a
+   00E6 20 23         [12]  302 	jr	NZ,00102$
+                            303 ;src/juego/juego.c:92: nivel=moverGameObject(&player,movimientoGuardado,rocas,rocasEspejo,&posicion);
+   00E8 21r0Ar04      [10]  304 	ld	hl, #_posicion
+   00EB E5            [11]  305 	push	hl
+   00EC 21r60r02      [10]  306 	ld	hl, #_rocasEspejo
+   00EF E5            [11]  307 	push	hl
+   00F0 21r48r01      [10]  308 	ld	hl, #_rocas
+   00F3 E5            [11]  309 	push	hl
+   00F4 3Ar0Er00      [13]  310 	ld	a, (_movimientoGuardado)
+   00F7 F5            [11]  311 	push	af
+   00F8 33            [ 6]  312 	inc	sp
+   00F9 21r41r01      [10]  313 	ld	hl, #_player
+   00FC E5            [11]  314 	push	hl
+   00FD CDr00r00      [17]  315 	call	_moverGameObject
+   0100 FD 21 09 00   [14]  316 	ld	iy, #9
+   0104 FD 39         [15]  317 	add	iy, sp
+   0106 FD F9         [10]  318 	ld	sp, iy
+   0108 45            [ 4]  319 	ld	b, l
+   0109 18 21         [12]  320 	jr	00103$
+   010B                     321 00102$:
+                            322 ;src/juego/juego.c:94: nivel=moverGameObject(&player,movimientoGuardado,rocasEspejo,rocas,&posicion);
+   010B 21r0Ar04      [10]  323 	ld	hl, #_posicion
+   010E E5            [11]  324 	push	hl
+   010F 21r48r01      [10]  325 	ld	hl, #_rocas
+   0112 E5            [11]  326 	push	hl
+   0113 21r60r02      [10]  327 	ld	hl, #_rocasEspejo
+   0116 E5            [11]  328 	push	hl
+   0117 3Ar0Er00      [13]  329 	ld	a, (_movimientoGuardado)
+   011A F5            [11]  330 	push	af
+   011B 33            [ 6]  331 	inc	sp
+   011C 21r41r01      [10]  332 	ld	hl, #_player
+   011F E5            [11]  333 	push	hl
+   0120 CDr00r00      [17]  334 	call	_moverGameObject
+   0123 FD 21 09 00   [14]  335 	ld	iy, #9
+   0127 FD 39         [15]  336 	add	iy, sp
+   0129 FD F9         [10]  337 	ld	sp, iy
+   012B 45            [ 4]  338 	ld	b, l
+   012C                     339 00103$:
+                            340 ;src/juego/juego.c:97: if(nivel!=seguir_En_Nivel){ 
+   012C 78            [ 4]  341 	ld	a, b
+   012D B7            [ 4]  342 	or	a, a
+   012E C8            [11]  343 	ret	Z
+                            344 ;src/juego/juego.c:98: nivelActual=nivel;      
+   012F 21r0Er04      [10]  345 	ld	hl,#_nivelActual + 0
+   0132 70            [ 7]  346 	ld	(hl), b
+                            347 ;src/juego/juego.c:99: resetGameobjects(nivel);
+   0133 C5            [11]  348 	push	bc
+   0134 33            [ 6]  349 	inc	sp
+   0135 CDr02r02      [17]  350 	call	_resetGameobjects
+   0138 33            [ 6]  351 	inc	sp
+   0139 C9            [10]  352 	ret
+                            353 ;src/juego/juego.c:105: void dibujarGameObjects(){
+                            354 ;	---------------------------------
+                            355 ; Function dibujarGameObjects
+                            356 ; ---------------------------------
+   013A                     357 _dibujarGameObjects::
+                            358 ;src/juego/juego.c:106: dibujarGameObject(&player);
+   013A 21r41r01      [10]  359 	ld	hl, #_player
+   013D E5            [11]  360 	push	hl
+   013E CDr00r00      [17]  361 	call	_dibujarGameObject
+   0141 F1            [10]  362 	pop	af
+                            363 ;src/juego/juego.c:107: for (u8 i =0; i<RocasMaximas;i++){        
+   0142 0E 00         [ 7]  364 	ld	c, #0x00
+   0144                     365 00107$:
+   0144 79            [ 4]  366 	ld	a, c
+   0145 D6 28         [ 7]  367 	sub	a, #0x28
+   0147 30 16         [12]  368 	jr	NC,00101$
+                            369 ;src/juego/juego.c:108: dibujarGameObject(&rocas[i]);        
+   0149 06 00         [ 7]  370 	ld	b,#0x00
+   014B 69            [ 4]  371 	ld	l, c
+   014C 60            [ 4]  372 	ld	h, b
+   014D 29            [11]  373 	add	hl, hl
+   014E 09            [11]  374 	add	hl, bc
+   014F 29            [11]  375 	add	hl, hl
+   0150 09            [11]  376 	add	hl, bc
+   0151 11r48r01      [10]  377 	ld	de, #_rocas
+   0154 19            [11]  378 	add	hl, de
+   0155 C5            [11]  379 	push	bc
+   0156 E5            [11]  380 	push	hl
+   0157 CDr00r00      [17]  381 	call	_dibujarGameObject
+   015A F1            [10]  382 	pop	af
+   015B C1            [10]  383 	pop	bc
+                            384 ;src/juego/juego.c:107: for (u8 i =0; i<RocasMaximas;i++){        
+   015C 0C            [ 4]  385 	inc	c
+   015D 18 E5         [12]  386 	jr	00107$
+   015F                     387 00101$:
+                            388 ;src/juego/juego.c:110: for (u8 i =0; i<RocasMaximas;i++){        
+   015F 0E 00         [ 7]  389 	ld	c, #0x00
+   0161                     390 00110$:
+   0161 79            [ 4]  391 	ld	a, c
+   0162 D6 28         [ 7]  392 	sub	a, #0x28
+   0164 30 16         [12]  393 	jr	NC,00102$
+                            394 ;src/juego/juego.c:111: dibujarGameObject(&rocasEspejo[i]);
+   0166 06 00         [ 7]  395 	ld	b,#0x00
+   0168 69            [ 4]  396 	ld	l, c
+   0169 60            [ 4]  397 	ld	h, b
+   016A 29            [11]  398 	add	hl, hl
+   016B 09            [11]  399 	add	hl, bc
+   016C 29            [11]  400 	add	hl, hl
+   016D 09            [11]  401 	add	hl, bc
+   016E 11r60r02      [10]  402 	ld	de, #_rocasEspejo
+   0171 19            [11]  403 	add	hl, de
+   0172 C5            [11]  404 	push	bc
+   0173 E5            [11]  405 	push	hl
+   0174 CDr00r00      [17]  406 	call	_dibujarGameObject
+   0177 F1            [10]  407 	pop	af
+   0178 C1            [10]  408 	pop	bc
+                            409 ;src/juego/juego.c:110: for (u8 i =0; i<RocasMaximas;i++){        
+   0179 0C            [ 4]  410 	inc	c
+   017A 18 E5         [12]  411 	jr	00110$
+   017C                     412 00102$:
+                            413 ;src/juego/juego.c:114: for(u8 i=0;i<2;i++){
+   017C 0E 00         [ 7]  414 	ld	c, #0x00
+   017E                     415 00113$:
+   017E 79            [ 4]  416 	ld	a, c
+   017F D6 02         [ 7]  417 	sub	a, #0x02
+   0181 30 16         [12]  418 	jr	NC,00103$
+                            419 ;src/juego/juego.c:115: dibujarGameObject(&portal[i]);
+   0183 06 00         [ 7]  420 	ld	b,#0x00
+   0185 69            [ 4]  421 	ld	l, c
+   0186 60            [ 4]  422 	ld	h, b
+   0187 29            [11]  423 	add	hl, hl
+   0188 09            [11]  424 	add	hl, bc
+   0189 29            [11]  425 	add	hl, hl
+   018A 09            [11]  426 	add	hl, bc
+   018B 11r78r03      [10]  427 	ld	de, #_portal
+   018E 19            [11]  428 	add	hl, de
+   018F C5            [11]  429 	push	bc
+   0190 E5            [11]  430 	push	hl
+   0191 CDr00r00      [17]  431 	call	_dibujarGameObject
+   0194 F1            [10]  432 	pop	af
+   0195 C1            [10]  433 	pop	bc
+                            434 ;src/juego/juego.c:114: for(u8 i=0;i<2;i++){
+   0196 0C            [ 4]  435 	inc	c
+   0197 18 E5         [12]  436 	jr	00113$
+   0199                     437 00103$:
+                            438 ;src/juego/juego.c:117: for(u8 i=0;i<PuertasMaximas;i++){
+   0199 0E 00         [ 7]  439 	ld	c, #0x00
+   019B                     440 00116$:
+   019B 79            [ 4]  441 	ld	a, c
+   019C D6 06         [ 7]  442 	sub	a, #0x06
+   019E 30 16         [12]  443 	jr	NC,00104$
+                            444 ;src/juego/juego.c:118: dibujarGameObject(&puertas[i]);
+   01A0 06 00         [ 7]  445 	ld	b,#0x00
+   01A2 69            [ 4]  446 	ld	l, c
+   01A3 60            [ 4]  447 	ld	h, b
+   01A4 29            [11]  448 	add	hl, hl
+   01A5 09            [11]  449 	add	hl, bc
+   01A6 29            [11]  450 	add	hl, hl
+   01A7 09            [11]  451 	add	hl, bc
+   01A8 11r86r03      [10]  452 	ld	de, #_puertas
+   01AB 19            [11]  453 	add	hl, de
+   01AC C5            [11]  454 	push	bc
+   01AD E5            [11]  455 	push	hl
+   01AE CDr00r00      [17]  456 	call	_dibujarGameObject
+   01B1 F1            [10]  457 	pop	af
+   01B2 C1            [10]  458 	pop	bc
+                            459 ;src/juego/juego.c:117: for(u8 i=0;i<PuertasMaximas;i++){
+   01B3 0C            [ 4]  460 	inc	c
+   01B4 18 E5         [12]  461 	jr	00116$
+   01B6                     462 00104$:
+                            463 ;src/juego/juego.c:120: for(u8 i=0;i<ColeccionablesMaximos;i++){
+   01B6 0E 00         [ 7]  464 	ld	c, #0x00
+   01B8                     465 00119$:
+   01B8 79            [ 4]  466 	ld	a, c
+   01B9 D6 03         [ 7]  467 	sub	a, #0x03
+   01BB D0            [11]  468 	ret	NC
+                            469 ;src/juego/juego.c:121: dibujarGameObjectCol(&coleccionables[i]);
+   01BC 69            [ 4]  470 	ld	l, c
+   01BD 26 00         [ 7]  471 	ld	h, #0x00
+   01BF 29            [11]  472 	add	hl, hl
+   01C0 29            [11]  473 	add	hl, hl
+   01C1 11rCCr03      [10]  474 	ld	de, #_coleccionables
+   01C4 19            [11]  475 	add	hl, de
+   01C5 C5            [11]  476 	push	bc
+   01C6 E5            [11]  477 	push	hl
+   01C7 CDr00r00      [17]  478 	call	_dibujarGameObjectCol
+   01CA F1            [10]  479 	pop	af
+   01CB C1            [10]  480 	pop	bc
+                            481 ;src/juego/juego.c:120: for(u8 i=0;i<ColeccionablesMaximos;i++){
+   01CC 0C            [ 4]  482 	inc	c
+   01CD 18 E9         [12]  483 	jr	00119$
+                            484 ;src/juego/juego.c:125: void comprobarMovimiento(){
+                            485 ;	---------------------------------
+                            486 ; Function comprobarMovimiento
+                            487 ; ---------------------------------
+   01CF                     488 _comprobarMovimiento::
+                            489 ;src/juego/juego.c:126: if(player.cronoMovimiento==0){
+   01CF 3Ar46r01      [13]  490 	ld	a, (#(_player + 0x0005) + 0)
+   01D2 B7            [ 4]  491 	or	a, a
+   01D3 20 05         [12]  492 	jr	NZ,00102$
+                            493 ;src/juego/juego.c:127: movimientoGuardado=mover_SinMovimiento;
+   01D5 21r0Er00      [10]  494 	ld	hl,#_movimientoGuardado + 0
+   01D8 36 00         [10]  495 	ld	(hl), #0x00
+   01DA                     496 00102$:
+                            497 ;src/juego/juego.c:129: if(movimientoPlayer()!=mover_SinMovimiento){
+   01DA CDr00r00      [17]  498 	call	_movimientoPlayer
+   01DD 7D            [ 4]  499 	ld	a, l
+   01DE B7            [ 4]  500 	or	a, a
+   01DF C8            [11]  501 	ret	Z
+                            502 ;src/juego/juego.c:130: movimientoGuardado=movimientoPlayer();
+   01E0 CDr00r00      [17]  503 	call	_movimientoPlayer
+   01E3 FD 21r0Er00   [14]  504 	ld	iy, #_movimientoGuardado
+   01E7 FD 75 00      [19]  505 	ld	0 (iy), l
+   01EA C9            [10]  506 	ret
+                            507 ;src/juego/juego.c:133: u8 comprobarPasos(){
+                            508 ;	---------------------------------
+                            509 ; Function comprobarPasos
+                            510 ; ---------------------------------
+   01EB                     511 _comprobarPasos::
+                            512 ;src/juego/juego.c:134: if(player.pasos!=pasos){
+   01EB 21r47r01      [10]  513 	ld	hl, #(_player + 0x0006) + 0
+   01EE 4E            [ 7]  514 	ld	c, (hl)
+   01EF FD 21r0Fr04   [14]  515 	ld	iy, #_pasos
+   01F3 FD 7E 00      [19]  516 	ld	a, 0 (iy)
+   01F6 91            [ 4]  517 	sub	a, c
+   01F7 28 06         [12]  518 	jr	Z,00102$
+                            519 ;src/juego/juego.c:135: pasos=player.pasos;
+   01F9 FD 71 00      [19]  520 	ld	0 (iy), c
+                            521 ;src/juego/juego.c:136: return si;
+   01FC 2E 00         [ 7]  522 	ld	l, #0x00
+   01FE C9            [10]  523 	ret
+   01FF                     524 00102$:
+                            525 ;src/juego/juego.c:138: return no;
+   01FF 2E 01         [ 7]  526 	ld	l, #0x01
+   0201 C9            [10]  527 	ret
+                            528 ;src/juego/juego.c:141: void resetGameobjects(u8 nivel){
+                            529 ;	---------------------------------
+                            530 ; Function resetGameobjects
+                            531 ; ---------------------------------
+   0202                     532 _resetGameobjects::
+   0202 DD E5         [15]  533 	push	ix
+   0204 DD 21 00 00   [14]  534 	ld	ix,#0
+   0208 DD 39         [15]  535 	add	ix,sp
+                            536 ;src/juego/juego.c:142: cpct_akp_stop();
+   020A CDr00r00      [17]  537 	call	_cpct_akp_stop
+                            538 ;src/juego/juego.c:143: posicion=posicion_Izquieda;
+   020D 21r0Ar04      [10]  539 	ld	hl,#_posicion + 0
+   0210 36 00         [10]  540 	ld	(hl), #0x00
+                            541 ;src/juego/juego.c:144: player.pasos=0;
+   0212 21r47r01      [10]  542 	ld	hl, #(_player + 0x0006)
+   0215 36 00         [10]  543 	ld	(hl), #0x00
+                            544 ;src/juego/juego.c:145: pasos=0;    
+   0217 21r0Fr04      [10]  545 	ld	hl,#_pasos + 0
+   021A 36 00         [10]  546 	ld	(hl), #0x00
+                            547 ;src/juego/juego.c:146: crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);
+   021C DD 7E 04      [19]  548 	ld	a, 4 (ix)
+   021F F5            [11]  549 	push	af
+   0220 33            [ 6]  550 	inc	sp
+   0221 21r0Ar04      [10]  551 	ld	hl, #_posicion
+   0224 E5            [11]  552 	push	hl
+   0225 21rCCr03      [10]  553 	ld	hl, #_coleccionables
+   0228 E5            [11]  554 	push	hl
+   0229 21r78r03      [10]  555 	ld	hl, #_portal
+   022C E5            [11]  556 	push	hl
+   022D 21r86r03      [10]  557 	ld	hl, #_puertas
+   0230 E5            [11]  558 	push	hl
+   0231 21r60r02      [10]  559 	ld	hl, #_rocasEspejo
+   0234 E5            [11]  560 	push	hl
+   0235 21r48r01      [10]  561 	ld	hl, #_rocas
+   0238 E5            [11]  562 	push	hl
+   0239 21r41r01      [10]  563 	ld	hl, #_player
+   023C E5            [11]  564 	push	hl
+   023D CDr00r00      [17]  565 	call	_crearNivel
+   0240 21 0F 00      [10]  566 	ld	hl, #15
+   0243 39            [11]  567 	add	hl, sp
+   0244 F9            [ 6]  568 	ld	sp, hl
+                            569 ;src/juego/juego.c:147: crearEnemigos(nivelActual);        
+   0245 3Ar0Er04      [13]  570 	ld	a, (_nivelActual)
+   0248 F5            [11]  571 	push	af
+   0249 33            [ 6]  572 	inc	sp
+   024A CDr00r00      [17]  573 	call	_crearEnemigos
+   024D 33            [ 6]  574 	inc	sp
+                            575 ;src/juego/juego.c:148: dibujarGameObjects();     
+   024E DD E1         [14]  576 	pop	ix
+   0250 C3r3Ar01      [10]  577 	jp	_dibujarGameObjects
+                            578 	.area _CODE
+                            579 	.area _INITIALIZER
+                            580 	.area _CABS (ABS)

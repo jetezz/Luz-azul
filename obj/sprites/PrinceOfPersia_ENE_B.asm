@@ -46,18 +46,20 @@
 	.area _CODE
 _PrinceOfPersia_ENE_BPALETTE:
 	.db #0x54	; 84	'T'
-	.db #0x44	; 68	'D'
-	.db #0x55	; 85	'U'
-	.db #0x5d	; 93
-	.db #0x56	; 86	'V'
-	.db #0x46	; 70	'F'
-	.db #0x57	; 87	'W'
-	.db #0x5e	; 94
-	.db #0x40	; 64
-	.db #0x5f	; 95
-	.db #0x4f	; 79	'O'
 	.db #0x5b	; 91
+	.db #0x4f	; 79	'O'
+	.db #0x5d	; 93
+	.db #0x44	; 68	'D'
+	.db #0x5f	; 95
 	.db #0x4b	; 75	'K'
+	.db #0x55	; 85	'U'
+	.db #0x56	; 86	'V'
+	.db #0x40	; 64
+	.db #0x5c	; 92
+	.db #0x46	; 70	'F'
+	.db #0x5b	; 91
+	.db #0x5b	; 91
+	.db #0x5e	; 94
 _PrinceOfPersia_ENE_B:
 	.dw _PrinceOfPersia_ENE_B_0
 	.dw _PrinceOfPersia_ENE_B_1
@@ -79,53 +81,53 @@ _PrinceOfPersia_ENE_B_0:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x44	; 68	'D'
-	.db #0xc9	; 201
+	.db #0xd8	; 216
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x44	; 68	'D'
-	.db #0xc9	; 201
+	.db #0xd8	; 216
 	.db #0x00	; 0
 	.db #0x00	; 0
-	.db #0xe9	; 233
-	.db #0xfc	; 252
+	.db #0x7a	; 122	'z'
+	.db #0x3f	; 63
 	.db #0x00	; 0
 	.db #0x00	; 0
-	.db #0xe9	; 233
-	.db #0xfc	; 252
+	.db #0x7a	; 122	'z'
+	.db #0x3f	; 63
 	.db #0x00	; 0
 	.db #0x00	; 0
 _PrinceOfPersia_ENE_B_1:
 	.db #0x44	; 68	'D'
-	.db #0xa8	; 168
-	.db #0x83	; 131
-	.db #0x03	; 3
+	.db #0x2a	; 42
+	.db #0xe1	; 225
+	.db #0xc3	; 195
 	.db #0x44	; 68	'D'
-	.db #0xa8	; 168
-	.db #0x83	; 131
-	.db #0x03	; 3
+	.db #0x2a	; 42
+	.db #0xe1	; 225
+	.db #0xc3	; 195
 	.db #0xcc	; 204
-	.db #0x46	; 70	'F'
-	.db #0x02	; 2
-	.db #0x00	; 0
-	.db #0xcc	; 204
-	.db #0x46	; 70	'F'
-	.db #0x02	; 2
-	.db #0x00	; 0
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x02	; 2
-	.db #0x00	; 0
-	.db #0x03	; 3
-	.db #0x03	; 3
-	.db #0x02	; 2
+	.db #0xc6	; 198
+	.db #0x82	; 130
 	.db #0x00	; 0
 	.db #0xcc	; 204
+	.db #0xc6	; 198
+	.db #0x82	; 130
+	.db #0x00	; 0
+	.db #0xc3	; 195
+	.db #0xc3	; 195
+	.db #0x82	; 130
+	.db #0x00	; 0
+	.db #0xc3	; 195
 	.db #0xc3	; 195
 	.db #0x82	; 130
 	.db #0x00	; 0
 	.db #0xcc	; 204
-	.db #0xc3	; 195
-	.db #0x82	; 130
+	.db #0xf0	; 240
+	.db #0xa0	; 160
+	.db #0x00	; 0
+	.db #0xcc	; 204
+	.db #0xf0	; 240
+	.db #0xa0	; 160
 	.db #0x00	; 0
 	.area _INITIALIZER
 	.area _CABS (ABS)

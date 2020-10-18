@@ -44,88 +44,90 @@
                              44 ;--------------------------------------------------------
                              45 	.area _CODE
                              46 	.area _CODE
-   4AA2                      47 _Character_FatherPALETTE:
-   4AA2 54                   48 	.db #0x54	; 84	'T'
-   4AA3 44                   49 	.db #0x44	; 68	'D'
-   4AA4 55                   50 	.db #0x55	; 85	'U'
-   4AA5 5D                   51 	.db #0x5d	; 93
-   4AA6 56                   52 	.db #0x56	; 86	'V'
-   4AA7 46                   53 	.db #0x46	; 70	'F'
-   4AA8 57                   54 	.db #0x57	; 87	'W'
-   4AA9 5E                   55 	.db #0x5e	; 94
-   4AAA 40                   56 	.db #0x40	; 64
-   4AAB 5F                   57 	.db #0x5f	; 95
-   4AAC 4F                   58 	.db #0x4f	; 79	'O'
-   4AAD 5B                   59 	.db #0x5b	; 91
-   4AAE 4B                   60 	.db #0x4b	; 75	'K'
-   4AAF                      61 _Character_Father:
-   4AAF B3 4A                62 	.dw _Character_Father_0
-   4AB1 D3 4A                63 	.dw _Character_Father_1
-   4AB3                      64 _Character_Father_0:
-   4AB3 00                   65 	.db #0x00	; 0
-   4AB4 01                   66 	.db #0x01	; 1
-   4AB5 03                   67 	.db #0x03	; 3
-   4AB6 00                   68 	.db #0x00	; 0
-   4AB7 00                   69 	.db #0x00	; 0
-   4AB8 01                   70 	.db #0x01	; 1
-   4AB9 03                   71 	.db #0x03	; 3
-   4ABA 00                   72 	.db #0x00	; 0
-   4ABB 00                   73 	.db #0x00	; 0
-   4ABC 13                   74 	.db #0x13	; 19
-   4ABD 1B                   75 	.db #0x1b	; 27
-   4ABE 00                   76 	.db #0x00	; 0
-   4ABF 00                   77 	.db #0x00	; 0
-   4AC0 13                   78 	.db #0x13	; 19
-   4AC1 1B                   79 	.db #0x1b	; 27
-   4AC2 00                   80 	.db #0x00	; 0
-   4AC3 00                   81 	.db #0x00	; 0
-   4AC4 07                   82 	.db #0x07	; 7
-   4AC5 0B                   83 	.db #0x0b	; 11
-   4AC6 00                   84 	.db #0x00	; 0
-   4AC7 00                   85 	.db #0x00	; 0
-   4AC8 07                   86 	.db #0x07	; 7
-   4AC9 0B                   87 	.db #0x0b	; 11
-   4ACA 00                   88 	.db #0x00	; 0
-   4ACB 00                   89 	.db #0x00	; 0
-   4ACC 40                   90 	.db #0x40	; 64
-   4ACD 80                   91 	.db #0x80	; 128
-   4ACE 14                   92 	.db #0x14	; 20
-   4ACF 00                   93 	.db #0x00	; 0
-   4AD0 40                   94 	.db #0x40	; 64
-   4AD1 80                   95 	.db #0x80	; 128
-   4AD2 14                   96 	.db #0x14	; 20
-   4AD3                      97 _Character_Father_1:
-   4AD3 40                   98 	.db #0x40	; 64
-   4AD4 C0                   99 	.db #0xc0	; 192
-   4AD5 C0                  100 	.db #0xc0	; 192
-   4AD6 11                  101 	.db #0x11	; 17
-   4AD7 40                  102 	.db #0x40	; 64
-   4AD8 C0                  103 	.db #0xc0	; 192
-   4AD9 C0                  104 	.db #0xc0	; 192
-   4ADA 11                  105 	.db #0x11	; 17
-   4ADB 0A                  106 	.db #0x0a	; 10
-   4ADC C0                  107 	.db #0xc0	; 192
-   4ADD C0                  108 	.db #0xc0	; 192
-   4ADE 0F                  109 	.db #0x0f	; 15
-   4ADF 0A                  110 	.db #0x0a	; 10
-   4AE0 C0                  111 	.db #0xc0	; 192
-   4AE1 C0                  112 	.db #0xc0	; 192
-   4AE2 0F                  113 	.db #0x0f	; 15
-   4AE3 00                  114 	.db #0x00	; 0
-   4AE4 28                  115 	.db #0x28	; 40
-   4AE5 28                  116 	.db #0x28	; 40
-   4AE6 00                  117 	.db #0x00	; 0
-   4AE7 00                  118 	.db #0x00	; 0
-   4AE8 28                  119 	.db #0x28	; 40
-   4AE9 28                  120 	.db #0x28	; 40
-   4AEA 00                  121 	.db #0x00	; 0
-   4AEB 01                  122 	.db #0x01	; 1
-   4AEC 02                  123 	.db #0x02	; 2
-   4AED 03                  124 	.db #0x03	; 3
-   4AEE 00                  125 	.db #0x00	; 0
-   4AEF 01                  126 	.db #0x01	; 1
-   4AF0 02                  127 	.db #0x02	; 2
-   4AF1 03                  128 	.db #0x03	; 3
-   4AF2 00                  129 	.db #0x00	; 0
-                            130 	.area _INITIALIZER
-                            131 	.area _CABS (ABS)
+   4BAB                      47 _Character_FatherPALETTE:
+   4BAB 54                   48 	.db #0x54	; 84	'T'
+   4BAC 5B                   49 	.db #0x5b	; 91
+   4BAD 4F                   50 	.db #0x4f	; 79	'O'
+   4BAE 5D                   51 	.db #0x5d	; 93
+   4BAF 44                   52 	.db #0x44	; 68	'D'
+   4BB0 5F                   53 	.db #0x5f	; 95
+   4BB1 4B                   54 	.db #0x4b	; 75	'K'
+   4BB2 55                   55 	.db #0x55	; 85	'U'
+   4BB3 56                   56 	.db #0x56	; 86	'V'
+   4BB4 40                   57 	.db #0x40	; 64
+   4BB5 5C                   58 	.db #0x5c	; 92
+   4BB6 46                   59 	.db #0x46	; 70	'F'
+   4BB7 5B                   60 	.db #0x5b	; 91
+   4BB8 5B                   61 	.db #0x5b	; 91
+   4BB9 5E                   62 	.db #0x5e	; 94
+   4BBA                      63 _Character_Father:
+   4BBA BE 4B                64 	.dw _Character_Father_0
+   4BBC DE 4B                65 	.dw _Character_Father_1
+   4BBE                      66 _Character_Father_0:
+   4BBE 00                   67 	.db #0x00	; 0
+   4BBF 41                   68 	.db #0x41	; 65	'A'
+   4BC0 C3                   69 	.db #0xc3	; 195
+   4BC1 00                   70 	.db #0x00	; 0
+   4BC2 00                   71 	.db #0x00	; 0
+   4BC3 41                   72 	.db #0x41	; 65	'A'
+   4BC4 C3                   73 	.db #0xc3	; 195
+   4BC5 00                   74 	.db #0x00	; 0
+   4BC6 00                   75 	.db #0x00	; 0
+   4BC7 96                   76 	.db #0x96	; 150
+   4BC8 1C                   77 	.db #0x1c	; 28
+   4BC9 00                   78 	.db #0x00	; 0
+   4BCA 00                   79 	.db #0x00	; 0
+   4BCB 96                   80 	.db #0x96	; 150
+   4BCC 1C                   81 	.db #0x1c	; 28
+   4BCD 00                   82 	.db #0x00	; 0
+   4BCE 00                   83 	.db #0x00	; 0
+   4BCF 86                   84 	.db #0x86	; 134
+   4BD0 49                   85 	.db #0x49	; 73	'I'
+   4BD1 00                   86 	.db #0x00	; 0
+   4BD2 00                   87 	.db #0x00	; 0
+   4BD3 86                   88 	.db #0x86	; 134
+   4BD4 49                   89 	.db #0x49	; 73	'I'
+   4BD5 00                   90 	.db #0x00	; 0
+   4BD6 00                   91 	.db #0x00	; 0
+   4BD7 10                   92 	.db #0x10	; 16
+   4BD8 20                   93 	.db #0x20	; 32
+   4BD9 40                   94 	.db #0x40	; 64
+   4BDA 00                   95 	.db #0x00	; 0
+   4BDB 10                   96 	.db #0x10	; 16
+   4BDC 20                   97 	.db #0x20	; 32
+   4BDD 40                   98 	.db #0x40	; 64
+   4BDE                      99 _Character_Father_1:
+   4BDE 10                  100 	.db #0x10	; 16
+   4BDF 30                  101 	.db #0x30	; 48	'0'
+   4BE0 30                  102 	.db #0x30	; 48	'0'
+   4BE1 14                  103 	.db #0x14	; 20
+   4BE2 10                  104 	.db #0x10	; 16
+   4BE3 30                  105 	.db #0x30	; 48	'0'
+   4BE4 30                  106 	.db #0x30	; 48	'0'
+   4BE5 14                  107 	.db #0x14	; 20
+   4BE6 08                  108 	.db #0x08	; 8
+   4BE7 30                  109 	.db #0x30	; 48	'0'
+   4BE8 30                  110 	.db #0x30	; 48	'0'
+   4BE9 0C                  111 	.db #0x0c	; 12
+   4BEA 08                  112 	.db #0x08	; 8
+   4BEB 30                  113 	.db #0x30	; 48	'0'
+   4BEC 30                  114 	.db #0x30	; 48	'0'
+   4BED 0C                  115 	.db #0x0c	; 12
+   4BEE 00                  116 	.db #0x00	; 0
+   4BEF 8A                  117 	.db #0x8a	; 138
+   4BF0 8A                  118 	.db #0x8a	; 138
+   4BF1 00                  119 	.db #0x00	; 0
+   4BF2 00                  120 	.db #0x00	; 0
+   4BF3 8A                  121 	.db #0x8a	; 138
+   4BF4 8A                  122 	.db #0x8a	; 138
+   4BF5 00                  123 	.db #0x00	; 0
+   4BF6 41                  124 	.db #0x41	; 65	'A'
+   4BF7 82                  125 	.db #0x82	; 130
+   4BF8 C3                  126 	.db #0xc3	; 195
+   4BF9 00                  127 	.db #0x00	; 0
+   4BFA 41                  128 	.db #0x41	; 65	'A'
+   4BFB 82                  129 	.db #0x82	; 130
+   4BFC C3                  130 	.db #0xc3	; 195
+   4BFD 00                  131 	.db #0x00	; 0
+                            132 	.area _INITIALIZER
+                            133 	.area _CABS (ABS)

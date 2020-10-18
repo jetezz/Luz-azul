@@ -15,7 +15,7 @@
 #include "sprites/Block_Static5_G.h"
 #include "sprites/Block_Static5_B.h"
 #include "sprites/Block_Static6_G.h"
-//#include "sprites/Block_Static6_B.h"
+#include "sprites/Block_Static6_B.h"
 #include "sprites/Block_Static7_G.h"
 #include "sprites/Block_Static7_B.h"
 #include "sprites/Block_Static8_G.h"
@@ -66,7 +66,7 @@
 
 
 
-#define     retardoMovimiento           0x0D
+#define     retardoMovimiento           0x05
 
 
 void initGameobjest(TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList){
@@ -169,6 +169,8 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(zul1_1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_zul1_2){
             cpct_drawSprite(zul1_2_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil6_B){
+            cpct_drawSprite(Block_Static6_BB_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }
 
     }     

@@ -71,8 +71,8 @@ _main::
 ;src/main.c:14: cpct_setVideoMode(0);
 	ld	l, #0x00
 	call	_cpct_setVideoMode
-;src/main.c:15: cpct_setPalette(Block_HolePALETTE, 13);   
-	ld	hl, #0x000d
+;src/main.c:15: cpct_setPalette(Block_HolePALETTE, 16);   
+	ld	hl, #0x0010
 	push	hl
 	ld	hl, #_Block_HolePALETTE
 	push	hl

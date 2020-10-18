@@ -15,55 +15,67 @@ Symbol Table
   1 _P_luz                                                         0006 R
   1 _P_portal                                                      0000 R
   1 _P_puertas                                                     0002 R
-    _actualizarHud                                                 **** GX
-  1 _colList                                                       0374 GR
-  1 _coleccionables                                                0368 GR
-  1 _coleccionablesAms                                             03A9 GR
-  1 _coleccionablesFam                                             03A8 GR
-  1 _coleccionablesLuz                                             03A7 GR
-  0 _comprobarMovimiento                                           01C5 GR
-  0 _comprobarPasos                                                01E1 GR
+  1 _colList                                                       03D8 GR
+  1 _coleccionables                                                03CC GR
+  1 _coleccionablesAms                                             040D GR
+  1 _coleccionablesFam                                             040C GR
+  1 _coleccionablesLuz                                             040B GR
+  0 _comprobarMovimiento                                           01CF GR
+  0 _comprobarPasos                                                01EB GR
   1 _contadorColeccionables                                        0076 R
   1 _contadorPuertas                                               0075 R
   1 _contadorRocas                                                 0073 R
   1 _contadorRocasEspejo                                           0074 R
+    _cpct_akp_SFXInit                                              **** GX
+    _cpct_akp_musicInit                                            **** GX
+    _cpct_akp_musicPlay                                            **** GX
+    _cpct_akp_stop                                                 **** GX
+    _cpct_waitVSYNC                                                **** GX
+  1 _creadorDeEnemigos                                             00DD R
+    _crearEnemigos                                                 **** GX
     _crearNivel                                                    **** GX
   1 _dialogos                                                      0079 R
     _dibujarGameObject                                             **** GX
     _dibujarGameObjectCol                                          **** GX
-  0 _dibujarGameObjects                                            0130 GR
+  0 _dibujarGameObjects                                            013A GR
+  1 _frecuenciaIA                                                  0410 GR
   0 _game                                                          0000 GR
     _initDialogos                                                  **** GX
-  0 _initGame                                                      004C GR
+    _initEnemigos                                                  **** GX
+  0 _initGame                                                      0048 GR
     _initGameobjest                                                **** GX
     _initHud                                                       **** GX
     _initNiveles                                                   **** GX
     _keyR                                                          **** GX
-    _managerDialogo                                                **** GX
+    _molusk                                                        **** GX
     _moverGameObject                                               **** GX
-  0 _moverPlayer                                                   00D8 GR
+  0 _moverPlayer                                                   00E2 GR
   1 _movimientoGuardado                                            000E R
     _movimientoPlayer                                              **** GX
-  1 _nivelActual                                                   03AA GR
+  1 _nivelActual                                                   040E GR
   1 _niveles                                                       000F R
-  1 _pasos                                                         03AB GR
-  1 _player                                                        00DD GR
-  1 _portal                                                        0314 GR
-  1 _posicion                                                      03A6 GR
-  1 _puertas                                                       0322 GR
-  0 _resetGameobjects                                              01F8 GR
-  1 _rocas                                                         00E4 GR
-  1 _rocasEspejo                                                   01FC GR
+  1 _pasos                                                         040F GR
+  1 _player                                                        0141 GR
+  1 _portal                                                        0378 GR
+  1 _posicion                                                      040A GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+  1 _puertas                                                       0386 GR
+  0 _resetGameobjects                                              0202 GR
+  1 _rocas                                                         0148 GR
+  1 _rocasEspejo                                                   0260 GR
     _scanKey                                                       **** GX
 
-
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 3.
 Hexadecimal [16-Bits]
 
 Area Table
 
-   0 _CODE                                      size  23D   flags    0
-   1 _DATA                                      size  3AC   flags    0
+   0 _CODE                                      size  253   flags    0
+   1 _DATA                                      size  411   flags    0
    2 _INITIALIZED                               size    0   flags    0
    3 _DABS                                      size    0   flags    8
    4 _HOME                                      size    0   flags    0

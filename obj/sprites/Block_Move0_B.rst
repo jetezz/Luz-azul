@@ -44,88 +44,90 @@
                              44 ;--------------------------------------------------------
                              45 	.area _CODE
                              46 	.area _CODE
-   5137                      47 _Block_Move0_BPALETTE:
-   5137 54                   48 	.db #0x54	; 84	'T'
-   5138 44                   49 	.db #0x44	; 68	'D'
-   5139 55                   50 	.db #0x55	; 85	'U'
-   513A 5D                   51 	.db #0x5d	; 93
-   513B 56                   52 	.db #0x56	; 86	'V'
-   513C 46                   53 	.db #0x46	; 70	'F'
-   513D 57                   54 	.db #0x57	; 87	'W'
-   513E 5E                   55 	.db #0x5e	; 94
-   513F 40                   56 	.db #0x40	; 64
-   5140 5F                   57 	.db #0x5f	; 95
-   5141 4F                   58 	.db #0x4f	; 79	'O'
-   5142 5B                   59 	.db #0x5b	; 91
-   5143 4B                   60 	.db #0x4b	; 75	'K'
-   5144                      61 _Block_Move0_B:
-   5144 48 51                62 	.dw _Block_Move0_B_0
-   5146 68 51                63 	.dw _Block_Move0_B_1
-   5148                      64 _Block_Move0_B_0:
-   5148 FC                   65 	.db #0xfc	; 252
-   5149 FC                   66 	.db #0xfc	; 252
-   514A FC                   67 	.db #0xfc	; 252
-   514B FC                   68 	.db #0xfc	; 252
-   514C FC                   69 	.db #0xfc	; 252
-   514D FC                   70 	.db #0xfc	; 252
-   514E FC                   71 	.db #0xfc	; 252
-   514F FC                   72 	.db #0xfc	; 252
-   5150 FC                   73 	.db #0xfc	; 252
-   5151 FC                   74 	.db #0xfc	; 252
-   5152 FC                   75 	.db #0xfc	; 252
-   5153 FC                   76 	.db #0xfc	; 252
-   5154 FC                   77 	.db #0xfc	; 252
-   5155 FC                   78 	.db #0xfc	; 252
-   5156 FC                   79 	.db #0xfc	; 252
-   5157 FC                   80 	.db #0xfc	; 252
-   5158 FC                   81 	.db #0xfc	; 252
-   5159 FC                   82 	.db #0xfc	; 252
-   515A FC                   83 	.db #0xfc	; 252
-   515B FC                   84 	.db #0xfc	; 252
-   515C FC                   85 	.db #0xfc	; 252
-   515D FC                   86 	.db #0xfc	; 252
-   515E FC                   87 	.db #0xfc	; 252
-   515F FC                   88 	.db #0xfc	; 252
-   5160 FC                   89 	.db #0xfc	; 252
-   5161 FC                   90 	.db #0xfc	; 252
-   5162 FC                   91 	.db #0xfc	; 252
-   5163 FC                   92 	.db #0xfc	; 252
-   5164 FC                   93 	.db #0xfc	; 252
-   5165 FC                   94 	.db #0xfc	; 252
-   5166 FC                   95 	.db #0xfc	; 252
-   5167 FC                   96 	.db #0xfc	; 252
-   5168                      97 _Block_Move0_B_1:
-   5168 C3                   98 	.db #0xc3	; 195
-   5169 C3                   99 	.db #0xc3	; 195
-   516A CC                  100 	.db #0xcc	; 204
-   516B CC                  101 	.db #0xcc	; 204
-   516C C3                  102 	.db #0xc3	; 195
-   516D C3                  103 	.db #0xc3	; 195
-   516E CC                  104 	.db #0xcc	; 204
-   516F CC                  105 	.db #0xcc	; 204
-   5170 00                  106 	.db #0x00	; 0
-   5171 00                  107 	.db #0x00	; 0
-   5172 00                  108 	.db #0x00	; 0
-   5173 00                  109 	.db #0x00	; 0
-   5174 00                  110 	.db #0x00	; 0
-   5175 00                  111 	.db #0x00	; 0
-   5176 00                  112 	.db #0x00	; 0
-   5177 00                  113 	.db #0x00	; 0
-   5178 C3                  114 	.db #0xc3	; 195
-   5179 C3                  115 	.db #0xc3	; 195
-   517A CC                  116 	.db #0xcc	; 204
-   517B CC                  117 	.db #0xcc	; 204
-   517C C3                  118 	.db #0xc3	; 195
-   517D C3                  119 	.db #0xc3	; 195
-   517E CC                  120 	.db #0xcc	; 204
-   517F CC                  121 	.db #0xcc	; 204
-   5180 C6                  122 	.db #0xc6	; 198
-   5181 88                  123 	.db #0x88	; 136
-   5182 41                  124 	.db #0x41	; 65	'A'
-   5183 C6                  125 	.db #0xc6	; 198
-   5184 C6                  126 	.db #0xc6	; 198
-   5185 88                  127 	.db #0x88	; 136
-   5186 41                  128 	.db #0x41	; 65	'A'
-   5187 C6                  129 	.db #0xc6	; 198
-                            130 	.area _INITIALIZER
-                            131 	.area _CABS (ABS)
+   579A                      47 _Block_Move0_BPALETTE:
+   579A 54                   48 	.db #0x54	; 84	'T'
+   579B 5B                   49 	.db #0x5b	; 91
+   579C 4F                   50 	.db #0x4f	; 79	'O'
+   579D 5D                   51 	.db #0x5d	; 93
+   579E 44                   52 	.db #0x44	; 68	'D'
+   579F 5F                   53 	.db #0x5f	; 95
+   57A0 4B                   54 	.db #0x4b	; 75	'K'
+   57A1 55                   55 	.db #0x55	; 85	'U'
+   57A2 56                   56 	.db #0x56	; 86	'V'
+   57A3 40                   57 	.db #0x40	; 64
+   57A4 5C                   58 	.db #0x5c	; 92
+   57A5 46                   59 	.db #0x46	; 70	'F'
+   57A6 5B                   60 	.db #0x5b	; 91
+   57A7 5B                   61 	.db #0x5b	; 91
+   57A8 5E                   62 	.db #0x5e	; 94
+   57A9                      63 _Block_Move0_B:
+   57A9 AD 57                64 	.dw _Block_Move0_B_0
+   57AB CD 57                65 	.dw _Block_Move0_B_1
+   57AD                      66 _Block_Move0_B_0:
+   57AD 3F                   67 	.db #0x3f	; 63
+   57AE 3F                   68 	.db #0x3f	; 63
+   57AF 3F                   69 	.db #0x3f	; 63
+   57B0 3F                   70 	.db #0x3f	; 63
+   57B1 3F                   71 	.db #0x3f	; 63
+   57B2 3F                   72 	.db #0x3f	; 63
+   57B3 3F                   73 	.db #0x3f	; 63
+   57B4 3F                   74 	.db #0x3f	; 63
+   57B5 2F                   75 	.db #0x2f	; 47
+   57B6 0F                   76 	.db #0x0f	; 15
+   57B7 0F                   77 	.db #0x0f	; 15
+   57B8 0F                   78 	.db #0x0f	; 15
+   57B9 2F                   79 	.db #0x2f	; 47
+   57BA 0F                   80 	.db #0x0f	; 15
+   57BB 0F                   81 	.db #0x0f	; 15
+   57BC 0F                   82 	.db #0x0f	; 15
+   57BD 2F                   83 	.db #0x2f	; 47
+   57BE 0F                   84 	.db #0x0f	; 15
+   57BF 0F                   85 	.db #0x0f	; 15
+   57C0 0F                   86 	.db #0x0f	; 15
+   57C1 2F                   87 	.db #0x2f	; 47
+   57C2 0F                   88 	.db #0x0f	; 15
+   57C3 0F                   89 	.db #0x0f	; 15
+   57C4 0F                   90 	.db #0x0f	; 15
+   57C5 2F                   91 	.db #0x2f	; 47
+   57C6 0F                   92 	.db #0x0f	; 15
+   57C7 0F                   93 	.db #0x0f	; 15
+   57C8 0F                   94 	.db #0x0f	; 15
+   57C9 2F                   95 	.db #0x2f	; 47
+   57CA 0F                   96 	.db #0x0f	; 15
+   57CB 0F                   97 	.db #0x0f	; 15
+   57CC 0F                   98 	.db #0x0f	; 15
+   57CD                      99 _Block_Move0_B_1:
+   57CD F0                  100 	.db #0xf0	; 240
+   57CE F0                  101 	.db #0xf0	; 240
+   57CF CC                  102 	.db #0xcc	; 204
+   57D0 CC                  103 	.db #0xcc	; 204
+   57D1 F0                  104 	.db #0xf0	; 240
+   57D2 F0                  105 	.db #0xf0	; 240
+   57D3 CC                  106 	.db #0xcc	; 204
+   57D4 CC                  107 	.db #0xcc	; 204
+   57D5 00                  108 	.db #0x00	; 0
+   57D6 00                  109 	.db #0x00	; 0
+   57D7 00                  110 	.db #0x00	; 0
+   57D8 00                  111 	.db #0x00	; 0
+   57D9 00                  112 	.db #0x00	; 0
+   57DA 00                  113 	.db #0x00	; 0
+   57DB 00                  114 	.db #0x00	; 0
+   57DC 00                  115 	.db #0x00	; 0
+   57DD F0                  116 	.db #0xf0	; 240
+   57DE F0                  117 	.db #0xf0	; 240
+   57DF CC                  118 	.db #0xcc	; 204
+   57E0 CC                  119 	.db #0xcc	; 204
+   57E1 F0                  120 	.db #0xf0	; 240
+   57E2 F0                  121 	.db #0xf0	; 240
+   57E3 CC                  122 	.db #0xcc	; 204
+   57E4 CC                  123 	.db #0xcc	; 204
+   57E5 E4                  124 	.db #0xe4	; 228
+   57E6 88                  125 	.db #0x88	; 136
+   57E7 50                  126 	.db #0x50	; 80	'P'
+   57E8 E4                  127 	.db #0xe4	; 228
+   57E9 E4                  128 	.db #0xe4	; 228
+   57EA 88                  129 	.db #0x88	; 136
+   57EB 50                  130 	.db #0x50	; 80	'P'
+   57EC E4                  131 	.db #0xe4	; 228
+                            132 	.area _INITIALIZER
+                            133 	.area _CABS (ABS)

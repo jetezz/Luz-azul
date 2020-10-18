@@ -33,6 +33,10 @@ void crearEnemigoDerecha(u8 posx,u8 poxy, u8 sprite);
 //creador de enemigos
 void enemigosNivel01();
 void enemigosNvel_trap_01();
+void enemigosNvel_04();
+void enemigosNvel_04_01();
+
+
 void sinEnemigos();
 
 

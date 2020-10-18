@@ -44,88 +44,90 @@
                              44 ;--------------------------------------------------------
                              45 	.area _CODE
                              46 	.area _CODE
-   4DBC                      47 _PortalWallPALETTE:
-   4DBC 54                   48 	.db #0x54	; 84	'T'
-   4DBD 44                   49 	.db #0x44	; 68	'D'
-   4DBE 55                   50 	.db #0x55	; 85	'U'
-   4DBF 5D                   51 	.db #0x5d	; 93
-   4DC0 56                   52 	.db #0x56	; 86	'V'
-   4DC1 46                   53 	.db #0x46	; 70	'F'
-   4DC2 57                   54 	.db #0x57	; 87	'W'
-   4DC3 5E                   55 	.db #0x5e	; 94
-   4DC4 40                   56 	.db #0x40	; 64
-   4DC5 5F                   57 	.db #0x5f	; 95
-   4DC6 4F                   58 	.db #0x4f	; 79	'O'
-   4DC7 5B                   59 	.db #0x5b	; 91
-   4DC8 4B                   60 	.db #0x4b	; 75	'K'
-   4DC9                      61 _PortalWall:
-   4DC9 CD 4D                62 	.dw _PortalWall_0
-   4DCB ED 4D                63 	.dw _PortalWall_1
-   4DCD                      64 _PortalWall_0:
-   4DCD 28                   65 	.db #0x28	; 40
-   4DCE B4                   66 	.db #0xb4	; 180
-   4DCF 41                   67 	.db #0x41	; 65	'A'
-   4DD0 22                   68 	.db #0x22	; 34
-   4DD1 28                   69 	.db #0x28	; 40
-   4DD2 B4                   70 	.db #0xb4	; 180
-   4DD3 41                   71 	.db #0x41	; 65	'A'
-   4DD4 22                   72 	.db #0x22	; 34
-   4DD5 11                   73 	.db #0x11	; 17
-   4DD6 B4                   74 	.db #0xb4	; 180
-   4DD7 69                   75 	.db #0x69	; 105	'i'
-   4DD8 0F                   76 	.db #0x0f	; 15
-   4DD9 11                   77 	.db #0x11	; 17
-   4DDA B4                   78 	.db #0xb4	; 180
-   4DDB 69                   79 	.db #0x69	; 105	'i'
-   4DDC 0F                   80 	.db #0x0f	; 15
-   4DDD 3C                   81 	.db #0x3c	; 60
-   4DDE B4                   82 	.db #0xb4	; 180
-   4DDF 69                   83 	.db #0x69	; 105	'i'
-   4DE0 22                   84 	.db #0x22	; 34
-   4DE1 3C                   85 	.db #0x3c	; 60
-   4DE2 B4                   86 	.db #0xb4	; 180
-   4DE3 69                   87 	.db #0x69	; 105	'i'
-   4DE4 22                   88 	.db #0x22	; 34
-   4DE5 11                   89 	.db #0x11	; 17
-   4DE6 B4                   90 	.db #0xb4	; 180
-   4DE7 69                   91 	.db #0x69	; 105	'i'
-   4DE8 27                   92 	.db #0x27	; 39
-   4DE9 11                   93 	.db #0x11	; 17
-   4DEA B4                   94 	.db #0xb4	; 180
-   4DEB 69                   95 	.db #0x69	; 105	'i'
-   4DEC 27                   96 	.db #0x27	; 39
-   4DED                      97 _PortalWall_1:
-   4DED 39                   98 	.db #0x39	; 57	'9'
-   4DEE B4                   99 	.db #0xb4	; 180
-   4DEF 69                  100 	.db #0x69	; 105	'i'
-   4DF0 22                  101 	.db #0x22	; 34
-   4DF1 39                  102 	.db #0x39	; 57	'9'
-   4DF2 B4                  103 	.db #0xb4	; 180
-   4DF3 69                  104 	.db #0x69	; 105	'i'
-   4DF4 22                  105 	.db #0x22	; 34
-   4DF5 11                  106 	.db #0x11	; 17
-   4DF6 B4                  107 	.db #0xb4	; 180
-   4DF7 69                  108 	.db #0x69	; 105	'i'
-   4DF8 0F                  109 	.db #0x0f	; 15
-   4DF9 11                  110 	.db #0x11	; 17
-   4DFA B4                  111 	.db #0xb4	; 180
-   4DFB 69                  112 	.db #0x69	; 105	'i'
-   4DFC 0F                  113 	.db #0x0f	; 15
-   4DFD 3C                  114 	.db #0x3c	; 60
-   4DFE B4                  115 	.db #0xb4	; 180
-   4DFF 69                  116 	.db #0x69	; 105	'i'
-   4E00 22                  117 	.db #0x22	; 34
-   4E01 3C                  118 	.db #0x3c	; 60
-   4E02 B4                  119 	.db #0xb4	; 180
-   4E03 69                  120 	.db #0x69	; 105	'i'
-   4E04 22                  121 	.db #0x22	; 34
-   4E05 11                  122 	.db #0x11	; 17
-   4E06 A0                  123 	.db #0xa0	; 160
-   4E07 69                  124 	.db #0x69	; 105	'i'
-   4E08 05                  125 	.db #0x05	; 5
-   4E09 11                  126 	.db #0x11	; 17
-   4E0A A0                  127 	.db #0xa0	; 160
-   4E0B 69                  128 	.db #0x69	; 105	'i'
-   4E0C 05                  129 	.db #0x05	; 5
-                            130 	.area _INITIALIZER
-                            131 	.area _CABS (ABS)
+   50CB                      47 _PortalWallPALETTE:
+   50CB 54                   48 	.db #0x54	; 84	'T'
+   50CC 5B                   49 	.db #0x5b	; 91
+   50CD 4F                   50 	.db #0x4f	; 79	'O'
+   50CE 5D                   51 	.db #0x5d	; 93
+   50CF 44                   52 	.db #0x44	; 68	'D'
+   50D0 5F                   53 	.db #0x5f	; 95
+   50D1 4B                   54 	.db #0x4b	; 75	'K'
+   50D2 55                   55 	.db #0x55	; 85	'U'
+   50D3 56                   56 	.db #0x56	; 86	'V'
+   50D4 40                   57 	.db #0x40	; 64
+   50D5 5C                   58 	.db #0x5c	; 92
+   50D6 46                   59 	.db #0x46	; 70	'F'
+   50D7 5B                   60 	.db #0x5b	; 91
+   50D8 5B                   61 	.db #0x5b	; 91
+   50D9 5E                   62 	.db #0x5e	; 94
+   50DA                      63 _PortalWall:
+   50DA DE 50                64 	.dw _PortalWall_0
+   50DC FE 50                65 	.dw _PortalWall_1
+   50DE                      66 _PortalWall_0:
+   50DE 80                   67 	.db #0x80	; 128
+   50DF CA                   68 	.db #0xca	; 202
+   50E0 50                   69 	.db #0x50	; 80	'P'
+   50E1 28                   70 	.db #0x28	; 40
+   50E2 80                   71 	.db #0x80	; 128
+   50E3 CA                   72 	.db #0xca	; 202
+   50E4 50                   73 	.db #0x50	; 80	'P'
+   50E5 28                   74 	.db #0x28	; 40
+   50E6 14                   75 	.db #0x14	; 20
+   50E7 CA                   76 	.db #0xca	; 202
+   50E8 D0                   77 	.db #0xd0	; 208
+   50E9 0C                   78 	.db #0x0c	; 12
+   50EA 14                   79 	.db #0x14	; 20
+   50EB CA                   80 	.db #0xca	; 202
+   50EC D0                   81 	.db #0xd0	; 208
+   50ED 0C                   82 	.db #0x0c	; 12
+   50EE C0                   83 	.db #0xc0	; 192
+   50EF CA                   84 	.db #0xca	; 202
+   50F0 D0                   85 	.db #0xd0	; 208
+   50F1 28                   86 	.db #0x28	; 40
+   50F2 C0                   87 	.db #0xc0	; 192
+   50F3 CA                   88 	.db #0xca	; 202
+   50F4 D0                   89 	.db #0xd0	; 208
+   50F5 28                   90 	.db #0x28	; 40
+   50F6 14                   91 	.db #0x14	; 20
+   50F7 CA                   92 	.db #0xca	; 202
+   50F8 D0                   93 	.db #0xd0	; 208
+   50F9 2C                   94 	.db #0x2c	; 44
+   50FA 14                   95 	.db #0x14	; 20
+   50FB CA                   96 	.db #0xca	; 202
+   50FC D0                   97 	.db #0xd0	; 208
+   50FD 2C                   98 	.db #0x2c	; 44
+   50FE                      99 _PortalWall_1:
+   50FE 94                  100 	.db #0x94	; 148
+   50FF CA                  101 	.db #0xca	; 202
+   5100 D0                  102 	.db #0xd0	; 208
+   5101 28                  103 	.db #0x28	; 40
+   5102 94                  104 	.db #0x94	; 148
+   5103 CA                  105 	.db #0xca	; 202
+   5104 D0                  106 	.db #0xd0	; 208
+   5105 28                  107 	.db #0x28	; 40
+   5106 14                  108 	.db #0x14	; 20
+   5107 CA                  109 	.db #0xca	; 202
+   5108 D0                  110 	.db #0xd0	; 208
+   5109 0C                  111 	.db #0x0c	; 12
+   510A 14                  112 	.db #0x14	; 20
+   510B CA                  113 	.db #0xca	; 202
+   510C D0                  114 	.db #0xd0	; 208
+   510D 0C                  115 	.db #0x0c	; 12
+   510E C0                  116 	.db #0xc0	; 192
+   510F CA                  117 	.db #0xca	; 202
+   5110 D0                  118 	.db #0xd0	; 208
+   5111 28                  119 	.db #0x28	; 40
+   5112 C0                  120 	.db #0xc0	; 192
+   5113 CA                  121 	.db #0xca	; 202
+   5114 D0                  122 	.db #0xd0	; 208
+   5115 28                  123 	.db #0x28	; 40
+   5116 14                  124 	.db #0x14	; 20
+   5117 8A                  125 	.db #0x8a	; 138
+   5118 D0                  126 	.db #0xd0	; 208
+   5119 04                  127 	.db #0x04	; 4
+   511A 14                  128 	.db #0x14	; 20
+   511B 8A                  129 	.db #0x8a	; 138
+   511C D0                  130 	.db #0xd0	; 208
+   511D 04                  131 	.db #0x04	; 4
+                            132 	.area _INITIALIZER
+                            133 	.area _CABS (ABS)

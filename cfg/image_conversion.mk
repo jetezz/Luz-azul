@@ -56,7 +56,7 @@ $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static4_B.png , 8,8 , Bloc
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static5_G.png , 8,8 , Block_Static5_G, Block_Static5_GPALETTE, Block_Static5_G)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static5_B.png , 8,8 , Block_Static5_B, Block_Static5_BPALETTE, Block_Static5_B)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static6_G.png , 8,8 , Block_Static6_G, Block_Static6_G_BPALETTE, Block_Static6_G)) #8x16
-#$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static6_B.png , 8,8 , Block_Static6_BB, Block_Static6_BB_BPALETTE, Block_Static6_BB)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static6_B.png , 8,8 , Block_Static6_BB, Block_Static6_BB_BPALETTE, Block_Static6_BB)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static7_G.png , 8,8 , Block_Static7_G, Block_Static7_G_BPALETTE, Block_Static7_G)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static7_B.png , 8,8 , Block_Static7_B, Block_Static7_B_BPALETTE, Block_Static7_B)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static8_G.png , 8,8 , Block_Static8_G, Block_Static8_G_BPALETTE, Block_Static8_G)) #8x16
