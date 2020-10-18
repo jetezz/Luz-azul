@@ -14,11 +14,23 @@
 #include "sprites/Block_Static4_B.h"
 #include "sprites/Block_Static5_G.h"
 #include "sprites/Block_Static5_B.h"
+#include "sprites/Block_Static6_G.h"
+//#include "sprites/Block_Static6_B.h"
+#include "sprites/Block_Static7_G.h"
+#include "sprites/Block_Static7_B.h"
+#include "sprites/Block_Static8_G.h"
+#include "sprites/Block_Static8_B.h"
+#include "sprites/Block_Static9_G.h"
+#include "sprites/Block_Static9_B.h"
 #include "sprites/Block_Move2_G.h"
 #include "sprites/Block_Move2_B.h"
 #include "sprites/PortalWall.h"
 #include "sprites/PortalDoor_G.h"
 #include "sprites/PortalDoor_B.h"
+#include "sprites/StairUp1_G.h"
+#include "sprites/StairUp1_B.h"
+#include "sprites/StairDown1_G.h"
+#include "sprites/StairDown1_B.h"
 #include "sprites/Wall_Dust_B.h"
 #include "sprites/Wall_Solid1.h"
 #include "sprites/Door_G.h"
@@ -30,6 +42,8 @@
 #include "sprites/Character_Mother.h"
 #include "sprites/Character_Father.h"
 #include "sprites/Enemy_01.h"
+#include "sprites/zul1_1.h"
+#include "sprites/zul1_2.h"
 #include "sprites/Amstrad.h"
 #include "sprites/PrinceOfPersia_Tape.h"
 #include "sprites/PrinceOfPersia_PJ_G.h"
@@ -95,6 +109,20 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(Block_Static5_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil5_B){
             cpct_drawSprite(Block_Static5_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil6_G){
+            cpct_drawSprite(Block_Static6_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil7_G){
+            cpct_drawSprite(Block_Static7_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil7_B){
+            cpct_drawSprite(Block_Static7_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil8_G){
+            cpct_drawSprite(Block_Static8_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil8_B){
+            cpct_drawSprite(Block_Static8_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil9_G){
+            cpct_drawSprite(Block_Static9_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_RockInmovil9_B){
+            cpct_drawSprite(Block_Static9_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockLineal1_G){
             cpct_drawSprite(Block_Move2_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockLineal1_B){
@@ -113,6 +141,14 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(Door_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Puerta_B){
             cpct_drawSprite(Door_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_StairUp1_G){
+            cpct_drawSprite(StairUp1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_StairUp1_B){
+            cpct_drawSprite(StairUp1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_StairDown1_G){
+            cpct_drawSprite(StairDown1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_StairDown1_B){
+            cpct_drawSprite(StairDown1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_hole){
             cpct_drawSprite(Block_Hole_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_amstrad){
@@ -129,6 +165,10 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(PrinceOfPersia_COVER_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_enemigo1){
             cpct_drawSprite(Enemy_01_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_zul1_1){
+            cpct_drawSprite(zul1_1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_zul1_2){
+            cpct_drawSprite(zul1_2_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }
 
     }     
@@ -161,7 +201,7 @@ void dibujarGameObjectColSprite(u8 sprite,u8 posx, u8 posy){
         cpct_drawSprite(Character_Mother_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);
     }else if(sprite==sprite_familia4){
         cpct_drawSprite(Character_Father_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);
-    }else if(sprite==sprite_amstradTape){
+    }else if(sprite==sprite_amstradTape){        
         cpct_drawSprite(PrinceOfPersia_Tape_0, cpctm_screenPtr(CPCT_VMEM_START, posx*4 + 1, posy*16), anchoSprite, altoSprite);
     }
 }

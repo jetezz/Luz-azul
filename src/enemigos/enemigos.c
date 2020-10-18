@@ -13,7 +13,13 @@ u8 contadorEnemigosDe;
  
 
  void initEnemigos(){
-     creadorDeEnemigos[nivel_01]=enemigosNivel0;
+     creadorDeEnemigos[nivel_01]=sinEnemigos;
+     creadorDeEnemigos[nivel_TRAP_01]=enemigosNvel_trap_01;
+     creadorDeEnemigos[nivel_02]=sinEnemigos;
+     creadorDeEnemigos[nivel_01_01]=sinEnemigos;
+     creadorDeEnemigos[nivel_03]=sinEnemigos;
+
+
      contadorEnemigosIz=0;
      contadorEnemigosDe=0;
  }
@@ -50,7 +56,7 @@ u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocas
     if(frecuencias==0){        
         for(u8 i=0;i<enemigosMaximos;i++){
             if(enemigosIzquierda[i].posx>0){
-                if(enemigosIzquierda[i].sprite==sprite_enemigo2){
+                if(enemigosIzquierda[i].sprite==sprite_enemigo1){
                     if(posicion==posicion_Izquieda)
                         estado=iaEnemigo1(&enemigosIzquierda[i],posx,posy,rocas);
                 }else{
@@ -60,7 +66,7 @@ u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocas
                 
             }
             if(enemigosDerecha[i].posx>0){
-                if(enemigosDerecha[i].sprite==sprite_enemigo2){
+                if(enemigosDerecha[i].sprite==sprite_enemigo1){
                     if(posicion==posicion_Derecha)
                     estado=iaEnemigo1(&enemigosDerecha[i],posx,posy,rocasEspejo);                    
                 }else{
@@ -175,8 +181,17 @@ void crearEnemigoDerecha(u8 posx,u8 posy, u8 sprite){
     contadorEnemigosDe++;
     
 }
+void sinEnemigos(){
+
+}
 
 
- void enemigosNivel0(){
+ void enemigosNivel01(){
      crearEnemigoDerecha(14,3,sprite_enemigo1);
  }
+void enemigosNvel_trap_01(){
+    crearEnemigoIzquierda(2,2,sprite_enemigo1);
+    crearEnemigoIzquierda(2,6,sprite_enemigo1);
+    crearEnemigoIzquierda(6,2,sprite_enemigo1);
+    crearEnemigoIzquierda(6,6,sprite_enemigo1);
+}

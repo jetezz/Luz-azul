@@ -55,6 +55,21 @@ $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static4_G.png , 8,8 , Bloc
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static4_B.png , 8,8 , Block_Static4_B, Block_Static4_BPALETTE, Block_Static4_B)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static5_G.png , 8,8 , Block_Static5_G, Block_Static5_GPALETTE, Block_Static5_G)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static5_B.png , 8,8 , Block_Static5_B, Block_Static5_BPALETTE, Block_Static5_B)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static6_G.png , 8,8 , Block_Static6_G, Block_Static6_G_BPALETTE, Block_Static6_G)) #8x16
+#$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static6_B.png , 8,8 , Block_Static6_BB, Block_Static6_BB_BPALETTE, Block_Static6_BB)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static7_G.png , 8,8 , Block_Static7_G, Block_Static7_G_BPALETTE, Block_Static7_G)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static7_B.png , 8,8 , Block_Static7_B, Block_Static7_B_BPALETTE, Block_Static7_B)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static8_G.png , 8,8 , Block_Static8_G, Block_Static8_G_BPALETTE, Block_Static8_G)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static8_B.png , 8,8 , Block_Static8_B, Block_Static8_B_BPALETTE, Block_Static8_B)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static9_G.png , 8,8 , Block_Static9_G, Block_Static9_G_BPALETTE, Block_Static9_G)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static9_B.png , 8,8 , Block_Static9_B, Block_Static9_B_BPALETTE, Block_Static9_B)) #8x16
+
+
+
+
+
+
+
 
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move2_G.png , 8,8 , Block_Move2_G, Block_Move2_GPALETTE, Block_Move2_G)) #8x16
@@ -68,6 +83,14 @@ $(eval $(call IMG2SP, CONVERT         , sprites/Wall_Solid1.png , 8,8 , Wall_Sol
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Door_G.png , 8,8 , Door_G, Door_GPALETTE, Door_G)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Door_B.png , 8,8 , Door_B, Door_BPALETTE, Door_B)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/StairUp1_G.png , 8,8 , StairUp1_G, StairUp1_GPALETTE, StairUp1_G)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/StairUp1_B.png , 8,8 , StairUp1_B, StairUp1_BPALETTE, StairUp1_B)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/StairDown1_G.png , 8,8 , StairDown1_G, StairDown1_GPALETTE, StairDown1_G)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/StairDown1_B.png , 8,8 , StairDown1_B, StairDown1_BPALETTE, StairDown1_B)) #8x16
+
+
+
+
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Hole.png , 8,8 , Block_Hole, Block_HolePALETTE, Block_Hole)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/LuzAzul.png , 8,8 , LuzAzul, LuzAzulPALETTE, LuzAzul)) #8x16
@@ -78,6 +101,9 @@ $(eval $(call IMG2SP, CONVERT         , sprites/Character_Mother.png , 8,8 , Cha
 $(eval $(call IMG2SP, CONVERT         , sprites/Character_Father.png , 8,8 , Character_Father, Character_FatherPALETTE, Character_Father)) #8x16
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Enemy_01.png , 8,8 , Enemy_01, Enemy_01PALETTE, Enemy_01)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/zul1_1.png , 8,8 , zul1_1, zul1_1PALETTE, zul1_1)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/zul1_2.png , 8,8 , zul1_2, zul1_2PALETTE, zul1_2)) #8x16
+
 
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Amstrad.png , 8,8 , Amstrad, AmstradPALETTE, Amstrad)) #8x16

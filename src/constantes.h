@@ -25,7 +25,8 @@ extern enum{
     sprite_Rock_G,
     sprite_Rock_B,
     sprite_Rock_nomove_B,
-    
+    sprite_RockLineal1_G,
+    sprite_RockLineal1_B,
 
     sprite_RockInmovil1_G,
     sprite_RockInmovil1_B,
@@ -37,9 +38,14 @@ extern enum{
     sprite_RockInmovil4_B,
     sprite_RockInmovil5_G,
     sprite_RockInmovil5_B,
-
-    sprite_RockLineal1_G,
-    sprite_RockLineal1_B,
+    sprite_RockInmovil6_G,
+    sprite_RockInmovil6_B,
+    sprite_RockInmovil7_G,
+    sprite_RockInmovil7_B,
+    sprite_RockInmovil8_G,
+    sprite_RockInmovil8_B,
+    sprite_RockInmovil9_G,
+    sprite_RockInmovil9_B,
 
     sprite_PortalMuro,
     sprite_PuertaPortal_G,
@@ -49,6 +55,10 @@ extern enum{
 
     sprite_Puerta_G,
     sprite_Puerta_B,
+    sprite_StairUp1_G,
+    sprite_StairUp1_B,
+    sprite_StairDown1_G,
+    sprite_StairDown1_B,
 
     sprite_hole,
     sprite_luz,
@@ -60,6 +70,8 @@ extern enum{
 
     sprite_enemigo1,
     sprite_enemigo2,
+    sprite_zul1_1,
+    sprite_zul1_2,
     
     sprite_amstrad,
     sprite_amstradTape,
@@ -127,7 +139,8 @@ extern enum{
     nivel_01,
     nivel_01_01,
     nivel_TRAP_01,
-    nivel_02
+    nivel_02,
+    nivel_03
      
 }ETipoNivel;
 

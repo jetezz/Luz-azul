@@ -31,7 +31,9 @@ u8 iaEnemigo2(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas);
 void crearEnemigoIzquierda(u8 posx,u8 poxy, u8 sprite);
 void crearEnemigoDerecha(u8 posx,u8 poxy, u8 sprite);
 //creador de enemigos
-void enemigosNivel0();
+void enemigosNivel01();
+void enemigosNvel_trap_01();
+void sinEnemigos();
 
 
 
