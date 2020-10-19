@@ -1,3 +1,7 @@
+#pragma once
+#ifndef DECLARACIONNIVELES
+#define DECLARACIONNIVELES
+
 #include <cpctelera.h>
 #include "tGameobject.h"
 #include "tGameObjectCol.h"
@@ -5,7 +9,7 @@
 
 
 
-static void (*niveles[nivelesTorales]) (TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
+
 static u8 contadorRocas;
 static u8 contadorRocasEspejo;
 static u8 contadorPuertas;
@@ -35,25 +39,7 @@ void createColeccionabeLuz(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id)
 void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 sprite,u8 id);
 void createColeccionabeAmstr(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id);
 
-
-
-
-//niveles
-void crearNivel1(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNivel01_01(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNivel2(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNivelTRAP01(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNievel3(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNievel4(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNievel4_01(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNievel5(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNievel6(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void crearNievel7(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-
-
-
-
-
+#endif // DECLARACIONNIVELES
 
 
 

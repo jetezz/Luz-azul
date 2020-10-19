@@ -5,10 +5,10 @@
 
 #define     SinColision                     50
 #define     ColisionNoRocas                 51
-#define     RocasMaximas                    40 
+#define     RocasMaximas                    50 
 #define     PuertasMaximas                  6
 #define     ColeccionablesMaximos           3
-#define     ColeccionablesMaximosTotales    50
+#define     ColeccionablesMaximosTotales    20
 
 #define     anchoSprite                 4
 #define     altoSprite                  16

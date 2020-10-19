@@ -6,7 +6,7 @@
 #include "dialogos/dialogos.h"
 #include "enemigos/enemigos.h"
 
-#include "molusk.h"
+
 
 
 #include <stdio.h>
@@ -36,33 +36,38 @@ u8 frecuenciaIA;
 
 
 void game(){
-    initGame();
-    cpct_akp_musicInit(molusk);    // Initialize the music
-    cpct_akp_SFXInit(molusk);      // Initialize instruments to be used for SFX (Same as music song)
-           
+    initGame();           
     while(1){
+    
         cpct_waitVSYNC();        
-        cpct_akp_musicPlay();
-        frecuenciaIA--;
-                 
-
+    //    cpct_akp_musicPlay();
+    //    frecuenciaIA--;
+    //             
+//
         scanKey();
         if(keyR()==si){            
             resetGameobjects(nivelActual);
-        }            
-        comprobarMovimiento();      
+        }
+        if(keyD()==si){            
+            for(u8 i=0;i<RocasMaximas;i++){
+                rocas[i].posx=0;
+                rocasEspejo[i].posx=0;
+            }
+        }             
+        comprobarMovimiento();
+    //          
         moverPlayer();
-        //actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
+        actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
         if(comprobarPasos()==si){
             //managerDialogo(nivelActual,pasos);
         }       
-        //if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
-        //    resetGameobjects(nivelActual);
-        //}
-        if(frecuenciaIA==0){
-            frecuenciaIA=frecuenciaMaxIA;
-        }
-             
+    //if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
+    //    resetGameobjects(nivelActual);
+    //}
+    //  if(frecuenciaIA==0){
+    //      frecuenciaIA=frecuenciaMaxIA;
+    //  }
+    //         
     }
 }
 void initGame(){
@@ -75,14 +80,14 @@ void initGame(){
     coleccionablesAms=0;
     nivelActual=nivel_01;
     pasos=0;
-    frecuenciaIA=frecuenciaMaxIA;
+    //frecuenciaIA=frecuenciaMaxIA;
     initNiveles(colList);
     initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList);
     initHud();
-    initDialogos();
-    initEnemigos();
+    //initDialogos();
+    //initEnemigos();
     crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_01);
-    crearEnemigos(nivelActual);    
+    //crearEnemigos(nivelActual);    
     dibujarGameObjects();
     
 }
@@ -94,7 +99,8 @@ void moverPlayer(){
         nivel=moverGameObject(&player,movimientoGuardado,rocasEspejo,rocas,&posicion);
     }
 
-    if(nivel!=seguir_En_Nivel){ 
+    if(nivel!=seguir_En_Nivel){
+       
         nivelActual=nivel;      
         resetGameobjects(nivel);
     }
@@ -131,7 +137,7 @@ void comprobarMovimiento(){
     }
 }
 u8 comprobarPasos(){
-    if(player.pasos!=pasos){
+    if(player.pasos!=pasos){               
         pasos=player.pasos;
         return si;
     }
@@ -139,11 +145,11 @@ u8 comprobarPasos(){
 }
 
 void resetGameobjects(u8 nivel){
-    cpct_akp_stop();
+         
     posicion=posicion_Izquieda;
     player.pasos=0;
     pasos=0;    
     crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);
-    crearEnemigos(nivelActual);        
+    //crearEnemigos(nivelActual);        
     dibujarGameObjects();     
 }

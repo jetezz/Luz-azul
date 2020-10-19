@@ -23,6 +23,13 @@ u8 keyR(){
         pulsada=si;
     return pulsada; 
 }
+u8 keyD(){
+    u8 pulsada=no;
+    if(cpct_isKeyPressed (Key_D))
+        pulsada=si;
+    return pulsada; 
+}
+
 
 
 u8 movimientoPlayer(){

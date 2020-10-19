@@ -73,7 +73,7 @@ void actualizarHud(u8 luz, u8 familia,u8 amstr,u8 pasos){
         cpct_drawStringM0(text,PuntoCartuchos);
         contadorAmstr=amstr;
     }
-    if(pasos!=contadorPasos){
+    if(pasos!=contadorPasos){        
         cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 72, 116),0x00,4,16);
         decimas=pasos/10;
         unidades=pasos%10;       
@@ -82,6 +82,8 @@ void actualizarHud(u8 luz, u8 familia,u8 amstr,u8 pasos){
         text[0]=unidades +'0';
         cpct_drawStringM0(text,PuntoPasos2);       
         contadorPasos=pasos;
+        
+        
     }    
     
 }
