@@ -1,34 +1,34 @@
 #include "nivel01_01.h"
 
-void crearnivel01_01(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion){
+void crearnivel01_01(){
     //player  portal puertas y marco
-    createPlayer(player,2,3,posicion);
+    createPlayer(2,3);
     createMarco(no);
-    createPortal(portales,rocas,rocasEspejo,no);
-    createPuerta(puertas,3,1,sprite_Puerta_B,nivel_01);
-    createPuerta(puertas,3,5,sprite_Puerta_B,nivel_03);
+    createPortal(no);
+    createPuerta(3,1,sprite_Puerta_B,nivel_01);
+    createPuerta(3,5,sprite_Puerta_B,nivel_03);
 
     //collecionables
-    createColeccionabeAmstr(col,5,3,3);
+    createColeccionabeAmstr(5,3,3);
 
     //decoracion izquierda
-    createRoca(rocas,4,3,sin_Movimiento,sprite_enemigo1,1);
-    createRoca(rocas,1,1,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,1,2,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,1,3,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,1,4,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,1,5,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,7,1,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,7,2,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,7,3,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,7,4,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,7,5,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,2,1,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,4,1,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,5,1,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,6,1,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,2,5,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,4,5,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,5,5,sin_Movimiento, sprite_Muro_Polvo1,1);
-    createRoca(rocas,6,5,sin_Movimiento, sprite_Muro_Polvo1,1);
+    createRoca(4,3,sprite_enemigo1,1);
+    createRoca(1,1, sprite_Muro_Polvo1,1);
+    createRoca(1,2, sprite_Muro_Polvo1,1);
+    createRoca(1,3, sprite_Muro_Polvo1,1);
+    createRoca(1,4, sprite_Muro_Polvo1,1);
+    createRoca(1,5, sprite_Muro_Polvo1,1);
+    createRoca(7,1, sprite_Muro_Polvo1,1);
+    createRoca(7,2, sprite_Muro_Polvo1,1);
+    createRoca(7,3, sprite_Muro_Polvo1,1);
+    createRoca(7,4, sprite_Muro_Polvo1,1);
+    createRoca(7,5, sprite_Muro_Polvo1,1);
+    createRoca(2,1, sprite_Muro_Polvo1,1);
+    createRoca(4,1, sprite_Muro_Polvo1,1);
+    createRoca(5,1, sprite_Muro_Polvo1,1);
+    createRoca(6,1, sprite_Muro_Polvo1,1);
+    createRoca(2,5, sprite_Muro_Polvo1,1);
+    createRoca(4,5, sprite_Muro_Polvo1,1);
+    createRoca(5,5, sprite_Muro_Polvo1,1);
+    createRoca(6,5, sprite_Muro_Polvo1,1);
 }

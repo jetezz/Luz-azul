@@ -8,13 +8,7 @@
 #include "tGameObjectCol.h"
 
 
-static TGameObject* P_portal;
-static TGameObject* P_puertas;
-static TGameObjectCol* P_col;
-static u8* P_luz;
-static u8* P_fam;
-static u8* P_ams;
-static u8* P_colList;
+
 
 
 
@@ -22,14 +16,14 @@ static u8* P_colList;
 
 
  
-void initGameobjest(TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList);
+void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList,u8* posicion);
 void dibujarGameObject(TGameObject* objeto);
 void dibujarGameObjectCol(TGameObjectCol* objeto);
 void dibujarGameObjectColSprite(u8 sprite,u8 posx, u8 posy);
 
 void limpiarRastro(u8 posx, u8 posy);
-u8 moverGameObject(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameObject* rocasEspejo,u8* posicion);
-void moverElEspejo(u8 num,u8 movimiento,TGameObject* rocasEspejo,u8 posicion,u8 numMovimientos);
+u8 moverGameObject(TGameObject* objeto,u8 movimiento);
+void moverElEspejo(u8 num,u8 movimiento,u8 numMovimientos);
 void cambiarPosicion(u8* posicion);
 void moverYdibujar(TGameObject* objeto,u8 posx,u8 posy);
 void taparHole(TGameObject* roca,TGameObject* hole);

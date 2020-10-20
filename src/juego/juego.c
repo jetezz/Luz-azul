@@ -81,12 +81,12 @@ void initGame(){
     nivelActual=nivel_01;
     pasos=0;
     //frecuenciaIA=frecuenciaMaxIA;
-    initNiveles(colList);
-    initGameobjest(portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList);
+    initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
+    initNiveles(&player,rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);    
     initHud();
     //initDialogos();
     //initEnemigos();
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel_01);
+    crearNivel(nivel_01);
     //crearEnemigos(nivelActual);    
     dibujarGameObjects();
     
@@ -94,9 +94,9 @@ void initGame(){
 void moverPlayer(){
     u8 nivel=seguir_En_Nivel;
     if(posicion==posicion_Izquieda){
-        nivel=moverGameObject(&player,movimientoGuardado,rocas,rocasEspejo,&posicion);
+        nivel=moverGameObject(&player,movimientoGuardado);
     }else{
-        nivel=moverGameObject(&player,movimientoGuardado,rocasEspejo,rocas,&posicion);
+        nivel=moverGameObject(&player,movimientoGuardado);
     }
 
     if(nivel!=seguir_En_Nivel){
@@ -149,7 +149,7 @@ void resetGameobjects(u8 nivel){
     posicion=posicion_Izquieda;
     player.pasos=0;
     pasos=0;    
-    crearNivel(&player,rocas,rocasEspejo,puertas,portal,coleccionables,&posicion,nivel);
+    crearNivel(nivel);
     //crearEnemigos(nivelActual);        
     dibujarGameObjects();     
 }

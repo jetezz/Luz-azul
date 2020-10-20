@@ -2,6 +2,8 @@
 #ifndef DECLARACIONCONSTANTES
 #define DECLARACIONCONSTANTES
 
+#include "tGameobject.h"
+#include "tGameObjectCol.h"
 
 #define     SinColision                     50
 #define     ColisionNoRocas                 51
@@ -17,6 +19,18 @@
 #define nivelesTorales      50
 #define enemigosMaximos     5
 
+static TGameObject* P_player;
+static TGameObject* P_rocas;
+static TGameObject* P_rocasEspejo;
+static TGameObject* P_portal;
+static TGameObject* P_puertas;
+static TGameObjectCol* P_col;
+
+static u8* P_posicion;
+static u8* P_luz;
+static u8* P_fam;
+static u8* P_ams;
+static u8* P_colList;
 
 
 extern enum{
@@ -145,7 +159,10 @@ extern enum{
     nivel_04_01,
     nivel_05,
     nivel_06,
-    nivel_07
+    nivel_07,
+    nivel_08,
+    nivel_08_01,
+    niveltrap_02
 
      
 }ETipoNivel;

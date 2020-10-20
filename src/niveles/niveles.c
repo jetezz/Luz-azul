@@ -5,13 +5,18 @@
 #include "nivel01.h"
 #include "nivel01_01.h"
 #include "nivel02.h"
-#include "nivel01_trap.h"
-#include "nivel03.h"
-#include "nivel04.h"
-#include "nivel04_01.h"
-#include "nivel05.h"
-#include "nivel06.h"
-#include "nivel07.h"
+//#include "nivel01_trap.h"
+//#include "nivel03.h"
+//#include "nivel04.h"
+//#include "nivel04_01.h"
+//#include "nivel05.h"
+//#include "nivel06.h"
+//#include "nivel07.h"
+//#include "nivel08.h"
+//#include "nivel08_01.h"
+//#include "niveltrap_02.h"
+
+
 
 
 
@@ -19,24 +24,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void (*niveles[50]) (TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* col,u8* posicion);
-void initNiveles(u8* collist){
-    
+void (*niveles[50]) ();
+void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList,u8* posicion){
+    P_player=player;
+    P_rocas=rocas;
+    P_rocasEspejo=rocasEspejo;
+    P_portal=portales;
+    P_puertas=puertas;
+    P_posicion=posicion;
+    P_col=colec;
+    P_luz=colLuz;
+    P_fam=colFam;
+    P_ams=colAms;
+    P_colList=colList;
+    movimientoRep=sin_Movimiento; 
     niveles[nivel_01]=crearnivel01;
     niveles[nivel_01_01]=crearnivel01_01;    
     niveles[nivel_02]=crearnivel02;
-    niveles[nivel_TRAP_01]=crearnivel01trap;  
-    niveles[nivel_03]=crearnivel03;
-    niveles[nivel_04]=crearnivel04;
-    niveles[nivel_04_01]=crearnivel04_01;
-    niveles[nivel_05]=crearnivel05;
-    niveles[nivel_06]=crearnivel06;
-    niveles[nivel_07]=crearnivel07;
+    //niveles[nivel_TRAP_01]=crearnivel01trap;  
+    //niveles[nivel_03]=crearnivel03;
+    //niveles[nivel_04]=crearnivel04;
+    //niveles[nivel_04_01]=crearnivel04_01;
+    //niveles[nivel_05]=crearnivel05;
+    //niveles[nivel_06]=crearnivel06;
+    //niveles[nivel_07]=crearnivel07;
+    //niveles[nivel_08]=crearnivel08;
+    //niveles[nivel_08_01]=crearnivel08_01;
+    //niveles[niveltrap_02]=crearniveltrap02;
+
+    
+
+
 
 
     
 
-    P_colList2=collist;
+    
     contadorRocas=0;
     contadorRocasEspejo=0;
     contadorPuertas=0;
@@ -44,31 +67,31 @@ void initNiveles(u8* collist){
     
 }
 
-void crearNivel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables,u8* posicion,u8 nivel){
+void crearNivel(u8 nivel){
       
     limpiarPantalla();    
-    resetLevel(player,rocas,rocasEspejo,puertas,portales,coleccionables);
+    resetLevel();
      
-    niveles[nivel](player,rocas,rocasEspejo,puertas,portales,coleccionables,posicion);
+    niveles[nivel]();
     
         
 }
-void resetLevel(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* puertas,TGameObject* portales,TGameObjectCol* coleccionables){
-    player->posx=0;
+void resetLevel(){
+    P_player->posx=0;
     for(u8 i =0;i<RocasMaximas;i++){
-       rocas[i].posx=0; 
+       P_rocas[i].posx=0; 
     }
     for(u8 i =0;i<RocasMaximas;i++){
-       rocasEspejo[i].posx=0; 
+       P_rocasEspejo[i].posx=0; 
     }
     for(u8 i =0;i<PuertasMaximas;i++){
-       puertas[i].posx=0; 
+       P_puertas[i].posx=0; 
     }
-    portales[0].posx=0;
-    portales[1].posx=0;
+    P_portal[0].posx=0;
+    P_portal[1].posx=0;
 
      for(u8 i =0;i<ColeccionablesMaximos;i++){
-       coleccionables[i].posx=0; 
+       P_col[i].posx=0; 
     }
 
     contadorRocas=0;
@@ -88,96 +111,109 @@ void createMarco(u8 hay){
     }
     
 }
-
-void createPlayer(TGameObject* player,u8 posx, u8 posy,u8* posicion){
-    if(posx<9){
-        *posicion=posicion_Izquieda;
-    }else{
-        *posicion=posicion_Derecha;        
-    }
-    //player->num=-1;
-    player->posx=posx;
-    player->posy=posy;   
-    player->sprite=sprite_Player;
-    player->movimiento=mover_1;
-    player->pasos=0;
+void cambiarMov(u8 mov){
+    movimientoRep=mov;
 }
-void createRoca(TGameObject* rocas,u8 posx, u8 posy,u8 mivimiento,u8 sprite, u8 simetria){
-    rocas[contadorRocas].num=simetria;
-    rocas[contadorRocas].posx=posx;
-    rocas[contadorRocas].posy=posy;
-    rocas[contadorRocas].sprite=sprite;
-    rocas[contadorRocas].movimiento=mivimiento;
+
+
+
+void createPlayer(u8 posx, u8 posy){
+    if(posx<9){
+        *P_posicion=posicion_Izquieda;
+    }else{
+        *P_posicion=posicion_Derecha;        
+    }
+    P_player->num=0;
+    P_player->posx=posx;
+    P_player->posy=posy;   
+    P_player->sprite=sprite_Player;
+    P_player->movimiento=mover_1;
+    P_player->pasos=0;
+}
+void createRoca(u8 posx, u8 posy,u8 sprite, u8 simetria){
+    
+    P_rocas[contadorRocas].num=simetria;
+    P_rocas[contadorRocas].posx=posx;
+    P_rocas[contadorRocas].posy=posy;
+    P_rocas[contadorRocas].sprite=sprite;
+    P_rocas[contadorRocas].movimiento=movimientoRep;
     contadorRocas++;    
 }
-void createRocaEspejo(TGameObject* rocasEspejo,u8 posx, u8 posy,u8 mivimiento,u8 sprite, u8 simetria){
-    rocasEspejo[contadorRocasEspejo].num=simetria;
-    rocasEspejo[contadorRocasEspejo].posx=posx;
-    rocasEspejo[contadorRocasEspejo].posy=posy;
-    rocasEspejo[contadorRocasEspejo].sprite=sprite;
-    rocasEspejo[contadorRocasEspejo].movimiento=mivimiento;
+void createRocaEspejo(u8 posx, u8 posy,u8 sprite, u8 simetria){
+    P_rocasEspejo[contadorRocasEspejo].num=simetria;
+    P_rocasEspejo[contadorRocasEspejo].posx=posx;
+    P_rocasEspejo[contadorRocasEspejo].posy=posy;
+    P_rocasEspejo[contadorRocasEspejo].sprite=sprite;
+    P_rocasEspejo[contadorRocasEspejo].movimiento=movimientoRep;
     contadorRocasEspejo++;
 }
-void createPuerta(TGameObject* puertas,u8 posx,u8 posy,u8 sprite,u8 nivel){
-    puertas[contadorPuertas].num=nivel;
-    puertas[contadorPuertas].posx=posx;
-    puertas[contadorPuertas].posy=posy;
-    puertas[contadorPuertas].sprite=sprite;
+void crearMuro(u8 posx, u8 posy,u8 posxFinal,u8 posyFinal,u8 sprite,u8 lado){
+   
+}
+
+void createPuerta(u8 posx,u8 posy,u8 sprite,u8 nivel){
+    P_puertas[contadorPuertas].num=nivel;
+    P_puertas[contadorPuertas].posx=posx;
+    P_puertas[contadorPuertas].posy=posy;
+    P_puertas[contadorPuertas].sprite=sprite;
     contadorPuertas++;
 }
-void createPortal(TGameObject* portal,TGameObject* roca,TGameObject* rocasEspejo,u8 hay){
+void createPortal(u8 hay){
     if(hay==si){
-        portal[0].posx=7;
-        portal[0].posy=4;
-        portal[0].sprite=sprite_PuertaPortal_G;
+        P_portal[0].posx=7;
+        P_portal[0].posy=4;
+        P_portal[0].sprite=sprite_PuertaPortal_G;
 
-        portal[1].posx=9;
-        portal[1].posy=4;
-        portal[1].sprite=sprite_PuertaPortal_B;
-        createRoca(roca,8,4,sin_Movimiento,sprite_PortalMuro,1);
+        P_portal[1].posx=9;
+        P_portal[1].posy=4;
+        P_portal[1].sprite=sprite_PuertaPortal_B;
+        createRoca(8,4,sprite_PortalMuro,1);
     }
     
 }
 
-void createHoleIzquierda(TGameObject* rocas,u8 posx, u8 posy,u8 sprite, u8 simetria){
-    rocas[contadorRocas].num=simetria;
-    rocas[contadorRocas].posx=posx;
-    rocas[contadorRocas].posy=posy;
-    rocas[contadorRocas].sprite=sprite;
-    rocas[contadorRocas].movimiento=sin_Movimiento;
+void createHoleIzquierda(u8 posx, u8 posy,u8 sprite, u8 simetria){
+    P_rocas[contadorRocas].num=simetria;
+    P_rocas[contadorRocas].posx=posx;
+    P_rocas[contadorRocas].posy=posy;
+    P_rocas[contadorRocas].sprite=sprite;
+    P_rocas[contadorRocas].movimiento=sin_Movimiento;
     contadorRocas++;
 }
-void createHoleDerecha(TGameObject* rocasEspejo,u8 posx, u8 posy,u8 sprite, u8 simetria){
-    rocasEspejo[contadorRocasEspejo].num=simetria;
-    rocasEspejo[contadorRocasEspejo].posx=posx;
-    rocasEspejo[contadorRocasEspejo].posy=posy;
-    rocasEspejo[contadorRocasEspejo].sprite=sprite;
-    rocasEspejo[contadorRocasEspejo].movimiento=sin_Movimiento;
+void createHoleDerecha(u8 posx, u8 posy,u8 sprite, u8 simetria){
+    P_rocasEspejo[contadorRocasEspejo].num=simetria;
+    P_rocasEspejo[contadorRocasEspejo].posx=posx;
+    P_rocasEspejo[contadorRocasEspejo].posy=posy;
+    P_rocasEspejo[contadorRocasEspejo].sprite=sprite;
+    P_rocasEspejo[contadorRocasEspejo].movimiento=sin_Movimiento;
     contadorRocasEspejo++;
 }
-void createColeccionabeLuz(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id){
-    if(P_colList2[id]==coleccionable_activo){
-        coleccionable[contadorColeccionables].num=id;
-        coleccionable[contadorColeccionables].posx=posx;
-        coleccionable[contadorColeccionables].posy=posy;
-        coleccionable[contadorColeccionables].sprite=sprite_luz;
+void createColeccionabeLuz(u8 posx, u8 posy,u8 id){
+    if(P_colList[id]==coleccionable_activo){
+        P_col[contadorColeccionables].num=id;
+        P_col[contadorColeccionables].posx=posx;
+        P_col[contadorColeccionables].posy=posy;
+        P_col[contadorColeccionables].sprite=sprite_luz;
     }
+    contadorColeccionables++;
 }
-void createColeccionabeFamilia(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 sprite,u8 id){
-    if(P_colList2[id]==coleccionable_activo){
-        coleccionable[contadorColeccionables].num=id;
-        coleccionable[contadorColeccionables].posx=posx;
-        coleccionable[contadorColeccionables].posy=posy;
-        coleccionable[contadorColeccionables].sprite=sprite;
+void createColeccionabeFamilia(u8 posx, u8 posy,u8 sprite,u8 id){
+    if(P_colList[id]==coleccionable_activo){
+        P_col[contadorColeccionables].num=id;
+        P_col[contadorColeccionables].posx=posx;
+        P_col[contadorColeccionables].posy=posy;
+        P_col[contadorColeccionables].sprite=sprite;
     }
+    contadorColeccionables++;
 }
-void createColeccionabeAmstr(TGameObjectCol* coleccionable,u8 posx, u8 posy,u8 id){
-    if(P_colList2[id]==coleccionable_activo){
-        coleccionable[contadorColeccionables].num=id;
-        coleccionable[contadorColeccionables].posx=posx;
-        coleccionable[contadorColeccionables].posy=posy;
-        coleccionable[contadorColeccionables].sprite=sprite_amstradTape;
+void createColeccionabeAmstr(u8 posx, u8 posy,u8 id){
+    if(P_colList[id]==coleccionable_activo){
+        P_col[contadorColeccionables].num=id;
+        P_col[contadorColeccionables].posx=posx;
+        P_col[contadorColeccionables].posy=posy;
+        P_col[contadorColeccionables].sprite=sprite_amstradTape;
     }
+    contadorColeccionables++;
 }
 
 
