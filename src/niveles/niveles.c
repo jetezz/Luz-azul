@@ -5,9 +5,9 @@
 #include "nivel01.h"
 #include "nivel01_01.h"
 #include "nivel02.h"
-//#include "nivel01_trap.h"
-//#include "nivel03.h"
-//#include "nivel04.h"
+#include "nivel01_trap.h"
+#include "nivel03.h"
+#include "nivel04.h"
 //#include "nivel04_01.h"
 //#include "nivel05.h"
 //#include "nivel06.h"
@@ -38,12 +38,13 @@ void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
     P_ams=colAms;
     P_colList=colList;
     movimientoRep=sin_Movimiento; 
+
     niveles[nivel_01]=crearnivel01;
     niveles[nivel_01_01]=crearnivel01_01;    
     niveles[nivel_02]=crearnivel02;
-    //niveles[nivel_TRAP_01]=crearnivel01trap;  
-    //niveles[nivel_03]=crearnivel03;
-    //niveles[nivel_04]=crearnivel04;
+    niveles[nivel_TRAP_01]=crearnivel01trap;  
+    niveles[nivel_03]=crearnivel03;
+    niveles[nivel_04]=crearnivel04;
     //niveles[nivel_04_01]=crearnivel04_01;
     //niveles[nivel_05]=crearnivel05;
     //niveles[nivel_06]=crearnivel06;
@@ -148,8 +149,56 @@ void createRocaEspejo(u8 posx, u8 posy,u8 sprite, u8 simetria){
     contadorRocasEspejo++;
 }
 void crearMuro(u8 posx, u8 posy,u8 posxFinal,u8 posyFinal,u8 sprite,u8 lado){
-   
+    u8* contador;
+    TGameObject* rocas;    
+    u8 completadox=0;
+    u8 completadoy=0;
+    
+   if(lado==posicion_Izquieda){
+       rocas=P_rocas;
+       contador=&contadorRocas;
+   }else{
+       rocas=P_rocasEspejo;
+       contador=&contadorRocasEspejo;
+   }
+   for (u8 x=posx;completadox==0;x++){
+       completadoy=0;
+       for (u8 y=posy;completadoy==0;y++){
+           if(y>posyFinal){
+               completadoy=1;               
+           }else{
+               if(x==posx || x==posxFinal || y==posy || y==posyFinal) {
+                    rocas[*contador].num=1;
+                    rocas[*contador].posx=x;
+                    rocas[*contador].posy=y;
+                    rocas[*contador].sprite=sprite;
+                    rocas[*contador].movimiento=sin_Movimiento;
+                    *contador=*contador+1;
+               }              
+               
+           }
+           if(x==posxFinal){
+               completadox=1;
+           }
+       }
+   }
 }
+void crearRocaYsimetrico(u8 posx, u8 posy,u8 sprite,u8 spriteSimetrico,u8 simetria){
+    P_rocas[contadorRocas].num=simetria;
+    P_rocas[contadorRocas].posx=posx;
+    P_rocas[contadorRocas].posy=posy;
+    P_rocas[contadorRocas].sprite=sprite;
+    P_rocas[contadorRocas].movimiento=movimientoRep;
+    contadorRocas++;
+
+    P_rocasEspejo[contadorRocasEspejo].num=simetria;
+    P_rocasEspejo[contadorRocasEspejo].posx=16-posx;
+    P_rocasEspejo[contadorRocasEspejo].posy=posy;
+    P_rocasEspejo[contadorRocasEspejo].sprite=spriteSimetrico;
+    P_rocasEspejo[contadorRocasEspejo].movimiento=movimientoRep;
+    contadorRocasEspejo++;
+}
+
 
 void createPuerta(u8 posx,u8 posy,u8 sprite,u8 nivel){
     P_puertas[contadorPuertas].num=nivel;

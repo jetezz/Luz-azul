@@ -34,6 +34,7 @@ void createMarco(u8 hay);
 void createRoca(u8 posx, u8 posy,u8 sprite, u8 simetria);
 void createRocaEspejo(u8 posx, u8 posy,u8 sprite, u8 simetria);
 void crearMuro(u8 posx, u8 posy,u8 posxFinal,u8 posyFinal,u8 sprite,u8 lado);
+void crearRocaYsimetrico(u8 posx, u8 posy,u8 sprite,u8 spriteSimetrico,u8 simetria);
 void createPuerta(u8 posx,u8 posy,u8 sprite,u8 nivel);
 void createPortal(u8 hay);
 void createHoleIzquierda(u8 posx, u8 posy,u8 sprite, u8 simetria);

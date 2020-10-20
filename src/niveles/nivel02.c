@@ -20,55 +20,24 @@ void crearnivel02(){
 
     //collecionables
     createColeccionabeLuz(13,4,1);
+    
+    //decoracion muros
+    crearMuro(1,1,7,1,sprite_Muro_Solid1,posicion_Izquieda);
+    crearMuro(1,7,7,7,sprite_Muro_Solid1,posicion_Izquieda); 
+    crearMuro(9,1,15,1,sprite_Muro_Solid1,posicion_Derecha);
+    crearMuro(9,7,15,7,sprite_Muro_Solid1,posicion_Derecha);
+    crearMuro(10,3,11,3,sprite_hole,posicion_Derecha);
+    crearMuro(10,5,11,5,sprite_hole,posicion_Derecha); 
+    
+    //decoracion simetricos
+    crearRocaYsimetrico(1,3,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
+    crearRocaYsimetrico(1,5,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
+    crearRocaYsimetrico(7,3,sprite_RockInmovil5_G,sprite_RockInmovil5_B,1);
+    crearRocaYsimetrico(7,5,sprite_RockInmovil5_G,sprite_RockInmovil5_B,1);
 
-    //decoracion izquierda
-   
-    createRoca(1,1, sprite_Muro_Solid1,1);
-    createRoca(2,1, sprite_Muro_Solid1,1);
-    createRoca(3,1, sprite_Muro_Solid1,1);
-    createRoca(4,1, sprite_Muro_Solid1,1);
-    createRoca(5,1, sprite_Muro_Solid1,1);
-    createRoca(6,1, sprite_Muro_Solid1,1);
-    createRoca(7,1, sprite_Muro_Solid1,1);
-    createRoca(1,7, sprite_Muro_Solid1,1);
-    createRoca(2,7, sprite_Muro_Solid1,1);
-    createRoca(3,7, sprite_Muro_Solid1,1);
-    createRoca(4,7, sprite_Muro_Solid1,1);
-    createRoca(5,7, sprite_Muro_Solid1,1);
-    createRoca(6,7, sprite_Muro_Solid1,1);
-    createRoca(7,7, sprite_Muro_Solid1,1);
+    //decoracion izquierda      
     createRoca(5,3,sprite_RockInmovil1_G,1);
     createRoca(5,5,sprite_RockInmovil1_G,1);
-    createRoca(1,3,sprite_RockInmovil2_G,1);
-    createRoca(1,5,sprite_RockInmovil2_G,1);
-    createRoca(7,3,sprite_RockInmovil5_G,1);
-    createRoca(7,5,sprite_RockInmovil5_G,1);
-
-
-
 
     //decoracionDerecha
-    createRocaEspejo(9,1,sprite_Muro_Solid1,1);
-    createRocaEspejo(10,1,sprite_Muro_Solid1,1);
-    createRocaEspejo(11,1,sprite_Muro_Solid1,1);
-    createRocaEspejo(12,1,sprite_Muro_Solid1,1);
-    createRocaEspejo(13,1,sprite_Muro_Solid1,1);
-    createRocaEspejo(14,1,sprite_Muro_Solid1,1);
-    createRocaEspejo(15,1,sprite_Muro_Solid1,1);
-    createRocaEspejo(9,7,sprite_Muro_Solid1,1);
-    createRocaEspejo(10,7,sprite_Muro_Solid1,1);
-    createRocaEspejo(11,7,sprite_Muro_Solid1,1);
-    createRocaEspejo(12,7,sprite_Muro_Solid1,1);
-    createRocaEspejo(13,7,sprite_Muro_Solid1,1);
-    createRocaEspejo(14,7,sprite_Muro_Solid1,1);
-    createRocaEspejo(15,7,sprite_Muro_Solid1,1);
-    createHoleDerecha(10,3,sprite_hole,1);
-    createHoleDerecha(11,3,sprite_hole,1);
-    createHoleDerecha(10,5,sprite_hole,1);
-    createHoleDerecha(11,5,sprite_hole,1);
-    createRocaEspejo(15,3,sprite_RockInmovil2_B,1);
-    createRocaEspejo(15,5,sprite_RockInmovil2_B,1);
-    createRocaEspejo(9,3,sprite_RockInmovil5_B,1);
-    createRocaEspejo(9,5,sprite_RockInmovil5_B,1);
-
 }

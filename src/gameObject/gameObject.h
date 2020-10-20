@@ -23,7 +23,7 @@ void dibujarGameObjectColSprite(u8 sprite,u8 posx, u8 posy);
 
 void limpiarRastro(u8 posx, u8 posy);
 u8 moverGameObject(TGameObject* objeto,u8 movimiento);
-void moverElEspejo(u8 num,u8 movimiento,u8 numMovimientos);
+void moverElEspejo(TGameObject* rocas,u8 num,u8 movimiento,u8 numMovimientos);
 void cambiarPosicion(u8* posicion);
 void moverYdibujar(TGameObject* objeto,u8 posx,u8 posy);
 void taparHole(TGameObject* roca,TGameObject* hole);

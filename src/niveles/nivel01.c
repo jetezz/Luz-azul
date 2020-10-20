@@ -17,30 +17,25 @@ void crearnivel01(){
     //collecionables
     createColeccionabeLuz(15,4,0);
 
-    //decoracion izquierda
+    //decoracion muros
     
-    createRoca(1,2,sprite_RockInmovil3_G,1);
-    createRoca(2,2,sprite_RockInmovil4_G,1);
-    createRoca(1,3,sprite_RockInmovil1_G,1);
-    createRoca(6,3,sprite_RockInmovil1_G,1);
-    createRoca(1,5,sprite_RockInmovil1_G,1);
-    createRoca(6,5,sprite_RockInmovil1_G,1);
-    createRoca(7,1,sprite_RockInmovil2_G,1);
-    createRoca(7,7,sprite_RockInmovil2_G,1);
-    createRoca(1,4,sprite_amstrad,1);
-    createRoca(1,1,sprite_PrinceofPersia2_G,1);
-    createRoca(2,1,sprite_PrinceofPersia1_G,1);
+    //decoracion simetricos
+    crearRocaYsimetrico(1,2,sprite_RockInmovil3_G,sprite_RockInmovil4_B,1);
+    crearRocaYsimetrico(2,2,sprite_RockInmovil4_G,sprite_RockInmovil3_B,1);
+    crearRocaYsimetrico(1,3,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
+    crearRocaYsimetrico(6,3,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
+    crearRocaYsimetrico(1,5,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
+    crearRocaYsimetrico(6,5,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
+    crearRocaYsimetrico(7,1,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
+    crearRocaYsimetrico(7,7,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
+    crearRocaYsimetrico(1,1,sprite_PrinceofPersia2_G,sprite_PrinceofPersia2_B,1);
+    crearRocaYsimetrico(2,1,sprite_PrinceofPersia1_G,sprite_PrinceofPersia1_B,1);
 
+    //decoracion izquierda    
+    createRoca(1,4,sprite_amstrad,1); 
 
-    //decoracionDerecha
-    createRocaEspejo(14,2,sprite_RockInmovil3_B,1);
-    createRocaEspejo(15,2,sprite_RockInmovil4_B,1);
-    createRocaEspejo(15,3,sprite_RockInmovil1_B,1);
-    createRocaEspejo(10,3,sprite_RockInmovil1_B,1);
-    createRocaEspejo(15,5,sprite_RockInmovil1_B,1);
-    createRocaEspejo(10,5,sprite_RockInmovil1_B,1);
-    createRocaEspejo(9,1,sprite_RockInmovil2_B,1);
-    createRocaEspejo(9,7,sprite_RockInmovil2_B,1);
-    createRocaEspejo(14,1,sprite_PrinceofPersia1_B,1);
-    createRocaEspejo(15,1,sprite_PrinceofPersia2_B,1);
+    //decoracionDerecha   
+    
+   
+    
 }
