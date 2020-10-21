@@ -9,7 +9,7 @@ void crearnivel01_01(){
     createPuerta(3,5,sprite_Puerta_B,nivel_03);
 
     //collecionables
-    createColeccionabeAmstr(5,3,3);
+    createColeccionabeAmstr(5,3,1);
 
     //decoracion muros
     crearMuro(1,1,7,5,sprite_Muro_Polvo1,posicion_Izquieda);

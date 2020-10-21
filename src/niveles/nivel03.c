@@ -23,7 +23,7 @@ cambiarMov(sin_Movimiento);
 
 
 //collecionables
-createColeccionabeFamilia(15,5,sprite_familia1,5);
+createColeccionabeFamilia(15,5,sprite_familia1,3);
 
 //decoracion muros
 

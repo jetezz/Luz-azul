@@ -51,6 +51,7 @@
 #include "sprites/PrinceOfPersia_ENE_G.h"
 #include "sprites/PrinceOfPersia_ENE_B.h"
 #include "sprites/PrinceOfPersia_COVER.h"
+#include "sprites/Block_Move0_G.h"
 
 
 
@@ -174,6 +175,8 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(zul1_2_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil6_B){
             cpct_drawSprite(Block_Static6_BB_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_Rock_nomove_G){
+            cpct_drawSprite(Block_Move0_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }
 
     }     

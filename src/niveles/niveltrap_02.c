@@ -1,12 +1,13 @@
-#include "nivel01_trap.h"
+#include "niveltrap_02.h"
 
-void crearnivel01trap(){
+
+void crearniveltrap02(){
 //player  portal puertas y marco
 createPlayer(4,4);
 createMarco(no);
 createPortal(no);
-createPuerta(4,2,sprite_Puerta_B,nivel_02);
-createPuerta(4,6,sprite_Puerta_B,nivel_02);
+createPuerta(4,2,sprite_StairUp1_B,nivel_08);
+createPuerta(4,6,sprite_StairDown1_B,nivel_08);
 
 //collecionables
 
@@ -21,5 +22,5 @@ createRoca(3,5,sprite_RockInmovil1_B,1);
 createRoca(5,3,sprite_RockInmovil1_B,1);
 createRoca(5,5,sprite_RockInmovil1_B,1);
 
-//decoracion derecha
+
 }

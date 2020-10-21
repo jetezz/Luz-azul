@@ -1,7 +1,7 @@
 #include "nivel02.h"
 
 void crearnivel02(){
-     //player  portal puertas y marco
+    //player  portal puertas y marco
     createPlayer(3,4);
     createMarco(si);
     createPortal(si);
@@ -19,7 +19,7 @@ void crearnivel02(){
     createRocaEspejo(11,4,sprite_Rock_nomove_B,2);
 
     //collecionables
-    createColeccionabeLuz(13,4,1);
+    createColeccionabeLuz(13,4,2);
     
     //decoracion muros
     crearMuro(1,1,7,1,sprite_Muro_Solid1,posicion_Izquieda);

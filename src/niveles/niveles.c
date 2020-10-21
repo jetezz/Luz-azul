@@ -8,13 +8,17 @@
 #include "nivel01_trap.h"
 #include "nivel03.h"
 #include "nivel04.h"
-//#include "nivel04_01.h"
-//#include "nivel05.h"
-//#include "nivel06.h"
-//#include "nivel07.h"
-//#include "nivel08.h"
-//#include "nivel08_01.h"
-//#include "niveltrap_02.h"
+#include "nivel04_01.h"
+#include "nivel05.h"
+#include "nivel06.h"
+#include "nivel07.h"
+#include "nivel08.h"
+#include "nivel08_01.h"
+#include "niveltrap_02.h"
+#include "nivel09.h"
+#include "nivel09_01.h"
+
+
 
 
 
@@ -45,13 +49,16 @@ void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
     niveles[nivel_TRAP_01]=crearnivel01trap;  
     niveles[nivel_03]=crearnivel03;
     niveles[nivel_04]=crearnivel04;
-    //niveles[nivel_04_01]=crearnivel04_01;
-    //niveles[nivel_05]=crearnivel05;
-    //niveles[nivel_06]=crearnivel06;
-    //niveles[nivel_07]=crearnivel07;
-    //niveles[nivel_08]=crearnivel08;
-    //niveles[nivel_08_01]=crearnivel08_01;
-    //niveles[niveltrap_02]=crearniveltrap02;
+    niveles[nivel_04_01]=crearnivel04_01;
+    niveles[nivel_05]=crearnivel05;
+    niveles[nivel_06]=crearnivel06;
+    niveles[nivel_07]=crearnivel07;
+    niveles[nivel_08]=crearnivel08;
+    niveles[nivel_08_01]=crearnivel08_01;
+    niveles[niveltrap_02]=crearniveltrap02;
+    niveles[nivel_09]=crearnivel09;
+    niveles[nivel_09_01]=crearnivel09_01;
+
 
     
 

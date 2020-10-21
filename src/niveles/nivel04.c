@@ -8,7 +8,7 @@ createPortal(si);
 createPuerta(15,4,sprite_Puerta_G,nivel_02);
 createPuerta(3,1,sprite_Puerta_G,nivel_05);
 createPuerta(1,4,sprite_Puerta_G,nivel_04_01);
-//createPuerta(puertas,3,7,sprite_Puerta_G,nivel_06);
+createPuerta(3,7,sprite_Puerta_G,nivel_06);
 createPuerta(11,3,sprite_StairUp1_G,nivel_08);
 //createPuerta(puertas,11,5, sprite_StairDown1_G,nivel_15);
 

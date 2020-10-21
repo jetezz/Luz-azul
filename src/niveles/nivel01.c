@@ -1,7 +1,7 @@
 #include "nivel01.h"
 
 void crearnivel01(){
-     //player  portal puertas y marco
+    //player  portal puertas y marco
     createPlayer(3,4);
     createMarco(si);
     createPortal(si);
@@ -34,8 +34,5 @@ void crearnivel01(){
     //decoracion izquierda    
     createRoca(1,4,sprite_amstrad,1); 
 
-    //decoracionDerecha   
-    
-   
-    
+    //decoracionDerecha     
 }

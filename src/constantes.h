@@ -38,6 +38,7 @@ extern enum{
     sprite_Player,
     sprite_Rock_G,
     sprite_Rock_B,
+    sprite_Rock_nomove_G,
     sprite_Rock_nomove_B,
     sprite_RockLineal1_G,
     sprite_RockLineal1_B,
@@ -162,7 +163,10 @@ extern enum{
     nivel_07,
     nivel_08,
     nivel_08_01,
-    niveltrap_02
+    niveltrap_02,
+    nivel_09,
+    nivel_09_01
+
 
      
 }ETipoNivel;
