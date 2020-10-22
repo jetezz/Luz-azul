@@ -149,6 +149,12 @@ extern enum {
     player_muere
 }ETipoAccionesEnemigo;
 
+extern enum {
+    estado_Menu,
+    estado_juego,
+    estado_controles
+}ETipoEstados;
+
 extern enum{
     seguir_En_Nivel,    
     nivel_01,

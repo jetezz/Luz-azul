@@ -56,7 +56,6 @@
 
 
 
-
 #include "constantes.h"
 #include "fisicas/fisicas.h"
 
@@ -85,8 +84,8 @@ void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* por
 
 void dibujarGameObject(TGameObject* objeto){
     if(objeto->posx!=0){
-        if(objeto->sprite==sprite_Player){
-            cpct_drawSprite(Character_Principal_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);  
+        if(objeto->sprite==sprite_Player){                       
+            cpct_drawSprite(Character_Principal_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite); 
         }else if(objeto->sprite==sprite_Rock_G){
             cpct_drawSprite(Block_Move1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Rock_B){

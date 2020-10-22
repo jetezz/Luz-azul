@@ -23,6 +23,9 @@ extern u8 coleccionablesAms;
 extern u8 nivelActual;
 extern u8 pasos;
 extern u8 frecuenciaIA;
+extern u8 estado;
+extern u8 estadoSeleccionado;
+
 
 
 void game();

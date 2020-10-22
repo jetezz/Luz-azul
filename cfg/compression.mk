@@ -38,6 +38,9 @@
 #$(eval $(call ADD2PACK,mygraphics,gfx/background.bin))
 #$(eval $(call PACKZX7B,mygraphics,src/))
 
+$(eval $(call ADD2PACK,mygraphics,src/sprites/Menu3.bin))
+$(eval $(call PACKZX7B,mygraphics,src/sprites/comp/))
+
 
 
 
