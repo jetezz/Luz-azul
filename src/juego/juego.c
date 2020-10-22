@@ -110,8 +110,11 @@ void game(){
             estado=estadoSeleccionado;
             cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START,0,0), 0, 40, 200);
             cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START,40,0), 0, 40, 200);
-            if(estado==estado_juego)
-            initHud();
+            if(estado==estado_juego){
+                initHud();
+                crearNivel(nivel_01);
+                dibujarGameObjects();
+            }
         }
         if (frecuenciaIA>0)
         frecuenciaIA--;         
@@ -122,7 +125,7 @@ void game(){
             initGame();            
             estado=estado_Menu;
             estadoSeleccionado=estado_juego;
-            nivelActual=nivel_01;             
+            nivelActual=nivel_01;                        
         }
     }
     }
@@ -148,16 +151,18 @@ void initGame(){
     
 }
 void moverPlayer(){
-    if(nivelActual==seguir_En_Nivel)  {  
+    u8 siguienteNivel;
+     
         if(posicion==posicion_Izquieda){
-            nivelActual=moverGameObject(&player,movimientoGuardado);
+            siguienteNivel=moverGameObject(&player,movimientoGuardado);
         }else{
-            nivelActual=moverGameObject(&player,movimientoGuardado);
+            siguienteNivel=moverGameObject(&player,movimientoGuardado);
         }
-    }
-    if(nivelActual!=seguir_En_Nivel){            
+    
+    if(siguienteNivel!=seguir_En_Nivel){
+        nivelActual= siguienteNivel;            
         resetGameobjects(nivelActual);
-        nivelActual=seguir_En_Nivel;
+              
     }
     
 }
