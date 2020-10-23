@@ -7,6 +7,7 @@
 #include "enemigos/enemigos.h"
 #include "sprites/comp/mygraphics.h"
 #include "sprites/MenuSelector.h"
+#include "sprites/comp/controls.h"
 
 
 
@@ -114,6 +115,8 @@ void game(){
                 initHud();
                 crearNivel(nivel_01);
                 dibujarGameObjects();
+            }else{
+                cpct_zx7b_decrunch_s(0xFFFF,controls_end);
             }
         }
         if (frecuenciaIA>0)

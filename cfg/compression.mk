@@ -39,7 +39,10 @@
 #$(eval $(call PACKZX7B,mygraphics,src/))
 
 $(eval $(call ADD2PACK,mygraphics,src/sprites/Menu3.bin))
+$(eval $(call ADD2PACK,controls,src/sprites/Controls.bin))
 $(eval $(call PACKZX7B,mygraphics,src/sprites/comp/))
+$(eval $(call PACKZX7B,controls,src/sprites/comp/))
+
 
 
 
