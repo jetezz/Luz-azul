@@ -49,29 +49,24 @@ void game(){
     estadoSeleccionado=estado_juego;
     nivelActual=nivel_01;           
     while(1){
+        if(pasosTotalescentesimas>0)
+        printf("asd");
         scanKey();
         cpct_waitVSYNC();
         if(estado==estado_juego){               
     //    cpct_akp_musicPlay();
         //frecuenciaIA--;
-    //             
-//
-       
+    //          
         if(keyR()==si){            
             resetGameobjects(nivelActual);
         }
-        if(keyD()==si){            
-            for(u8 i=0;i<RocasMaximas;i++){
-                rocas[i].posx=0;
-                rocasEspejo[i].posx=0;
-            }
-        }             
+        modoDios();            
         comprobarMovimiento();
     //          
         moverPlayer();
         actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
         if(comprobarPasos()==si){
-            //managerDialogo(nivelActual,pasos);
+            managerDialogo(nivelActual,pasos);
         }       
     //if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
     //    resetGameobjects(nivelActual);
@@ -143,15 +138,14 @@ void initGame(){
     coleccionablesAms=0;
     nivelActual=nivel_01;
     pasos=0;
+    pasosTotales=0;
+    pasosTotalescentesimas=0;
     frecuenciaIA=frecuenciaMaxIA;
     initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
     initNiveles(&player,rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);    
-    //initDialogos();
-    //initEnemigos();
-    //crearNivel(nivel_01);
-    //crearEnemigos(nivelActual);    
-    //dibujarGameObjects();
-    
+    initDialogos();
+    //initEnemigos();    
+    //crearEnemigos(nivelActual);      
 }
 void moverPlayer(){
     u8 siguienteNivel;
@@ -209,11 +203,29 @@ u8 comprobarPasos(){
 }
 
 void resetGameobjects(u8 nivel){
-         
+    u8 suma=0;
+    u8 pasosAux=0;     
     posicion=posicion_Izquieda;
+    pasosAux=pasosTotales;
+    suma = pasosAux+pasos;
+    if(suma >100){        
+        //*pasosTotales=suma-100;
+    }else{
+        pasosTotales=suma;
+    }
+      
     player.pasos=0;
     pasos=0;    
     crearNivel(nivel);
     //crearEnemigos(nivelActual);        
     dibujarGameObjects();     
+}
+
+void modoDios(){
+    if(keyD()==si){            
+            for(u8 i=0;i<RocasMaximas;i++){
+                rocas[i].posx=0;
+                rocasEspejo[i].posx=0;
+            }
+        }         
 }

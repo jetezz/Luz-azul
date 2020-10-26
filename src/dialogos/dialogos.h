@@ -20,7 +20,10 @@ void anadirDialogo(u8 id, u8 nivel,u8 pasos);
 
 
 //dialogosxniveles
-void dialogosNivel0();
+void dialogosNivel1();
+void dialogosNivel01_01();
+
 //dialogos
+void dialogopasos();
 void dialogo0();
 void dialogo1();

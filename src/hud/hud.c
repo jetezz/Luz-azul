@@ -31,7 +31,7 @@ void asd(){
     
 }
 void initHud(){
-    char text[] = "0";
+    char text[2] = "0";
     
     cpct_setDrawCharM0(1, 0);
     
@@ -51,7 +51,7 @@ void initHud(){
 
 }
 void actualizarHud(u8 luz, u8 familia,u8 amstr,u8 pasos){
-    char text[1] = "X";    
+    char text[2] = "X";    
     int decimas=0;
     int unidades=0;
 

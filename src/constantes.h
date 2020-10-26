@@ -32,6 +32,11 @@ static u8* P_fam;
 static u8* P_ams;
 static u8* P_colList;
 
+static u8 pasosTotales;
+
+static u8 pasosTotalescentesimas;
+
+
 
 extern enum{
     sprite_SinDefinir,

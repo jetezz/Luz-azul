@@ -36,3 +36,5 @@ void comprobarMovimiento();
 u8 comprobarPasos();
 
 void resetGameobjects(u8 nivel);
+
+void modoDios();

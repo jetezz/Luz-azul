@@ -350,7 +350,8 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
             colisionEnemigo=comprobarEnemigos(nextPosx,nextPosy,*posicion);
             if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionEnemigo==no_Hay_Colision){             
                 moverYdibujar(objeto,nextPosx,nextPosy);
-                objeto->pasos++;                           
+                if(objeto->pasos<99)
+                    objeto->pasos++;                           
                 cpct_akp_SFXPlay(1,15,80,0,0,AY_CHANNEL_A);
                 cpct_akp_SFXPlay(1,15,50,0,0,AY_CHANNEL_A);                                                 
 
