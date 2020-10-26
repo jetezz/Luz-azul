@@ -102,6 +102,8 @@ $(eval $(call IMG2SP, CONVERT         , sprites/Character_Mother.png , 8,8 , Cha
 $(eval $(call IMG2SP, CONVERT         , sprites/Character_Father.png , 8,8 , Character_Father)) #8x16
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Enemy_01.png , 8,8 , Enemy_01)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Enemy_02.png , 8,8 , Enemy_02)) #8x16
+
 $(eval $(call IMG2SP, CONVERT         , sprites/zul1_1.png , 8,8 , zul1_1)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/zul1_2.png , 8,8 , zul1_2)) #8x16
 

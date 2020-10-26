@@ -5,8 +5,8 @@
 #define     PuntoLuz   cpctm_screenPtr(CPCT_VMEM_START, 74, 20)
 #define     PuntoFamilia   cpctm_screenPtr(CPCT_VMEM_START, 74, 52)
 #define     PuntoCartuchos   cpctm_screenPtr(CPCT_VMEM_START, 74, 84)
-#define     PuntoPasos   cpctm_screenPtr(CPCT_VMEM_START, 72, 116)
-#define     PuntoPasos2   cpctm_screenPtr(CPCT_VMEM_START, 76, 116)
+#define     PuntoPasos   cpctm_screenPtr(CPCT_VMEM_START, 70, 116)
+#define     PuntoPasos2   cpctm_screenPtr(CPCT_VMEM_START, 74, 116)
 
 
 

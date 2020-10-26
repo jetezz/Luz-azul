@@ -1,9 +1,11 @@
 #include "dialogos.h"
 #include "constantes.h"
 #define     PuntoEscribir   cpctm_screenPtr(CPCT_VMEM_START, 2, 150)
-#define     PuntoEscribirPasos   cpctm_screenPtr(CPCT_VMEM_START, 50, 150)
-#define     PuntoEscribirPasos2   cpctm_screenPtr(CPCT_VMEM_START, 54, 150)
-#define     PuntoEscribirPasos3   cpctm_screenPtr(CPCT_VMEM_START, 58, 150)
+#define     PuntoEscribirPasos   cpctm_screenPtr(CPCT_VMEM_START, 56, 150)
+#define     PuntoEscribirPasos2   cpctm_screenPtr(CPCT_VMEM_START, 60, 150)
+#define     PuntoEscribirPasos3   cpctm_screenPtr(CPCT_VMEM_START, 64, 150)
+#define     PuntoEscribirPasos4   cpctm_screenPtr(CPCT_VMEM_START, 68, 150)
+
 
 
 
@@ -12,10 +14,13 @@
 
 TDialogo dialogosTotales[numDialogosTotales];
 u8 contadorDialogos;
-void initDialogos(){
+void initDialogos(u8* pasos, u8* pasos2){
+    P_pasosTotales=pasos;
+    P_pasosTotales2=pasos2;
+
     dialogos[0]=dialogo0;
     dialogos[1]=dialogo1;
-    dialogos[2]=dialogopasos;
+    
 
 
     contadorDialogos=0;
@@ -50,7 +55,7 @@ void dialogosNivel1(){
 
 }
 void dialogosNivel01_01(){
-    anadirDialogo(2,nivel_01_01,1);
+    
     
 
     
@@ -58,30 +63,35 @@ void dialogosNivel01_01(){
 }
 void dialogopasos(){
     char text[2] = "X";
+    u8 milesimas=0;
     u8 centesimas=0;
     u8 decimas=0;
     u8 unidades=0;
-    u8 pasos=0;
-    u8 pasos2=0;
+   
     
     
-        pasos=pasosTotales;
-        centesimas=pasosTotalescentesimas;
-        decimas=pasos/10;
-        unidades=pasos%10; 
+    milesimas=*P_pasosTotales2/10;
+    centesimas=*P_pasosTotales2%10;
+    decimas=*P_pasosTotales/10;
+    unidades=*P_pasosTotales%10; 
     
-        
-       
-         
+    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,25);
+    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,25);
+
+    cpct_drawStringM0("Pasos totales",PuntoEscribir);   
+     
+     
+    text[0]=milesimas+'0';
+    cpct_drawStringM0(text,PuntoEscribirPasos);    
 
     text[0]=centesimas+'0';
-    cpct_drawStringM0(text,PuntoEscribirPasos);
-
-    text[0]=decimas+'0';
     cpct_drawStringM0(text,PuntoEscribirPasos2);
 
-    text[0]=unidades+'0';
+    text[0]=decimas+'0';
     cpct_drawStringM0(text,PuntoEscribirPasos3);
+
+    text[0]=unidades+'0';
+    cpct_drawStringM0(text,PuntoEscribirPasos4);
 
 }
 void dialogo0(){

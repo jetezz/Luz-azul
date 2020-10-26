@@ -35,6 +35,9 @@ u8 coleccionablesFam;
 u8 coleccionablesAms;
 u8 nivelActual;
 u8 pasos;
+u8 pasosContador;
+u8 pasosT;
+u8 pasosT2;
 u8 frecuenciaIA;
 u8 estado;
 u8 estadoSeleccionado;
@@ -49,41 +52,27 @@ void game(){
     estadoSeleccionado=estado_juego;
     nivelActual=nivel_01;           
     while(1){
-        if(pasosTotalescentesimas>0)
-        printf("asd");
+        
         scanKey();
         cpct_waitVSYNC();
         if(estado==estado_juego){               
     //    cpct_akp_musicPlay();
-        //frecuenciaIA--;
+        
     //          
         if(keyR()==si){            
             resetGameobjects(nivelActual);
         }
-        modoDios();            
-        comprobarMovimiento();
-    //          
+        modoDios();
+        pasosTotales();            
+        comprobarMovimiento();             
         moverPlayer();
         actualizarHud(coleccionablesLuz,coleccionablesFam,coleccionablesAms,pasos);
         if(comprobarPasos()==si){
             managerDialogo(nivelActual,pasos);
-        }       
-    //if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
-    //    resetGameobjects(nivelActual);
-    //}
-    //  if(frecuenciaIA==0){
-    //      frecuenciaIA=frecuenciaMaxIA;
-    //  }
-    //
-
-     if(keyEscape()==si){
-            cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
-            cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
-            initGame();            
-            estado=estado_Menu;
-            estadoSeleccionado=estado_juego;
-            nivelActual=nivel_01;             
         }
+        ia();    
+        salir();
+   
 
     }else if(estado==estado_Menu){
         if(movimientoPlayer()==mover_Arriba || movimientoPlayer()==mover_Abajo){
@@ -138,13 +127,14 @@ void initGame(){
     coleccionablesAms=0;
     nivelActual=nivel_01;
     pasos=0;
-    pasosTotales=0;
-    pasosTotalescentesimas=0;
+    pasosContador=0;
+    pasosT=0;
+    pasosT2=0;  
     frecuenciaIA=frecuenciaMaxIA;
     initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
     initNiveles(&player,rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);    
-    initDialogos();
-    //initEnemigos();    
+    initDialogos( &pasosT,  &pasosT2);
+    initEnemigos();    
     //crearEnemigos(nivelActual);      
 }
 void moverPlayer(){
@@ -181,7 +171,7 @@ void dibujarGameObjects(){
     for(u8 i=0;i<PuertasMaximas;i++){
         dibujarGameObject(&puertas[i]);
     }
-     for(u8 i=0;i<ColeccionablesMaximos;i++){
+    for(u8 i=0;i<ColeccionablesMaximos;i++){
         dibujarGameObjectCol(&coleccionables[i]);
     }  
 }
@@ -197,28 +187,32 @@ void comprobarMovimiento(){
 u8 comprobarPasos(){
     if(player.pasos!=pasos){               
         pasos=player.pasos;
+        pasosContador++;
         return si;
     }
     return no;
 }
 
 void resetGameobjects(u8 nivel){
-    u8 suma=0;
-    u8 pasosAux=0;     
+    u8 suma=0;    
     posicion=posicion_Izquieda;
-    pasosAux=pasosTotales;
-    suma = pasosAux+pasos;
-    if(suma >100){        
-        //*pasosTotales=suma-100;
+    
+    suma=(pasosContador+pasosT);
+    if(suma>100){
+        pasosT2++;
+        pasosT=(suma-100);
     }else{
-        pasosTotales=suma;
+        pasosT=suma;
     }
       
     player.pasos=0;
-    pasos=0;    
-    crearNivel(nivel);
-    //crearEnemigos(nivelActual);        
-    dibujarGameObjects();     
+    pasos=0;
+    pasosContador=0;
+    frecuenciaIA=frecuenciaMaxIA;    
+    crearNivel(nivel);    
+    crearEnemigos(nivelActual);        
+    dibujarGameObjects();
+       
 }
 
 void modoDios(){
@@ -228,4 +222,38 @@ void modoDios(){
                 rocasEspejo[i].posx=0;
             }
         }         
+}
+void pasosTotales(){
+    u8 suma=0;
+    if(keyP()==si){
+
+        suma=(pasosContador+pasosT);
+        if(suma>100){
+            pasosT2++;
+            pasosT=(suma-100);
+        }else{
+            pasosT=suma;
+        }
+        pasosContador=0;
+        dialogopasos();
+    }
+}
+void salir(){
+      if(keyEscape()==si){
+            cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
+            cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
+            initGame();            
+            estado=estado_Menu;
+            estadoSeleccionado=estado_juego;
+            nivelActual=nivel_01;             
+        }
+}
+void ia(){
+    frecuenciaIA--;
+      if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
+        resetGameobjects(nivelActual);
+    }
+      if(frecuenciaIA==0){
+          frecuenciaIA=frecuenciaMaxIA;
+      }
 }

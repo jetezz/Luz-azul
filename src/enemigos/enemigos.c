@@ -13,14 +13,10 @@ u8 contadorEnemigosDe;
  
 
  void initEnemigos(){
-     creadorDeEnemigos[nivel_01]=sinEnemigos;
+     for(u8 i=0;i<nivelesTorales;i++){
+        creadorDeEnemigos[i]=sinEnemigos; 
+     }
      creadorDeEnemigos[nivel_TRAP_01]=enemigosNvel_trap_01;
-     creadorDeEnemigos[nivel_02]=sinEnemigos;
-     creadorDeEnemigos[nivel_01_01]=sinEnemigos;
-     creadorDeEnemigos[nivel_03]=sinEnemigos;
-     creadorDeEnemigos[nivel_04]=enemigosNvel_04;
-     creadorDeEnemigos[nivel_04_01]=enemigosNvel_04_01;
-     creadorDeEnemigos[nivel_05]=sinEnemigos;
 
 
 
@@ -37,15 +33,11 @@ u8 contadorEnemigosDe;
  }
  void dibujarEnemigos(){
      for(u8 i=0;i<enemigosMaximos ;i++){
-         if(enemigosIzquierda[i].posx>0){
-             if (enemigosIzquierda[i].sprite==sprite_enemigo1){
-                dibujarGameObject(&enemigosIzquierda[i]);
-             }            
+         if(enemigosIzquierda[i].posx>0){            
+            dibujarGameObject(&enemigosIzquierda[i]);                        
          }
-         if(enemigosDerecha[i].posx>0){
-             if (enemigosDerecha[i].sprite==sprite_enemigo1){
-                dibujarGameObject(&enemigosDerecha[i]);                
-             }
+         if(enemigosDerecha[i].posx>0){             
+            dibujarGameObject(&enemigosDerecha[i]);            
          }
      }
  }
@@ -55,6 +47,8 @@ u8 contadorEnemigosDe;
          enemigosIzquierda[i].posx=0;
          enemigosDerecha[i].posx=0;
      }
+     contadorEnemigosIz=0;
+     contadorEnemigosDe=0;
  }
 
 u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocasEspejo, u8 frecuencias){
@@ -65,9 +59,15 @@ u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocas
                 if(enemigosIzquierda[i].sprite==sprite_enemigo1){
                     if(posicion==posicion_Izquieda)
                         estado=iaEnemigo1(&enemigosIzquierda[i],posx,posy,rocas);
+                        if(estado==player_muere){
+                            return estado;
+                        }
                 }else{
                     if(posicion==posicion_Izquieda)
                         estado=iaEnemigo2(&enemigosIzquierda[i],posx,posy,rocas);
+                        if(estado==player_muere){
+                            return estado;
+                        }
                 }
                 
             }
@@ -90,10 +90,15 @@ u8 iaEnemigo1(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
     u8 estado=no_pasa_nada;
     u8 posmayor=0;
     u8 posmenor=0;
-    if(objeto->posx != posx && objeto->posy != posy){
-        return no_pasa_nada;
+    
+   
+    if(objeto->posx != posx){
+        if(objeto->posy != posy){            
+             return no_pasa_nada;
+        }
     }
-    if(objeto->posx==posx){        
+    
+    if(objeto->posx==posx){             
         if(objeto->posy>posy){
             posmayor=objeto->posy;
             posmenor=posy;
@@ -102,8 +107,8 @@ u8 iaEnemigo1(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
             posmenor=objeto->posy;
         }
         for(u8 i=0;i<RocasMaximas;i++){
-            if(rocas[i].posx==posx){
-                if(rocas[i].posy>posmenor && rocas[i].posy<posmayor){                    
+            if(rocas[i].posx==posx){               
+                if(rocas[i].posy>posmenor && rocas[i].posy<posmayor){                                                             
                     return no_pasa_nada;
                 }
             }
@@ -118,8 +123,9 @@ u8 iaEnemigo1(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
             posmenor=objeto->posx;
         }
         for(u8 i=0;i<RocasMaximas;i++){
-            if(rocas[i].posy==posy){
-                if(rocas[i].posx>posmenor && rocas[i].posx<posmayor){                
+            if(rocas[i].posy==posy){               
+                if(rocas[i].posx>posmenor && rocas[i].posx<posmayor){ 
+                               
                 return no_pasa_nada;
                 }
             }
@@ -153,6 +159,7 @@ u8 iaEnemigo2(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
             nextMovimiento=mover_Abajo;
         }
     }
+    
     
     nextPosx=objeto->posx;
     nextPosy=objeto->posy;
@@ -196,10 +203,10 @@ void sinEnemigos(){
      crearEnemigoDerecha(14,3,sprite_enemigo1);
  }
 void enemigosNvel_trap_01(){
-    crearEnemigoIzquierda(2,2,sprite_enemigo1);
-    crearEnemigoIzquierda(2,6,sprite_enemigo1);
-    crearEnemigoIzquierda(6,2,sprite_enemigo1);
-    crearEnemigoIzquierda(6,6,sprite_enemigo1);
+    crearEnemigoIzquierda(2,2,sprite_enemigo2);
+    crearEnemigoIzquierda(2,6,sprite_enemigo2);
+    crearEnemigoIzquierda(6,2,sprite_enemigo2);
+    crearEnemigoIzquierda(6,6,sprite_enemigo2);
 }
 void enemigosNvel_04(){
     crearEnemigoDerecha(12,3,sprite_enemigo1);

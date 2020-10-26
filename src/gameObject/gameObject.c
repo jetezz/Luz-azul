@@ -42,6 +42,7 @@
 #include "sprites/Character_Mother.h"
 #include "sprites/Character_Father.h"
 #include "sprites/Enemy_01.h"
+#include "sprites/Enemy_02.h"
 #include "sprites/zul1_1.h"
 #include "sprites/zul1_2.h"
 #include "sprites/Amstrad.h"
@@ -176,6 +177,9 @@ void dibujarGameObject(TGameObject* objeto){
             cpct_drawSprite(Block_Static6_BB_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Rock_nomove_G){
             cpct_drawSprite(Block_Move0_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }
+        else if(objeto->sprite==sprite_enemigo2){
+            cpct_drawSprite(Enemy_02_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }
 
     }     

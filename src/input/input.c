@@ -29,6 +29,12 @@ u8 keyD(){
         pulsada=si;
     return pulsada; 
 }
+u8 keyP(){
+    u8 pulsada=no;
+    if(cpct_isKeyPressed (Key_P))
+        pulsada=si;
+    return pulsada; 
+}
 u8 keyIntro(){
     u8 pulsada=no;
     if(cpct_isKeyPressed(Key_Return))

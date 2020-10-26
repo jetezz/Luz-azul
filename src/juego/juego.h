@@ -22,6 +22,9 @@ extern u8 coleccionablesFam;
 extern u8 coleccionablesAms;
 extern u8 nivelActual;
 extern u8 pasos;
+extern u8 pasosContador;
+extern u8 pasosT;
+extern u8 pasosT2;
 extern u8 frecuenciaIA;
 extern u8 estado;
 extern u8 estadoSeleccionado;
@@ -38,3 +41,6 @@ u8 comprobarPasos();
 void resetGameobjects(u8 nivel);
 
 void modoDios();
+void pasosTotales();
+void salir();
+void ia();

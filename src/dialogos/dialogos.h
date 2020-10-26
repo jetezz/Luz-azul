@@ -13,7 +13,7 @@ extern u8 contadorDialogos;
 extern TDialogo dialogosTotales[numDialogosTotales];
 
 
-void initDialogos();
+void initDialogos(u8* pasos, u8* pasos2);
 void managerDialogo(u8 nivel, u8 pasos);
 void anadirDialogo(u8 id, u8 nivel,u8 pasos);
 
