@@ -8,6 +8,7 @@
 #include "sprites/comp/mygraphics.h"
 #include "sprites/MenuSelector.h"
 #include "sprites/comp/controls.h"
+#include "animaciones/animaciones.h"
 
 
 
@@ -72,6 +73,10 @@ void game(){
         }
         ia();    
         salir();
+        if(keyIntro()==si){
+            iniciarAnimacion(animacion_andar,5,5,6,6);
+        }
+        animacionesManager();
    
 
     }else if(estado==estado_Menu){
@@ -134,8 +139,9 @@ void initGame(){
     initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
     initNiveles(&player,rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);    
     initDialogos( &pasosT,  &pasosT2);
-    initEnemigos();    
-    //crearEnemigos(nivelActual);      
+    initEnemigos();   
+    initAnimaciones(); 
+          
 }
 void moverPlayer(){
     u8 siguienteNivel;

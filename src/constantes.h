@@ -18,6 +18,8 @@
 
 #define nivelesTorales      50
 #define enemigosMaximos     5
+#define animacinesMaximas   10
+#define animacionesMaximasEnLista 5
 
 static TGameObject* P_player;
 static TGameObject* P_rocas;
@@ -181,6 +183,11 @@ extern enum{
 
      
 }ETipoNivel;
+
+extern enum{
+    sin_animacion,
+    animacion_andar    
+}ETipoAnimaciones;
 
 
 #endif // DECLARACIONCONSTANTES
