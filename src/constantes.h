@@ -89,6 +89,7 @@ extern enum{
 
     sprite_enemigo1,
     sprite_enemigo2,
+    sprite_enemigo3,
     sprite_zul1_1,
     sprite_zul1_2,
     

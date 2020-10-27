@@ -56,7 +56,7 @@ u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocas
     if(frecuencias==0){        
         for(u8 i=0;i<enemigosMaximos;i++){
             if(enemigosIzquierda[i].posx>0){
-                if(enemigosIzquierda[i].sprite==sprite_enemigo1){
+                if(enemigosIzquierda[i].sprite!=sprite_enemigo3){
                     if(posicion==posicion_Izquieda)
                         estado=iaEnemigo1(&enemigosIzquierda[i],posx,posy,rocas);
                         if(estado==player_muere){
@@ -98,39 +98,47 @@ u8 iaEnemigo1(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
         }
     }
     
-    if(objeto->posx==posx){             
-        if(objeto->posy>posy){
-            posmayor=objeto->posy;
-            posmenor=posy;
-        }else{
-            posmayor=posy;
-            posmenor=objeto->posy;
-        }
-        for(u8 i=0;i<RocasMaximas;i++){
-            if(rocas[i].posx==posx){               
-                if(rocas[i].posy>posmenor && rocas[i].posy<posmayor){                                                             
-                    return no_pasa_nada;
-                }
-            }
-        }
-    }
-    if(objeto->posy==posy){        
-        if(objeto->posx>posx){
-            posmayor=objeto->posx;
-            posmenor=posx;
-        }else{
-            posmayor=posx;
-            posmenor=objeto->posx;
-        }
-        for(u8 i=0;i<RocasMaximas;i++){
-            if(rocas[i].posy==posy){               
-                if(rocas[i].posx>posmenor && rocas[i].posx<posmayor){ 
-                               
+         
+        if(objeto->posx==posx){
+            if(objeto->sprite==sprite_enemigo1){
                 return no_pasa_nada;
+            }             
+            if(objeto->posy>posy){
+                posmayor=objeto->posy;
+                posmenor=posy;
+            }else{
+                posmayor=posy;
+                posmenor=objeto->posy;
+            }
+            for(u8 i=0;i<RocasMaximas;i++){
+                if(rocas[i].posx==posx){               
+                    if(rocas[i].posy>posmenor && rocas[i].posy<posmayor){                                                             
+                        return no_pasa_nada;
+                    }
                 }
             }
         }
-    }    
+    
+        if(objeto->posy==posy){
+            if(objeto->sprite==sprite_enemigo2){
+                return no_pasa_nada;
+            }        
+            if(objeto->posx>posx){
+                posmayor=objeto->posx;
+                posmenor=posx;
+            }else{
+                posmayor=posx;
+                posmenor=objeto->posx;
+            }
+            for(u8 i=0;i<RocasMaximas;i++){
+                if(rocas[i].posy==posy){               
+                    if(rocas[i].posx>posmenor && rocas[i].posx<posmayor){                                 
+                    return no_pasa_nada;
+                    }
+                }
+            }
+        } 
+      
     return player_muere;
 
 }
@@ -203,10 +211,10 @@ void sinEnemigos(){
      crearEnemigoDerecha(14,3,sprite_enemigo1);
  }
 void enemigosNvel_trap_01(){
-    crearEnemigoIzquierda(2,2,sprite_enemigo2);
-    crearEnemigoIzquierda(2,6,sprite_enemigo2);
-    crearEnemigoIzquierda(6,2,sprite_enemigo2);
-    crearEnemigoIzquierda(6,6,sprite_enemigo2);
+    crearEnemigoIzquierda(2,2,sprite_enemigo1);
+    crearEnemigoIzquierda(2,6,sprite_enemigo1);
+    crearEnemigoIzquierda(6,2,sprite_enemigo1);
+    crearEnemigoIzquierda(6,6,sprite_enemigo1);
 }
 void enemigosNvel_04(){
     crearEnemigoDerecha(12,3,sprite_enemigo1);

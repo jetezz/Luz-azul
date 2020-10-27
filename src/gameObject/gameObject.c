@@ -53,6 +53,7 @@
 #include "sprites/PrinceOfPersia_ENE_B.h"
 #include "sprites/PrinceOfPersia_COVER.h"
 #include "sprites/Block_Move0_G.h"
+#include "sprites/Enemy_03.h"
 
 
 
@@ -180,6 +181,8 @@ void dibujarGameObject(TGameObject* objeto){
         }
         else if(objeto->sprite==sprite_enemigo2){
             cpct_drawSprite(Enemy_02_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_enemigo3){
+            cpct_drawSprite(Enemy_03_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
         }
 
     }     
