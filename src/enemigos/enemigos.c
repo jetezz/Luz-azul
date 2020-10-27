@@ -34,10 +34,10 @@ u8 contadorEnemigosDe;
  void dibujarEnemigos(){
      for(u8 i=0;i<enemigosMaximos ;i++){
          if(enemigosIzquierda[i].posx>0){            
-            dibujarGameObject(&enemigosIzquierda[i]);                        
+            dibujarGameObject(&enemigosIzquierda[i],no);                        
          }
          if(enemigosDerecha[i].posx>0){             
-            dibujarGameObject(&enemigosDerecha[i]);            
+            dibujarGameObject(&enemigosDerecha[i],no);            
          }
      }
  }

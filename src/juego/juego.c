@@ -8,7 +8,7 @@
 #include "sprites/comp/mygraphics.h"
 #include "sprites/MenuSelector.h"
 #include "sprites/comp/controls.h"
-#include "animaciones/animaciones.h"
+
 
 
 
@@ -73,9 +73,7 @@ void game(){
         }
         ia();    
         salir();
-        if(keyIntro()==si){
-            iniciarAnimacion(animacion_andar,5,5,6,6);
-        }
+      
         animacionesManager();
    
 
@@ -163,19 +161,19 @@ void moverPlayer(){
 
 
 void dibujarGameObjects(){
-    dibujarGameObject(&player);
+    dibujarGameObject(&player,no);
     for (u8 i =0; i<RocasMaximas;i++){        
-        dibujarGameObject(&rocas[i]);        
+        dibujarGameObject(&rocas[i],no);        
     }
     for (u8 i =0; i<RocasMaximas;i++){        
-        dibujarGameObject(&rocasEspejo[i]);
+        dibujarGameObject(&rocasEspejo[i],no);
         
     } 
     for(u8 i=0;i<2;i++){
-        dibujarGameObject(&portal[i]);
+        dibujarGameObject(&portal[i],no);
     }
     for(u8 i=0;i<PuertasMaximas;i++){
-        dibujarGameObject(&puertas[i]);
+        dibujarGameObject(&puertas[i],no);
     }
     for(u8 i=0;i<ColeccionablesMaximos;i++){
         dibujarGameObjectCol(&coleccionables[i]);

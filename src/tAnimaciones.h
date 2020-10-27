@@ -12,7 +12,8 @@ typedef struct {
     u8 spriteActual;       
     u8 latencia;       
     u8 contador;
-    u8 posx,posy,posxFinal,posyFinal;       
+    u8 posx,posy,posxFinal,posyFinal;
+    u8 repeticiones;       
 } TAnimaciones;
 
 #endif // DECLARACIONTANIMACIONES

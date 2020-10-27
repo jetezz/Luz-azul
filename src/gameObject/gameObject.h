@@ -17,11 +17,11 @@
 
  
 void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList,u8* posicion);
-void dibujarGameObject(TGameObject* objeto);
+void dibujarGameObject(TGameObject* objeto,u8 tran);
 void dibujarGameObjectCol(TGameObjectCol* objeto);
 void dibujarGameObjectColSprite(u8 sprite,u8 posx, u8 posy);
 
-void limpiarRastro(u8 posx, u8 posy);
+void limpiarRastro(u8 posx, u8 posy,u8 tran);
 u8 moverGameObject(TGameObject* objeto,u8 movimiento);
 void moverElEspejo(TGameObject* rocas,u8 num,u8 movimiento,u8 numMovimientos);
 void cambiarPosicion(u8* posicion);

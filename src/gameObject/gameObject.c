@@ -55,7 +55,7 @@
 #include "sprites/Block_Move0_G.h"
 #include "sprites/Enemy_03.h"
 
-
+#include "animaciones/animaciones.h"
 
 
 #include "constantes.h"
@@ -68,7 +68,7 @@
 
 
 
-#define     retardoMovimiento           0x05
+#define     retardoMovimiento           0x08
 
 
 void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList,u8* posicion){
@@ -84,105 +84,105 @@ void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* por
     P_colList=colList;       
 }
 
-void dibujarGameObject(TGameObject* objeto){
+void dibujarGameObject(TGameObject* objeto ,u8 tran){
     if(objeto->posx!=0){
         if(objeto->sprite==sprite_Player){                       
-            cpct_drawSprite(Character_Principal_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite); 
+            cpct_drawSprite(Character_Principal_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite); 
         }else if(objeto->sprite==sprite_Rock_G){
-            cpct_drawSprite(Block_Move1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Move1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Rock_B){
-            cpct_drawSprite(Block_Move1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Move1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Rock_nomove_B){
-            cpct_drawSprite(Block_Move0_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Move0_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil1_G){
-            cpct_drawSprite(Block_Static1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil1_B){
-            cpct_drawSprite(Block_Static1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil2_G){
-            cpct_drawSprite(Block_Static2_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static2_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil2_B){
-            cpct_drawSprite(Block_Static2_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static2_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil3_G){
-            cpct_drawSprite(Block_Static3_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static3_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil3_B){
-            cpct_drawSprite(Block_Static3_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static3_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil4_G){
-            cpct_drawSprite(Block_Static4_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static4_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil4_B){
-            cpct_drawSprite(Block_Static4_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static4_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil5_G){
-            cpct_drawSprite(Block_Static5_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static5_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil5_B){
-            cpct_drawSprite(Block_Static5_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static5_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil6_G){
-            cpct_drawSprite(Block_Static6_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static6_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil7_G){
-            cpct_drawSprite(Block_Static7_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static7_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil7_B){
-            cpct_drawSprite(Block_Static7_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static7_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil8_G){
-            cpct_drawSprite(Block_Static8_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static8_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil8_B){
-            cpct_drawSprite(Block_Static8_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static8_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil9_G){
-            cpct_drawSprite(Block_Static9_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static9_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil9_B){
-            cpct_drawSprite(Block_Static9_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static9_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockLineal1_G){
-            cpct_drawSprite(Block_Move2_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Move2_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockLineal1_B){
-            cpct_drawSprite(Block_Move2_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Move2_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PortalMuro){
-            cpct_drawSprite(PortalWall_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PortalWall_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PuertaPortal_G){
-            cpct_drawSprite(PortalDoor_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PortalDoor_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Muro_Solid1){
-            cpct_drawSprite(Wall_Solid1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Wall_Solid1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Muro_Polvo1){
-            cpct_drawSprite(Wall_Dust_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Wall_Dust_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PuertaPortal_B){
-            cpct_drawSprite(PortalDoor_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PortalDoor_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Puerta_G){
-            cpct_drawSprite(Door_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Door_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Puerta_B){
-            cpct_drawSprite(Door_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Door_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_StairUp1_G){
-            cpct_drawSprite(StairUp1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(StairUp1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_StairUp1_B){
-            cpct_drawSprite(StairUp1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(StairUp1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_StairDown1_G){
-            cpct_drawSprite(StairDown1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(StairDown1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_StairDown1_B){
-            cpct_drawSprite(StairDown1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(StairDown1_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_hole){
-            cpct_drawSprite(Block_Hole_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Hole_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_amstrad){
-            cpct_drawSprite(Amstrad_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Amstrad_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PrinceofPersia1_G){
-            cpct_drawSprite(PrinceOfPersia_PJ_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PrinceOfPersia_PJ_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PrinceofPersia1_B){
-            cpct_drawSprite(PrinceOfPersia_PJ_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PrinceOfPersia_PJ_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PrinceofPersia2_G){
-            cpct_drawSprite(PrinceOfPersia_ENE_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PrinceOfPersia_ENE_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PrinceofPersia2_B){
-            cpct_drawSprite(PrinceOfPersia_ENE_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PrinceOfPersia_ENE_B_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_PrinceofPersia3){
-            cpct_drawSprite(PrinceOfPersia_COVER_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PrinceOfPersia_COVER_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_enemigo1){
-            cpct_drawSprite(Enemy_01_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Enemy_01_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_zul1_1){
-            cpct_drawSprite(zul1_1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(zul1_1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_zul1_2){
-            cpct_drawSprite(zul1_2_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(zul1_2_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_RockInmovil6_B){
-            cpct_drawSprite(Block_Static6_BB_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Static6_BB_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Rock_nomove_G){
-            cpct_drawSprite(Block_Move0_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Block_Move0_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }
         else if(objeto->sprite==sprite_enemigo2){
-            cpct_drawSprite(Enemy_02_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Enemy_02_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_enemigo3){
-            cpct_drawSprite(Enemy_03_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Enemy_03_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }
 
     }     
@@ -190,17 +190,17 @@ void dibujarGameObject(TGameObject* objeto){
 void dibujarGameObjectCol(TGameObjectCol* objeto){
     if(objeto->posx!=0){
         if(objeto->sprite==sprite_luz){
-            cpct_drawSprite(LuzAzul_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);  
+            cpct_drawSprite(LuzAzul_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,no), anchoSprite, altoSprite);  
         }else if(objeto->sprite==sprite_familia1){
-            cpct_drawSprite(Character_Brother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Character_Brother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,no), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_familia2){
-            cpct_drawSprite(Character_Sister_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Character_Sister_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,no), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_familia3){
-            cpct_drawSprite(Character_Mother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Character_Mother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,no), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_familia4){
-            cpct_drawSprite(Character_Father_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(Character_Father_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,no), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_amstradTape){
-            cpct_drawSprite(PrinceOfPersia_Tape_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy), anchoSprite, altoSprite);
+            cpct_drawSprite(PrinceOfPersia_Tape_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,no), anchoSprite, altoSprite);
         }
     }
 }
@@ -221,8 +221,8 @@ void dibujarGameObjectColSprite(u8 sprite,u8 posx, u8 posy){
 }
 
 
-void limpiarRastro(u8 posx, u8 posy){
-    cpct_drawSolidBox(calcularPosicionEnPantalla(posx,posy),0x00,4,16);
+void limpiarRastro(u8 posx, u8 posy,u8 tran){
+    cpct_drawSolidBox(calcularPosicionEnPantalla(posx,posy,tran),0x00,4,16);
 }
 u8 moverGameObject(TGameObject* objeto,u8 movimiento){
     TGameObject* rocasCol;
@@ -249,6 +249,8 @@ void moverElEspejo(TGameObject* rocas,u8 num,u8 movimiento,u8 numMovimientos){
     u8 nextPosy;
     u8 posicionObjeto=SinColision;
     u8 posicion=*P_posicion;
+    u8 posxinit;
+    u8 posyinit;
 
     if(movimiento==mover_Izquierda){
         nextMovimiento=mover_Derecha;
@@ -268,6 +270,8 @@ void moverElEspejo(TGameObject* rocas,u8 num,u8 movimiento,u8 numMovimientos){
     
             nextPosx=objetoEspejo->posx;
             nextPosy=objetoEspejo->posy;
+            posxinit=objetoEspejo->posx;
+            posyinit=objetoEspejo->posy;
             if(objetoEspejo->posx!=0){
                 posicionObjeto=SinColision;
                 for(u8 i=0;i<numMovimientos;i++){
@@ -277,7 +281,9 @@ void moverElEspejo(TGameObject* rocas,u8 num,u8 movimiento,u8 numMovimientos){
                             posicionObjeto=colisionesSiguientePosicion(objetoEspejo,objetoEspejo->posx,objetoEspejo->posy,nextMovimiento,rocas,posicion);                                          
                             if(posicionObjeto==SinColision){
                                 mover1casilla(&nextPosx,&nextPosy,nextMovimiento);                                                                                 
-                                moverYdibujar(objetoEspejo,nextPosx,nextPosy);                             
+                                 //moverYdibujar(objeto,nextPosx,nextPosy);                               
+                                objetoEspejo->posx=nextPosx;
+                                objetoEspejo->posy=nextPosy;                             
                             }else{
                                 if(posicionObjeto!=SinColision && posicionObjeto != ColisionNoRocas){
                                     taparHole(objetoEspejo,&rocas[posicionObjeto]);                                
@@ -287,6 +293,7 @@ void moverElEspejo(TGameObject* rocas,u8 num,u8 movimiento,u8 numMovimientos){
                         }           
                     }
                 }
+                iniciarAnimacion(animacion_roca_1,objetoEspejo->sprite,posxinit,posyinit,nextPosx,nextPosy);
             }
         }   
     }
@@ -302,15 +309,15 @@ void cambiarPosicion(u8* posicion){
 
 
 void moverYdibujar(TGameObject* objeto,u8 posx,u8 posy){
-    limpiarRastro(objeto->posx,objeto->posy);    
+    limpiarRastro(objeto->posx,objeto->posy,no);    
     objeto->posx=posx;
     objeto->posy=posy;
-    dibujarGameObject(objeto);
+    dibujarGameObject(objeto,no);
 }
 void taparHole(TGameObject* roca,TGameObject* hole){
     if(hole->sprite==sprite_hole){
-        limpiarRastro(roca->posx,roca->posy);
-        limpiarRastro(hole->posx,hole->posy);
+        limpiarRastro(roca->posx,roca->posy,no);
+        limpiarRastro(hole->posx,hole->posy,no);
         roca->posx=0;
         roca->posy=0;
         hole->posx=0;
@@ -355,16 +362,23 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
                 }
             } 
             colisionEnemigo=comprobarEnemigos(nextPosx,nextPosy,*posicion);
-            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionEnemigo==no_Hay_Colision){             
-                moverYdibujar(objeto,nextPosx,nextPosy);
+            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionEnemigo==no_Hay_Colision){
+                if(colisionPortales==hay_Colision){
+                    moverYdibujar(objeto,nextPosx,nextPosy);
+                }else{
+                    iniciarAnimacion(animacion_andar,objeto->sprite,objeto->posx,objeto->posy,nextPosx,nextPosy);
+                    objeto->posx=nextPosx;
+                    objeto->posy=nextPosy;  
+                }               
+               
                 if(objeto->pasos<99)
                     objeto->pasos++;                           
-                cpct_akp_SFXPlay(1,15,80,0,0,AY_CHANNEL_A);
-                cpct_akp_SFXPlay(1,15,50,0,0,AY_CHANNEL_A);                                                 
+                //cpct_akp_SFXPlay(1,15,80,0,0,AY_CHANNEL_A);
+                //cpct_akp_SFXPlay(1,15,50,0,0,AY_CHANNEL_A);                                                 
 
             }else{ 
                 if(moverRoca==mover_roca)          
-                moverGameObject(&rocasCol[ObjetoColisionado],movimiento);                      
+                moverGameObject(&rocasCol[ObjetoColisionado],movimiento);                                    
             }            
             objeto->cronoMovimiento=retardoMovimiento;
         }
@@ -392,7 +406,11 @@ u8 moverTipoRoca(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameO
             }                                
             posicionObjeto=colisionesSiguientePosicion(objeto,objeto->posx,objeto->posy,movimiento,rocasCol,posicion);                                      
             if(posicionObjeto==SinColision){                                           
-                moverYdibujar(objeto,nextPosx,nextPosy);                      
+                //moverYdibujar(objeto,nextPosx,nextPosy);                
+                iniciarAnimacion(animacion_roca_1,objeto->sprite,objeto->posx,objeto->posy,nextPosx,nextPosy);
+                objeto->posx=nextPosx;
+                objeto->posy=nextPosy;  
+
                 moverElEspejo(rocasEspejo,objeto->num,movimiento,numMovimientos);
                 if(objeto->movimiento==mover_1){
                    posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,mover_SinMovimiento,rocasCol,posicion);

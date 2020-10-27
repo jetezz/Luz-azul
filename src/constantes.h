@@ -186,7 +186,8 @@ extern enum{
 
 extern enum{
     sin_animacion,
-    animacion_andar    
+    animacion_andar,
+    animacion_roca_1    
 }ETipoAnimaciones;
 
 
