@@ -28,6 +28,8 @@ extern u8 pasosT2;
 extern u8 frecuenciaIA;
 extern u8 estado;
 extern u8 estadoSeleccionado;
+extern u8 muerteJugador;
+extern u8 frecuenciaMuerte;
 
 
 
@@ -44,3 +46,4 @@ void modoDios();
 void pasosTotales();
 void salir();
 void ia();
+void resetearPorMuerte();

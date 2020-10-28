@@ -9,7 +9,7 @@
 
 
 
-static void (*creadorDeEnemigos[nivelesTorales]) ();
+static void (*creadorDeEnemigos[nivel_final]) ();
 extern TGameObject enemigosIzquierda[enemigosMaximos];
 extern TGameObject enemigosDerecha[enemigosMaximos];
 extern u8 contadorEnemigosIz;

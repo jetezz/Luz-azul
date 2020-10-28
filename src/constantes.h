@@ -16,10 +16,11 @@
 #define     altoSprite                  16
 
 
-#define nivelesTorales      50
+
 #define enemigosMaximos     5
 #define animacinesMaximas   10
 #define animacionesMaximasEnLista 5
+#define frecuenciaMuertePlayer  20
 
 static TGameObject* P_player;
 static TGameObject* P_rocas;
@@ -184,7 +185,8 @@ extern enum{
     nivel_08_01,
     niveltrap_02,
     nivel_09,
-    nivel_09_01
+    nivel_09_01,
+    nivel_final
 
 
      

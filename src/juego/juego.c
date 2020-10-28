@@ -42,6 +42,8 @@ u8 pasosT2;
 u8 frecuenciaIA;
 u8 estado;
 u8 estadoSeleccionado;
+u8 muerteJugador;
+u8 frecuenciaMuerte;
 
 
 
@@ -74,6 +76,7 @@ void game(){
         ia();    
         salir();      
         animacionesManager();
+        resetearPorMuerte();
    
 
     }else if(estado==estado_Menu){
@@ -133,6 +136,8 @@ void initGame(){
     pasosT=0;
     pasosT2=0;  
     frecuenciaIA=frecuenciaMaxIA;
+    muerteJugador=no;
+    frecuenciaMuerte=frecuenciaMuertePlayer;
     initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
     initNiveles(&player,rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);    
     initDialogos( &pasosT,  &pasosT2);
@@ -183,7 +188,7 @@ void comprobarMovimiento(){
     if(player.cronoMovimiento==0){
         movimientoGuardado=mover_SinMovimiento;
     }
-    if(movimientoPlayer()!=mover_SinMovimiento){
+    if(movimientoPlayer()!=mover_SinMovimiento && muerteJugador==no){
         movimientoGuardado=movimientoPlayer();
     }
 }
@@ -211,9 +216,11 @@ void resetGameobjects(u8 nivel){
     player.pasos=0;
     pasos=0;
     pasosContador=0;
-    frecuenciaIA=frecuenciaMaxIA;    
+    frecuenciaIA=frecuenciaMaxIA;
+    muerteJugador=no;
+    frecuenciaMuerte=frecuenciaMuertePlayer;    
     crearNivel(nivel);    
-    //crearEnemigos(nivelActual);        
+    crearEnemigos(nivelActual);        
     dibujarGameObjects();
        
 }
@@ -252,11 +259,21 @@ void salir(){
         }
 }
 void ia(){
-    frecuenciaIA--;
+    
       if(activarIAS(player.posx,player.posy,posicion,rocas,rocasEspejo,frecuenciaIA)==player_muere){
-        resetGameobjects(nivelActual);
+        muerteJugador=si;       
     }
       if(frecuenciaIA==0){
           frecuenciaIA=frecuenciaMaxIA;
       }
+      frecuenciaIA--;
+}
+void resetearPorMuerte(){
+    if(muerteJugador==si){
+        if (frecuenciaMuerte==0){
+            resetGameobjects(nivelActual);
+        }else{
+            frecuenciaMuerte--;
+        }
+    }
 }

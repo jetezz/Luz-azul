@@ -28,7 +28,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void (*niveles[50]) ();
+void (*niveles[nivel_final]) ();
 void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList,u8* posicion){
     P_player=player;
     P_rocas=rocas;

@@ -13,7 +13,7 @@ u8 contadorEnemigosDe;
  
 
  void initEnemigos(){
-     for(u8 i=0;i<nivelesTorales;i++){
+     for(u8 i=nivel_01;i<nivel_final;i++){
         creadorDeEnemigos[i]=sinEnemigos; 
      }
      creadorDeEnemigos[nivel_TRAP_01]=enemigosNvel_trap_01;
@@ -211,10 +211,10 @@ void sinEnemigos(){
      crearEnemigoDerecha(14,3,sprite_enemigo1);
  }
 void enemigosNvel_trap_01(){
-    crearEnemigoIzquierda(2,2,sprite_enemigo1);
-    crearEnemigoIzquierda(2,6,sprite_enemigo1);
-    crearEnemigoIzquierda(6,2,sprite_enemigo1);
-    crearEnemigoIzquierda(6,6,sprite_enemigo1);
+    crearEnemigoIzquierda(2,2,sprite_enemigo2);
+    crearEnemigoIzquierda(2,6,sprite_enemigo2);
+    crearEnemigoIzquierda(6,2,sprite_enemigo2);
+    crearEnemigoIzquierda(6,6,sprite_enemigo2);
 }
 void enemigosNvel_04(){
     crearEnemigoDerecha(12,3,sprite_enemigo1);
