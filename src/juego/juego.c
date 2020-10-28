@@ -72,8 +72,7 @@ void game(){
             managerDialogo(nivelActual,pasos);
         }
         ia();    
-        salir();
-      
+        salir();      
         animacionesManager();
    
 
@@ -214,7 +213,7 @@ void resetGameobjects(u8 nivel){
     pasosContador=0;
     frecuenciaIA=frecuenciaMaxIA;    
     crearNivel(nivel);    
-    crearEnemigos(nivelActual);        
+    //crearEnemigos(nivelActual);        
     dibujarGameObjects();
        
 }

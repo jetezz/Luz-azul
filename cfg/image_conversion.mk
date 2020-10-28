@@ -41,6 +41,8 @@ $(eval $(call IMG2SP, SET_FOLDER      , src/sprites/               ))
 $(eval $(call IMG2SP, SET_PALETTE_FW  , $(PALETTE)         ))
 #$(eval $(call IMG2SP, CONVERT_PALETTE , $(PALETTE), g_palette ))
 $(eval $(call IMG2SP, CONVERT         , sprites/Character_Principal.png , 8,8 , Character_Principal )) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Character_Principal_2.png , 8,8 , Character_Principal_2 )) #8x16
+
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move1_G.png , 8,8 , Block_Move1_G  )) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move1_B.png , 8,8 , Block_Move1_B )) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move0_G.png , 8,8 , Block_Move0_G)) #8x16
@@ -94,6 +96,10 @@ $(eval $(call IMG2SP, CONVERT         , sprites/StairDown1_B.png , 8,8 , StairDo
 
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Hole.png , 8,8 , Block_Hole, Block_HolePALETTE)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Hole_1.png , 8,8 , Hole_1)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Hole_2.png , 8,8 , Hole_2)) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/Hole_3.png , 8,8 , Hole_3)) #8x16
+
 $(eval $(call IMG2SP, CONVERT         , sprites/LuzAzul.png , 8,8 , LuzAzul)) #8x16
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Character_Brother.png , 8,8 , Character_Brother)) #8x16

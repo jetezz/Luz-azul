@@ -13,7 +13,7 @@ void initAnimaciones(){
     }
     animaciones[animacion_andar]=animacionAndar;
     animaciones[animacion_roca_1]=animacionRoca1;
-
+    animaciones[animacion_hole]=animacionHole;
     
 }
 void animacionesManager(){
@@ -23,37 +23,47 @@ void animacionesManager(){
     u8 salir=no;    
     for(u8 i=0;i<animacionesMaximasEnLista;i++){
         if(animacionesActivas[i].id != sin_animacion){
-            anim=&animacionesActivas[i];
-            hayAnimaciones=si;
-            if(anim->contador==0){
-                if(anim->repeticiones!=1){
-                    anim->repeticiones=anim->repeticiones-1; 
-                }else{
+            anim=&animacionesActivas[i];            
+            if(anim->contador==0){ 
+                if(anim->retardo==0){
+                    hayAnimaciones=si;                         
                     if(anim->spriteActual != anim->spriteLast){
                         anim->spriteActual=anim->spriteActual+1;                        
-                    }else{                      
-                        anim->id=sin_animacion;                                      
-                        salir=si;                       
-                    }
-                }             
-                if(salir == no){
-                    if(anim->posx != anim->posxFinal){
-                        limpiarRastro(anim->posx,anim->posy,si);  
-                        if(anim->posx<anim->posxFinal){
-                            anim->posx=anim->posx+porcentajeDesplazamiento(anim->spriteLast-anim->spriteActual,anim->posxFinal-anim->posx,anim->repeticiones);
+                    }else{
+                        if(anim->repeticiones>1){ 
+                            anim->repeticiones=anim->repeticiones-1;                       
+                            anim->spriteActual=anim->spriteInit;                                              
                         }else{
-                            anim->posx=anim->posx-porcentajeDesplazamiento(anim->spriteLast-anim->spriteActual,anim->posx-anim->posxFinal,anim->repeticiones);                           
+                            if(anim->borrado==si)
+                            limpiarRastro(anim->posx,anim->posy,si);                      
+                            anim->id=sin_animacion;                                      
+                            salir=si;                       
+                        }                       
+                    }
+                            
+                    if(salir == no){
+                        if(anim->posx != anim->posxFinal){
+                            limpiarRastro(anim->posx,anim->posy,si);  
+                            if(anim->posx<anim->posxFinal){
+                                anim->posx=anim->posx+porcentajeDesplazamiento(anim->spriteLast-anim->spriteInit,anim->posxFinal-anim->posx,anim->repeticiones);
+                            }else{
+                                anim->posx=anim->posx-porcentajeDesplazamiento(anim->spriteLast-anim->spriteInit,anim->posx-anim->posxFinal,anim->repeticiones);                           
+                            }
                         }
+                        if(anim->posy != anim->posyFinal){
+                            limpiarRastro(anim->posx,anim->posy,si);  
+                            if(anim->posy<anim->posyFinal){
+                                    anim->posy=anim->posy+porcentajeDesplazamiento(anim->spriteLast-anim->spriteInit,anim->posyFinal-anim->posy,anim->repeticiones);
+                            }else{
+                                anim->posy=anim->posy-porcentajeDesplazamiento(anim->spriteLast-anim->spriteInit,anim->posy-anim->posyFinal,anim->repeticiones);
+                            }                                     
+                        }
+                        anim->contador=anim->latencia;
                     }
-                    if(anim->posy != anim->posyFinal){
-                        limpiarRastro(anim->posx,anim->posy,si);  
-                        if(anim->posy<anim->posyFinal){
-                                anim->posy=anim->posy+porcentajeDesplazamiento(anim->spriteLast-anim->spriteActual,anim->posyFinal-anim->posy,anim->repeticiones);
-                        }else{
-                            anim->posy=anim->posy-porcentajeDesplazamiento(anim->spriteLast-anim->spriteActual,anim->posy-anim->posyFinal,anim->repeticiones);
-                        }                                     
-                    }
-                    anim->contador=anim->latencia;
+                }else{
+                    anim->retardo=anim->retardo-1;                    
+                    anim->contador=1;
+                    //printf("asd");
                 }
             }
             if(salir==no)
@@ -63,9 +73,11 @@ void animacionesManager(){
     if(hayAnimaciones==si){
       for(u8 i=0;i<animacionesMaximasEnLista;i++){
           if(animacionesActivas[i].id!=sin_animacion){
-             aux.posx=animacionesActivas[i].posx;
-             aux.posy=animacionesActivas[i].posy;
-             aux.sprite=animacionesActivas[i].spriteActual;
+              if(animacionesActivas[i].retardo==0){
+                aux.posx=animacionesActivas[i].posx;
+                aux.posy=animacionesActivas[i].posy;
+                aux.sprite=animacionesActivas[i].spriteActual;
+              }
              dibujarGameObject(&aux,si);
           }
       }
@@ -78,59 +90,83 @@ void animacionesManager(){
 
 
 
-void iniciarAnimacion(u8 anim,u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal){      
-    animaciones[anim](sprite,posx,posy,posxFinal,posyFinal);    
+void iniciarAnimacion(u8 anim,u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal, u8 borrado,u8 retardo){      
+    animaciones[anim](sprite,posx,posy,posxFinal,posyFinal,borrado,retardo);    
 }
 
 u8 porcentajeDesplazamiento(u8 numInteraciones,u8 casillas, u8 repeticiones){
-    u8 pixeles=0;    
-    numInteraciones++;
-    
+    u8 pixeles=0;
+    if(numInteraciones==0){
+      numInteraciones++;  
+    }       
     pixeles=(casillas)/(numInteraciones*repeticiones);
       
     return pixeles;
 }
 
-void animacionAndar(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal){
+void animacionAndar(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo){
     u8 colocado=no;
     for(u8 i=0;i<animacionesMaximasEnLista && colocado==no ;i++){
         if(animacionesActivas[i].id==sin_animacion){
             animacionesActivas[i].id=animacion_andar;
-            animacionesActivas[i].spriteInit=sprite_Player;
-            animacionesActivas[i].spriteActual=sprite_Player;
+            animacionesActivas[i].spriteInit=sprite_Player2;
+            animacionesActivas[i].spriteActual=sprite_Player2;
             animacionesActivas[i].spriteLast=sprite_Player;
             animacionesActivas[i].latencia=2;
             animacionesActivas[i].contador=2;
+            animacionesActivas[i].retardo=0;
             animacionesActivas[i].posx=posx*4;
             animacionesActivas[i].posy=posy*16;
             animacionesActivas[i].posxFinal=posxFinal*4;
             animacionesActivas[i].posyFinal=posyFinal*16;
-            animacionesActivas[i].repeticiones=4;
-
-            colocado=si;           
+            animacionesActivas[i].repeticiones=2;
+            animacionesActivas[i].borrado=no;
+            colocado=si;             
         }       
     }    
 }
-void animacionRoca1(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal){
+void animacionRoca1(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo){
     u8 colocado=no;
     for(u8 i=0;i<animacionesMaximasEnLista && colocado==no ;i++){
         if(animacionesActivas[i].id==sin_animacion){
-            animacionesActivas[i].id=animacion_roca_1;
+           animacionesActivas[i].id=animacion_roca_1;
             animacionesActivas[i].spriteInit=sprite;
             animacionesActivas[i].spriteActual=sprite;
             animacionesActivas[i].spriteLast=sprite;
-            animacionesActivas[i].latencia=2;
-            animacionesActivas[i].contador=2;
+            animacionesActivas[i].latencia=3;
+            animacionesActivas[i].contador=3;
+            animacionesActivas[i].retardo=retardo;
             animacionesActivas[i].posx=posx*4;
             animacionesActivas[i].posy=posy*16;
             animacionesActivas[i].posxFinal=posxFinal*4;
             animacionesActivas[i].posyFinal=posyFinal*16;
             animacionesActivas[i].repeticiones=4;
-            colocado=si;           
+            animacionesActivas[i].borrado=borrado;
+            colocado=si;                     
         }       
     }    
 }
 
-
+void animacionHole(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo){
+    u8 colocado=no;
+    for(u8 i=0;i<animacionesMaximasEnLista && colocado==no ;i++){
+        if(animacionesActivas[i].id==sin_animacion){
+            animacionesActivas[i].id=animacion_hole;
+            animacionesActivas[i].spriteInit=sprite_hole;
+            animacionesActivas[i].spriteActual=sprite_hole;
+            animacionesActivas[i].spriteLast=sprite_hole3;
+            animacionesActivas[i].latencia=3;
+            animacionesActivas[i].contador=3;
+            animacionesActivas[i].retardo=6;
+            animacionesActivas[i].posx=posx*4;
+            animacionesActivas[i].posy=posy*16;
+            animacionesActivas[i].posxFinal=posxFinal*4;
+            animacionesActivas[i].posyFinal=posyFinal*16;
+            animacionesActivas[i].repeticiones=1;
+            animacionesActivas[i].borrado=si;
+            colocado=si;           
+        }       
+    }    
+}
 
 

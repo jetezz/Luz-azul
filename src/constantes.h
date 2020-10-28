@@ -41,7 +41,10 @@ static u8* P_pasosTotales2;
 
 extern enum{
     sprite_SinDefinir,
+    sprite_Player2,
     sprite_Player,
+    
+
     sprite_Rock_G,
     sprite_Rock_B,
     sprite_Rock_nomove_G,
@@ -82,6 +85,9 @@ extern enum{
     sprite_StairDown1_B,
 
     sprite_hole,
+    sprite_hole1,
+    sprite_hole2,
+    sprite_hole3,
     sprite_luz,
 
     sprite_familia1,
@@ -187,7 +193,8 @@ extern enum{
 extern enum{
     sin_animacion,
     animacion_andar,
-    animacion_roca_1    
+    animacion_roca_1,
+    animacion_hole    
 }ETipoAnimaciones;
 
 

@@ -1,6 +1,7 @@
 #include "gameObject.h"
 #include "enemigos/enemigos.h"
 #include "sprites/Character_Principal.h"
+#include "sprites/Character_Principal_2.h"
 #include "sprites/Block_Move1_G.h"
 #include "sprites/Block_Move1_B.h"
 #include "sprites/Block_Move0_B.h"
@@ -54,6 +55,9 @@
 #include "sprites/PrinceOfPersia_COVER.h"
 #include "sprites/Block_Move0_G.h"
 #include "sprites/Enemy_03.h"
+#include "sprites/Hole_1.h"
+#include "sprites/Hole_2.h"
+#include "sprites/Hole_3.h"
 
 #include "animaciones/animaciones.h"
 
@@ -88,6 +92,8 @@ void dibujarGameObject(TGameObject* objeto ,u8 tran){
     if(objeto->posx!=0){
         if(objeto->sprite==sprite_Player){                       
             cpct_drawSprite(Character_Principal_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite); 
+        }if(objeto->sprite==sprite_Player2){                       
+            cpct_drawSprite(Character_Principal_2_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite); 
         }else if(objeto->sprite==sprite_Rock_G){
             cpct_drawSprite(Block_Move1_G_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_Rock_B){
@@ -183,7 +189,14 @@ void dibujarGameObject(TGameObject* objeto ,u8 tran){
             cpct_drawSprite(Enemy_02_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==sprite_enemigo3){
             cpct_drawSprite(Enemy_03_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_hole1){
+            cpct_drawSprite(Hole_1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_hole2){
+            cpct_drawSprite(Hole_2_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_hole3){
+            cpct_drawSprite(Hole_3_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }
+        
 
     }     
 }
@@ -293,7 +306,7 @@ void moverElEspejo(TGameObject* rocas,u8 num,u8 movimiento,u8 numMovimientos){
                         }           
                     }
                 }
-                iniciarAnimacion(animacion_roca_1,objetoEspejo->sprite,posxinit,posyinit,nextPosx,nextPosy);
+                iniciarAnimacion(animacion_roca_1,objetoEspejo->sprite,posxinit,posyinit,nextPosx,nextPosy,no,0);
             }
         }   
     }
@@ -316,8 +329,11 @@ void moverYdibujar(TGameObject* objeto,u8 posx,u8 posy){
 }
 void taparHole(TGameObject* roca,TGameObject* hole){
     if(hole->sprite==sprite_hole){
-        limpiarRastro(roca->posx,roca->posy,no);
-        limpiarRastro(hole->posx,hole->posy,no);
+        iniciarAnimacion(animacion_hole,1,hole->posx,hole->posy,hole->posx,hole->posy,no,0);
+        iniciarAnimacion(animacion_roca_1,roca->sprite,roca->posx,roca->posy,roca->posx,roca->posy,si,6);
+
+        //limpiarRastro(roca->posx,roca->posy,no);
+        //limpiarRastro(hole->posx,hole->posy,no);
         roca->posx=0;
         roca->posy=0;
         hole->posx=0;
@@ -366,7 +382,7 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
                 if(colisionPortales==hay_Colision){
                     moverYdibujar(objeto,nextPosx,nextPosy);
                 }else{
-                    iniciarAnimacion(animacion_andar,objeto->sprite,objeto->posx,objeto->posy,nextPosx,nextPosy);
+                    iniciarAnimacion(animacion_andar,objeto->sprite,objeto->posx,objeto->posy,nextPosx,nextPosy,no,0);
                     objeto->posx=nextPosx;
                     objeto->posy=nextPosy;  
                 }               
@@ -407,7 +423,7 @@ u8 moverTipoRoca(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameO
             posicionObjeto=colisionesSiguientePosicion(objeto,objeto->posx,objeto->posy,movimiento,rocasCol,posicion);                                      
             if(posicionObjeto==SinColision){                                           
                 //moverYdibujar(objeto,nextPosx,nextPosy);                
-                iniciarAnimacion(animacion_roca_1,objeto->sprite,objeto->posx,objeto->posy,nextPosx,nextPosy);
+                iniciarAnimacion(animacion_roca_1,objeto->sprite,objeto->posx,objeto->posy,nextPosx,nextPosy,no,0);
                 objeto->posx=nextPosx;
                 objeto->posy=nextPosy;  
 
