@@ -1,3 +1,7 @@
+#pragma once
+#ifndef DECLARACIONTANIMACIONESH
+#define DECLARACIONTANIMACIONESH
+
 #include "constantes.h"
 
 #include "tAnimaciones.h"
@@ -20,3 +24,4 @@ void animacionHole(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 bor
 
 
 
+#endif // DECLARACIONTGAMEOBJECTCOLH

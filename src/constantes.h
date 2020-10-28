@@ -20,7 +20,7 @@
 #define enemigosMaximos     5
 #define animacinesMaximas   10
 #define animacionesMaximasEnLista 5
-#define frecuenciaMuertePlayer  20
+#define frecuenciaMuertePlayer  30
 
 static TGameObject* P_player;
 static TGameObject* P_rocas;
@@ -108,7 +108,8 @@ extern enum{
     sprite_PrinceofPersia1_B,
     sprite_PrinceofPersia2_G,
     sprite_PrinceofPersia2_B,
-    sprite_PrinceofPersia3 
+    sprite_PrinceofPersia3,
+    menu_selector
        
     
 }ETiposSprite;

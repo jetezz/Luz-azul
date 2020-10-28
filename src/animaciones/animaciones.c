@@ -114,7 +114,7 @@ void animacionAndar(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 bo
             animacionesActivas[i].spriteLast=sprite_Player;
             animacionesActivas[i].latencia=2;
             animacionesActivas[i].contador=2;
-            animacionesActivas[i].retardo=0;
+            animacionesActivas[i].retardo=retardo;
             animacionesActivas[i].posx=posx*4;
             animacionesActivas[i].posy=posy*16;
             animacionesActivas[i].posxFinal=posxFinal*4;

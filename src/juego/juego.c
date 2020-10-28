@@ -73,11 +73,12 @@ void game(){
         if(comprobarPasos()==si){
             managerDialogo(nivelActual,pasos);
         }
-        ia();    
-        salir();      
+        if(muerteJugador==no){
+            ia();    
+            salir();             
+        }
         animacionesManager();
         resetearPorMuerte();
-   
 
     }else if(estado==estado_Menu){
         if(movimientoPlayer()==mover_Arriba || movimientoPlayer()==mover_Abajo){

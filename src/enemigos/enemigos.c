@@ -1,5 +1,6 @@
 #include "enemigos.h"
 #include "gameObject/gameObject.h"
+#include "animaciones/animaciones.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -90,6 +91,9 @@ u8 iaEnemigo1(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
     u8 estado=no_pasa_nada;
     u8 posmayor=0;
     u8 posmenor=0;
+    u8 posxAtaque=0;
+    u8 posyAtaque=0;
+    
     
    
     if(objeto->posx != posx){
@@ -137,8 +141,23 @@ u8 iaEnemigo1(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
                     }
                 }
             }
+        }
+        posxAtaque=objeto->posx;
+        posyAtaque=objeto->posy;
+        if(objeto->posx>posx ){
+            posxAtaque=objeto->posx-1;
+        }else if(objeto->posx<posx){
+             posxAtaque=objeto->posx+1;
         } 
-      
+        if(objeto->posy>posy){
+            posyAtaque=objeto->posy-1;
+        }else if(objeto->posy<posy){
+             posyAtaque=objeto->posy+1;
+        }
+
+    iniciarAnimacion(animacion_roca_1,menu_selector,posxAtaque,posyAtaque,posx,posy,si,0);
+    iniciarAnimacion(animacion_andar,1,posx,posy,posx,posy,si,4);
+
     return player_muere;
 
 }
