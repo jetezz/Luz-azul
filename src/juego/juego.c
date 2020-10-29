@@ -25,7 +25,7 @@ TGameObject player;
 TGameObject rocas[RocasMaximas];
 TGameObject rocasEspejo[RocasMaximas];
 TGameObject portal[2];
-TGameObject puertas[10];
+TGameObject puertas[PuertasMaximas];
 TGameObjectCol coleccionables[ColeccionablesMaximos];
 u8 colList[ColeccionablesMaximosTotales];
 
@@ -221,7 +221,7 @@ void resetGameobjects(u8 nivel){
     muerteJugador=no;
     frecuenciaMuerte=frecuenciaMuertePlayer;    
     crearNivel(nivel);    
-    crearEnemigos(nivelActual);        
+    crearEnemigos(nivelActual,coleccionablesLuz);        
     dibujarGameObjects();
        
 }

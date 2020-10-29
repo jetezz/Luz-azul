@@ -17,6 +17,22 @@
 #include "niveltrap_02.h"
 #include "nivel09.h"
 #include "nivel09_01.h"
+#include "nivel09_02.h"
+#include "nivel09_03.h"
+#include "niveltrap_03.h"
+#include "nivel10.h"
+#include "nivel10_01.h"
+#include "nivel10_02.h"
+#include "nivel10_03.h"
+#include "nivel10_04.h"
+#include "nivel10_05.h"
+#include "nivel11.h"
+#include "nivel12.h"
+
+
+
+
+
 
 
 
@@ -43,6 +59,9 @@ void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
     P_colList=colList;
     movimientoRep=sin_Movimiento; 
 
+    for (u8 i=nivel_01;i<nivel_final;i++){
+        niveles[i]=crearnivel01;
+    }
     niveles[nivel_01]=crearnivel01;
     niveles[nivel_01_01]=crearnivel01_01;    
     niveles[nivel_02]=crearnivel02;
@@ -58,12 +77,17 @@ void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
     niveles[niveltrap_02]=crearniveltrap02;
     niveles[nivel_09]=crearnivel09;
     niveles[nivel_09_01]=crearnivel09_01;
-
-
-    
-
-
-
+    niveles[nivel_09_02]=crearnivel09_02;
+    niveles[nivel_09_03]=crearnivel09_03;
+    niveles[nivel_trap_03]=crearniveltrap3;
+    niveles[nivel_10]=crearnivel10;
+    niveles[nivel_10_01]=crearnivel10_01;
+    niveles[nivel_10_02]=crearnivel10_02;
+    niveles[nivel_10_03]=crearnivel10_03;
+    niveles[nivel_10_04]=crearnivel10_04;
+    niveles[nivel_10_05]=crearnivel10_05;
+    niveles[nivel_11]=crearnivel11;
+    niveles[nivel_12]=crearnivel12;
 
     
 
@@ -208,11 +232,13 @@ void crearRocaYsimetrico(u8 posx, u8 posy,u8 sprite,u8 spriteSimetrico,u8 simetr
 
 
 void createPuerta(u8 posx,u8 posy,u8 sprite,u8 nivel){
-    P_puertas[contadorPuertas].num=nivel;
-    P_puertas[contadorPuertas].posx=posx;
-    P_puertas[contadorPuertas].posy=posy;
-    P_puertas[contadorPuertas].sprite=sprite;
-    contadorPuertas++;
+    if(contadorPuertas<PuertasMaximas){
+        P_puertas[contadorPuertas].num=nivel;
+        P_puertas[contadorPuertas].posx=posx;
+        P_puertas[contadorPuertas].posy=posy;
+        P_puertas[contadorPuertas].sprite=sprite;
+        contadorPuertas++;
+    }
 }
 void createPortal(u8 hay){
     if(hay==si){

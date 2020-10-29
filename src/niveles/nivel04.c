@@ -47,9 +47,9 @@ createHoleIzquierda(4,7,sprite_hole,1);
 
 //decoracionDerecha
 createRocaEspejo(12,4,sprite_RockInmovil1_B,1);
-createHoleDerecha(10,3,sprite_hole,4);
-createHoleDerecha(10,5,sprite_hole,4);
-createHoleDerecha(11,2,sprite_hole,4);
-createHoleDerecha(11,4,sprite_hole,4);
-createHoleDerecha(11,6,sprite_hole,4);
+createHoleDerecha(10,3,sprite_hole,1);
+createHoleDerecha(10,5,sprite_hole,1);
+createHoleDerecha(11,2,sprite_hole,1);
+createHoleDerecha(11,4,sprite_hole,1);
+createHoleDerecha(11,6,sprite_hole,1);
 }

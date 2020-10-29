@@ -6,11 +6,11 @@ void crearnivel09(){
    createMarco(si);
    createPortal(si);
    createPuerta(1,4,sprite_Puerta_G,nivel_08);
-   //createPuerta(5,2,sprite_Puerta_G,nivel_10);
-   //createPuerta(5,6,sprite_Puerta_G,nivel_11);
+   createPuerta(5,2,sprite_Puerta_G,nivel_10);
+   createPuerta(5,6,sprite_Puerta_G,nivel_11);
    createPuerta(11,2,sprite_Puerta_B,nivel_09_01);
-   //createPuerta(11,6,sprite_Puerta_B,nivel_09_02);
-   //createPuerta(15,4,sprite_Puerta_B,nivel_TRAP_03);
+   createPuerta(11,6,sprite_Puerta_B,nivel_09_02);
+   createPuerta(15,4,sprite_Puerta_B,nivel_trap_03);
 
    //rocas móviles (separando id por espacios)
    cambiarMov(mover_1);

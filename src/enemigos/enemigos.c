@@ -18,7 +18,13 @@ u8 contadorEnemigosDe;
         creadorDeEnemigos[i]=sinEnemigos; 
      }
      creadorDeEnemigos[nivel_TRAP_01]=enemigosNvel_trap_01;
+     creadorDeEnemigos[nivel_04]=enemigosNvel_04;
 
+
+      for (u8 i=0;i<enemigosMaximos;i++){
+         enemigosIzquierda[i].posx=0;
+         enemigosDerecha[i].posx=0;
+     }
 
 
 
@@ -26,9 +32,9 @@ u8 contadorEnemigosDe;
      contadorEnemigosIz=0;
      contadorEnemigosDe=0;
  }
- void crearEnemigos(u8 nivel){
+ void crearEnemigos(u8 nivel, u8 luz){
      resetEnemigos();
-     creadorDeEnemigos[nivel]();
+     creadorDeEnemigos[nivel](luz);
      dibujarEnemigos();
 
  }
@@ -43,13 +49,10 @@ u8 contadorEnemigosDe;
      }
  }
 
- void resetEnemigos(){
-     for (u8 i=0;i<enemigosMaximos;i++){
-         enemigosIzquierda[i].posx=0;
-         enemigosDerecha[i].posx=0;
-     }
-     contadorEnemigosIz=0;
-     contadorEnemigosDe=0;
+ void resetEnemigos(){     
+     
+     initEnemigos();  
+     
  }
 
 u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocasEspejo, u8 frecuencias){
@@ -73,12 +76,18 @@ u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocas
                 
             }
             if(enemigosDerecha[i].posx>0){
-                if(enemigosDerecha[i].sprite==sprite_enemigo1){
+                if(enemigosDerecha[i].sprite!=sprite_enemigo3){
                     if(posicion==posicion_Derecha)
-                    estado=iaEnemigo1(&enemigosDerecha[i],posx,posy,rocasEspejo);                    
+                        estado=iaEnemigo1(&enemigosDerecha[i],posx,posy,rocasEspejo);
+                        if(estado==player_muere){
+                            return estado;
+                        }
                 }else{
                     if(posicion==posicion_Derecha)
-                    estado=iaEnemigo2(&enemigosDerecha[i],posx,posy,rocasEspejo);
+                        estado=iaEnemigo2(&enemigosDerecha[i],posx,posy,rocasEspejo);
+                        if(estado==player_muere){
+                            return estado;
+                        }
                 }
                 
             }      
@@ -221,25 +230,27 @@ void crearEnemigoDerecha(u8 posx,u8 posy, u8 sprite){
     contadorEnemigosDe++;
     
 }
-void sinEnemigos(){
+void sinEnemigos(u8 numLuz){
 
 }
 
 
- void enemigosNivel01(){
+ void enemigosNivel01(u8 numLuz){
      crearEnemigoDerecha(14,3,sprite_enemigo1);
  }
-void enemigosNvel_trap_01(){
+void enemigosNvel_trap_01(u8 numLuz){
     crearEnemigoIzquierda(2,2,sprite_enemigo2);
     crearEnemigoIzquierda(2,6,sprite_enemigo2);
     crearEnemigoIzquierda(6,2,sprite_enemigo2);
     crearEnemigoIzquierda(6,6,sprite_enemigo2);
 }
-void enemigosNvel_04(){
-    crearEnemigoDerecha(12,3,sprite_enemigo1);
-    crearEnemigoDerecha(12,5,sprite_enemigo1);
+void enemigosNvel_04(u8 numLuz){
+    if(numLuz<1){
+        crearEnemigoDerecha(12,3,sprite_enemigo2);
+        crearEnemigoDerecha(12,5,sprite_enemigo2);
+    }
 }
-void enemigosNvel_04_01(){
+void enemigosNvel_04_01(u8 numLuz){
     crearEnemigoIzquierda(4,4,sprite_enemigo1);
 }
 

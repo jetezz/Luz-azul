@@ -9,7 +9,7 @@ extern TGameObject player;
 extern TGameObject rocas[RocasMaximas];
 extern TGameObject rocasEspejo[RocasMaximas];
 extern TGameObject portal[2];
-extern TGameObject puertas[10];
+extern TGameObject puertas[PuertasMaximas];
 extern TGameObjectCol coleccionables[ColeccionablesMaximos];
 
 

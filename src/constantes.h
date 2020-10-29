@@ -22,6 +22,7 @@
 #define animacionesMaximasEnLista 5
 #define frecuenciaMuertePlayer  30
 
+
 static TGameObject* P_player;
 static TGameObject* P_rocas;
 static TGameObject* P_rocasEspejo;
@@ -187,6 +188,20 @@ extern enum{
     niveltrap_02,
     nivel_09,
     nivel_09_01,
+    nivel_09_02,
+    nivel_09_03,
+    nivel_trap_03,
+    nivel_10,
+    nivel_10_01,
+    nivel_10_02,
+    nivel_10_03,
+    nivel_10_04,
+    nivel_10_05,
+    nivel_11,
+    nivel_12,
+
+
+
     nivel_final
 
 

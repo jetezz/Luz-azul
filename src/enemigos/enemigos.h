@@ -9,7 +9,7 @@
 
 
 
-static void (*creadorDeEnemigos[nivel_final]) ();
+static void (*creadorDeEnemigos[nivel_final]) (u8 numLuz);
 extern TGameObject enemigosIzquierda[enemigosMaximos];
 extern TGameObject enemigosDerecha[enemigosMaximos];
 extern u8 contadorEnemigosIz;
@@ -18,7 +18,7 @@ extern u8 contadorEnemigosDe;
 
 
 void initEnemigos();
-void crearEnemigos(u8 nivel);
+void crearEnemigos(u8 nivel, u8 luz);
 void dibujarEnemigos();
 void resetEnemigos();
 
@@ -31,13 +31,13 @@ u8 iaEnemigo2(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas);
 void crearEnemigoIzquierda(u8 posx,u8 poxy, u8 sprite);
 void crearEnemigoDerecha(u8 posx,u8 poxy, u8 sprite);
 //creador de enemigos
-void enemigosNivel01();
-void enemigosNvel_trap_01();
-void enemigosNvel_04();
-void enemigosNvel_04_01();
+void enemigosNivel01(u8 numLuz);
+void enemigosNvel_trap_01(u8 numLuz);
+void enemigosNvel_04(u8 numLuz);
+void enemigosNvel_04_01(u8 numLuz);
 
 
-void sinEnemigos();
+void sinEnemigos(u8 numLuz);
 
 
 
