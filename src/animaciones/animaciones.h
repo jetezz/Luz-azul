@@ -21,6 +21,8 @@ u8 porcentajeDesplazamiento(u8 numInteraciones,u8 casillas,u8 repeticiones);
 void animacionAndar(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo);
 void animacionRoca1(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo);
 void animacionHole(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo);
+void animacionMuerte(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo);
+
 
 
 

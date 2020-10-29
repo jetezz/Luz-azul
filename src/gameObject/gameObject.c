@@ -59,6 +59,9 @@
 #include "sprites/Hole_2.h"
 #include "sprites/Hole_3.h"
 #include "sprites/MenuSelector.h"
+#include "sprites/muerte1.h"
+#include "sprites/muerte2.h"
+#include "sprites/muerte3.h"
 
 #include "animaciones/animaciones.h"
 
@@ -198,6 +201,12 @@ void dibujarGameObject(TGameObject* objeto ,u8 tran){
             cpct_drawSprite(Hole_3_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }else if(objeto->sprite==menu_selector){
             cpct_drawSprite(MenuSelector_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), 2, 8);
+        }else if(objeto->sprite==sprite_Muerte1){
+            cpct_drawSprite(muerte1_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_Muerte2){
+            cpct_drawSprite(muerte2_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_Muerte3){
+            cpct_drawSprite(muerte3_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }
         
 

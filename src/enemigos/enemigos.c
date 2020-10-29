@@ -165,7 +165,7 @@ u8 iaEnemigo1(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
         }
 
     iniciarAnimacion(animacion_roca_1,menu_selector,posxAtaque,posyAtaque,posx,posy,si,0);
-    iniciarAnimacion(animacion_andar,1,posx,posy,posx,posy,si,4);
+    iniciarAnimacion(animacion_muerte,1,posx,posy,posx,posy,si,4);
 
     return player_muere;
 

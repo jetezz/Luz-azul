@@ -43,6 +43,11 @@ $(eval $(call IMG2SP, SET_PALETTE_FW  , $(PALETTE)         ))
 $(eval $(call IMG2SP, CONVERT         , sprites/Character_Principal.png , 8,8 , Character_Principal )) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Character_Principal_2.png , 8,8 , Character_Principal_2 )) #8x16
 
+$(eval $(call IMG2SP, CONVERT         , sprites/muerte1.png , 8,8 , muerte1 )) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/muerte2.png , 8,8 , muerte2 )) #8x16
+$(eval $(call IMG2SP, CONVERT         , sprites/muerte3.png , 8,8 , muerte3 )) #8x16
+
+
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move1_G.png , 8,8 , Block_Move1_G  )) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move1_B.png , 8,8 , Block_Move1_B )) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Move0_G.png , 8,8 , Block_Move0_G)) #8x16

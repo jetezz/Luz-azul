@@ -45,6 +45,11 @@ extern enum{
     sprite_SinDefinir,
     sprite_Player2,
     sprite_Player,
+
+    sprite_Muerte1,
+    sprite_Muerte2,
+    sprite_Muerte3,
+
     
 
     sprite_Rock_G,
@@ -212,7 +217,8 @@ extern enum{
     sin_animacion,
     animacion_andar,
     animacion_roca_1,
-    animacion_hole    
+    animacion_hole,
+    animacion_muerte    
 }ETipoAnimaciones;
 
 

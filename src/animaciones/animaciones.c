@@ -14,6 +14,8 @@ void initAnimaciones(){
     animaciones[animacion_andar]=animacionAndar;
     animaciones[animacion_roca_1]=animacionRoca1;
     animaciones[animacion_hole]=animacionHole;
+    animaciones[animacion_muerte]=animacionMuerte;
+
     
 }
 void animacionesManager(){
@@ -62,8 +64,7 @@ void animacionesManager(){
                     }
                 }else{
                     anim->retardo=anim->retardo-1;                    
-                    anim->contador=1;
-                    //printf("asd");
+                    anim->contador=1;                    
                 }
             }
             if(salir==no)
@@ -168,5 +169,28 @@ void animacionHole(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 bor
         }       
     }    
 }
+
+void animacionMuerte(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo){
+    u8 colocado=no;    
+    for(u8 i=0;i<animacionesMaximasEnLista && colocado==no ;i++){
+        if(animacionesActivas[i].id==sin_animacion){            
+            animacionesActivas[i].id=animacion_muerte;
+            animacionesActivas[i].spriteInit=sprite_Muerte1;
+            animacionesActivas[i].spriteActual=sprite_Muerte1;
+            animacionesActivas[i].spriteLast=sprite_Muerte3;
+            animacionesActivas[i].latencia=4;
+            animacionesActivas[i].contador=4;
+            animacionesActivas[i].retardo=3;
+            animacionesActivas[i].posx=posx*4;
+            animacionesActivas[i].posy=posy*16;
+            animacionesActivas[i].posxFinal=posxFinal*4;
+            animacionesActivas[i].posyFinal=posyFinal*16;
+            animacionesActivas[i].repeticiones=1;
+            animacionesActivas[i].borrado=si;
+            colocado=si;           
+        }       
+    }    
+}
+
 
 
