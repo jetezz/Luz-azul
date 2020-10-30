@@ -46,10 +46,11 @@ u8 estado;
 u8 estadoSeleccionado;
 u8 muerteJugador;
 u8 frecuenciaMuerte;
+u8 frecuenciaReinicio;
 
 
 
-void game(){
+void game(){    
     cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
     cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
     initGame();
@@ -64,9 +65,7 @@ void game(){
     //    cpct_akp_musicPlay();
         
     //          
-        if(keyR()==si){            
-            resetGameobjects(nivelActual);
-        }
+       
         modoDios();
         pasosTotales();            
         comprobarMovimiento();             
@@ -81,6 +80,7 @@ void game(){
         }
         animacionesManager();
         resetearPorMuerte();
+        resetNivel();
 
     }else if(estado==estado_Menu){
         if(movimientoPlayer()==mover_Arriba || movimientoPlayer()==mover_Abajo){
@@ -145,7 +145,7 @@ void initGame(){
     frecuenciaMuerte=frecuenciaMuertePlayer;
     initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
     initNiveles(&player,rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);    
-    initDialogos( &pasosT,  &pasosT2);
+    initDialogos( &pasosT,  &pasosT2,&muertesT,&muertesT2);
     initEnemigos();   
     initAnimaciones(); 
           
@@ -241,17 +241,25 @@ void modoDios(){
 void pasosTotales(){
     u8 suma=0;
     if(keyP()==si){
-
-        suma=(pasosContador+pasosT);
-        if(suma>100){
-            pasosT2++;
-            pasosT=(suma-100);
-        }else{
-            pasosT=suma;
+        if(frecuenciaReinicio==0){
+            suma=(pasosContador+pasosT);
+            if(suma>100){
+                pasosT2++;
+                pasosT=(suma-100);
+            }else{
+                pasosT=suma;
+            }
+            pasosContador=0;
+            dialogopasos();
+            dialogosMuertes();
+            frecuenciaReinicio=frecuenciaReinicioNIvel;
         }
-        pasosContador=0;
-        dialogopasos();
     }
+
+    if (frecuenciaReinicio>0){
+            frecuenciaReinicio--;
+        }
+
 }
 void salir(){
       if(keyEscape()==si){
@@ -274,11 +282,40 @@ void ia(){
       frecuenciaIA--;
 }
 void resetearPorMuerte(){
+    u8 suma=0;
     if(muerteJugador==si){
         if (frecuenciaMuerte==0){
+            suma=muertesT+1;
+        if(suma>100){
+            muertesT2++;
+            muertesT=0;
+        }else{            
+            muertesT++;
+        }           
             resetGameobjects(nivelActual);
+
         }else{
             frecuenciaMuerte--;
         }
     }
 }
+
+void resetNivel(){
+    u8 suma=0;
+     if(keyR()==si && frecuenciaReinicio==0){ 
+            suma=muertesT+1;
+        if(suma>100){
+            muertesT2++;
+            muertesT=0;
+        }else{            
+            muertesT++;
+        }           
+            resetGameobjects(nivelActual);
+            frecuenciaReinicio=frecuenciaReinicioNIvel;
+        }
+        if (frecuenciaReinicio>0){
+            frecuenciaReinicio--;
+        }
+
+}
+

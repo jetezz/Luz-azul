@@ -21,6 +21,8 @@
 #define animacinesMaximas   10
 #define animacionesMaximasEnLista 5
 #define frecuenciaMuertePlayer  30
+#define frecuenciaReinicioNIvel  10
+
 
 
 static TGameObject* P_player;
@@ -39,6 +41,8 @@ static u8* P_colList;
 static u8* P_pasosTotales;
 static u8* P_pasosTotales2;
 
+static u8* P_murtes;
+static u8* P_muertes2;
 
 
 extern enum{

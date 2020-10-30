@@ -32,6 +32,7 @@ extern u8 estado;
 extern u8 estadoSeleccionado;
 extern u8 muerteJugador;
 extern u8 frecuenciaMuerte;
+extern u8 frecuenciaReinicio;
 
 
 
@@ -49,3 +50,4 @@ void pasosTotales();
 void salir();
 void ia();
 void resetearPorMuerte();
+void resetNivel();
