@@ -400,7 +400,7 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
                     cambiarPosicion(posicion);                                   
                 }
             } 
-            colisionEnemigo=comprobarEnemigos(nextPosx,nextPosy,*posicion);
+            //colisionEnemigo=comprobarEnemigos(nextPosx,nextPosy,*posicion);
             if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionEnemigo==no_Hay_Colision){
                 if(colisionPortales==hay_Colision){
                     moverYdibujar(objeto,nextPosx,nextPosy);
@@ -443,7 +443,7 @@ u8 moverTipoRoca(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameO
             }else if(objeto->movimiento==mover_Linea){
                 numMovimientos=movimientoLineal(objeto,&nextPosx,&nextPosy,movimiento,rocasCol,*posicion);
             }                                
-            posicionObjeto=colisionesSiguientePosicion(objeto,objeto->posx,objeto->posy,movimiento,rocasCol,posicion);                                      
+            posicionObjeto=colisionesSiguientePosicion(objeto,objeto->posx,objeto->posy,movimiento,rocasCol,*posicion);                                      
             if(posicionObjeto==SinColision){                                           
                 //moverYdibujar(objeto,nextPosx,nextPosy);                
                 iniciarAnimacion(animacion_roca_1,objeto->sprite,objeto->posx,objeto->posy,nextPosx,nextPosy,no,0);
@@ -452,12 +452,12 @@ u8 moverTipoRoca(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGameO
 
                 moverElEspejo(rocasEspejo,objeto->num,movimiento,numMovimientos);
                 if(objeto->movimiento==mover_1){
-                   posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,mover_SinMovimiento,rocasCol,posicion);
+                   posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,mover_SinMovimiento,rocasCol,*posicion);
                     if(posicionObjeto!=SinColision && posicionObjeto != ColisionNoRocas){
                         taparHole(objeto,&rocasCol[posicionObjeto]);
                     }         
                 }else if(objeto->movimiento==mover_Linea){
-                    posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,movimiento,rocasCol,posicion);
+                    posicionObjeto=colisionesSiguientePosicion(objeto,nextPosx,nextPosy,movimiento,rocasCol,*posicion);
                     if(posicionObjeto!=SinColision && posicionObjeto != ColisionNoRocas){
                         taparHole(objeto,&rocasCol[posicionObjeto]);
                     }     
@@ -491,13 +491,21 @@ void mover1casilla(u8* posx, u8* posy,u8 movimiento){
 }
 
 u8 movimientoLineal(TGameObject* objeto,u8* posx, u8* posy,u8 movimiento,TGameObject* objetosCol,u8 posicion){    
-    u8 contador=0;    
+    u8 contador=0; 
+    u8 finalizar=no; 
+    u8 colision=SinColision; 
     
-    while (colisionesSiguientePosicion(objeto,*posx,*posy,movimiento,objetosCol,posicion)==SinColision && movimiento!=mover_SinMovimiento)
-    {         
-        movimiento=calcularMaximosyMinimos(movimiento,*posx,*posy,posicion);       
-        mover1casilla(posx,posy,movimiento);
-        contador++;                    
+    
+    while (colision==SinColision && movimiento!=mover_SinMovimiento)
+    {       
+   
+            colision=colisionesSiguientePosicion(objeto,*posx,*posy,movimiento,objetosCol,posicion);
+            if(colision==SinColision){
+                movimiento=calcularMaximosyMinimos(movimiento,*posx,*posy,posicion);       
+                mover1casilla(posx,posy,movimiento);
+                contador++;
+            }   
+                        
     }
    
     
@@ -509,7 +517,7 @@ u8 movimientoLineal(TGameObject* objeto,u8* posx, u8* posy,u8 movimiento,TGameOb
 //colisiones//
 //////////////
 
-u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento, TGameObject* rocasCol,u8* posicion){
+u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento, TGameObject* rocasCol,u8 posicion){
     u8 nextPosx=posx;
     u8 nextPosy=posy;
     u8 ObjetoColisionado=SinColision;
@@ -517,6 +525,8 @@ u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento
     u8 colisionPuerta=seguir_En_Nivel;
     u8 colisionColeccionable=no_Hay_Colision;
     u8 colisionEnemigos=no_Hay_Colision;
+
+     
    
     mover1casilla(&nextPosx,&nextPosy,movimiento);
     ObjetoColisionado=comprobarRocas(nextPosx,nextPosy,rocasCol);
@@ -524,9 +534,9 @@ u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento
         return ObjetoColisionado;
     }
     colisionPuerta=comprobarPuertas(nextPosx,nextPosy);                      
-    colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,posicion);                 
-    colisionColeccionable=comprobarColeccionables(nextPosx,nextPosy,sprite_Rock_B);
-    colisionEnemigos=comprobarEnemigos(nextPosx,nextPosy,*posicion);
+    colisionPortales=comprobarPortales(objeto,&nextPosx,&nextPosy,movimiento,&posicion);                 
+    colisionColeccionable=comprobarColeccionables(nextPosx,nextPosy,sprite_Rock_B);    
+    colisionEnemigos=comprobarEnemigos(nextPosx,nextPosy,posicion);
     
 
     if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionPortales==no_Hay_Colision && colisionColeccionable==no_Hay_Colision && colisionEnemigos==no_Hay_Colision){        
@@ -599,13 +609,19 @@ u8 comprobarColeccionables(u8 posx, u8 posy ,u8 sprite){
     
 }
 u8 comprobarEnemigos(u8 posx,u8 posy ,u8 posicion){
+   
+    
+    
+    
+    
     if(posicion==posicion_Izquieda){
-        for(u8 i=0;i<enemigosMaximos;i++){
+         for(u8 i=0;i<enemigosMaximos;i++){
             if(enemigosIzquierda[i].posx==posx && enemigosIzquierda[i].posy==posy){
                 return hay_Colision;
             }
         }
     }else{
+       
         for(u8 i=0;i<enemigosMaximos;i++){
             if(enemigosDerecha[i].posx==posx && enemigosDerecha[i].posy==posy){
                 return hay_Colision;

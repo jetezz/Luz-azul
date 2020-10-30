@@ -42,7 +42,7 @@ u8 movimientoLineal(TGameObject* objeto,u8* posx, u8* posy,u8 movimiento,TGameOb
 
 
 //colisiones
-u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento, TGameObject* rocasCol,u8* posicion);
+u8 colisionesSiguientePosicion(TGameObject* objeto,u8 posx,u8 posy,u8 movimiento, TGameObject* rocasCol,u8 posicion);
 u8 comprobarRocas(u8 posx,u8 posy,TGameObject* rocas);
 u8 comprobarPortales(TGameObject* objeto,u8* posx,u8* posy,u8 movimiento,u8* posicion);
 u8 comprobarPuertas(u8 posx, u8 posy);
