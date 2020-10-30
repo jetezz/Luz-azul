@@ -132,6 +132,16 @@ $(eval $(call IMG2SP, CONVERT         , sprites/PrinceOfPersia_COVER.png , 8,8 ,
 
 $(eval $(call IMG2SP, CONVERT         , sprites/MenuSelector.png , 4,4 , MenuSelector)) #4x8
 
+$(eval $(call IMG2SP, CONVERT         , sprites/mapa1.png , 34,15 , mapa1)) #34x30
+$(eval $(call IMG2SP, CONVERT         , sprites/mapa2.png , 34,15 , mapa2)) #34x30
+$(eval $(call IMG2SP, CONVERT         , sprites/mapa3.png , 34,15 , mapa3)) #34x30
+$(eval $(call IMG2SP, CONVERT         , sprites/mapa4.png , 34,15 , mapa4)) #34x30
+
+
+
+
+
+
 
 
 

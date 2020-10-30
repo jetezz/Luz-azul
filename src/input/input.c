@@ -35,6 +35,12 @@ u8 keyP(){
         pulsada=si;
     return pulsada; 
 }
+u8 keyM(){
+    u8 pulsada=no;
+    if(cpct_isKeyPressed (Key_M))
+        pulsada=si;
+    return pulsada; 
+}
 u8 keyIntro(){
     u8 pulsada=no;
     if(cpct_isKeyPressed(Key_Return))
@@ -47,6 +53,7 @@ u8 keyEscape(){
         pulsada=si;
     return pulsada;
 }
+
 
 
 

@@ -26,5 +26,8 @@ void dialogosNivel01_01();
 //dialogos
 void dialogopasos();
 void dialogosMuertes();
+void dialogoMapas(u8 nivel);
+
 void dialogo0();
 void dialogo1();
+

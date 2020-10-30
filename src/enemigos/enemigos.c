@@ -1,6 +1,7 @@
 #include "enemigos.h"
 #include "gameObject/gameObject.h"
 #include "animaciones/animaciones.h"
+#define frecuenciaia3   5;
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +12,7 @@ TGameObject enemigosDerecha[enemigosMaximos];
 u8 contadorEnemigosIz;
 u8 contadorEnemigosDe;
 
- 
+u8 frecAux;
 
  void initEnemigos(){
      for(u8 i=nivel_01;i<nivel_final;i++){
@@ -41,6 +42,7 @@ u8 contadorEnemigosDe;
 
      contadorEnemigosIz=0;
      contadorEnemigosDe=0;
+     frecAux=frecuenciaia3;
  }
  void crearEnemigos(u8 nivel, u8 luz){
      resetEnemigos();
@@ -77,11 +79,16 @@ u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocas
                             return estado;
                         }
                 }else{
-                    if(posicion==posicion_Izquieda)
-                        estado=iaEnemigo2(&enemigosIzquierda[i],posx,posy,rocas);
-                        if(estado==player_muere){
-                            return estado;
+                    if(frecAux==0){
+                        frecAux=frecuenciaia3;
+                        if(posicion==posicion_Izquieda)
+                            estado=iaEnemigo2(&enemigosIzquierda[i],posx,posy,rocas);
+                            if(estado==player_muere){
+                                return estado;
+                            }                            
                         }
+                        if(frecAux>0)
+                        frecAux--;
                 }
                 
             }
@@ -93,11 +100,17 @@ u8 activarIAS(u8 posx, u8 posy,u8 posicion,TGameObject* rocas,TGameObject* rocas
                             return estado;
                         }
                 }else{
-                    if(posicion==posicion_Derecha)
-                        estado=iaEnemigo2(&enemigosDerecha[i],posx,posy,rocasEspejo);
-                        if(estado==player_muere){
-                            return estado;
-                        }
+                    if(frecAux==0){
+                        frecAux=frecuenciaia3;
+                        if(posicion==posicion_Derecha)
+                            estado=iaEnemigo2(&enemigosDerecha[i],posx,posy,rocasEspejo);
+                            if(estado==player_muere){
+                                return estado;
+                            }
+                            
+                    }
+                    if(frecAux>0)
+                        frecAux--;
                 }
                 
             }      

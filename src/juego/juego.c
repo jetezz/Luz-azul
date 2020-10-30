@@ -17,7 +17,7 @@
 #include <stdlib.h>
 
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
-#define     frecuenciaMaxIA     20
+#define     frecuenciaMaxIA     8
 #define     frecienciaMaxMenu   10
 
 
@@ -81,6 +81,9 @@ void game(){
         animacionesManager();
         resetearPorMuerte();
         resetNivel();
+        if(keyM()==si){
+            dialogoMapas(nivelActual);
+        }
 
     }else if(estado==estado_Menu){
         if(movimientoPlayer()==mover_Arriba || movimientoPlayer()==mover_Abajo){

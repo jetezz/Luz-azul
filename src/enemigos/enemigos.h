@@ -14,6 +14,7 @@ extern TGameObject enemigosIzquierda[enemigosMaximos];
 extern TGameObject enemigosDerecha[enemigosMaximos];
 extern u8 contadorEnemigosIz;
 extern u8 contadorEnemigosDe;
+extern u8 frecAux;
 
 
 

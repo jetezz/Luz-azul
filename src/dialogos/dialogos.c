@@ -12,7 +12,13 @@
 #define     PuntoEscribirMuertes3   cpctm_screenPtr(CPCT_VMEM_START, 64, 158)
 #define     PuntoEscribirMuertes4   cpctm_screenPtr(CPCT_VMEM_START, 68, 158)
 
+#define PunteroMapa cpctm_screenPtr(CPCT_VMEM_START, 30, 150)
 
+
+#include "sprites/mapa1.h"
+#include "sprites/mapa2.h"
+#include "sprites/mapa3.h"
+#include "sprites/mapa4.h"
 
 
 #include <stdio.h>
@@ -42,8 +48,8 @@ void managerDialogo(u8 nivel, u8 pasos){
     for(u8 i=0;i<numDialogosTotales;i++){
         if(nivel==dialogosTotales[i].nivel){
             if(dialogosTotales[i].pasos==pasos){
-                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,25);
-                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,25);
+                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,35);
+                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,35);
 
                 dialogos[dialogosTotales[i].id]();  
             }
@@ -83,8 +89,8 @@ void dialogopasos(){
     decimas=*P_pasosTotales/10;
     unidades=*P_pasosTotales%10; 
     
-    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,25);
-    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,25);
+    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,35);
+    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,35);
 
     cpct_drawStringM0("Pasos totales",PuntoEscribir);   
      
@@ -134,6 +140,22 @@ void dialogosMuertes(){
     text[0]=unidades+'0';
     cpct_drawStringM0(text,PuntoEscribirMuertes4);
 }
+
+void dialogoMapas(u8 nivel){
+    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,35);
+    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,35);
+    if(nivel<nivel_07){
+        cpct_drawSprite(mapa1_0,PunteroMapa, 17, 30);
+    }else if(nivel<nivel_12 && nivel>nivel_07){
+        cpct_drawSprite(mapa2_0,PunteroMapa, 17, 30);
+    }else if(nivel==12){
+        cpct_drawSprite(mapa3_0,PunteroMapa, 17, 30);
+    }else{
+        cpct_drawSprite(mapa4_0,PunteroMapa, 17, 30);
+
+    }
+}
+
 
 void dialogo0(){
     cpct_drawStringM0("dialogo muy tocho",PuntoEscribir);
