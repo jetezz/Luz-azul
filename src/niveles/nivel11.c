@@ -39,7 +39,7 @@ createRocaEspejo(13,6,sprite_Rock_nomove_B,7);
 createRocaEspejo(14,6,sprite_Rock_nomove_B,8);
 
 //collecionables
-createColeccionabeLuz(15,5,12);
+createColeccionabeLuz(12,4,12);
 
 //decoracion muros
 
@@ -65,7 +65,7 @@ createHoleDerecha(11,3,sprite_hole,1);
 createHoleDerecha(11,4,sprite_hole,1);
 createHoleDerecha(11,5,sprite_hole,1);
 createHoleDerecha(10,2,sprite_hole,1);
-createHoleDerecha(10,4,sprite_hole,1);
+createHoleDerecha(10,5,sprite_hole,1);
 createHoleDerecha(9,7,sprite_hole,1);
 createHoleDerecha(14,4,sprite_hole,1);
  

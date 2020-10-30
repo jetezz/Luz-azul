@@ -208,6 +208,17 @@ void dibujarGameObject(TGameObject* objeto ,u8 tran){
         }else if(objeto->sprite==sprite_Muerte3){
             cpct_drawSprite(muerte3_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
         }
+        else if(objeto->sprite==sprite_familia1){
+        cpct_drawSprite(Character_Brother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_familia2){
+            cpct_drawSprite(Character_Sister_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_familia3){
+            cpct_drawSprite(Character_Mother_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_familia4){
+            cpct_drawSprite(Character_Father_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }else if(objeto->sprite==sprite_amstradTape){        
+            cpct_drawSprite(PrinceOfPersia_Tape_0, calcularPosicionEnPantalla(objeto->posx,objeto->posy,tran), anchoSprite, altoSprite);
+        }
         
 
     }     

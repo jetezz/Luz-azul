@@ -20,9 +20,9 @@ cambiarMov(mover_Linea);
 createRoca(4,4,sprite_RockLineal1_G,5);
 createRoca(6,1,sprite_RockLineal1_G,3);
 createRoca(6,6,sprite_RockLineal1_G,4);
+cambiarMov(mover_1);
+createRocaEspejo(12,4,sprite_Rock_nomove_B,5);
 cambiarMov(sin_Movimiento);
-createRocaEspejo(10,1,sprite_Rock_nomove_B,5);
-
 
 //collecionables
 
@@ -31,13 +31,14 @@ createRocaEspejo(10,1,sprite_Rock_nomove_B,5);
 //decoracion simetricos
 crearRocaYsimetrico(4,3,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
 crearRocaYsimetrico(4,5,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
-crearRocaYsimetrico(3,6,sprite_RockInmovil2_G,sprite_RockInmovil1_B,1);
+crearRocaYsimetrico(3,6,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
 crearRocaYsimetrico(6,4,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
 
 
 //decoracion izquierda
-createHoleIzquierda(1,5,sprite_hole,1);
+createHoleIzquierda(5,1,sprite_hole,1);
 createHoleIzquierda(6,7,sprite_hole,1);
+
 createRoca(1,1,sprite_RockInmovil3_G,1);
 createRoca(2,1,sprite_RockInmovil4_G,1);
 

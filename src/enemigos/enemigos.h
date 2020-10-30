@@ -35,6 +35,14 @@ void enemigosNivel01(u8 numLuz);
 void enemigosNvel_trap_01(u8 numLuz);
 void enemigosNvel_04(u8 numLuz);
 void enemigosNvel_04_01(u8 numLuz);
+void enemigosNvel_07(u8 numLuz);
+void enemigosNvel_trap_02(u8 numLuz);
+void enemigosNvel_trap_03(u8 numLuz);
+void enemigosNvel_10_04(u8 numLuz);
+
+
+
+
 
 
 void sinEnemigos(u8 numLuz);
