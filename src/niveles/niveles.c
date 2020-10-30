@@ -28,6 +28,8 @@
 #include "nivel10_05.h"
 #include "nivel11.h"
 #include "nivel12.h"
+#include "nivel13.h"
+#include "nivel14.h"
 
 
 
@@ -88,6 +90,10 @@ void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
     niveles[nivel_10_05]=crearnivel10_05;
     niveles[nivel_11]=crearnivel11;
     niveles[nivel_12]=crearnivel12;
+    niveles[nivel_13]=crearnivel13;
+    niveles[nivel_14]=crearnivel14;
+
+
 
     
 

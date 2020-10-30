@@ -194,6 +194,9 @@ extern enum{
     nivel_10,   
     nivel_11,
     nivel_12,
+    nivel_13,
+    nivel_14,
+
 
     nivel_01_01,
     nivel_TRAP_01,

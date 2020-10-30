@@ -31,7 +31,7 @@ u8 keyD(){
 }
 u8 keyP(){
     u8 pulsada=no;
-    if(cpct_isKeyPressed (Key_P))
+    if(cpct_isKeyPressed (Key_S))
         pulsada=si;
     return pulsada; 
 }

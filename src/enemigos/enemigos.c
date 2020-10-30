@@ -230,6 +230,7 @@ u8 iaEnemigo2(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
     }
     moverYdibujar(objeto,nextPosx,nextPosy);
     if(nextPosx==posx && nextPosy==posy){
+        iniciarAnimacion(animacion_muerte,1,posx,posy,posx,posy,si,4);
         return player_muere;
     }
     return no_pasa_nada;

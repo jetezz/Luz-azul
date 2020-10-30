@@ -7,7 +7,7 @@ createMarco(si);
 createPortal(si);
 createPuerta(15,4,sprite_Puerta_G,nivel_09);
 createPuerta(1,4,sprite_Puerta_B,nivel_08_01);
-//createPuerta(puertas,11,5,sprite_StairUp1_G,nivel_13);
+createPuerta(11,5,sprite_StairUp1_G,nivel_12);
 createPuerta(11,3, sprite_StairDown1_G,nivel_04);
 createPuerta(5,3,sprite_StairUp1_B,niveltrap_02);
 createPuerta(5,5, sprite_StairDown1_B,niveltrap_02);
