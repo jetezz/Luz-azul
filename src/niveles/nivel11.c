@@ -7,7 +7,7 @@ createMarco(si);
 createPortal(si);
 createPuerta(5,1,sprite_Puerta_G,nivel_09);
 //createPuerta(11,1,sprite_Puerta_B,nivel_11_01);
-//createPuerta(5,7,sprite_StairDown1_G,nivel_03_01);
+createPuerta(5,7,sprite_StairDown1_G,nivel_03_01);
 
 //rocas móviles (separando id por espacios)
 

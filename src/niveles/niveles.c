@@ -7,6 +7,7 @@
 #include "nivel02.h"
 #include "nivel01_trap.h"
 #include "nivel03.h"
+#include "nivel03_01.h"
 #include "nivel04.h"
 #include "nivel04_01.h"
 #include "nivel05.h"
@@ -73,6 +74,7 @@ void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
     niveles[nivel_02]=crearnivel02;
     niveles[nivel_TRAP_01]=crearnivel01trap;  
     niveles[nivel_03]=crearnivel03;
+    niveles[nivel_03_01]=crearnivel01_01;
     niveles[nivel_04]=crearnivel04;
     niveles[nivel_04_01]=crearnivel04_01;
     niveles[nivel_05]=crearnivel05;

@@ -13,8 +13,8 @@ void crearnivel16(){
 
   //rocas móviles (separando id por espacios)
   cambiarMov(mover_1);
- createRoca(4,3,sprite_Rock_G,2);
- createRocaEspejo(12,3,sprite_Rock_B,2);
+ createRoca(3,4,sprite_Rock_G,2);
+ createRocaEspejo(13,4,sprite_Rock_B,2);
 
   cambiarMov(mover_Linea);
   cambiarMov(sin_Movimiento);

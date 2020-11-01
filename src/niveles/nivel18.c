@@ -1,10 +1,10 @@
 #include "nivel18.h"
 
 void crearnivel18(){
-     //player  portal puertas y marco
+   //player  portal puertas y marco
   createPlayer(2,4);
   createMarco(no);
-  createPortal(no);
+  createPortal(si);
   createPuerta(1,4,sprite_Puerta_B,nivel_16);
   createPuerta(15,2,sprite_Puerta_B,nivel_18_01);
   createPuerta(15,4,sprite_Puerta_B,nivel_trap_06);

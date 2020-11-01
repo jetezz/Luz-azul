@@ -111,6 +111,8 @@ void game(){
                 initHud();
                 crearNivel(nivel_01);
                 dibujarGameObjects();
+                crearEnemigos(nivel_01,coleccionablesLuz);        
+
             }else{
                 cpct_zx7b_decrunch_s(0xFFFF,controls_end);
             }

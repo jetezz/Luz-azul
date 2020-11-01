@@ -18,13 +18,13 @@ createColeccionabeLuz(7,2,15);
 
   //rocas móviles (separando id por espacios)
   cambiarMov(mover_1);
- createRoca(3,3,sprite_Rock_G,2);
+ createRoca(3,3,sprite_Rock_B,2);
 
 
 
 
   cambiarMov(mover_Linea);
- createRoca(4,3,sprite_RockLineal1_G,3);
+ createRoca(4,3,sprite_RockLineal1_B,3);
 
 
 

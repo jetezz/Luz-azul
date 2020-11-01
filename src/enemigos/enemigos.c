@@ -18,13 +18,34 @@ u8 frecAux;
      for(u8 i=nivel_01;i<nivel_final;i++){
         creadorDeEnemigos[i]=sinEnemigos; 
      }
-     creadorDeEnemigos[nivel_TRAP_01]=enemigosNvel_trap_01;
+     //creadorDeEnemigos[nivel_01]=enemigosNvel_20;
      creadorDeEnemigos[nivel_04]=enemigosNvel_04;
      creadorDeEnemigos[nivel_04_01]=enemigosNvel_04_01;
      creadorDeEnemigos[nivel_07]=enemigosNvel_07;
      creadorDeEnemigos[niveltrap_02]=enemigosNvel_trap_02;
      creadorDeEnemigos[nivel_trap_03]=enemigosNvel_trap_03;
+     creadorDeEnemigos[nivel_trap_04]=enemigosNvel_trap_04;
+     creadorDeEnemigos[nivel_trap_05]=enemigosNvel_trap_05;
+     creadorDeEnemigos[nivel_trap_06]=enemigosNvel_trap_06;
      creadorDeEnemigos[nivel_10_04]=enemigosNvel_10_04;
+     creadorDeEnemigos[nivel_14]=enemigosNvel_14;
+     creadorDeEnemigos[nivel_15]=enemigosNvel_15;
+     creadorDeEnemigos[nivel_15]=enemigosNvel_15_1;
+     creadorDeEnemigos[nivel_16]=enemigosNvel_16;
+     creadorDeEnemigos[nivel_17]=enemigosNvel_17;
+     creadorDeEnemigos[nivel_18]=enemigosNvel_18;
+     creadorDeEnemigos[nivel_19]=enemigosNvel_19;
+     creadorDeEnemigos[nivel_20]=enemigosNvel_20;
+
+
+     
+
+
+     
+
+
+
+
 
 
 
@@ -296,10 +317,79 @@ void enemigosNvel_trap_03(u8 numLuz){
     crearEnemigoIzquierda(4,2,sprite_enemigo3);
     crearEnemigoIzquierda(4,6,sprite_enemigo3);
 }
-
+void enemigosNvel_trap_04(u8 numLuz){
+    crearEnemigoIzquierda(4,2,sprite_enemigo3);
+    crearEnemigoIzquierda(4,6,sprite_enemigo3);
+    crearEnemigoIzquierda(2,4,sprite_enemigo3); 
+}
+void enemigosNvel_trap_05(u8 numLuz){
+    crearEnemigoIzquierda(4,2,sprite_enemigo3);
+    crearEnemigoIzquierda(4,6,sprite_enemigo3);
+    crearEnemigoIzquierda(6,4,sprite_enemigo3);
+}
+void enemigosNvel_trap_06(u8 numLuz){
+    crearEnemigoIzquierda(4,2,sprite_enemigo3);
+    crearEnemigoIzquierda(4,6,sprite_enemigo3);
+    crearEnemigoIzquierda(6,4,sprite_enemigo3);
+}
 void enemigosNvel_10_04(u8 numLuz){
     crearEnemigoIzquierda(3,3,sprite_enemigo3);
 }
+void enemigosNvel_14(u8 numLuz){
+     crearEnemigoDerecha(12,4,sprite_enemigo2);
+}
+void enemigosNvel_15(u8 numLuz){
+      crearEnemigoDerecha(12,4,sprite_enemigo2);
+}
+void enemigosNvel_15_1(u8 numLuz){
+    crearEnemigoIzquierda(6,4,sprite_enemigo2);
+}
+void enemigosNvel_16(u8 numLuz){
+    crearEnemigoIzquierda(5,4,sprite_enemigo3);
+    crearEnemigoDerecha(12,3,sprite_enemigo1);
+    crearEnemigoDerecha(12,5,sprite_enemigo1);
+
+}
+void enemigosNvel_17(u8 numLuz){
+    crearEnemigoDerecha(13,4,sprite_enemigo3);
+    crearEnemigoDerecha(14,3,sprite_enemigo3);
+    crearEnemigoDerecha(14,5,sprite_enemigo3);
+}
+void enemigosNvel_18(u8 numLuz){
+    crearEnemigoIzquierda(3,3,sprite_enemigo1);
+    crearEnemigoIzquierda(6,6,sprite_enemigo2);
+    crearEnemigoDerecha(12,6,sprite_enemigo2);
+    crearEnemigoDerecha(13,3,sprite_enemigo1);
+}
+void enemigosNvel_19(u8 numLuz){
+    crearEnemigoIzquierda(6,4,sprite_enemigo3);
+    crearEnemigoDerecha(11,1,sprite_enemigo2); 
+    crearEnemigoDerecha(11,7,sprite_enemigo2);
+    crearEnemigoDerecha(14,7,sprite_enemigo2);
+    crearEnemigoDerecha(15,2,sprite_enemigo1);
+
+}
+
+void enemigosNvel_20(u8 numLuz){
+    crearEnemigoIzquierda(3,1,sprite_enemigo2);
+    crearEnemigoIzquierda(4,7,sprite_enemigo2);
+    crearEnemigoIzquierda(5,1,sprite_enemigo2);
+    crearEnemigoIzquierda(6,7,sprite_enemigo2);
+    crearEnemigoIzquierda(7,1,sprite_enemigo2);
+    crearEnemigoIzquierda(8,7,sprite_enemigo2);
+    crearEnemigoIzquierda(9,1,sprite_enemigo2);
+    crearEnemigoDerecha(10,7,sprite_enemigo2);
+    crearEnemigoDerecha(11,1,sprite_enemigo2);
+    crearEnemigoDerecha(12,7,sprite_enemigo2);
+    crearEnemigoDerecha(13,1,sprite_enemigo2);
+    crearEnemigoDerecha(14,7,sprite_enemigo2);
+    crearEnemigoDerecha(15,1,sprite_enemigo2);
+}
+
+
+
+
+
 
 
 

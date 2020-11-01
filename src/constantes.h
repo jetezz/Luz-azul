@@ -17,7 +17,7 @@
 
 
 
-#define enemigosMaximos     5
+#define enemigosMaximos     7
 #define animacinesMaximas   10
 #define animacionesMaximasEnLista 5
 #define frecuenciaMuertePlayer  30
@@ -211,6 +211,7 @@ extern enum{
 
     nivel_01_01,
     nivel_TRAP_01,
+    nivel_03_01,
     nivel_04_01,
     nivel_08_01,
     niveltrap_02,

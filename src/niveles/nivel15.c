@@ -26,31 +26,23 @@ void crearnivel15(){
  createRocaEspejo(11,5,sprite_Rock_nomove_B,2);
 
 //collecionables
-createColeccionabeFamilia(15,5,sprite_familia4,14);
+createColeccionabeAmstr(14, 4,14);
 
 
    //decoracion muros
-  crearMuro(1,1,7,1,sprite_Muro_Solid1,posicion_Izquieda);
-  crearMuro(1,2,1,7,sprite_Muro_Solid1,posicion_Izquieda);
-  crearMuro(9,1,15,1,sprite_Muro_Polvo1,posicion_Derecha);
-  crearMuro(15,2,15,7,sprite_Muro_Polvo1,posicion_Derecha);
- 
-   //decoracion simetricos
-  crearRocaYsimetrico(3,6,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
-  crearRocaYsimetrico(4,5,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
-  crearRocaYsimetrico(3,5,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
-  crearRocaYsimetrico(2,7,sprite_Muro_Solid1,sprite_Muro_Polvo1,1);
-  crearRocaYsimetrico(3,7,sprite_Muro_Solid1,sprite_Muro_Polvo1,1);
-  crearRocaYsimetrico(7,2,sprite_Muro_Solid1,sprite_Muro_Polvo1,1);
-  crearRocaYsimetrico(7,3,sprite_Muro_Solid1,sprite_Muro_Polvo1,1);
   
-
-  //decoracion izquierda
+   //decoracion simetricos
  
+  //decoracion izquierda
+ createHoleIzquierda(2,2,sprite_hole,1);
  
  
   //decoracionDerecha
-  createHoleDerecha(9,5,sprite_hole,1);
-  createHoleDerecha(11,6,sprite_hole,1);
+  createHoleDerecha(13,3,sprite_hole,1);
+  createHoleDerecha(13,4,sprite_hole,1);
+  createHoleDerecha(13,5,sprite_hole,1);
+  createHoleDerecha(14,3,sprite_hole,1);
+  createHoleDerecha(14,5,sprite_hole,1);
+
 
 }

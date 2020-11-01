@@ -2,7 +2,7 @@
 
 void crearniveltrap05(){
     //player  portal puertas y marco
-createPlayer(3,4);
+createPlayer(4,4);
 createMarco(no);
 createPortal(no);
 createPuerta(2,4,sprite_Puerta_B,nivel_13);

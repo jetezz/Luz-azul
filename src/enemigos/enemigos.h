@@ -39,7 +39,26 @@ void enemigosNvel_04_01(u8 numLuz);
 void enemigosNvel_07(u8 numLuz);
 void enemigosNvel_trap_02(u8 numLuz);
 void enemigosNvel_trap_03(u8 numLuz);
+void enemigosNvel_trap_04(u8 numLuz);
+void enemigosNvel_trap_05(u8 numLuz);
+void enemigosNvel_trap_06(u8 numLuz);
 void enemigosNvel_10_04(u8 numLuz);
+void enemigosNvel_14(u8 numLuz);
+void enemigosNvel_15(u8 numLuz);
+void enemigosNvel_15_1(u8 numLuz);
+void enemigosNvel_16(u8 numLuz);
+void enemigosNvel_17(u8 numLuz);
+void enemigosNvel_18(u8 numLuz);
+void enemigosNvel_19(u8 numLuz);
+void enemigosNvel_20(u8 numLuz);
+
+
+
+
+
+
+
+
 
 
 

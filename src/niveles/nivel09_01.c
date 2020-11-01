@@ -11,7 +11,7 @@ createPuerta(3,6,sprite_Puerta_B,nivel_09);
 
 
 cambiarMov(mover_1);
-createRoca(6,6,sprite_Rock_G,2);
+createRoca(6,6,sprite_Rock_B,2);
 
 
 cambiarMov(mover_Linea);

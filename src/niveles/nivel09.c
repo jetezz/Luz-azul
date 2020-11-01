@@ -28,7 +28,7 @@ void crearnivel09(){
   cambiarMov(sin_Movimiento);
   createRoca(4,2,sprite_Rock_nomove_G,2);
   createRoca(5,3,sprite_Rock_nomove_G,2);
-  createRoca(4,5,sprite_Rock_nomove_G,2);
+  createRoca(4,5,sprite_Rock_nomove_G,7);
   createRocaEspejo(13,3,sprite_Rock_nomove_B,4);
   createRocaEspejo(14,5,sprite_Rock_nomove_B,3);
 
