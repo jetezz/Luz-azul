@@ -21,10 +21,11 @@
 #include "sprites/mapa4.h"
 
 
-#include <stdio.h>
-#include <stdlib.h>
+
 
 TDialogo dialogosTotales[numDialogosTotales];
+
+
 u8 contadorDialogos;
 void initDialogos(u8* pasos, u8* pasos2,u8* muertes,u8* muertes2){
     P_pasosTotales=pasos;
@@ -32,14 +33,25 @@ void initDialogos(u8* pasos, u8* pasos2,u8* muertes,u8* muertes2){
     P_murtes=muertes;
     P_muertes2=muertes2;
 
-    dialogos[0]=dialogo0;
-    dialogos[1]=dialogo1;
+    for(u8 i =0; i<numDialogosTotales;i++){
+        dialogos[i]=dialogovacio;
+    }
+    
+    dialogos[0]=dialogo01_0;
+    dialogos[1]=dialogo01_3;
+    dialogos[2]=dialogo01_6;
+    dialogos[3]=dialogo01_9;
+    dialogos[4]=dialogo01_15;
+    dialogos[5]=dialogo01_20;
+ 
+
+    
     
 
 
     contadorDialogos=0;
     dialogosNivel1();
-    dialogosNivel01_01();
+  
 
 }
 
@@ -47,10 +59,9 @@ void initDialogos(u8* pasos, u8* pasos2,u8* muertes,u8* muertes2){
 void managerDialogo(u8 nivel, u8 pasos){
     for(u8 i=0;i<numDialogosTotales;i++){
         if(nivel==dialogosTotales[i].nivel){
-            if(dialogosTotales[i].pasos==pasos){
+            if(dialogosTotales[i].pasos==pasos){               
                 cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,38);
                 cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,38);
-
                 dialogos[dialogosTotales[i].id]();  
             }
         }
@@ -64,17 +75,14 @@ void anadirDialogo(u8 id, u8 nivel,u8 pasos){
     contadorDialogos++;
 }
 void dialogosNivel1(){
-    anadirDialogo(0,nivel_01,5);
-    anadirDialogo(1,nivel_01,10);
-
+    anadirDialogo(0,nivel_01,0);
+    anadirDialogo(1,nivel_01,3);
+    anadirDialogo(2,nivel_01,6);
+    anadirDialogo(3,nivel_01,9);
+    anadirDialogo(4,nivel_01,15);
+    anadirDialogo(5,nivel_01,20);
 }
-void dialogosNivel01_01(){
-    
-    
 
-    
-
-}
 void dialogopasos(){
     char text[2] = "X";
     u8 milesimas=0;
@@ -141,6 +149,7 @@ void dialogosMuertes(){
     cpct_drawStringM0(text,PuntoEscribirMuertes4);
 }
 
+
 void dialogoMapas(u8 nivel){
     cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,38);
     cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,38);
@@ -155,11 +164,31 @@ void dialogoMapas(u8 nivel){
 
     }
 }
+void dialogovacio(){
 
+}
 
-void dialogo0(){
-    cpct_drawStringM0("dialogo muy tocho",PuntoEscribir);
+//nivel 1
+void dialogo01_0(){
+    cpct_setDrawCharM0(3, 0);
+    cpct_drawStringM0("YOUR ROOM",PuntoEscribir);
+    cpct_setDrawCharM0(1, 0);
 }
-void dialogo1(){
-    cpct_drawStringM0("dialogo no",PuntoEscribir);
+void dialogo01_3(){
+    cpct_setDrawCharM0(2, 0);
+    cpct_drawStringM0("Las luces se        apagaron,y una      intensa luz surgio  de la pared.",PuntoEscribir);
+    cpct_setDrawCharM0(1, 0);
 }
+void dialogo01_6(){    
+    cpct_drawStringM0("Que ha pasado? Un   portal en mi        habitacion",PuntoEscribir);    
+}
+void dialogo01_9(){    
+    cpct_drawStringM0("Hay una habitacion  al otro lado,y es   igual que la mia",PuntoEscribir);    
+}
+void dialogo01_15(){    
+    cpct_drawStringM0("Hay una luz,        intentare llegar a  ella.",PuntoEscribir);    
+}
+void dialogo01_20(){    
+    cpct_drawStringM0("Tengo que saber que ha pasado.",PuntoEscribir);    
+}
+

@@ -11,12 +11,6 @@
 #include "sprites/comp/final.h"
 
 
-
-
-
-#include <stdio.h>
-#include <stdlib.h>
-
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
 #define     frecuenciaMaxIA     8
 #define     frecienciaMaxMenu   10
@@ -111,7 +105,8 @@ void game(){
                 initHud();
                 crearNivel(nivel_01);
                 dibujarGameObjects();
-                crearEnemigos(nivel_01,coleccionablesLuz);        
+                //crearEnemigos(nivel_01,coleccionablesLuz);
+                dialogo01_0();       
 
             }else{
                 cpct_zx7b_decrunch_s(0xFFFF,controls_end);
@@ -237,6 +232,7 @@ void resetGameobjects(u8 nivel){
     crearNivel(nivel);    
     crearEnemigos(nivelActual,coleccionablesLuz);        
     dibujarGameObjects();
+    managerDialogo(nivelActual,0);
        
 }
 
