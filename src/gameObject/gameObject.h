@@ -6,6 +6,7 @@
 #include <cpctelera.h>
 #include "tGameobject.h" 
 #include "tGameObjectCol.h"
+#include "constantes.h"
 
 
 
@@ -28,7 +29,7 @@ void cambiarPosicion(u8* posicion);
 void moverYdibujar(TGameObject* objeto,u8 posx,u8 posy);
 void taparHole(TGameObject* roca,TGameObject* hole);
 
-
+extern const u8* sprites[menu_selector];
 
 
 //tipos

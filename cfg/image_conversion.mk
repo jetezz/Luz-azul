@@ -153,6 +153,8 @@ $(eval $(call IMG2SP, SET_IMG_FORMAT  , screen            ))
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Menu3.png , 0,0,menu)) 
 $(eval $(call IMG2SP, CONVERT         , sprites/Controls.png , 0,0,Controls)) 
+$(eval $(call IMG2SP, CONVERT         , sprites/final.png , 0,0,final)) 
+
 
 
 

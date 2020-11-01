@@ -5,10 +5,11 @@ void crearnivel13(){
   createPlayer(12,5);
   createMarco(no);
   createPortal(si);
- // createPuerta(13,3,sprite_Puerta_G,nivel_15);
+  createPuerta(13,3,sprite_Puerta_G,nivel_15);
   createPuerta(13,5,sprite_Puerta_G,nivel_14);
- // createPuerta(3,3,sprite_Puerta_B,nivel_?);
- // createPuerta(3,5,sprite_Puerta_B,nivel_?);
+  createPuerta(11,5,sprite_StairUp1_G,nivel_04);
+  createPuerta(3,3,sprite_Puerta_B,nivel_trap_04);
+  createPuerta(3,5,sprite_Puerta_B,nivel_trap_04);
 
 
   //rocas móviles (separando id por espacios)

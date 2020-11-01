@@ -8,6 +8,7 @@
 #include "sprites/comp/mygraphics.h"
 #include "sprites/MenuSelector.h"
 #include "sprites/comp/controls.h"
+#include "sprites/comp/final.h"
 
 
 
@@ -146,6 +147,7 @@ void initGame(){
     frecuenciaIA=frecuenciaMaxIA;
     muerteJugador=no;
     frecuenciaMuerte=frecuenciaMuertePlayer;
+    player.cronoMovimiento=0;
     initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
     initNiveles(&player,rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);    
     initDialogos( &pasosT,  &pasosT2,&muertesT,&muertesT2);
@@ -154,20 +156,24 @@ void initGame(){
           
 }
 void moverPlayer(){
-    u8 siguienteNivel;
-     
+    u8 siguienteNivel=seguir_En_Nivel;
+     if(player.posx!=0){
         if(posicion==posicion_Izquieda){
             siguienteNivel=moverGameObject(&player,movimientoGuardado);
         }else{
             siguienteNivel=moverGameObject(&player,movimientoGuardado);
         }
+     }
     
     if(siguienteNivel!=seguir_En_Nivel){
-        nivelActual= siguienteNivel;            
-        resetGameobjects(nivelActual);
-              
-    }
-    
+        if(siguienteNivel!=nivel_final){
+            nivelActual= siguienteNivel;            
+            resetGameobjects(nivelActual); 
+        }else{
+            cpct_zx7b_decrunch_s(0xFFFF,final_end);
+            player.posx=0;
+        }                     
+    }    
 }
 
 
@@ -178,8 +184,7 @@ void dibujarGameObjects(){
         dibujarGameObject(&rocas[i],no);        
     }
     for (u8 i =0; i<RocasMaximas;i++){        
-        dibujarGameObject(&rocasEspejo[i],no);
-        
+        dibujarGameObject(&rocasEspejo[i],no);        
     } 
     for(u8 i=0;i<2;i++){
         dibujarGameObject(&portal[i],no);

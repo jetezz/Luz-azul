@@ -196,6 +196,17 @@ extern enum{
     nivel_12,
     nivel_13,
     nivel_14,
+    nivel_15,
+    nivel_16,
+    nivel_17,
+    nivel_18,
+    nivel_19,
+    nivel_20,
+
+
+
+
+
 
 
     nivel_01_01,
@@ -212,6 +223,14 @@ extern enum{
     nivel_10_03,
     nivel_10_04,
     nivel_10_05,
+    nivel_trap_04,
+    nivel_trap_05,
+    nivel_15_01,
+    nivel_18_01,
+    nivel_trap_06,
+
+
+
 
 
     nivel_final

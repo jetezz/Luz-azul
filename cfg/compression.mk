@@ -40,8 +40,12 @@
 
 $(eval $(call ADD2PACK,mygraphics,src/sprites/Menu3.bin))
 $(eval $(call ADD2PACK,controls,src/sprites/Controls.bin))
+$(eval $(call ADD2PACK,final,src/sprites/final.bin))
+
 $(eval $(call PACKZX7B,mygraphics,src/sprites/comp/))
 $(eval $(call PACKZX7B,controls,src/sprites/comp/))
+$(eval $(call PACKZX7B,final,src/sprites/comp/))
+
 
 
 
