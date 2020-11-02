@@ -295,7 +295,7 @@ void enemigosNvel_trap_01(u8 numLuz){
     crearEnemigoIzquierda(6,6,sprite_enemigo2);
 }
 void enemigosNvel_04(u8 numLuz){
-    if(numLuz<1){
+    if(numLuz<2){
         crearEnemigoDerecha(12,3,sprite_enemigo2);
         crearEnemigoDerecha(12,5,sprite_enemigo2);
     }
