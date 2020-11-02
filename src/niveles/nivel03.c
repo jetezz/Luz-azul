@@ -32,13 +32,14 @@ crearRocaYsimetrico(4,2,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
 crearRocaYsimetrico(4,6,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
 crearRocaYsimetrico(6,2,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
 crearRocaYsimetrico(6,6,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
-crearRocaYsimetrico(2,5,sprite_RockInmovil6_G,sprite_RockInmovil6_B,1);
-crearRocaYsimetrico(2,4,sprite_RockInmovil7_G,sprite_RockInmovil7_B,1);
+crearRocaYsimetrico(2,5,sprite_Rock_nomove_G,sprite_Rock_nomove_B,1);
+crearRocaYsimetrico(2,4,sprite_Rock_nomove_G,sprite_Rock_nomove_B,1);
 crearRocaYsimetrico(4,7,sprite_Muro_Solid1,sprite_Muro_Solid1,1);
 crearRocaYsimetrico(5,6,sprite_Muro_Solid1,sprite_Muro_Solid1,1);
 crearRocaYsimetrico(7,6,sprite_Muro_Solid1,sprite_Muro_Solid1,1);
 
 //decoracion izquierda
+createRoca(1,3,sprite_RockInmovil1_G,1);
 
 //decoracionDerecha
 createHoleDerecha(15,3,sprite_hole,1);

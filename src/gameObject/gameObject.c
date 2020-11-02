@@ -9,16 +9,6 @@
 #include "sprites/Block_Static1_B.h"
 #include "sprites/Block_Static2_G.h"
 #include "sprites/Block_Static2_B.h"
-#include "sprites/Block_Static3_G.h"
-#include "sprites/Block_Static3_B.h"
-#include "sprites/Block_Static4_G.h"
-#include "sprites/Block_Static4_B.h"
-#include "sprites/Block_Static5_G.h"
-#include "sprites/Block_Static5_B.h"
-#include "sprites/Block_Static6_G.h"
-#include "sprites/Block_Static6_B.h"
-#include "sprites/Block_Static7_G.h"
-#include "sprites/Block_Static7_B.h"
 #include "sprites/Block_Static8_G.h"
 #include "sprites/Block_Static8_B.h"
 #include "sprites/Block_Static9_G.h"
@@ -62,6 +52,7 @@
 #include "sprites/muerte1.h"
 #include "sprites/muerte2.h"
 #include "sprites/muerte3.h"
+#include "sprites/PrinceOfPersia_PJ.h"
 
 #include "animaciones/animaciones.h"
 
@@ -102,19 +93,11 @@ void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* por
     sprites[sprite_RockInmovil1_B]=&Block_Static1_B_0[0];
     sprites[sprite_RockInmovil2_G]=&Block_Static2_G_0[0];
     sprites[sprite_RockInmovil2_B]=&Block_Static2_B_0[0];
-    sprites[sprite_RockInmovil3_G]=&Block_Static3_G_0[0];
-    sprites[sprite_RockInmovil3_B]=&Block_Static3_B_0[0];
-    sprites[sprite_RockInmovil4_G]=&Block_Static4_G_0[0];
-    sprites[sprite_RockInmovil4_B]=&Block_Static4_B_0[0];
-    sprites[sprite_RockInmovil5_G]=&Block_Static5_G_0[0];
-    sprites[sprite_RockInmovil5_B]=&Block_Static5_B_0[0];
-    sprites[sprite_RockInmovil6_G]=&Block_Static6_G_0[0];
-    sprites[sprite_RockInmovil7_G]=&Block_Static7_G_0[0];
-    sprites[sprite_RockInmovil7_B]=&Block_Static7_B_0[0];
+    
     sprites[sprite_RockInmovil8_G]=&Block_Static8_G_0[0];
     sprites[sprite_RockInmovil8_B]=&Block_Static8_B_0[0];
-    sprites[sprite_RockInmovil9_G]=&Block_Static9_B_0[0];
-    sprites[sprite_RockInmovil9_B]=&Block_Static8_B_0[0];
+    sprites[sprite_RockInmovil9_G]=&Block_Static9_G_0[0];
+    sprites[sprite_RockInmovil9_B]=&Block_Static9_B_0[0];
     sprites[sprite_RockLineal1_G]=&Block_Move2_G_0[0];
     sprites[sprite_RockLineal1_B]=&Block_Move2_B_0[0];
     sprites[sprite_PortalMuro]=&PortalWall_0[0];
@@ -137,8 +120,7 @@ void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* por
     sprites[sprite_PrinceofPersia3]=&PrinceOfPersia_COVER_0[0];
     sprites[sprite_enemigo1]=&Enemy_01_0[0];
     sprites[sprite_zul1_1]=&zul1_1_0[0];
-    sprites[sprite_zul1_2]=&zul1_2_0[0];
-    sprites[sprite_RockInmovil6_B]=&Block_Static6_BB_0[0];
+    sprites[sprite_zul1_2]=&zul1_2_0[0];    
     sprites[sprite_Rock_nomove_G]=&Block_Move0_G_0[0];
     sprites[sprite_enemigo2]=&Enemy_02_0[0];
     sprites[sprite_enemigo3]=&Enemy_03_0[0];    
@@ -158,7 +140,9 @@ void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* por
     sprites[sprite_familia3]=&Character_Mother_0[0];    
     sprites[sprite_familia3]=&Character_Mother_0[0];    
     sprites[sprite_familia3]=&Character_Mother_0[0];    
-    sprites[sprite_familia3]=&Character_Mother_0[0];    
+    sprites[sprite_familia3]=&Character_Mother_0[0];   
+    sprites[sprite_PrinceofPersiaP]=&PrinceOfPersia_PJ_0[0];    
+
     
 }
 
@@ -325,8 +309,11 @@ u8 moverTipoPlayer(TGameObject* objeto,u8 movimiento, TGameObject* rocasCol,TGam
                     cambiarPosicion(posicion);                                   
                 }
             } 
-            //colisionEnemigo=comprobarEnemigos(nextPosx,nextPosy,*posicion);
-            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision && colisionEnemigo==no_Hay_Colision){
+            colisionEnemigo=comprobarEnemigos(nextPosx,nextPosy,*posicion);
+            if(colisionEnemigo!=no_Hay_Colision){
+                return Muereplayer;
+            }
+            if(ObjetoColisionado==SinColision && colisionPuerta==no_Hay_Colision ){
                 if(colisionPortales==hay_Colision){
                     moverYdibujar(objeto,nextPosx,nextPosy);
                 }else{

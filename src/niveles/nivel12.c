@@ -5,7 +5,7 @@ void crearnivel12(){
 createPlayer(1,3);
 createMarco(si);
 createPortal(si);
-createPuerta(1,4,sprite_StairDown1_G,nivel_09);
+createPuerta(1,4,sprite_StairDown1_G,nivel_08);
 
 //rocas móviles (separando id por espacios)
 
@@ -52,6 +52,7 @@ createRocaEspejo(11,4,sprite_Rock_nomove_B,10);
 
 //collecionables
 createColeccionabeFamilia(12,4,sprite_familia2,13);
+createColeccionabeLuz(13,4,18);
 
 //decoracion muros
 
@@ -64,11 +65,11 @@ crearRocaYsimetrico(4,5,sprite_RockInmovil1_G,sprite_RockInmovil1_B,1);
 createHoleIzquierda(3,3,sprite_hole,1);
 createHoleIzquierda(3,4,sprite_hole,1);
 createHoleIzquierda(3,5,sprite_hole,1);
-createHoleIzquierda(6,4,sprite_hole,1);
+
 
 //decoracionDerecha
 createHoleDerecha(10,4,sprite_hole,1);
-createHoleDerecha(15,4,sprite_hole,1);
-createRocaEspejo(13,4,sprite_RockInmovil1_B,1);
+createRocaEspejo(15,4,sprite_RockInmovil1_B,1);
+
   
 }

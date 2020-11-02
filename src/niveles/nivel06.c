@@ -36,7 +36,7 @@ crearMuro(11,3,12,3,sprite_hole,posicion_Derecha);
 
 
 //decoracion simetricos
-crearRocaYsimetrico(3,3,sprite_RockInmovil5_G,sprite_RockInmovil5_B,1);
+crearRocaYsimetrico(3,3,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
 
 //decoracion izquierda
 

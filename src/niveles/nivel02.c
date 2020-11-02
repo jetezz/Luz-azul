@@ -32,8 +32,8 @@ void crearnivel02(){
     //decoracion simetricos
     crearRocaYsimetrico(1,3,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
     crearRocaYsimetrico(1,5,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
-    crearRocaYsimetrico(7,3,sprite_RockInmovil5_G,sprite_RockInmovil5_B,1);
-    crearRocaYsimetrico(7,5,sprite_RockInmovil5_G,sprite_RockInmovil5_B,1);
+    crearRocaYsimetrico(7,3,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
+    crearRocaYsimetrico(7,5,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
 
     //decoracion izquierda      
     createRoca(5,3,sprite_RockInmovil1_G,1);

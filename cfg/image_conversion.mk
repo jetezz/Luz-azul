@@ -57,16 +57,7 @@ $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static1_G.png , 8,8 , Bloc
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static1_B.png , 8,8 , Block_Static1_B)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static2_G.png , 8,8 , Block_Static2_G)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static2_B.png , 8,8 , Block_Static2_B)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static3_G.png , 8,8 , Block_Static3_G)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static3_B.png , 8,8 , Block_Static3_B)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static4_G.png , 8,8 , Block_Static4_G)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static4_B.png , 8,8 , Block_Static4_B)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static5_G.png , 8,8 , Block_Static5_G)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static5_B.png , 8,8 , Block_Static5_B)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static6_G.png , 8,8 , Block_Static6_G,)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static6_B.png , 8,8 , Block_Static6_BB)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static7_G.png , 8,8 , Block_Static7_G)) #8x16
-$(eval $(call IMG2SP, CONVERT         , sprites/Block_Static7_B.png , 8,8 , Block_Static7_B)) #8x16
+
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static8_G.png , 8,8 , Block_Static8_G)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static8_B.png , 8,8 , Block_Static8_B)) #8x16
 $(eval $(call IMG2SP, CONVERT         , sprites/Block_Static9_G.png , 8,8 , Block_Static9_G)) #8x16
@@ -137,6 +128,11 @@ $(eval $(call IMG2SP, CONVERT         , sprites/mapa2.png , 22,22 , mapa2)) #34x
 $(eval $(call IMG2SP, CONVERT         , sprites/mapa3.png , 22,22 , mapa3)) #34x30
 $(eval $(call IMG2SP, CONVERT         , sprites/mapa4.png , 22,22 , mapa4)) #34x30
 
+$(eval $(call IMG2SP, CONVERT         , sprites/PrinceOfPersia_PJ.png , 8,8 , PrinceOfPersia_PJ)) #34x30
+
+
+
+
 
 
 
@@ -152,8 +148,8 @@ $(eval $(call IMG2SP, SET_IMG_FORMAT  , screen            ))
 
 
 $(eval $(call IMG2SP, CONVERT         , sprites/Menu3.png , 0,0,menu)) 
-$(eval $(call IMG2SP, CONVERT         , sprites/Controls.png , 0,0,Controls)) 
-$(eval $(call IMG2SP, CONVERT         , sprites/final.png , 0,0,final)) 
+#$(eval $(call IMG2SP, CONVERT         , sprites/Controls.png , 0,0,Controls)) 
+#$(eval $(call IMG2SP, CONVERT         , sprites/final.png , 0,0,final)) 
 
 
 

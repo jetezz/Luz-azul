@@ -79,6 +79,7 @@ void animacionesManager(){
                 aux.posy=animacionesActivas[i].posy;
                 aux.sprite=animacionesActivas[i].spriteActual;
               }
+              if(aux.sprite>sprite_SinDefinir && aux.sprite<menu_selector)
              dibujarGameObject(&aux,si);
           }
       }

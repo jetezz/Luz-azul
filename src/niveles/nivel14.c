@@ -49,7 +49,7 @@ void crearnivel14(){
   createHoleIzquierda(6,3,sprite_hole,1);
  
   //decoracionDerecha
-  createHoleDerecha(8,3,sprite_hole,1);
+  createHoleDerecha(9,3,sprite_hole,1);
   createHoleDerecha(10,2,sprite_hole,1);
   createRocaEspejo(9,2,sprite_Muro_Polvo1,1);
   createRocaEspejo(9,5,sprite_Muro_Polvo1,1);

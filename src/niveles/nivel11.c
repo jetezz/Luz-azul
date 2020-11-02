@@ -7,7 +7,7 @@ createMarco(si);
 createPortal(si);
 createPuerta(5,1,sprite_Puerta_G,nivel_09);
 //createPuerta(11,1,sprite_Puerta_B,nivel_11_01);
-createPuerta(5,7,sprite_StairDown1_G,nivel_03_01);
+createPuerta(7,7,sprite_StairDown1_G,nivel_03_01);
 
 //rocas móviles (separando id por espacios)
 
@@ -24,7 +24,7 @@ createRocaEspejo(10,4,sprite_Rock_B,10);
 
 cambiarMov(mover_Linea);
 createRoca(2,6,sprite_RockLineal1_G,8);
-createRocaEspejo(12,6,sprite_RockLineal1_G,9);
+createRocaEspejo(12,6,sprite_RockLineal1_B,9);
 
 
 cambiarMov(sin_Movimiento);
@@ -37,6 +37,7 @@ createRocaEspejo(13,4,sprite_Rock_nomove_B,6);
 createRocaEspejo(10,3,sprite_Rock_nomove_B,5);
 createRocaEspejo(13,6,sprite_Rock_nomove_B,7);
 createRocaEspejo(14,6,sprite_Rock_nomove_B,8);
+
 
 //collecionables
 createColeccionabeLuz(12,4,12);
@@ -68,5 +69,7 @@ createHoleDerecha(10,2,sprite_hole,1);
 createHoleDerecha(10,5,sprite_hole,1);
 createHoleDerecha(9,7,sprite_hole,1);
 createHoleDerecha(14,4,sprite_hole,1);
+createHoleDerecha(11,1,sprite_hole,1);
+
  
 }

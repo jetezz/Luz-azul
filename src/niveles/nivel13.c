@@ -2,7 +2,7 @@
 
 void crearnivel13(){
      //player  portal puertas y marco
-  createPlayer(12,5);
+  createPlayer(10,5);
   createMarco(no);
   createPortal(si);
   createPuerta(13,3,sprite_Puerta_G,nivel_15);
@@ -43,5 +43,7 @@ void crearnivel13(){
   createRocaEspejo(8,3,sprite_Muro_Solid1,1);
   createRocaEspejo(8,5,sprite_Muro_Solid1,1);
   createRocaEspejo(13,4,sprite_Muro_Solid1,1);
+  createRocaEspejo(9,3,sprite_PrinceofPersiaP,1);
+
 
 }

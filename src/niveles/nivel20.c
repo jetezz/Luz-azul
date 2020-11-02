@@ -29,7 +29,7 @@ cambiarMov(sin_Movimiento);
 
 
 //collecionables
-createColeccionabeLuz(10,4,18);
+createColeccionabeLuz(10,4,17);
 
 //decoracion muros
 

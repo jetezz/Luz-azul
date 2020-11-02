@@ -6,6 +6,7 @@
 #include "tGameObjectCol.h"
 
 #define     SinColision                     50
+#define     Muereplayer                     50
 #define     ColisionNoRocas                 51
 #define     RocasMaximas                    50 
 #define     PuertasMaximas                  6
@@ -67,16 +68,7 @@ extern enum{
     sprite_RockInmovil1_B,
     sprite_RockInmovil2_G,
     sprite_RockInmovil2_B,
-    sprite_RockInmovil3_G,
-    sprite_RockInmovil3_B,
-    sprite_RockInmovil4_G,
-    sprite_RockInmovil4_B,
-    sprite_RockInmovil5_G,
-    sprite_RockInmovil5_B,
-    sprite_RockInmovil6_G,
-    sprite_RockInmovil6_B,
-    sprite_RockInmovil7_G,
-    sprite_RockInmovil7_B,
+
     sprite_RockInmovil8_G,
     sprite_RockInmovil8_B,
     sprite_RockInmovil9_G,
@@ -119,6 +111,8 @@ extern enum{
     sprite_PrinceofPersia2_G,
     sprite_PrinceofPersia2_B,
     sprite_PrinceofPersia3,
+    sprite_PrinceofPersiaP,
+
     menu_selector
        
     
@@ -185,6 +179,7 @@ extern enum{
     nivel_01,   
     nivel_02,
     nivel_03,
+    nivel_03_01,
     nivel_04,    
     nivel_05,
     nivel_06,
@@ -210,8 +205,7 @@ extern enum{
 
 
     nivel_01_01,
-    nivel_TRAP_01,
-    nivel_03_01,
+    nivel_TRAP_01,   
     nivel_04_01,
     nivel_08_01,
     niveltrap_02,

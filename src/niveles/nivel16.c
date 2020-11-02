@@ -1,26 +1,28 @@
 #include "nivel16.h"
 
 void crearnivel16(){
-    //player  portal puertas y marco
-  createPlayer(2,4);
-  createMarco(no);
-  createPortal(si);
-  createPuerta(1,2,sprite_Puerta_G,nivel_15);
-  createPuerta(1,6,sprite_Puerta_G,nivel_14);
-  createPuerta(15,2,sprite_Puerta_B,nivel_17);
-  createPuerta(15,6,sprite_Puerta_B,nivel_17);
+     //player  portal puertas y marco
+ createPlayer(2,4);
+ createMarco(no);
+ createPortal(si);
+ createPuerta(1,2,sprite_Puerta_G,nivel_15);
+ createPuerta(1,6,sprite_Puerta_G,nivel_14);
+ createPuerta(15,2,sprite_Puerta_B,nivel_17);
+ createPuerta(15,6,sprite_Puerta_B,nivel_17);
 
 
-  //rocas móviles (separando id por espacios)
-  cambiarMov(mover_1);
- createRoca(3,4,sprite_Rock_G,2);
- createRocaEspejo(13,4,sprite_Rock_B,2);
+ //rocas móviles (separando id por espacios)
+ cambiarMov(mover_1);
+createRoca(3,4,sprite_Rock_G,2);
+createRocaEspejo(13,4,sprite_Rock_B,2);
 
-  cambiarMov(mover_Linea);
+ cambiarMov(mover_Linea);
+
   cambiarMov(sin_Movimiento);
    //decoracion muros
   crearMuro(1,1,7,1,sprite_Muro_Solid1,posicion_Izquieda);
   crearMuro(1,7,7,7,sprite_Muro_Solid1,posicion_Izquieda);
+  crearMuro(9,7,14,7,sprite_Muro_Polvo1,posicion_Derecha);
   crearMuro(9,1,15,1,sprite_Muro_Polvo1,posicion_Derecha);
   crearMuro(15,1,15,7,sprite_Muro_Polvo1,posicion_Derecha);
  
@@ -46,7 +48,7 @@ void crearnivel16(){
 
  
   //decoracionDerecha
- 
+
 
 
 }

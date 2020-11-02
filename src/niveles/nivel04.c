@@ -40,8 +40,8 @@ createRoca(4,2,sprite_RockInmovil1_G,1);
 createRoca(4,6,sprite_RockInmovil1_G,1);
 createRoca(2,3,sprite_RockInmovil2_G,1);
 createRoca(2,5,sprite_RockInmovil2_G,1);
-createRoca(2,2,sprite_RockInmovil5_G,1);
-createRoca(2,6,sprite_RockInmovil5_G,1);
+createRoca(2,2,sprite_RockInmovil2_G,1);
+createRoca(2,6,sprite_RockInmovil2_G,1);
 createHoleIzquierda(4,1,sprite_hole,1);
 createHoleIzquierda(4,7,sprite_hole,1);
 

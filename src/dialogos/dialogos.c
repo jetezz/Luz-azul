@@ -157,9 +157,9 @@ void dialogoMapas(u8 nivel){
         cpct_drawSprite(mapa1_0,PunteroMapa, 11, 44);
     }else if(nivel<nivel_12 && nivel>nivel_07){
         cpct_drawSprite(mapa2_0,PunteroMapa, 11, 44);
-    }else if(nivel==12){
+    }else if(nivel==nivel_12){
         cpct_drawSprite(mapa3_0,PunteroMapa, 11, 44);
-    }else{
+    }else if(nivel>nivel_12 && nivel<nivel_17){
         cpct_drawSprite(mapa4_0,PunteroMapa, 11, 44);
 
     }

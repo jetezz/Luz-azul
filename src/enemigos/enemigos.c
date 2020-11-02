@@ -1,7 +1,7 @@
 #include "enemigos.h"
 #include "gameObject/gameObject.h"
 #include "animaciones/animaciones.h"
-#define frecuenciaia3   5;
+#define frecuenciaia3   7;
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,7 +18,9 @@ u8 frecAux;
      for(u8 i=nivel_01;i<nivel_final;i++){
         creadorDeEnemigos[i]=sinEnemigos; 
      }
-     //creadorDeEnemigos[nivel_01]=enemigosNvel_20;
+     //creadorDeEnemigos[nivel_01]=enemigosNvel_16;
+
+     creadorDeEnemigos[nivel_TRAP_01]=enemigosNvel_trap_01;
      creadorDeEnemigos[nivel_04]=enemigosNvel_04;
      creadorDeEnemigos[nivel_04_01]=enemigosNvel_04_01;
      creadorDeEnemigos[nivel_07]=enemigosNvel_07;
@@ -30,7 +32,7 @@ u8 frecAux;
      creadorDeEnemigos[nivel_10_04]=enemigosNvel_10_04;
      creadorDeEnemigos[nivel_14]=enemigosNvel_14;
      creadorDeEnemigos[nivel_15]=enemigosNvel_15;
-     creadorDeEnemigos[nivel_15]=enemigosNvel_15_1;
+     creadorDeEnemigos[nivel_15_01]=enemigosNvel_15_1;
      creadorDeEnemigos[nivel_16]=enemigosNvel_16;
      creadorDeEnemigos[nivel_17]=enemigosNvel_17;
      creadorDeEnemigos[nivel_18]=enemigosNvel_18;
@@ -249,11 +251,14 @@ u8 iaEnemigo2(TGameObject* objeto,u8 posx, u8 posy,TGameObject* rocas){
             return no_pasa_nada;
         }
     }
-    moverYdibujar(objeto,nextPosx,nextPosy);
-    if(nextPosx==posx && nextPosy==posy){
-        iniciarAnimacion(animacion_muerte,1,posx,posy,posx,posy,si,4);
+    if(nextPosx==posx && nextPosy==posy){                
         return player_muere;
     }
+    //moverYdibujar(objeto,nextPosx,nextPosy);
+    iniciarAnimacion(animacion_roca_1,objeto->sprite,objeto->posx,objeto->posy,nextPosx,nextPosy,no,0);
+    objeto->posx=nextPosx;
+    objeto->posy=nextPosy;    
+
     return no_pasa_nada;
         
     
@@ -348,6 +353,10 @@ void enemigosNvel_16(u8 numLuz){
     crearEnemigoIzquierda(5,4,sprite_enemigo3);
     crearEnemigoDerecha(12,3,sprite_enemigo1);
     crearEnemigoDerecha(12,5,sprite_enemigo1);
+    if(numLuz<5){
+        crearEnemigoDerecha(11,4,sprite_enemigo1);
+    }
+
 
 }
 void enemigosNvel_17(u8 numLuz){
@@ -362,9 +371,7 @@ void enemigosNvel_18(u8 numLuz){
     crearEnemigoDerecha(13,3,sprite_enemigo1);
 }
 void enemigosNvel_19(u8 numLuz){
-    crearEnemigoIzquierda(6,4,sprite_enemigo3);
-    crearEnemigoDerecha(11,1,sprite_enemigo2); 
-    crearEnemigoDerecha(11,7,sprite_enemigo2);
+    crearEnemigoDerecha(10,4,sprite_enemigo3);    
     crearEnemigoDerecha(14,7,sprite_enemigo2);
     crearEnemigoDerecha(15,2,sprite_enemigo1);
 
@@ -378,12 +385,12 @@ void enemigosNvel_20(u8 numLuz){
     crearEnemigoIzquierda(7,1,sprite_enemigo2);
     crearEnemigoIzquierda(8,7,sprite_enemigo2);
     crearEnemigoIzquierda(9,1,sprite_enemigo2);
-    crearEnemigoDerecha(10,7,sprite_enemigo2);
-    crearEnemigoDerecha(11,1,sprite_enemigo2);
-    crearEnemigoDerecha(12,7,sprite_enemigo2);
-    crearEnemigoDerecha(13,1,sprite_enemigo2);
-    crearEnemigoDerecha(14,7,sprite_enemigo2);
-    crearEnemigoDerecha(15,1,sprite_enemigo2);
+   // crearEnemigoDerecha(10,7,sprite_enemigo2);
+   // crearEnemigoDerecha(11,1,sprite_enemigo2);
+   // crearEnemigoDerecha(12,7,sprite_enemigo2);
+   // crearEnemigoDerecha(13,1,sprite_enemigo2);
+   // crearEnemigoDerecha(14,7,sprite_enemigo2);
+   // crearEnemigoDerecha(15,1,sprite_enemigo2);
 }
 
 

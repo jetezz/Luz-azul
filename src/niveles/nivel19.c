@@ -16,12 +16,14 @@ createRoca(3,2,sprite_Rock_B,2);
 createRoca(6,2,sprite_Rock_B,3);
 createRoca(6,6,sprite_Rock_B,4);
 createRocaEspejo(11,4,sprite_Rock_B,6);
-createRoca(4,4,sprite_Rock_B,7);
+createRoca(4,4,sprite_Rock_B,8);
+
+
 
 
 cambiarMov(mover_Linea);
 createRoca(3,6,sprite_RockLineal1_B,5);
-createRoca(3,6,sprite_RockLineal1_B,7);
+createRoca(3,4,sprite_RockLineal1_B,7);
 
 
 cambiarMov(sin_Movimiento);
@@ -48,8 +50,11 @@ createHoleDerecha(13,4,sprite_hole,1);
 createHoleDerecha(13,5,sprite_hole,1);
 createHoleDerecha(14,3,sprite_hole,1);
 createHoleDerecha(14,5,sprite_hole,1);
-createRocaEspejo(15,3,sprite_RockInmovil2_B,2);
-createRocaEspejo(15,5,sprite_RockInmovil2_B,2);
+createRocaEspejo(15,3,sprite_RockInmovil2_B,1);
+createRocaEspejo(15,5,sprite_RockInmovil2_B,1);
+createRocaEspejo(12,3,sprite_zul1_1,1);
+createRocaEspejo(12,4,sprite_zul1_2,1);
+
 
  
 }
