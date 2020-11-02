@@ -33,6 +33,6 @@ void crearnivel01(){
 
     //decoracion izquierda    
     createRoca(1,4,sprite_amstrad,1); 
-
+    createRoca(1,6,sprite_PrinceofPersia3,1);   
     //decoracionDerecha     
 }

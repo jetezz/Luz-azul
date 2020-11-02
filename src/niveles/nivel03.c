@@ -6,7 +6,6 @@ createPlayer(3,3);
 createMarco(si);
 createPortal(si);
 createPuerta(3,1,sprite_Puerta_G,nivel_02);
-createPuerta(13,1,sprite_Puerta_B,nivel_01_01);
 createPuerta(5,7,sprite_StairDown1_G,nivel_17);
 createPuerta(7,7,sprite_StairUp1_G,nivel_11);
 createPuerta(11,7,sprite_StairDown1_B,nivel_TRAP_01);

@@ -6,7 +6,7 @@ void crearnivel01_01(){
     createMarco(no);
     createPortal(no);
     createPuerta(3,1,sprite_Puerta_B,nivel_01);
-    createPuerta(3,5,sprite_Puerta_B,nivel_03);
+    
 
     //collecionables
     createColeccionabeAmstr(5,3,1);
@@ -18,7 +18,9 @@ void crearnivel01_01(){
 
     
     //decoracion izquierda
-    createRoca(4,3,sprite_enemigo1,1);   
+    createRoca(4,3,sprite_enemigo1,1);
+    
+
     
     //decoracion derecha
     

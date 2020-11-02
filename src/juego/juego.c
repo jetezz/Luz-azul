@@ -48,8 +48,8 @@ u8 frecuenciaReinicio;
 
 
 void game(){
-    //cpct_akp_musicInit(molusk);    // Initialize the music
-    //cpct_akp_SFXInit(molusk);
+    cpct_akp_musicInit(molusk);    // Initialize the music
+    cpct_akp_SFXInit(molusk);
 
     cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
     cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);

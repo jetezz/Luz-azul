@@ -354,7 +354,7 @@ void enemigosNvel_16(u8 numLuz){
     crearEnemigoDerecha(12,3,sprite_enemigo1);
     crearEnemigoDerecha(12,5,sprite_enemigo1);
     if(numLuz<5){
-        crearEnemigoDerecha(11,4,sprite_enemigo1);
+        //crearEnemigoDerecha(11,4,sprite_enemigo1);
     }
 
 

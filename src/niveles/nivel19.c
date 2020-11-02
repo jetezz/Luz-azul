@@ -34,7 +34,7 @@ createRocaEspejo(10,2,sprite_Rock_nomove_B,7);
 createRoca(5,4,sprite_Rock_nomove_B,6);
 
 //collecionables
-createColeccionabeAmstr(14,4,17);
+
 
 //decoracion muros
 

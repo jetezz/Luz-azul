@@ -1,7 +1,7 @@
 #include "nivel14.h"
 
 void crearnivel14(){
-   //player  portal puertas y marco
+    //player  portal puertas y marco
   createPlayer(2,2);
   createMarco(si);
   createPortal(si);
@@ -17,6 +17,7 @@ void crearnivel14(){
  createRoca(4,6,sprite_Rock_G,3);
  createRocaEspejo(12,6,sprite_Rock_B,3);
  createRocaEspejo(13,4,sprite_Rock_B,4);
+createRocaEspejo(14,4,sprite_Rock_B,6);
 
 
 
@@ -39,20 +40,16 @@ void crearnivel14(){
  
    //decoracion simetricos
   crearRocaYsimetrico(6,6,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
+  crearRocaYsimetrico(7,2,sprite_Muro_Solid1,sprite_Muro_Polvo1,1);
+  crearRocaYsimetrico(7,5,sprite_Muro_Solid1,sprite_Muro_Polvo1,1);
+  crearRocaYsimetrico(7,6,sprite_Muro_Solid1,sprite_Muro_Polvo1,1);
   
 
   //decoracion izquierda
-  createRoca(7,2,sprite_Muro_Solid1,1);
-  createRoca(7,5,sprite_Muro_Solid1,1);
-  createRoca(7,6,sprite_Muro_Solid1,1);
-  createHoleIzquierda(5,3,sprite_hole,1);
+   createRoca(5,3,sprite_RockInmovil1_G,1);
   createHoleIzquierda(6,3,sprite_hole,1);
  
   //decoracionDerecha
-  createHoleDerecha(9,3,sprite_hole,1);
-  createHoleDerecha(10,2,sprite_hole,1);
-  createRocaEspejo(9,2,sprite_Muro_Polvo1,1);
-  createRocaEspejo(9,5,sprite_Muro_Polvo1,1);
-  createRocaEspejo(9,6,sprite_Muro_Polvo1,1);
+  createRocaEspejo(9,3,sprite_Muro_Polvo1,1);
 
 }
