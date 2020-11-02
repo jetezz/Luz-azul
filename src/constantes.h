@@ -113,8 +113,7 @@ extern enum{
     sprite_PrinceofPersia3,
     sprite_PrinceofPersiaP,
 
-    menu_selector,
-    sprite_final,
+    menu_selector
        
     
 }ETiposSprite;
