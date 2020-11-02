@@ -17,7 +17,7 @@ void crearnivel14(){
  createRoca(4,6,sprite_Rock_G,3);
  createRocaEspejo(12,6,sprite_Rock_B,3);
  createRocaEspejo(13,4,sprite_Rock_B,4);
-createRocaEspejo(14,4,sprite_Rock_B,6);
+createRocaEspejo(14,3,sprite_Rock_B,6);
 
 
 

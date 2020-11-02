@@ -33,7 +33,8 @@ extern u8 estadoSeleccionado;
 extern u8 muerteJugador;
 extern u8 frecuenciaMuerte;
 extern u8 frecuenciaReinicio;
-
+extern u8 mutemusica;
+extern u8 frecuenciamute;
 
 
 void game();
@@ -51,3 +52,4 @@ void salir();
 void ia();
 void resetearPorMuerte();
 void resetNivel();
+void muteMusica();

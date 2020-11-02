@@ -14,7 +14,8 @@
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
 #define     frecuenciaMaxIA     8
 #define     frecienciaMaxMenu   10
-#define     PuntoEscribir   cpctm_screenPtr(CPCT_VMEM_START, 2, 100)
+#define     PuntoEscribir   cpctm_screenPtr(CPCT_VMEM_START, 2, 120)
+#define     frecuenciaMutemax      10
 
 
 
@@ -44,6 +45,9 @@ u8 estadoSeleccionado;
 u8 muerteJugador;
 u8 frecuenciaMuerte;
 u8 frecuenciaReinicio;
+u8 mutemusica;
+u8 frecuenciamute;
+
 
 
 
@@ -61,8 +65,11 @@ void game(){
         
         scanKey();
         cpct_waitVSYNC();
-        if(estado==estado_juego){               
-        cpct_akp_musicPlay();
+        if(estado==estado_juego){  
+        if(mutemusica==no){
+          cpct_akp_musicPlay();  
+        }             
+        
         
     //          
        
@@ -84,6 +91,7 @@ void game(){
         if(keyM()==si){
             dialogoMapas(nivelActual);
         }
+        muteMusica();
 
     }else if(estado==estado_Menu){
         if(movimientoPlayer()==mover_Arriba || movimientoPlayer()==mover_Abajo){
@@ -120,7 +128,7 @@ void game(){
                 cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 130, 90),0x00,30,70); 
                 cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,50);
                 cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,50);
-                cpct_drawStringM0("-> <- moverse                           S pasos                                 M mapa                                  R reiniciar nivel                       Esc reiniciar juego",PuntoEscribir);
+                cpct_drawStringM0("-> <- moverse                           S pasos                                 M mapa                                  R reiniciar nivel                       Esc quitar musica",PuntoEscribir);
                 //cpct_zx7b_decrunch_s(0xFFFF,controls_end);
 
             }
@@ -156,6 +164,8 @@ void initGame(){
     muertesT2=0;  
     frecuenciaIA=frecuenciaMaxIA;
     muerteJugador=no;
+    mutemusica=no;
+    frecuenciamute=frecuenciaMutemax;
     frecuenciaMuerte=frecuenciaMuertePlayer;
     player.cronoMovimiento=0;
     initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
@@ -181,18 +191,13 @@ void moverPlayer(){
             muerteJugador=si;
             iniciarAnimacion(animacion_muerte,1,player.posx,player.posy,player.posx,player.posy,si,4);
         }
-        else if(siguienteNivel!=nivel_final){
+        else if(siguienteNivel!=nivel_21){
             nivelActual= siguienteNivel;            
             resetGameobjects(nivelActual); 
-        }else{
-            cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
-            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 25, 90),0x00,30,70);
-            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 90),0x00,30,70); 
-            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 130, 90),0x00,30,70); 
-            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,50);
-            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,50);       
-            
+        }else{           
     
+            nivelActual= siguienteNivel;            
+            resetGameobjects(nivelActual);
             
              suma=(pasosContador+pasosT);
             if(suma>100){
@@ -210,7 +215,7 @@ void moverPlayer(){
             dialogopasos();
             dialogosMuertes();
 
-            player.posx=0;
+            //player.posx=0;
         }                     
     }    
 }
@@ -371,3 +376,16 @@ void resetNivel(){
 
 }
 
+void muteMusica(){
+     if(keySpace()==si && frecuenciamute==0){
+         frecuenciamute=frecuenciaMutemax;
+         if (mutemusica==si){
+             mutemusica=no;
+         }else{
+             mutemusica=si;
+             cpct_akp_stop ();   
+         }
+     }
+     if (frecuenciamute>0)
+     frecuenciamute--;
+}

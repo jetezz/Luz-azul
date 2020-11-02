@@ -15,7 +15,6 @@
 #include "nivel07.h"
 #include "nivel08.h"
 #include "nivel08_01.h"
-#include "niveltrap_02.h"
 #include "nivel09.h"
 #include "nivel09_01.h"
 #include "nivel09_02.h"
@@ -23,7 +22,6 @@
 #include "niveltrap_03.h"
 #include "nivel10.h"
 #include "nivel10_01.h"
-#include "nivel10_02.h"
 #include "nivel10_03.h"
 #include "nivel10_04.h"
 #include "nivel10_05.h"
@@ -39,9 +37,9 @@
 #include "nivel17.h"
 #include "nivel18.h"
 #include "nivel18_01.h"
-#include "niveltrap_06.h"
 #include "nivel19.h"
 #include "nivel20.h"
+#include "nivelFinal.h"
 
 
 
@@ -81,16 +79,14 @@ void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
     niveles[nivel_06]=crearnivel06;
     niveles[nivel_07]=crearnivel07;
     niveles[nivel_08]=crearnivel08;
-    niveles[nivel_08_01]=crearnivel08_01;
-    niveles[niveltrap_02]=crearniveltrap02;
+    niveles[nivel_08_01]=crearnivel08_01;    
     niveles[nivel_09]=crearnivel09;
     niveles[nivel_09_01]=crearnivel09_01;
     niveles[nivel_09_02]=crearnivel09_02;
     niveles[nivel_09_03]=crearnivel09_03;
     niveles[nivel_trap_03]=crearniveltrap3;
     niveles[nivel_10]=crearnivel10;
-    niveles[nivel_10_01]=crearnivel10_01;
-    niveles[nivel_10_02]=crearnivel10_02;
+    niveles[nivel_10_01]=crearnivel10_01;    
     niveles[nivel_10_03]=crearnivel10_03;
     niveles[nivel_10_04]=crearnivel10_04;
     niveles[nivel_10_05]=crearnivel10_05;
@@ -105,10 +101,11 @@ void initNiveles(TGameObject* player,TGameObject* rocas,TGameObject* rocasEspejo
     niveles[nivel_16]=crearnivel16;
     niveles[nivel_17]=crearnivel17;
     niveles[nivel_18]=crearnivel18;
-    niveles[nivel_18_01]=crearnivel18_01; 
-    niveles[nivel_trap_06]=crearniveltrap_06;   
+    niveles[nivel_18_01]=crearnivel18_01;        
     niveles[nivel_19]=crearnivel19;
-    niveles[nivel_20]=crearnivel20;    
+    niveles[nivel_20]=crearnivel20;
+    niveles[nivel_21]=crearnivelFinal;    
+
 
     
     contadorRocas=0;

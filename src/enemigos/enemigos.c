@@ -23,12 +23,10 @@ u8 frecAux;
      creadorDeEnemigos[nivel_TRAP_01]=enemigosNvel_trap_01;
      creadorDeEnemigos[nivel_04]=enemigosNvel_04;
      creadorDeEnemigos[nivel_04_01]=enemigosNvel_04_01;
-     creadorDeEnemigos[nivel_07]=enemigosNvel_07;
-     creadorDeEnemigos[niveltrap_02]=enemigosNvel_trap_02;
+     creadorDeEnemigos[nivel_07]=enemigosNvel_07;     
      creadorDeEnemigos[nivel_trap_03]=enemigosNvel_trap_03;
      creadorDeEnemigos[nivel_trap_04]=enemigosNvel_trap_04;
-     creadorDeEnemigos[nivel_trap_05]=enemigosNvel_trap_05;
-     creadorDeEnemigos[nivel_trap_06]=enemigosNvel_trap_06;
+     creadorDeEnemigos[nivel_trap_05]=enemigosNvel_trap_05;     
      creadorDeEnemigos[nivel_10_04]=enemigosNvel_10_04;
      creadorDeEnemigos[nivel_14]=enemigosNvel_14;
      creadorDeEnemigos[nivel_15]=enemigosNvel_15;
@@ -309,13 +307,6 @@ void enemigosNvel_07(u8 numLuz){
 
 }
 
-void enemigosNvel_trap_02(u8 numLuz){
-    crearEnemigoIzquierda(2,2,sprite_enemigo3);
-    crearEnemigoIzquierda(2,6,sprite_enemigo3);
-    crearEnemigoIzquierda(6,2,sprite_enemigo3);
-    crearEnemigoIzquierda(6,6,sprite_enemigo3);
-}
-
 void enemigosNvel_trap_03(u8 numLuz){
     crearEnemigoIzquierda(2,2,sprite_enemigo3);
     crearEnemigoIzquierda(2,6,sprite_enemigo3);
@@ -328,11 +319,6 @@ void enemigosNvel_trap_04(u8 numLuz){
     crearEnemigoIzquierda(2,4,sprite_enemigo3); 
 }
 void enemigosNvel_trap_05(u8 numLuz){
-    crearEnemigoIzquierda(4,2,sprite_enemigo3);
-    crearEnemigoIzquierda(4,6,sprite_enemigo3);
-    crearEnemigoIzquierda(6,4,sprite_enemigo3);
-}
-void enemigosNvel_trap_06(u8 numLuz){
     crearEnemigoIzquierda(4,2,sprite_enemigo3);
     crearEnemigoIzquierda(4,6,sprite_enemigo3);
     crearEnemigoIzquierda(6,4,sprite_enemigo3);

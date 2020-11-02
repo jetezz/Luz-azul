@@ -8,9 +8,7 @@ void crearnivel02(){
     createPuerta(3,2,sprite_Puerta_G,nivel_01);
     createPuerta(3,6,sprite_Puerta_G,nivel_03);
     createPuerta(1,4,sprite_Puerta_G,nivel_04);
-    createPuerta(13,2,sprite_Puerta_B,nivel_TRAP_01);
-    createPuerta(13,6,sprite_Puerta_B,nivel_TRAP_01);
-    createPuerta(15,4,sprite_Puerta_B,nivel_TRAP_01);
+    createPuerta(13,2,sprite_Puerta_B,nivel_TRAP_01);   
 
     //rocas móviles (separando id por espacios)
     cambiarMov(mover_1);
@@ -40,4 +38,7 @@ void crearnivel02(){
     createRoca(5,5,sprite_RockInmovil1_G,1);
 
     //decoracionDerecha
+    createRocaEspejo(13,6,sprite_hole,1);
+    createRocaEspejo(15,4,sprite_hole,1);
+
 }

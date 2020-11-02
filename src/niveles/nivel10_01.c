@@ -5,7 +5,7 @@ void crearnivel10_01(){
 createPlayer(2,2);
 createMarco(no);
 createPortal(no);
-createPuerta(3,3,sprite_Puerta_B,nivel_10_02);
+createPuerta(3,3,sprite_Puerta_B,nivel_10_03);
 
 //collecionables
 

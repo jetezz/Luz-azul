@@ -5,12 +5,7 @@ void scanKey(){
     cpct_scanKeyboard_f();
 }
 
-u8 keyScape(){
-    u8 pulsada=0;
-    if(cpct_isKeyPressed (Key_Esc))
-        pulsada=1;
-    return pulsada;    
-}
+
 u8 keyFire(){
     u8 pulsada=0;
     if(cpct_isKeyPressed (Key_Space))
@@ -53,6 +48,13 @@ u8 keyEscape(){
         pulsada=si;
     return pulsada;
 }
+u8 keySpace(){
+    u8 pulsada=no;
+    if(cpct_isKeyPressed(Key_Space))
+        pulsada=si;
+    return pulsada;
+}
+
 
 
 

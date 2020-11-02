@@ -128,6 +128,10 @@ void initDialogos(u8* pasos, u8* pasos2,u8* muertes,u8* muertes2){
 
     //nivel10_05
     dialogos[63]=dialogo10_05_0; 
+    //nivel21
+    dialogos[64]=dialogo21_0; 
+    dialogos[65]=dialogo21_1; 
+    dialogos[66]=dialogo21_2; 
 
  
 
@@ -254,6 +258,12 @@ void dialogosNivel1(){
 
     //nivel 10_05
      anadirDialogo(63,nivel_10_05,1);
+
+     //nivel 21
+     anadirDialogo(64,nivel_21,1);
+     anadirDialogo(65,nivel_21,3);
+     anadirDialogo(66,nivel_21,15);
+
 
 
 
@@ -645,7 +655,7 @@ void dialogo20_2(){
 }
 void dialogo20_3(){
     cpct_setDrawCharM0(5, 0);
-    cpct_drawStringM0("No hay final para el mal.",PuntoEscribir);
+    cpct_drawStringM0("No hay final para   el mal.",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);
 }
 void dialogo20_4(){
@@ -658,4 +668,20 @@ void dialogo20_4(){
 //nivel 10_5
 void dialogo10_05_0(){
      cpct_drawStringM0("Al fin.  Nos        volvemos a          encontrar.",PuntoEscribir);
+}
+
+//nivel 21
+
+void dialogo21_0(){
+    cpct_setDrawCharM0(3, 0);
+    cpct_drawStringM0("Te has quedado      dormido, Dastan",PuntoEscribir);
+    cpct_setDrawCharM0(1, 0);
+}
+void dialogo21_1(){
+    cpct_drawStringM0("Tu hermano te       espera para jugar   al Prince of Persia",PuntoEscribir);
+}
+void dialogo21_2(){
+    cpct_setDrawCharM0(5, 0);
+    cpct_drawStringM0("I WILL FIND YOU.",PuntoEscribir);
+    cpct_setDrawCharM0(1, 0);
 }

@@ -132,11 +132,17 @@ void dialogo20_4();
 
 
 
+
 //nivel 10_5
 
 void dialogo10_05_0();
 
 
+//nivel 21
+
+void dialogo21_0();
+void dialogo21_1();
+void dialogo21_2();
 
 
 
