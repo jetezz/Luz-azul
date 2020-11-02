@@ -15,6 +15,7 @@ void initAnimaciones();
 void animacionesManager();
 void iniciarAnimacion(u8 anim,u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo);
 u8 porcentajeDesplazamiento(u8 numInteraciones,u8 casillas,u8 repeticiones);
+void resetAnimaciones();
 
 
 //animaciones

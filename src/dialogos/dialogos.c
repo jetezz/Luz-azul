@@ -75,12 +75,12 @@ void anadirDialogo(u8 id, u8 nivel,u8 pasos){
     contadorDialogos++;
 }
 void dialogosNivel1(){
-    anadirDialogo(0,nivel_01,0);
-    anadirDialogo(1,nivel_01,3);
-    anadirDialogo(2,nivel_01,6);
-    anadirDialogo(3,nivel_01,9);
-    anadirDialogo(4,nivel_01,15);
-    anadirDialogo(5,nivel_01,20);
+    //anadirDialogo(0,nivel_01,0);
+    //anadirDialogo(1,nivel_01,3);
+    //anadirDialogo(2,nivel_01,6);
+    //anadirDialogo(3,nivel_01,9);
+    //anadirDialogo(4,nivel_01,15);
+    //anadirDialogo(5,nivel_01,20);
 }
 
 void dialogopasos(){
@@ -161,7 +161,6 @@ void dialogoMapas(u8 nivel){
         cpct_drawSprite(mapa3_0,PunteroMapa, 11, 44);
     }else if(nivel>nivel_12 && nivel<nivel_17){
         cpct_drawSprite(mapa4_0,PunteroMapa, 11, 44);
-
     }
 }
 void dialogovacio(){
