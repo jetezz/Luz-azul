@@ -38,7 +38,7 @@ void initDialogos(u8* pasos, u8* pasos2,u8* muertes,u8* muertes2){
     }
     //nivel 01
     dialogos[0]=dialogo01_0;
-    dialogos[0]=dialogo01_1;
+    dialogos[1]=dialogo01_1;
     dialogos[2]=dialogo01_2;
     //nivel 01_01
     dialogos[3]=dialogo01__01_0;
@@ -372,7 +372,7 @@ void dialogovacio(){
 
 //nivel 1
 void dialogo01_0(){   
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
     cpct_drawStringM0("Tu cuarto",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);    
 }
@@ -389,7 +389,7 @@ void dialogo01_2(){
 
 //nivel 01_01
 void dialogo01__01_0(){ 
-    cpct_setDrawCharM0(3, 0);   
+    cpct_setDrawCharM0(9, 0);  
     cpct_drawStringM0("Un monstruo",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);    
 }
@@ -403,7 +403,7 @@ void dialogo01__01_2(){
 
 //nivel02
 void dialogo02_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("El pasillo",PuntoEscribir);
     cpct_setDrawCharM0(1, 0); 
 }
@@ -416,7 +416,7 @@ void dialogo02_2(){
 
 //nivel trap1
 void dialogotrap1_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("Una trampa!",PuntoEscribir); 
      cpct_setDrawCharM0(1, 0);
 }
@@ -426,7 +426,7 @@ void dialogotrap1_1(){
 
 //nivel 03
 void dialogo03_0(){
-    cpct_setDrawCharM0(3, 0);
+   cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("Hermano!",PuntoEscribir);
      cpct_setDrawCharM0(1, 0);
 }
@@ -439,7 +439,7 @@ void dialogo03_2(){
 
 //nivel 4
 void dialogo04_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("La entrada",PuntoEscribir);
      cpct_setDrawCharM0(1, 0);
 }
@@ -449,14 +449,14 @@ void dialogo04_1(){
 
 //nivel 05
 void dialogo05_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("La cocina",PuntoEscribir);
      cpct_setDrawCharM0(1, 0);
 }
 
 //nivel 06
 void dialogo06_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
     cpct_drawStringM0("El lavabo",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);
 }
@@ -464,7 +464,7 @@ void dialogo06_0(){
 
 //nivel 07
 void dialogo07_0(){
-    cpct_setDrawCharM0(3, 0);
+   cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("Al otro lado",PuntoEscribir);
      cpct_setDrawCharM0(1, 0);
 }
@@ -477,7 +477,7 @@ void dialogo07_2(){
 
 //nivel 08
 void dialogo08_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("Las escaleras",PuntoEscribir);
      cpct_setDrawCharM0(1, 0);
 }
@@ -488,7 +488,7 @@ void dialogo08_2(){
 //nivel 08_01
 
 void dialogo08_01_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
     cpct_drawStringM0("ZUL",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);
 }
@@ -504,7 +504,7 @@ void dialogo08_01_2(){
 
 //nivel 09
 void dialogo09_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);  
      cpct_drawStringM0("El pasillo II",PuntoEscribir);
      cpct_setDrawCharM0(1, 0);
 }
@@ -519,7 +519,7 @@ void dialogo09_3(){
 }
 //nivel 10
 void dialogo10_0(){
-    cpct_setDrawCharM0(3, 0);    
+    cpct_setDrawCharM0(9, 0);   
      cpct_drawStringM0("Madre",PuntoEscribir);
      cpct_setDrawCharM0(1, 0);
 }
@@ -535,7 +535,7 @@ void dialogo10_3(){
 
 //nivel 11
 void dialogo11_0(){
-    cpct_setDrawCharM0(3, 0);
+   cpct_setDrawCharM0(9, 0);
     cpct_drawStringM0("Padre?",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);
 }
@@ -546,7 +546,7 @@ void dialogo11_1(){
 
 //nivel 12
 void dialogo12_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
     cpct_drawStringM0("A la buhardilla",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);
 }
@@ -556,17 +556,17 @@ void dialogo12_1(){
 
 //nivel 13
 void dialogo13_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("Las Catatumbas",PuntoEscribir);
      cpct_setDrawCharM0(1, 0);
 }
 void dialogo13_1(){
-     cpct_setDrawCharM0(2, 0);
-     cpct_drawStringM0("DASTAN - Que la luz te acompane.",PuntoEscribir);
+     cpct_setDrawCharM0(6, 0);
+     cpct_drawStringM0("DASTAN - Que la luz te de fuerza.",PuntoEscribir);
       cpct_setDrawCharM0(1, 0);
 }
 void dialogo13_2(){
-     cpct_setDrawCharM0(6, 0);
+     cpct_setDrawCharM0(2, 0);
     cpct_drawStringM0("Gracias.",PuntoEscribir);
       cpct_setDrawCharM0(1, 0);
 
@@ -577,7 +577,7 @@ void dialogo13_3(){
 
 //nivel 14
 void dialogo14_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
    cpct_drawStringM0("Entre la tierra",PuntoEscribir); 
    cpct_setDrawCharM0(1, 0);
 }
@@ -588,7 +588,7 @@ void dialogo14_1(){
 
 //nivel 15
 void dialogo15_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("No! Padre!",PuntoEscribir);
      cpct_setDrawCharM0(1, 0); 
 }
@@ -602,7 +602,7 @@ void dialogo15_1(){
 
 //nivel 16
 void dialogo16_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("Al lado de Zul",PuntoEscribir); 
      cpct_setDrawCharM0(1, 0);    
 }
@@ -615,21 +615,21 @@ void dialogo16_1(){
 
 //nivel 17
 void dialogo17_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("La oscuridad",PuntoEscribir); 
      cpct_setDrawCharM0(1, 0);
 
 }
 //nivel 18
 void dialogo18_0(){
-    cpct_setDrawCharM0(3, 0);
+   cpct_setDrawCharM0(9, 0);
      cpct_drawStringM0("La profunda         oscuridad",PuntoEscribir); 
      cpct_setDrawCharM0(1, 0);
 
 }
 //nivel 19
 void dialogo19_0(){
-    cpct_setDrawCharM0(3, 0);
+   cpct_setDrawCharM0(9, 0);
     cpct_drawStringM0("La ultima pesadilla",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);
 }
@@ -641,7 +641,7 @@ void dialogo19_1(){
 
 //nivel 20
 void dialogo20_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
     cpct_drawStringM0("LUZ A ZUL",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);
 }
@@ -673,7 +673,7 @@ void dialogo10_05_0(){
 //nivel 21
 
 void dialogo21_0(){
-    cpct_setDrawCharM0(3, 0);
+    cpct_setDrawCharM0(9, 0);
     cpct_drawStringM0("Te has quedado      dormido, Dastan",PuntoEscribir);
     cpct_setDrawCharM0(1, 0);
 }

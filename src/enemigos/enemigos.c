@@ -1,7 +1,7 @@
 #include "enemigos.h"
 #include "gameObject/gameObject.h"
 #include "animaciones/animaciones.h"
-#define frecuenciaia3   7;
+#define frecuenciaia3   9;
 
 #include <stdio.h>
 #include <stdlib.h>

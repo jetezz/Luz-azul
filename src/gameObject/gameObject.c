@@ -67,7 +67,7 @@
 
 
 
-#define     retardoMovimiento           0x08
+#define     retardoMovimiento           0x10
 
 const u8* sprites[sprite_final];
 
