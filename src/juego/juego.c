@@ -14,7 +14,7 @@
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
 #define     frecuenciaMaxIA     8
 #define     frecienciaMaxMenu   10
-#define     PuntoEscribir   cpctm_screenPtr(CPCT_VMEM_START, 2, 8)
+#define     PuntoEscribir   cpctm_screenPtr(CPCT_VMEM_START, 2, 100)
 
 
 
@@ -48,8 +48,8 @@ u8 frecuenciaReinicio;
 
 
 void game(){
-    cpct_akp_musicInit(molusk);    // Initialize the music
-    cpct_akp_SFXInit(molusk);
+    //cpct_akp_musicInit(molusk);    // Initialize the music
+    //cpct_akp_SFXInit(molusk);
 
     cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
     cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
@@ -114,6 +114,12 @@ void game(){
                 dialogo01_0();       
 
             }else{
+                cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
+                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 25, 90),0x00,30,70);
+                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 90),0x00,30,70); 
+                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 130, 90),0x00,30,70); 
+                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,50);
+                cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,50);
                 cpct_drawStringM0("-> <- moverse                           S pasos                                 M mapa                                  R reiniciar nivel                       Esc reiniciar juego",PuntoEscribir);
                 //cpct_zx7b_decrunch_s(0xFFFF,controls_end);
 
@@ -160,6 +166,7 @@ void initGame(){
           
 }
 void moverPlayer(){
+    u8 suma=0;
     u8 siguienteNivel=seguir_En_Nivel;
      if(player.posx!=0){
         if(posicion==posicion_Izquieda){
@@ -178,9 +185,27 @@ void moverPlayer(){
             nivelActual= siguienteNivel;            
             resetGameobjects(nivelActual); 
         }else{
-            //cpct_zx7b_decrunch_s(0xFFFF,final_end);
-             cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 0),0x00,36,144);
-            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 36, 0),0x00,33,144);
+            cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
+            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 25, 90),0x00,30,70);
+            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 90),0x00,30,70); 
+            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 130, 90),0x00,30,70); 
+            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,50);
+            cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,50);       
+            
+    
+            
+             suma=(pasosContador+pasosT);
+            if(suma>100){
+                pasosT2++;
+                pasosT=(suma-100);
+            }else{
+                pasosT=suma;
+            }
+            pasosContador=0;
+
+
+            //cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 25, 90),0x00,30,70);            
+
             cpct_drawStringM0("Gracias por jugar",PuntoEscribir);
             dialogopasos();
             dialogosMuertes();
@@ -246,7 +271,8 @@ void resetGameobjects(u8 nivel){
     pasosContador=0;
     frecuenciaIA=frecuenciaMaxIA;
     muerteJugador=no;
-    frecuenciaMuerte=frecuenciaMuertePlayer;    
+    frecuenciaMuerte=frecuenciaMuertePlayer;
+    resetAnimaciones();    
     crearNivel(nivel);    
     crearEnemigos(nivelActual,coleccionablesLuz);        
     dibujarGameObjects();
@@ -287,6 +313,7 @@ void pasosTotales(){
 }
 void salir(){
       if(keyEscape()==si){
+            cpct_akp_stop (); 
             cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
             cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
             initGame();            

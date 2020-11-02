@@ -69,7 +69,7 @@
 
 #define     retardoMovimiento           0x08
 
-const u8* sprites[menu_selector];
+const u8* sprites[sprite_final];
 
 
 void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* portales,TGameObject* puertas,TGameObjectCol* colec,u8* colLuz,u8* colFam,u8* colAms,u8* colList,u8* posicion){
@@ -92,8 +92,7 @@ void initGameobjest(TGameObject* rocas,TGameObject* rocasEspejo,TGameObject* por
     sprites[sprite_RockInmovil1_G]=&Block_Static1_G_0[0];
     sprites[sprite_RockInmovil1_B]=&Block_Static1_B_0[0];
     sprites[sprite_RockInmovil2_G]=&Block_Static2_G_0[0];
-    sprites[sprite_RockInmovil2_B]=&Block_Static2_B_0[0];
-    
+    sprites[sprite_RockInmovil2_B]=&Block_Static2_B_0[0];    
     sprites[sprite_RockInmovil8_G]=&Block_Static8_G_0[0];
     sprites[sprite_RockInmovil8_B]=&Block_Static8_B_0[0];
     sprites[sprite_RockInmovil9_G]=&Block_Static9_G_0[0];

@@ -79,18 +79,18 @@ void animacionesManager(){
                 aux.posy=animacionesActivas[i].posy;
                 aux.sprite=animacionesActivas[i].spriteActual;
               }
-              if(aux.sprite>sprite_SinDefinir && aux.sprite<menu_selector)
-             dibujarGameObject(&aux,si);
+              if(aux.sprite>sprite_SinDefinir && aux.sprite<sprite_final){
+                  if(aux.posx>0 && aux.posx<64){
+                      if(aux.posy>8 && aux.posy<128){
+                           dibujarGameObject(&aux,si);
+                      }
+                  }                  
+              }
+             
           }
-      }
-        
-        
-        
-
+      }        
     }
 }
-
-
 
 void iniciarAnimacion(u8 anim,u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal, u8 borrado,u8 retardo){      
     animaciones[anim](sprite,posx,posy,posxFinal,posyFinal,borrado,retardo);    
@@ -101,11 +101,15 @@ u8 porcentajeDesplazamiento(u8 numInteraciones,u8 casillas, u8 repeticiones){
     if(numInteraciones==0){
       numInteraciones++;  
     }       
-    pixeles=(casillas)/(numInteraciones*repeticiones);
-      
+    pixeles=(casillas)/(numInteraciones*repeticiones);      
     return pixeles;
 }
 
+void resetAnimaciones(){
+    for (u8 i=0;i<animacionesMaximasEnLista;i++){
+        animacionesActivas[i].id=sin_animacion;
+    }
+}
 void animacionAndar(u8 sprite,u8 posx, u8 posy, u8 posxFinal, u8 posyFinal,u8 borrado,u8 retardo){
     u8 colocado=no;
     for(u8 i=0;i<animacionesMaximasEnLista && colocado==no ;i++){
