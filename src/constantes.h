@@ -22,7 +22,7 @@
 #define animacinesMaximas   10
 #define animacionesMaximasEnLista 5
 #define frecuenciaMuertePlayer  30
-#define frecuenciaReinicioNIvel  10
+#define frecuenciaReinicioNIvel  30
 
 
 

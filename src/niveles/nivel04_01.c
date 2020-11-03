@@ -6,7 +6,7 @@ createPlayer(6,4);
 createMarco(no);
 createPortal(no);
 createPuerta(7,4,sprite_Puerta_B,nivel_04);
-createPuerta(1,4,sprite_Puerta_B,nivel_TRAP_01);
+
 
 //rocas móviles (separando id por espacios)
 cambiarMov(mover_1);

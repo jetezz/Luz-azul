@@ -19,7 +19,7 @@ createRoca(6,3,sprite_Rock_G,5);
 createRoca(3,4,sprite_Rock_G,6);
 createRoca(3,6,sprite_Rock_G,7);
 createRocaEspejo(10,4,sprite_Rock_B,10);
-
+createRocaEspejo(12,2,sprite_Rock_B,4);
 
 
 cambiarMov(mover_Linea);
@@ -30,7 +30,7 @@ createRocaEspejo(12,6,sprite_RockLineal1_B,9);
 cambiarMov(sin_Movimiento);
 createRoca(6,4,sprite_Rock_nomove_G,10);
 createRoca(4,6,sprite_Rock_nomove_G,9);
-createRocaEspejo(12,2,sprite_Rock_nomove_B,4);
+
 createRocaEspejo(13,2,sprite_Rock_nomove_B,3);
 createRocaEspejo(14,2,sprite_Rock_nomove_B,2);
 createRocaEspejo(13,4,sprite_Rock_nomove_B,6);
@@ -53,23 +53,21 @@ crearRocaYsimetrico(4,5,sprite_RockInmovil2_G,sprite_RockInmovil2_B,1);
 
 //decoracion izquierda
 createRoca(6,5,sprite_RockInmovil1_G,1);
-createHoleIzquierda(5,2,sprite_hole,1);
-createHoleIzquierda(5,3,sprite_hole,1);
+
 createHoleIzquierda(5,4,sprite_hole,1);
 createHoleIzquierda(5,5,sprite_hole,1);
-createHoleIzquierda(6,2,sprite_hole,1);
-createHoleIzquierda(2,4,sprite_hole,1);
+
 
 //decoracionDerecha
-createHoleDerecha(11,2,sprite_hole,1);
-createHoleDerecha(11,3,sprite_hole,1);
+
+
 createHoleDerecha(11,4,sprite_hole,1);
 createHoleDerecha(11,5,sprite_hole,1);
-createHoleDerecha(10,2,sprite_hole,1);
 createHoleDerecha(10,5,sprite_hole,1);
 createHoleDerecha(9,7,sprite_hole,1);
-createHoleDerecha(14,4,sprite_hole,1);
 createHoleDerecha(11,1,sprite_hole,1);
+
+
 
  
 }

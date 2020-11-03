@@ -371,317 +371,317 @@ void dialogovacio(){
 }
 
 //nivel 1
-void dialogo01_0(){   
-    cpct_setDrawCharM0(9, 0);
-    cpct_drawStringM0("Tu cuarto",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);    
+void dialogo01_0(){  
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Tu dormitorio",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);   
 }
 void dialogo01_1(){
-     cpct_drawStringM0("Una luz brillaba al otro lado. ",PuntoEscribir); 
+cpct_drawStringM0("Una luz brillaba al otro lado. ",PuntoEscribir);
 }
-
-
+ 
+ 
 void dialogo01_2(){
-    cpct_setDrawCharM0(2, 0);
-    cpct_drawStringM0("Si intentara mover  algo...",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(2, 0);
+cpct_drawStringM0("Si intentara mover  algo...",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
-
+ 
 //nivel 01_01
-void dialogo01__01_0(){ 
-    cpct_setDrawCharM0(9, 0);  
-    cpct_drawStringM0("Un monstruo",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);    
+void dialogo01__01_0(){
+cpct_setDrawCharM0(9, 0); 
+cpct_drawStringM0("Un monstruo!",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);   
 }
-void dialogo01__01_1(){    
-    cpct_drawStringM0("Lejos de asustarse, caminaba a lo       desconocido.",PuntoEscribir);    
+void dialogo01__01_1(){   
+cpct_drawStringM0("Han destrozado su   juego favorito.",PuntoEscribir);   
 }
-void dialogo01__01_2(){    
-    cpct_drawStringM0("Su juego favorito   estaba destrozado.  Hazte con todas.",PuntoEscribir);    
+void dialogo01__01_2(){   
+cpct_drawStringM0("Encuentra todas     las partes del      cassette.",PuntoEscribir);   
 }
-
-
+ 
+ 
 //nivel02
 void dialogo02_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("El pasillo",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0); 
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("El pasillo",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo02_1(){
-     cpct_drawStringM0("Un pasillo oscuro,  una voz pidiendo    ayuda",PuntoEscribir);
+cpct_drawStringM0("Un pasillo oscuro,  una voz pidiendo    ayuda",PuntoEscribir);
 }
 void dialogo02_2(){
-     cpct_drawStringM0("Debo encontrar a mi familia.",PuntoEscribir);
+cpct_drawStringM0("Debo encontrar a mi familia.",PuntoEscribir);
 }
-
+ 
 //nivel trap1
 void dialogotrap1_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("Una trampa!",PuntoEscribir); 
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Una trampa!",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogotrap1_1(){
-     cpct_drawStringM0("Tengo que salir de  aqui.",PuntoEscribir);
+cpct_drawStringM0("Tengo que salir de  aqui.",PuntoEscribir);
 }
-
+ 
 //nivel 03
 void dialogo03_0(){
-   cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("Hermano!",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Hermano!",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo03_1(){
-    cpct_drawStringM0("Escuchaba gritos al otro lado del       portal.",PuntoEscribir);
+cpct_drawStringM0("Solo un agujero     en el suelo les     separaba.",PuntoEscribir);
 }
 void dialogo03_2(){
-    cpct_drawStringM0("Necesitaba salvar   el abismo.",PuntoEscribir);
+cpct_drawStringM0("",PuntoEscribir);
 }
-
+ 
 //nivel 4
 void dialogo04_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("La entrada",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("La entrada",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
-void dialogo04_1(){    
-    cpct_drawStringM0("La luz era la unica manera de derrotar  a Zul.",PuntoEscribir);    
+void dialogo04_1(){   
+cpct_drawStringM0("Solo la luz puede   derrotar a Zul.",PuntoEscribir);   
 }
-
+ 
 //nivel 05
 void dialogo05_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("La cocina",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("La cocina",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
-
+ 
 //nivel 06
 void dialogo06_0(){
-    cpct_setDrawCharM0(9, 0);
-    cpct_drawStringM0("El lavabo",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("El lavabo",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
-
-
+ 
+ 
 //nivel 07
 void dialogo07_0(){
-   cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("Al otro lado",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Al otro lado",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo07_1(){
-    cpct_drawStringM0("El otro lado estaba repleto monstruos.",PuntoEscribir);
+cpct_drawStringM0("El otro lado estaba repleto de          monstruos...",PuntoEscribir);
 }
 void dialogo07_2(){
-    cpct_drawStringM0("Tambien de una luz  poderosa.",PuntoEscribir);
+cpct_drawStringM0("...y de una luz     poderosa.",PuntoEscribir);
 }
-
+ 
 //nivel 08
 void dialogo08_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("Las escaleras",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Las escaleras",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo08_2(){
-     cpct_drawStringM0("El aire era muy     denso, el mal       estaba cerca...",PuntoEscribir);
+cpct_drawStringM0("El aire era muy     denso, el mal       estaba cerca...",PuntoEscribir);
 }
-
+ 
 //nivel 08_01
-
+ 
 void dialogo08_01_0(){
-    cpct_setDrawCharM0(9, 0);
-    cpct_drawStringM0("ZUL",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("ZUL",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo08_01_1(){
-    cpct_drawStringM0("Delante, aparece la sombra de Zul.",PuntoEscribir);   
+cpct_drawStringM0("Delante, aparece la sombra de Zul.",PuntoEscribir);  
 }
-
+ 
 void dialogo08_01_2(){
-     cpct_setDrawCharM0(5, 0);
-    cpct_drawStringM0("Sigue asi. No vas a conseguir nada.",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(5, 0);
+cpct_drawStringM0("Sigue asi. No vas a conseguir nada.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
-
+ 
 //nivel 09
 void dialogo09_0(){
-    cpct_setDrawCharM0(9, 0);  
-     cpct_drawStringM0("El pasillo II",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0); 
+cpct_drawStringM0("El pasillo II",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo09_1(){
-    cpct_drawStringM0("Avanzaba solo",PuntoEscribir);
+cpct_drawStringM0("Avanzaba solo",PuntoEscribir);
 }
 void dialogo09_2(){
-    cpct_drawStringM0("Espero que esten    bien.",PuntoEscribir);
+cpct_drawStringM0("Espero que sigan    bien.",PuntoEscribir);
 }
 void dialogo09_3(){
-    cpct_drawStringM0("Los necesito.",PuntoEscribir);
+cpct_drawStringM0("Los necesito.",PuntoEscribir);
 }
 //nivel 10
 void dialogo10_0(){
-    cpct_setDrawCharM0(9, 0);   
-     cpct_drawStringM0("Madre",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);  
+cpct_drawStringM0("Madre",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo10_1(){
-    cpct_drawStringM0("La sala estaba      helada, su madre    estaba...",PuntoEscribir);
+cpct_drawStringM0("La sala estaba      helada, su madre    estaba...",PuntoEscribir);
 }
 void dialogo10_2(){
-    cpct_drawStringM0("Quieta, una estatua sin vida.",PuntoEscribir);
+cpct_drawStringM0("Quieta, una estatua sin vida.",PuntoEscribir);
 }
 void dialogo10_3(){
-    cpct_drawStringM0("No era ella.",PuntoEscribir);
+cpct_drawStringM0("No era ella.",PuntoEscribir);
 }
-
+ 
 //nivel 11
 void dialogo11_0(){
-   cpct_setDrawCharM0(9, 0);
-    cpct_drawStringM0("Padre?",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Padre?",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo11_1(){
-    cpct_drawStringM0("No estaba en su     habitacion, ni al   otro lado",PuntoEscribir);
+cpct_drawStringM0("No estaba en su     cuarto, ni al otro  lado",PuntoEscribir);
 }
-
-
+ 
+ 
 //nivel 12
 void dialogo12_0(){
-    cpct_setDrawCharM0(9, 0);
-    cpct_drawStringM0("A la buhardilla",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("A la buhardilla",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo12_1(){
-    cpct_drawStringM0("Su hermana le       miraba aterrada, al otro lado.",PuntoEscribir);
+cpct_drawStringM0("Su hermana estaba   aterrada al otro    lado.",PuntoEscribir);
 }
-
+ 
 //nivel 13
 void dialogo13_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("Las Catatumbas",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Las Catacumbas",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo13_1(){
-     cpct_setDrawCharM0(6, 0);
-     cpct_drawStringM0("DASTAN - Que la luz te de fuerza.",PuntoEscribir);
-      cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(6, 0);
+cpct_drawStringM0("DASTAN - Que la luz te de fuerza.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo13_2(){
-     cpct_setDrawCharM0(2, 0);
-    cpct_drawStringM0("Gracias.",PuntoEscribir);
-      cpct_setDrawCharM0(1, 0);
-
+cpct_setDrawCharM0(2, 0);
+cpct_drawStringM0("Gracias.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
+ 
 }
 void dialogo13_3(){
-    cpct_drawStringM0("No diferenciaba ya  entre sueno y       verdad.",PuntoEscribir);
+cpct_drawStringM0("No diferenciaba ya  entre realidad e    imaginar.",PuntoEscribir);
 }
-
+ 
 //nivel 14
 void dialogo14_0(){
-    cpct_setDrawCharM0(9, 0);
-   cpct_drawStringM0("Entre la tierra",PuntoEscribir); 
-   cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Entre la tierra",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo14_1(){
-    cpct_drawStringM0("Se acercaba al fin. Debe protegerse de  los monstruos.",PuntoEscribir); 
+cpct_drawStringM0("Se acercaba al fin. Debe protegerse de  los monstruos.",PuntoEscribir);
 }
-
-
+ 
+ 
 //nivel 15
 void dialogo15_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("No! Padre!",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0); 
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("No! Padre!",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo15_1(){
-     cpct_setDrawCharM0(2, 0);
-    cpct_drawStringM0("Te voy a sacar de   ese lugar!",PuntoEscribir);
-     cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(2, 0);
+cpct_drawStringM0("Te voy a sacar de   ese lugar!",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
-
-
-
+ 
+ 
+ 
 //nivel 16
 void dialogo16_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("Al lado de Zul",PuntoEscribir); 
-     cpct_setDrawCharM0(1, 0);    
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Al lado de Zul",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);   
 }
 void dialogo16_1(){
-    cpct_setDrawCharM0(5, 0);
-     cpct_drawStringM0("Avanzas...pero no   es posible. No      puedes huir.",PuntoEscribir); 
-     cpct_setDrawCharM0(1, 0);    
+cpct_setDrawCharM0(5, 0);
+cpct_drawStringM0("Avanzas...pero no   es posible. No      puedes huir.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);   
 }
-
-
+ 
+ 
 //nivel 17
 void dialogo17_0(){
-    cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("La oscuridad",PuntoEscribir); 
-     cpct_setDrawCharM0(1, 0);
-
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("La oscuridad",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
+ 
 }
 //nivel 18
 void dialogo18_0(){
-   cpct_setDrawCharM0(9, 0);
-     cpct_drawStringM0("La profunda         oscuridad",PuntoEscribir); 
-     cpct_setDrawCharM0(1, 0);
-
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("La profunda         oscuridad",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
+ 
 }
 //nivel 19
 void dialogo19_0(){
-   cpct_setDrawCharM0(9, 0);
-    cpct_drawStringM0("La ultima pesadilla",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("La pesadilla final",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo19_1(){
-    cpct_setDrawCharM0(5, 0);
-    cpct_drawStringM0("Crees que puedes    conmigo.",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(5, 0);
+cpct_drawStringM0("Crees que puedes    conmigo.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
-
+ 
 //nivel 20
 void dialogo20_0(){
-    cpct_setDrawCharM0(9, 0);
-    cpct_drawStringM0("LUZ A ZUL",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("LUZ A ZUL",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo20_1(){
-    cpct_drawStringM0("Ahora Zul no era    solo una sombra...",PuntoEscribir);
+   cpct_drawStringM0("Ahora Zul no era    solo una sombra..",PuntoEscribir);
 }
 void dialogo20_2(){
-     cpct_setDrawCharM0(2, 0);
-    cpct_drawStringM0("Vas a desaparecer.",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(2, 0);
+cpct_drawStringM0("Vas a desaparecer.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo20_3(){
-    cpct_setDrawCharM0(5, 0);
-    cpct_drawStringM0("No hay final para   el mal.",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(5, 0);
+cpct_drawStringM0("No hay final para   el mal.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo20_4(){
-    cpct_setDrawCharM0(5, 0);
-    cpct_drawStringM0("Con la fuerza de la luz, pudo destrozar para siempre a     todos sus fantasmas.",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(5, 0);
+cpct_drawStringM0("Con la fuerza de la luz, pudo destrozar para siempre a      todos sus fantasmas.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
-
-
+ 
+ 
 //nivel 10_5
 void dialogo10_05_0(){
-     cpct_drawStringM0("Al fin.  Nos        volvemos a          encontrar.",PuntoEscribir);
+cpct_drawStringM0("Al fin.  Nos        volvemos a          encontrar.",PuntoEscribir);
 }
 
 //nivel 21
-
+ 
 void dialogo21_0(){
-    cpct_setDrawCharM0(9, 0);
-    cpct_drawStringM0("Te has quedado      dormido, Dastan",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(9, 0);
+cpct_drawStringM0("Te has quedado      dormido, Dastan",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }
 void dialogo21_1(){
-    cpct_drawStringM0("Tu hermano te       espera para jugar   al Prince of Persia",PuntoEscribir);
+cpct_drawStringM0("Tu hermano te       espera para jugar   al Prince of Persia",PuntoEscribir);
 }
 void dialogo21_2(){
-    cpct_setDrawCharM0(5, 0);
-    cpct_drawStringM0("I WILL FIND YOU.",PuntoEscribir);
-    cpct_setDrawCharM0(1, 0);
+cpct_setDrawCharM0(5, 0);
+cpct_drawStringM0("I WILL FIND YOU.",PuntoEscribir);
+cpct_setDrawCharM0(1, 0);
 }

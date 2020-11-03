@@ -14,7 +14,7 @@
 #define     Punto_Inicial_De_Pantalla   cpctm_screenPtr(CPCT_VMEM_START, 4, 16)
 #define     frecuenciaMaxIA     8
 #define     frecienciaMaxMenu   10
-#define     PuntoEscribir   cpctm_screenPtr(CPCT_VMEM_START, 2, 120)
+#define     PuntoEscribir   cpctm_screenPtr(CPCT_VMEM_START, 2, 106)
 #define     frecuenciaMutemax      10
 
 
@@ -56,7 +56,7 @@ void game(){
     cpct_akp_SFXInit(molusk);
 
     cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
-    cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
+    cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,22 ,116 ), 2, 8);
     initGame();
     estado=estado_Menu;
     estadoSeleccionado=estado_juego;
@@ -73,7 +73,7 @@ void game(){
         
     //          
        
-        modoDios();
+        //modoDios();
         pasosTotales();            
         comprobarMovimiento();             
         moverPlayer();
@@ -88,8 +88,9 @@ void game(){
         animacionesManager();
         resetearPorMuerte();
         resetNivel();
-        if(keyM()==si){
+        if(keyM()==si && frecuenciaReinicio==0){
             dialogoMapas(nivelActual);
+            frecuenciaReinicio=frecuenciaReinicioNIvel;
         }
         muteMusica();
 
@@ -98,13 +99,13 @@ void game(){
             if(frecuenciaIA==0){
                 if(estadoSeleccionado==estado_juego){
                     estadoSeleccionado=estado_controles;
-                    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ),0x00,2,8);
-                    cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,22 ,128 ), 2, 8);
+                    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START,22 ,116 ),0x00,2,8);
+                    cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,20 ,128 ), 2, 8);
 
                 }else if(estadoSeleccionado==estado_controles){
                     estadoSeleccionado=estado_juego;
-                    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START,22 ,128 ),0x00,2,8);
-                    cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
+                    cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START,20 ,128 ),0x00,2,8);
+                    cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,22 ,116 ), 2, 8);
                 }
                 frecuenciaIA=frecienciaMaxMenu;
             }
@@ -128,7 +129,7 @@ void game(){
                 cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 130, 90),0x00,30,70); 
                 cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 0, 150),0,50,50);
                 cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 50, 150),0,50,50);
-                cpct_drawStringM0("-> <- moverse                           S pasos                                 M mapa                                  R reiniciar nivel                       Esc quitar musica",PuntoEscribir);
+                cpct_drawStringM0("-> <- Moverse                           S Pasos                                 M Mapa                                  R Reiniciar nivel                       Esc Reiniciar Juego                     Esp Quitar musica",PuntoEscribir);
                 //cpct_zx7b_decrunch_s(0xFFFF,controls_end);
 
             }
@@ -138,7 +139,7 @@ void game(){
     }else{
         if(keyEscape()==si){
             cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
-            cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
+            cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,22 ,116 ), 2, 8);
             initGame();            
             estado=estado_Menu;
             estadoSeleccionado=estado_juego;
@@ -168,6 +169,7 @@ void initGame(){
     frecuenciamute=frecuenciaMutemax;
     frecuenciaMuerte=frecuenciaMuertePlayer;
     player.cronoMovimiento=0;
+    frecuenciaReinicio=frecuenciaReinicioNIvel;
     initGameobjest(rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);
     initNiveles(&player,rocas,rocasEspejo,portal,puertas,coleccionables,&coleccionablesLuz,&coleccionablesFam,&coleccionablesAms,colList,&posicion);    
     initDialogos( &pasosT,  &pasosT2,&muertesT,&muertesT2);
@@ -320,7 +322,7 @@ void salir(){
       if(keyEscape()==si){
             cpct_akp_stop (); 
             cpct_zx7b_decrunch_s(0xFFFF,mygraphics_end);
-            cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,26 ,116 ), 2, 8);
+            cpct_drawSprite(MenuSelector_0, cpctm_screenPtr(CPCT_VMEM_START,22 ,116 ), 2, 8);
             initGame();            
             estado=estado_Menu;
             estadoSeleccionado=estado_juego;
@@ -389,3 +391,4 @@ void muteMusica(){
      if (frecuenciamute>0)
      frecuenciamute--;
 }
+
