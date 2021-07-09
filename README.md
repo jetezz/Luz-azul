@@ -2,7 +2,7 @@
 
 ## Videojuego creado en c con cpctelera presentado en el concurso cpcretrodev 2020
 
-Guía
+Guía Español
 =====
 
 ![img1](https://user-images.githubusercontent.com/44770300/125103227-6eb95a00-e0dc-11eb-8712-f8f09a8432dc.png)
