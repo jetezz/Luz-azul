@@ -1,0 +1,351 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.6.8 #9946 (Linux)
+                              4 ;--------------------------------------------------------
+                              5 	.module hud
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _dibujarGameObjectColSprite
+                             12 	.globl _cpct_drawStringM0
+                             13 	.globl _cpct_setDrawCharM0
+                             14 	.globl _cpct_drawSolidBox
+                             15 	.globl _contadorPasos
+                             16 	.globl _contadorAmstr
+                             17 	.globl _contadorFamilia
+                             18 	.globl _contadorLuz
+                             19 	.globl _asd
+                             20 	.globl _initHud
+                             21 	.globl _actualizarHud
+                             22 ;--------------------------------------------------------
+                             23 ; special function registers
+                             24 ;--------------------------------------------------------
+                             25 ;--------------------------------------------------------
+                             26 ; ram data
+                             27 ;--------------------------------------------------------
+                             28 	.area _DATA
+   0000                      29 _P_portal:
+   0000                      30 	.ds 2
+   0002                      31 _P_puertas:
+   0002                      32 	.ds 2
+   0004                      33 _P_col:
+   0004                      34 	.ds 2
+   0006                      35 _P_luz:
+   0006                      36 	.ds 2
+   0008                      37 _P_fam:
+   0008                      38 	.ds 2
+   000A                      39 _P_ams:
+   000A                      40 	.ds 2
+   000C                      41 _P_colList:
+   000C                      42 	.ds 2
+   000E                      43 _contadorLuz::
+   000E                      44 	.ds 1
+   000F                      45 _contadorFamilia::
+   000F                      46 	.ds 1
+   0010                      47 _contadorAmstr::
+   0010                      48 	.ds 1
+   0011                      49 _contadorPasos::
+   0011                      50 	.ds 1
+                             51 ;--------------------------------------------------------
+                             52 ; ram data
+                             53 ;--------------------------------------------------------
+                             54 	.area _INITIALIZED
+                             55 ;--------------------------------------------------------
+                             56 ; absolute external ram data
+                             57 ;--------------------------------------------------------
+                             58 	.area _DABS (ABS)
+                             59 ;--------------------------------------------------------
+                             60 ; global & static initialisations
+                             61 ;--------------------------------------------------------
+                             62 	.area _HOME
+                             63 	.area _GSINIT
+                             64 	.area _GSFINAL
+                             65 	.area _GSINIT
+                             66 ;--------------------------------------------------------
+                             67 ; Home
+                             68 ;--------------------------------------------------------
+                             69 	.area _HOME
+                             70 	.area _HOME
+                             71 ;--------------------------------------------------------
+                             72 ; code
+                             73 ;--------------------------------------------------------
+                             74 	.area _CODE
+                             75 ;src/hud/hud.c:21: void asd(){
+                             76 ;	---------------------------------
+                             77 ; Function asd
+                             78 ; ---------------------------------
+   0000                      79 _asd::
+                             80 ;src/hud/hud.c:32: }
+   0000 C9            [10]   81 	ret
+                             82 ;src/hud/hud.c:33: void initHud(){
+                             83 ;	---------------------------------
+                             84 ; Function initHud
+                             85 ; ---------------------------------
+   0001                      86 _initHud::
+   0001 DD E5         [15]   87 	push	ix
+   0003 DD 21 00 00   [14]   88 	ld	ix,#0
+   0007 DD 39         [15]   89 	add	ix,sp
+   0009 F5            [11]   90 	push	af
+                             91 ;src/hud/hud.c:34: char text[] = "0";
+   000A 21 00 00      [10]   92 	ld	hl, #0x0000
+   000D 39            [11]   93 	add	hl, sp
+   000E 4D            [ 4]   94 	ld	c,l
+   000F 44            [ 4]   95 	ld	b,h
+   0010 36 30         [10]   96 	ld	(hl),#0x30
+   0012 59            [ 4]   97 	ld	e, c
+   0013 50            [ 4]   98 	ld	d, b
+   0014 13            [ 6]   99 	inc	de
+   0015 AF            [ 4]  100 	xor	a, a
+   0016 12            [ 7]  101 	ld	(de), a
+                            102 ;src/hud/hud.c:36: cpct_setDrawCharM0(1, 0);
+   0017 C5            [11]  103 	push	bc
+   0018 21 01 00      [10]  104 	ld	hl, #0x0001
+   001B E5            [11]  105 	push	hl
+   001C CDr00r00      [17]  106 	call	_cpct_setDrawCharM0
+   001F 21 11 01      [10]  107 	ld	hl, #0x0111
+   0022 E5            [11]  108 	push	hl
+   0023 3E 25         [ 7]  109 	ld	a, #0x25
+   0025 F5            [11]  110 	push	af
+   0026 33            [ 6]  111 	inc	sp
+   0027 CDr00r00      [17]  112 	call	_dibujarGameObjectColSprite
+   002A 33            [ 6]  113 	inc	sp
+   002B 21 11 03      [10]  114 	ld	hl,#0x0311
+   002E E3            [19]  115 	ex	(sp),hl
+   002F 3E 27         [ 7]  116 	ld	a, #0x27
+   0031 F5            [11]  117 	push	af
+   0032 33            [ 6]  118 	inc	sp
+   0033 CDr00r00      [17]  119 	call	_dibujarGameObjectColSprite
+   0036 33            [ 6]  120 	inc	sp
+   0037 21 11 05      [10]  121 	ld	hl,#0x0511
+   003A E3            [19]  122 	ex	(sp),hl
+   003B 3E 2F         [ 7]  123 	ld	a, #0x2f
+   003D F5            [11]  124 	push	af
+   003E 33            [ 6]  125 	inc	sp
+   003F CDr00r00      [17]  126 	call	_dibujarGameObjectColSprite
+   0042 F1            [10]  127 	pop	af
+   0043 33            [ 6]  128 	inc	sp
+   0044 C1            [10]  129 	pop	bc
+                            130 ;src/hud/hud.c:42: cpct_drawStringM0(text,PuntoLuz);
+   0045 59            [ 4]  131 	ld	e, c
+   0046 50            [ 4]  132 	ld	d, b
+   0047 C5            [11]  133 	push	bc
+   0048 21 EA E0      [10]  134 	ld	hl, #0xe0ea
+   004B E5            [11]  135 	push	hl
+   004C D5            [11]  136 	push	de
+   004D CDr00r00      [17]  137 	call	_cpct_drawStringM0
+   0050 C1            [10]  138 	pop	bc
+                            139 ;src/hud/hud.c:43: cpct_drawStringM0(text,PuntoFamilia);
+   0051 59            [ 4]  140 	ld	e, c
+   0052 50            [ 4]  141 	ld	d, b
+   0053 C5            [11]  142 	push	bc
+   0054 21 2A E2      [10]  143 	ld	hl, #0xe22a
+   0057 E5            [11]  144 	push	hl
+   0058 D5            [11]  145 	push	de
+   0059 CDr00r00      [17]  146 	call	_cpct_drawStringM0
+   005C C1            [10]  147 	pop	bc
+                            148 ;src/hud/hud.c:44: cpct_drawStringM0(text,PuntoCartuchos);
+   005D 21 6A E3      [10]  149 	ld	hl, #0xe36a
+   0060 E5            [11]  150 	push	hl
+   0061 C5            [11]  151 	push	bc
+   0062 CDr00r00      [17]  152 	call	_cpct_drawStringM0
+                            153 ;src/hud/hud.c:47: contadorLuz=0;
+   0065 21r0Er00      [10]  154 	ld	hl,#_contadorLuz + 0
+   0068 36 00         [10]  155 	ld	(hl), #0x00
+                            156 ;src/hud/hud.c:48: contadorFamilia=0;
+   006A 21r0Fr00      [10]  157 	ld	hl,#_contadorFamilia + 0
+   006D 36 00         [10]  158 	ld	(hl), #0x00
+                            159 ;src/hud/hud.c:49: contadorAmstr=0;
+   006F 21r10r00      [10]  160 	ld	hl,#_contadorAmstr + 0
+   0072 36 00         [10]  161 	ld	(hl), #0x00
+                            162 ;src/hud/hud.c:50: contadorPasos=0;
+   0074 21r11r00      [10]  163 	ld	hl,#_contadorPasos + 0
+   0077 36 00         [10]  164 	ld	(hl), #0x00
+   0079 DD F9         [10]  165 	ld	sp, ix
+   007B DD E1         [14]  166 	pop	ix
+   007D C9            [10]  167 	ret
+                            168 ;src/hud/hud.c:53: void actualizarHud(u8 luz, u8 familia,u8 amstr,u8 pasos){
+                            169 ;	---------------------------------
+                            170 ; Function actualizarHud
+                            171 ; ---------------------------------
+   007E                     172 _actualizarHud::
+   007E DD E5         [15]  173 	push	ix
+   0080 DD 21 00 00   [14]  174 	ld	ix,#0
+   0084 DD 39         [15]  175 	add	ix,sp
+   0086 3B            [ 6]  176 	dec	sp
+                            177 ;src/hud/hud.c:54: char text[1] = "X";    
+   0087 21 00 00      [10]  178 	ld	hl, #0x0000
+   008A 39            [11]  179 	add	hl, sp
+   008B 4D            [ 4]  180 	ld	c,l
+   008C 44            [ 4]  181 	ld	b,h
+   008D 36 58         [10]  182 	ld	(hl),#0x58
+                            183 ;src/hud/hud.c:58: if(luz!=contadorLuz){
+   008F DD 7E 04      [19]  184 	ld	a, 4 (ix)
+   0092 FD 21r0Er00   [14]  185 	ld	iy, #_contadorLuz
+   0096 FD 96 00      [19]  186 	sub	a, 0 (iy)
+   0099 28 29         [12]  187 	jr	Z,00102$
+                            188 ;src/hud/hud.c:59: cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 74, 20),0x00,4,16);
+   009B C5            [11]  189 	push	bc
+   009C 21 04 10      [10]  190 	ld	hl, #0x1004
+   009F E5            [11]  191 	push	hl
+   00A0 21 00 00      [10]  192 	ld	hl, #0x0000
+   00A3 E5            [11]  193 	push	hl
+   00A4 21 EA E0      [10]  194 	ld	hl, #0xe0ea
+   00A7 E5            [11]  195 	push	hl
+   00A8 CDr00r00      [17]  196 	call	_cpct_drawSolidBox
+   00AB C1            [10]  197 	pop	bc
+                            198 ;src/hud/hud.c:60: text[0]=luz+'0';
+   00AC DD 7E 04      [19]  199 	ld	a, 4 (ix)
+   00AF C6 30         [ 7]  200 	add	a, #0x30
+   00B1 02            [ 7]  201 	ld	(bc), a
+                            202 ;src/hud/hud.c:61: cpct_drawStringM0(text,PuntoLuz);
+   00B2 59            [ 4]  203 	ld	e, c
+   00B3 50            [ 4]  204 	ld	d, b
+   00B4 C5            [11]  205 	push	bc
+   00B5 21 EA E0      [10]  206 	ld	hl, #0xe0ea
+   00B8 E5            [11]  207 	push	hl
+   00B9 D5            [11]  208 	push	de
+   00BA CDr00r00      [17]  209 	call	_cpct_drawStringM0
+   00BD C1            [10]  210 	pop	bc
+                            211 ;src/hud/hud.c:62: contadorLuz=luz;
+   00BE DD 7E 04      [19]  212 	ld	a, 4 (ix)
+   00C1 32r0Er00      [13]  213 	ld	(#_contadorLuz + 0),a
+   00C4                     214 00102$:
+                            215 ;src/hud/hud.c:64: if(familia!=contadorFamilia){
+   00C4 DD 7E 05      [19]  216 	ld	a, 5 (ix)
+   00C7 FD 21r0Fr00   [14]  217 	ld	iy, #_contadorFamilia
+   00CB FD 96 00      [19]  218 	sub	a, 0 (iy)
+   00CE 28 29         [12]  219 	jr	Z,00104$
+                            220 ;src/hud/hud.c:65: cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 74, 52),0x00,4,16);
+   00D0 C5            [11]  221 	push	bc
+   00D1 21 04 10      [10]  222 	ld	hl, #0x1004
+   00D4 E5            [11]  223 	push	hl
+   00D5 21 00 00      [10]  224 	ld	hl, #0x0000
+   00D8 E5            [11]  225 	push	hl
+   00D9 21 2A E2      [10]  226 	ld	hl, #0xe22a
+   00DC E5            [11]  227 	push	hl
+   00DD CDr00r00      [17]  228 	call	_cpct_drawSolidBox
+   00E0 C1            [10]  229 	pop	bc
+                            230 ;src/hud/hud.c:66: text[0]=familia+'0';
+   00E1 DD 7E 05      [19]  231 	ld	a, 5 (ix)
+   00E4 C6 30         [ 7]  232 	add	a, #0x30
+   00E6 02            [ 7]  233 	ld	(bc), a
+                            234 ;src/hud/hud.c:67: cpct_drawStringM0(text,PuntoFamilia);
+   00E7 59            [ 4]  235 	ld	e, c
+   00E8 50            [ 4]  236 	ld	d, b
+   00E9 C5            [11]  237 	push	bc
+   00EA 21 2A E2      [10]  238 	ld	hl, #0xe22a
+   00ED E5            [11]  239 	push	hl
+   00EE D5            [11]  240 	push	de
+   00EF CDr00r00      [17]  241 	call	_cpct_drawStringM0
+   00F2 C1            [10]  242 	pop	bc
+                            243 ;src/hud/hud.c:68: contadorFamilia=familia;
+   00F3 DD 7E 05      [19]  244 	ld	a, 5 (ix)
+   00F6 32r0Fr00      [13]  245 	ld	(#_contadorFamilia + 0),a
+   00F9                     246 00104$:
+                            247 ;src/hud/hud.c:70: if(amstr!=contadorAmstr){
+   00F9 DD 7E 06      [19]  248 	ld	a, 6 (ix)
+   00FC FD 21r10r00   [14]  249 	ld	iy, #_contadorAmstr
+   0100 FD 96 00      [19]  250 	sub	a, 0 (iy)
+   0103 28 29         [12]  251 	jr	Z,00106$
+                            252 ;src/hud/hud.c:71: cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 74, 84),0x00,4,16);
+   0105 C5            [11]  253 	push	bc
+   0106 21 04 10      [10]  254 	ld	hl, #0x1004
+   0109 E5            [11]  255 	push	hl
+   010A 21 00 00      [10]  256 	ld	hl, #0x0000
+   010D E5            [11]  257 	push	hl
+   010E 21 6A E3      [10]  258 	ld	hl, #0xe36a
+   0111 E5            [11]  259 	push	hl
+   0112 CDr00r00      [17]  260 	call	_cpct_drawSolidBox
+   0115 C1            [10]  261 	pop	bc
+                            262 ;src/hud/hud.c:72: text[0]=amstr+'0';
+   0116 DD 7E 06      [19]  263 	ld	a, 6 (ix)
+   0119 C6 30         [ 7]  264 	add	a, #0x30
+   011B 02            [ 7]  265 	ld	(bc), a
+                            266 ;src/hud/hud.c:73: cpct_drawStringM0(text,PuntoCartuchos);
+   011C 59            [ 4]  267 	ld	e, c
+   011D 50            [ 4]  268 	ld	d, b
+   011E C5            [11]  269 	push	bc
+   011F 21 6A E3      [10]  270 	ld	hl, #0xe36a
+   0122 E5            [11]  271 	push	hl
+   0123 D5            [11]  272 	push	de
+   0124 CDr00r00      [17]  273 	call	_cpct_drawStringM0
+   0127 C1            [10]  274 	pop	bc
+                            275 ;src/hud/hud.c:74: contadorAmstr=amstr;
+   0128 DD 7E 06      [19]  276 	ld	a, 6 (ix)
+   012B 32r10r00      [13]  277 	ld	(#_contadorAmstr + 0),a
+   012E                     278 00106$:
+                            279 ;src/hud/hud.c:76: if(pasos!=contadorPasos){
+   012E DD 7E 07      [19]  280 	ld	a, 7 (ix)
+   0131 FD 21r11r00   [14]  281 	ld	iy, #_contadorPasos
+   0135 FD 96 00      [19]  282 	sub	a, 0 (iy)
+   0138 28 5A         [12]  283 	jr	Z,00109$
+                            284 ;src/hud/hud.c:77: cpct_drawSolidBox(cpctm_screenPtr(CPCT_VMEM_START, 72, 116),0x00,4,16);
+   013A C5            [11]  285 	push	bc
+   013B 21 04 10      [10]  286 	ld	hl, #0x1004
+   013E E5            [11]  287 	push	hl
+   013F 21 00 00      [10]  288 	ld	hl, #0x0000
+   0142 E5            [11]  289 	push	hl
+   0143 21 A8 E4      [10]  290 	ld	hl, #0xe4a8
+   0146 E5            [11]  291 	push	hl
+   0147 CDr00r00      [17]  292 	call	_cpct_drawSolidBox
+   014A 3E 0A         [ 7]  293 	ld	a, #0x0a
+   014C F5            [11]  294 	push	af
+   014D 33            [ 6]  295 	inc	sp
+   014E DD 7E 07      [19]  296 	ld	a, 7 (ix)
+   0151 F5            [11]  297 	push	af
+   0152 33            [ 6]  298 	inc	sp
+   0153 CDr00r00      [17]  299 	call	__divuchar
+   0156 F1            [10]  300 	pop	af
+   0157 C1            [10]  301 	pop	bc
+   0158 26 00         [ 7]  302 	ld	h, #0x00
+                            303 ;src/hud/hud.c:79: unidades=pasos%10;       
+   015A E5            [11]  304 	push	hl
+   015B C5            [11]  305 	push	bc
+   015C 3E 0A         [ 7]  306 	ld	a, #0x0a
+   015E F5            [11]  307 	push	af
+   015F 33            [ 6]  308 	inc	sp
+   0160 DD 7E 07      [19]  309 	ld	a, 7 (ix)
+   0163 F5            [11]  310 	push	af
+   0164 33            [ 6]  311 	inc	sp
+   0165 CDr00r00      [17]  312 	call	__moduchar
+   0168 F1            [10]  313 	pop	af
+   0169 5D            [ 4]  314 	ld	e, l
+   016A C1            [10]  315 	pop	bc
+   016B E1            [10]  316 	pop	hl
+   016C 16 00         [ 7]  317 	ld	d, #0x00
+                            318 ;src/hud/hud.c:80: text[0]=decimas+'0';
+   016E 7D            [ 4]  319 	ld	a, l
+   016F C6 30         [ 7]  320 	add	a, #0x30
+   0171 02            [ 7]  321 	ld	(bc), a
+                            322 ;src/hud/hud.c:81: cpct_drawStringM0(text,PuntoPasos);
+   0172 C5            [11]  323 	push	bc
+   0173 FD E1         [14]  324 	pop	iy
+   0175 C5            [11]  325 	push	bc
+   0176 D5            [11]  326 	push	de
+   0177 21 A8 E4      [10]  327 	ld	hl, #0xe4a8
+   017A E5            [11]  328 	push	hl
+   017B FD E5         [15]  329 	push	iy
+   017D CDr00r00      [17]  330 	call	_cpct_drawStringM0
+   0180 D1            [10]  331 	pop	de
+   0181 C1            [10]  332 	pop	bc
+                            333 ;src/hud/hud.c:82: text[0]=unidades +'0';
+   0182 7B            [ 4]  334 	ld	a, e
+   0183 C6 30         [ 7]  335 	add	a, #0x30
+   0185 02            [ 7]  336 	ld	(bc), a
+                            337 ;src/hud/hud.c:83: cpct_drawStringM0(text,PuntoPasos2);       
+   0186 21 AC E4      [10]  338 	ld	hl, #0xe4ac
+   0189 E5            [11]  339 	push	hl
+   018A C5            [11]  340 	push	bc
+   018B CDr00r00      [17]  341 	call	_cpct_drawStringM0
+                            342 ;src/hud/hud.c:84: contadorPasos=pasos;
+   018E DD 7E 07      [19]  343 	ld	a, 7 (ix)
+   0191 32r11r00      [13]  344 	ld	(#_contadorPasos + 0),a
+   0194                     345 00109$:
+   0194 33            [ 6]  346 	inc	sp
+   0195 DD E1         [14]  347 	pop	ix
+   0197 C9            [10]  348 	ret
+                            349 	.area _CODE
+                            350 	.area _INITIALIZER
+                            351 	.area _CABS (ABS)

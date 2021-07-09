@@ -1,0 +1,44 @@
+XL2
+H 9 areas 5 global symbols
+M Block_Static2_B
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 53 flags 0 addr 0
+S _Block_Static2_B Def000F
+S _Block_Static2_BPALETTE Def0000
+S _Block_Static2_B_0 Def0013
+S _Block_Static2_B_1 Def0033
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 54 5B 4F 5D 44 5F 4B 55 56 40 5C 46 5B 5B
+R 00 00 00 00
+T 0E 00 5E
+R 00 00 00 00
+T 0F 00
+R 00 00 00 00
+T 0F 00 13 00 33 00
+R 00 00 00 00 00 02 00 00 00 04 00 00
+T 13 00
+R 00 00 00 00
+T 13 00 00 00 28 00 00 00 28 00 03 16 09 83 03 16
+R 00 00 00 00
+T 21 00 09 83 43 A4 2C C3 43 A4 2C C3 C3 1C 2C C3
+R 00 00 00 00
+T 2F 00 C3 1C 2C C3
+R 00 00 00 00
+T 33 00
+R 00 00 00 00
+T 33 00 43 C3 C3 C3 43 C3 C3 C3 F0 F0 CC CC F0 F0
+R 00 00 00 00
+T 41 00 CC CC 00 00 00 00 00 00 00 00 50 F0 CC 00
+R 00 00 00 00
+T 4F 00 50 F0 CC 00
+R 00 00 00 00

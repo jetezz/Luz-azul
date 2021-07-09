@@ -1,0 +1,102 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.6.8 #9946 (Linux)
+                              4 ;--------------------------------------------------------
+                              5 	.module main
+                              6 	.optsdcc -mz80
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl _game
+                             13 	.globl _cpct_setPalette
+                             14 	.globl _cpct_setVideoMode
+                             15 	.globl _cpct_disableFirmware
+                             16 	.globl _game_palette
+                             17 ;--------------------------------------------------------
+                             18 ; special function registers
+                             19 ;--------------------------------------------------------
+                             20 ;--------------------------------------------------------
+                             21 ; ram data
+                             22 ;--------------------------------------------------------
+                             23 	.area _DATA
+   0000                      24 _P_portal:
+   0000                      25 	.ds 2
+   0002                      26 _P_puertas:
+   0002                      27 	.ds 2
+   0004                      28 _P_col:
+   0004                      29 	.ds 2
+   0006                      30 _P_luz:
+   0006                      31 	.ds 2
+   0008                      32 _P_fam:
+   0008                      33 	.ds 2
+   000A                      34 _P_ams:
+   000A                      35 	.ds 2
+   000C                      36 _P_colList:
+   000C                      37 	.ds 2
+   000E                      38 _movimientoGuardado:
+   000E                      39 	.ds 1
+                             40 ;--------------------------------------------------------
+                             41 ; ram data
+                             42 ;--------------------------------------------------------
+                             43 	.area _INITIALIZED
+                             44 ;--------------------------------------------------------
+                             45 ; absolute external ram data
+                             46 ;--------------------------------------------------------
+                             47 	.area _DABS (ABS)
+                             48 ;--------------------------------------------------------
+                             49 ; global & static initialisations
+                             50 ;--------------------------------------------------------
+                             51 	.area _HOME
+                             52 	.area _GSINIT
+                             53 	.area _GSFINAL
+                             54 	.area _GSINIT
+                             55 ;--------------------------------------------------------
+                             56 ; Home
+                             57 ;--------------------------------------------------------
+                             58 	.area _HOME
+                             59 	.area _HOME
+                             60 ;--------------------------------------------------------
+                             61 ; code
+                             62 ;--------------------------------------------------------
+                             63 	.area _CODE
+                             64 ;src/main.c:12: void main(void) {
+                             65 ;	---------------------------------
+                             66 ; Function main
+                             67 ; ---------------------------------
+   0000                      68 _main::
+                             69 ;src/main.c:13: cpct_disableFirmware();
+   0000 CDr00r00      [17]   70 	call	_cpct_disableFirmware
+                             71 ;src/main.c:14: cpct_setVideoMode(0);
+   0003 2E 00         [ 7]   72 	ld	l, #0x00
+   0005 CDr00r00      [17]   73 	call	_cpct_setVideoMode
+                             74 ;src/main.c:15: cpct_setPalette(Block_HolePALETTE, 16);   
+   0008 21 10 00      [10]   75 	ld	hl, #0x0010
+   000B E5            [11]   76 	push	hl
+   000C 21r00r00      [10]   77 	ld	hl, #_Block_HolePALETTE
+   000F E5            [11]   78 	push	hl
+   0010 CDr00r00      [17]   79 	call	_cpct_setPalette
+                             80 ;src/main.c:16: game();
+   0013 CDr00r00      [17]   81 	call	_game
+   0016 C9            [10]   82 	ret
+   0017                      83 _game_palette:
+   0017 54                   84 	.db #0x54	; 84	'T'
+   0018 5C                   85 	.db #0x5c	; 92
+   0019 5E                   86 	.db #0x5e	; 94
+   001A 5D                   87 	.db #0x5d	; 93
+   001B 5F                   88 	.db #0x5f	; 95
+   001C 4F                   89 	.db #0x4f	; 79	'O'
+   001D 44                   90 	.db #0x44	; 68	'D'
+   001E 55                   91 	.db #0x55	; 85	'U'
+   001F 57                   92 	.db #0x57	; 87	'W'
+   0020 47                   93 	.db #0x47	; 71	'G'
+   0021 5B                   94 	.db #0x5b	; 91
+   0022 56                   95 	.db #0x56	; 86	'V'
+   0023 40                   96 	.db #0x40	; 64
+   0024 4B                   97 	.db #0x4b	; 75	'K'
+   0025 00                   98 	.db 0x00
+   0026 00                   99 	.db 0x00
+                            100 	.area _CODE
+                            101 	.area _INITIALIZER
+                            102 	.area _CABS (ABS)
