@@ -1,0 +1,44 @@
+XL2
+H 9 areas 5 global symbols
+M zul1_1
+O -mz80
+S .__.ABS. Def0000
+A _CODE size 53 flags 0 addr 0
+S _zul1_1PALETTE Def0000
+S _zul1_1_0 Def0013
+S _zul1_1_1 Def0033
+S _zul1_1 Def000F
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 54 5B 4F 5D 44 5F 4B 55 56 40 5C 46 5B 5B
+R 00 00 00 00
+T 0E 00 5E
+R 00 00 00 00
+T 0F 00
+R 00 00 00 00
+T 0F 00 13 00 33 00
+R 00 00 00 00 00 02 00 00 00 04 00 00
+T 13 00
+R 00 00 00 00
+T 13 00 00 00 08 00 00 00 08 00 00 08 08 00 00 08
+R 00 00 00 00
+T 21 00 08 00 00 E4 A0 00 00 E4 A0 00 00 F0 50 00
+R 00 00 00 00
+T 2F 00 00 F0 50 00
+R 00 00 00 00
+T 33 00
+R 00 00 00 00
+T 33 00 08 A0 00 04 08 A0 00 04 04 00 F0 A0 04 00
+R 00 00 00 00
+T 41 00 F0 A0 00 A0 F0 00 00 A0 F0 00 04 A0 F0 00
+R 00 00 00 00
+T 4F 00 04 A0 F0 00
+R 00 00 00 00

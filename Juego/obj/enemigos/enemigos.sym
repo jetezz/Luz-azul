@@ -1,0 +1,57 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 1.
+Hexadecimal [16-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  2710 L
+    .__.ABS.                                                    =  0000 G
+    .__.CPU.                                                    =  0000 L
+    .__.H$L.                                                    =  0000 L
+  1 _P_ams                                                         006E R
+  1 _P_col                                                         0068 R
+  1 _P_colList                                                     0070 R
+  1 _P_fam                                                         006C R
+  1 _P_luz                                                         006A R
+  1 _P_portal                                                      0064 R
+  1 _P_puertas                                                     0066 R
+    ___sdcc_call_hl                                                **** GX
+    _abs                                                           **** GX
+  0 _activarIAS                                                    00D9 GR
+  1 _contadorEnemigosDe                                            00B9 GR
+  1 _contadorEnemigosIz                                            00B8 GR
+  1 _creadorDeEnemigos                                             0000 R
+  0 _crearEnemigoDerecha                                           0480 GR
+  0 _crearEnemigoIzquierda                                         0435 GR
+  0 _crearEnemigos                                                 0035 GR
+  0 _dibujarEnemigos                                               0056 GR
+    _dibujarGameObject                                             **** GX
+  1 _enemigosDerecha                                               0095 GR
+  1 _enemigosIzquierda                                             0072 GR
+  0 _enemigosNivel01                                               04CC GR
+  0 _enemigosNvel_04                                               050C GR
+  0 _enemigosNvel_04_01                                            0526 GR
+  0 _enemigosNvel_trap_01                                          04DA GR
+  0 _iaEnemigo1                                                    01F3 GR
+  0 _iaEnemigo2                                                    0305 GR
+  0 _initEnemigos                                                  0000 GR
+    _mover1casilla                                                 **** GX
+    _moverYdibujar                                                 **** GX
+  0 _resetEnemigos                                                 00BB GR
+  0 _sinEnemigos                                                   04CB GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Zilog Z80 / Hitachi HD64180), page 2.
+Hexadecimal [16-Bits]
+
+Area Table
+
+   0 _CODE                                      size  534   flags    0
+   1 _DATA                                      size   BA   flags    0
+   2 _INITIALIZED                               size    0   flags    0
+   3 _DABS                                      size    0   flags    8
+   4 _HOME                                      size    0   flags    0
+   5 _GSINIT                                    size    0   flags    0
+   6 _GSFINAL                                   size    0   flags    0
+   7 _INITIALIZER                               size    0   flags    0
+   8 _CABS                                      size    0   flags    8
+
