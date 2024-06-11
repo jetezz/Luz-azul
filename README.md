@@ -16,7 +16,7 @@ Guía Español
 ![img9](https://user-images.githubusercontent.com/44770300/125103497-b213c880-e0dc-11eb-834b-69d7ad57367b.png)
 
 
-¿Video?
+Video
 =====
 https://www.youtube.com/watch?v=EomX1eBNz40&ab_channel=ByteRealms
 
